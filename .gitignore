@@ -49,3 +49,7 @@ local.db*
 .pages-stash/
 test-results/
 playwright-report/
+
+# agent scratch files
+*.tmp.mjs
+pw-*.config.ts

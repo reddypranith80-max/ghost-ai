@@ -27,7 +27,7 @@ Auth is optional. Without keys the app runs in **demo mode**: no sign-in, `/dash
 - `src/components/auth-provider.tsx`: `AUTH_ENABLED` = publishable key present and `NEXT_PUBLIC_DEMO !== "1"`. Clerk is `require()`d lazily so it is never bundled when disabled.
 - `src/proxy.ts`: `clerkMiddleware` only when enabled; protects `/dashboard(.*)` and non-GET `/api/projects(.*)`.
 - `src/lib/auth.ts`: `getUserId()` for route handlers (null in demo mode).
-- `src/components/auth/*`: `AuthNav` (header), `AuthShell` (split-screen pages), dark/cyan/violet theme via `appearance.variables`.
+- `src/components/auth/*`: `AuthNav` (header), `AuthShell` (split-screen pages), dark mint-accent theme via `appearance.variables`.
 - Static GitHub Pages build (`NEXT_PUBLIC_DEMO=1`): the proxy is moved aside, Clerk is excluded, and the auth pages export as the explainer.
 
 ## Troubleshooting

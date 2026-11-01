@@ -37,12 +37,12 @@ A walk through the repo. Paths are relative to the folder with `package.json`.
 
 | Path | URL | What it is |
 |---|---|---|
-| `page.tsx`, `layout.tsx` | `/` | Landing page and the root layout (loads fonts Space Grotesk, Inter, JetBrains Mono, and the auth provider) |
+| `page.tsx`, `layout.tsx` | `/` | Landing page and the root layout (loads fonts Bricolage Grotesque, Instrument Sans, Geist Mono, and the auth provider) |
 | `(marketing)/` | `/agents`, `/agents/[slug]`, `/api-reference`, `/changelog`, `/demo`, `/docs`, `/docs/[slug]`, `/how-it-works`, `/pricing`, `/security` | Public info pages |
 | `(auth)/sign-in`, `(auth)/sign-up` | `/sign-in`, `/sign-up` | Clerk forms, or an explainer in demo mode |
 | `dashboard/` | `/dashboard` (overview), `/dashboard/projects`, `/dashboard/tasks`, `/dashboard/agents`, `/dashboard/git`, `/dashboard/flow`, `/dashboard/exports`, `/dashboard/settings` | The control room |
 | `api/` | `/api/*` | JSON routes (list below) |
-| `globals.css`, `ghost-kit.css` | | Styles (Tailwind v4 + the dark/cyan/violet kit) |
+| `globals.css`, `ghost-kit.css` | | Styles (Tailwind v4 + the dark Ink & Signal design system, see DESIGN-SYSTEM.md) |
 | `not-found.tsx`, `icon.svg` | | 404 page and tab icon |
 
 API routes: `health`, `openapi`, `stats`, `stack`, `agents`, `agents/[name]`, `projects`, `projects/[id]`, `projects/[id]/run`, `projects/[id]/tasks`, `projects/[id]/tasks/[taskId]`, `projects/[id]/gitlog`, `projects/[id]/export`. Examples: [COMMANDS.md](COMMANDS.md#5-api-examples-curl).

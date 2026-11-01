@@ -25,7 +25,15 @@ All commits are dated 2026-11-01 (the whole build happened in one session).
 | 8 | `163c25f` | fix(ci): make typecheck pass on clean checkout, gate CodeQL on public repos, audit prod deps only; track .env.example | 5 files |
 | 9 | `b99e188` | docs(book): generate 'Building Ghost AI from Scratch' (md + pdf) | 13 files |
 | 10 | `c77d3de` | docs: premium README, Ghost Notebook, fork guide, link checker and report | 10 files |
-| 11 | (this one) | fix: correct GitHub owner in CODEOWNERS and site link; add commit history | see `git log` |
+| 11 | `4f081f9` | docs: drop unresolved nbviewer link; refresh link report (0 failures) | 3 files |
+| 12 | `27f1a67` | fix(auth): make real Clerk sign-in work end to end | 9 files |
+| 13 | `ef6f662` | Design system overhaul: Ink & Signal tokens, fonts, logo, ui kit, site chrome | foundation |
+| 14 | `f2d44a4` | chore: NEXT_DIST_DIR so parallel builds do not collide | 3 files |
+| 15 | `865fa95` | Redesign home page in Ink & Signal system | landing |
+| 16 | `45b62c4` | Restyle marketing pages and auth screens with Ink & Signal | 19 files |
+| 17 | `d97ef0a` | Dashboard redesign: Ink & Signal shell, KPI tiles, kanban, timeline, flow graph, dialogs | dashboard |
+| 18 | `61a1b73` | feat(demo): re-record demo video and poster on the redesign | 3 files |
+| 19 | (latest) | docs: refresh book and commit history after the redesign | see `git log` |
 
 ## What each commit contains
 
@@ -74,6 +82,19 @@ The first CI run on GitHub failed in four places. Fixes: explicit `children` typ
 
 ### 10. `c77d3de` README, notebook, fork guide, link checker
 Main README with demo at the top, `notebooks/ghost-notebook.ipynb` (executed against a local server), `docs/FORK-AND-CLONE.md`, `scripts/check-links.mjs`, `docs/LINK-REPORT.md`.
+
+### 11-12. `4f081f9`, `27f1a67` Real Clerk sign-in
+Running against a real (accountless) Clerk dev instance found three bugs that keyless builds hid: the production build failed without a Suspense boundary around Clerk's UI, verified sign-ups hung because Clerk's before-setActive server action threw (fixed by `ClerkActionGuard`), and Clerk's form text was unreadable because this Clerk version ignores the old theme variable names. Adds `npm run test:clerk` (9 checks).
+
+### 13-17. The visual overhaul ("Ink & Signal")
+A second multi-agent wave replaced the dense "HUD" look with a clean, Linear/Vercel-style dark theme: near-black canvas, tonal surfaces instead of borders, mint / amber / blue / coral accents, Bricolage Grotesque + Instrument Sans + Geist Mono, 12-16px radii, one staggered load reveal.
+- `ef6f662` **Design-system agent** went first: tokens, fonts, logo, ui kit, header and footer, and re-defined every legacy `gh-*` class so older components immediately looked cleaner. See [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md).
+- `f2d44a4` **Orchestrator** added `NEXT_DIST_DIR` so the three agents below could build in parallel without sharing one `.next` folder (the earlier shared-folder collisions had corrupted builds).
+- `865fa95` **Home agent**, `45b62c4` **Marketing + auth agent**, `d97ef0a` **Dashboard agent** worked in parallel on disjoint files. Two of them were interrupted by a usage limit and resumed from their saved work.
+- Verified together: `tsc`, `eslint`, `next build`, all 55 browser tests, and the real Clerk sign-up check (9/9) on the redesigned build.
+
+### 18. `61a1b73` Demo video
+The recorded tour and poster were re-made on the new interface (the old video showed the old look).
 
 ## Agent collaboration, in one picture
 
