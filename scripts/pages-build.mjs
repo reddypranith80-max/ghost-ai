@@ -11,6 +11,11 @@ const targets = [
   ["src/proxy.ts", "proxy.ts"],
   ["src/middleware.ts", "middleware.ts"],
 ];
+// A second concurrent run would find the API already stashed, move nothing, then delete the stash.
+if (existsSync(stash)) {
+  console.error("Another pages build is running, or one crashed: .pages-stash exists. If it crashed, move its contents back into src/ and delete .pages-stash.");
+  process.exit(1);
+}
 const moved = [];
 let code = 1;
 
@@ -30,6 +35,6 @@ try {
   for (const [from, tmp] of moved.reverse()) {
     if (existsSync(tmp)) renameSync(tmp, from);
   }
-  rmSync(stash, { recursive: true, force: true });
+  if (moved.every(([, tmp]) => !existsSync(tmp))) rmSync(stash, { recursive: true, force: true });
 }
 process.exit(code);
