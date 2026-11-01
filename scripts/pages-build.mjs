@@ -3,6 +3,7 @@
 import { renameSync, existsSync, mkdirSync, rmSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { join } from "node:path";
+import { fixWindowsExport } from "./fix-win-export.mjs";
 
 const root = process.cwd();
 const stash = join(root, ".pages-stash");
@@ -31,6 +32,7 @@ try {
   const env = { ...process.env, GITHUB_PAGES: "true", NEXT_PUBLIC_DEMO: process.env.NEXT_PUBLIC_DEMO ?? "1" };
   const r = spawnSync("npx", ["next", "build"], { stdio: "inherit", env, shell: true, cwd: root });
   code = r.status ?? 1;
+  if (code === 0) console.log(`windows export fix: flattened ${fixWindowsExport(join(root, "out"))} segment files`);
 } finally {
   for (const [from, tmp] of moved.reverse()) {
     if (existsSync(tmp)) renameSync(tmp, from);
