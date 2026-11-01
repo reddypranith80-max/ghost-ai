@@ -10,16 +10,14 @@ export function AuthNav() {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { ClerkNav } = require("./clerk-nav") as typeof import("./clerk-nav");
     return (
-      <Suspense fallback={<span className="h-8 w-20 animate-pulse rounded-md bg-white/10" aria-hidden />}>
+      <Suspense fallback={<span className="h-8 w-20 animate-pulse rounded-[10px] bg-white/10" aria-hidden />}>
         <ClerkNav />
       </Suspense>
     );
   }
   return (
     <div className="flex items-center gap-2">
-      <span className="rounded-full border border-violet-400/30 bg-violet-400/10 px-2.5 py-0.5 text-xs font-medium text-violet-200">
-        Demo mode
-      </span>
+      <span className="chip chip-blue">Demo mode</span>
       <Link href="/dashboard" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
         Dashboard
       </Link>

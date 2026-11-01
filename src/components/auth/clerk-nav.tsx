@@ -12,10 +12,7 @@ export function ClerkNav() {
         <Link href="/sign-in" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
           Sign in
         </Link>
-        <Link
-          href="/sign-up"
-          className="rounded-lg bg-[#22e5ff] px-3 py-1 text-sm font-medium text-black transition-opacity hover:opacity-90"
-        >
+        <Link href="/sign-up" className="btn btn-primary btn-sm">
           Get started
         </Link>
       </Show>

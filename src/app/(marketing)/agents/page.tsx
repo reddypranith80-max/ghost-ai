@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FileCheck2, Eye, ShieldCheck } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, LinkCard, CtaBand, Feature, btnGhost } from "@/components/marketing/ui";
 import { AgentDirectory } from "@/components/marketing/agent-directory";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
 
@@ -17,10 +18,10 @@ export default function AgentsPage() {
         </Hero>
         <Section title="Agent directory" kicker="Filter and explore"><AgentDirectory /></Section>
         <Section title="How the crew collaborates" kicker="Hand-offs">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Panel><h3 className="font-medium text-white">Shared contracts</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Every agent reads the same Zod contracts and OpenAPI file, so the API Backend writes is the API Frontend calls.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Visible work</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Agents publish status (idle, working, done), tasks and commits that the dashboard streams in real time.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Gated shipping</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Security and Reviewer sit at the end of the line. Nothing ships without a Go.</p></Panel>
+          <div className="grid gap-10 md:grid-cols-3">
+            <Feature icon={FileCheck2} tone="mint" title="Shared contracts">Every agent reads the same Zod contracts and OpenAPI file, so the API Backend writes is the API Frontend calls.</Feature>
+            <Feature icon={Eye} tone="blue" title="Visible work">Agents publish status (idle, working, done), tasks and commits that the dashboard streams in real time.</Feature>
+            <Feature icon={ShieldCheck} tone="amber" title="Gated shipping">Security and Reviewer sit at the end of the line. Nothing ships without a Go.</Feature>
           </div>
         </Section>
         <Section title="Keep exploring" kicker="Next">

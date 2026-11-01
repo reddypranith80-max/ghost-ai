@@ -43,34 +43,34 @@ function Row({ e }: { e: Ep }) {
     } finally { setBusy(false); }
   }
   return (
-    <Panel className="scroll-mt-24">
+    <Panel className="scroll-mt-24 sm:p-7">
       <div id={slug(e)} className="scroll-mt-24" />
       <div className="flex flex-wrap items-center gap-3">
-        <span className={`rounded px-2 py-0.5 font-mono text-xs font-semibold ${e.method === "GET" ? "bg-emerald-400/15 text-emerald-300" : "bg-amber-400/15 text-amber-300"}`}>{e.method}</span>
-        <code className="break-all text-sm text-white">{e.path}</code>
+        <span className={`chip !font-mono !text-[0.7rem] font-semibold ${e.method === "GET" ? "chip-mint" : "chip-amber"}`}>{e.method}</span>
+        <code className="break-all font-mono text-[0.95rem] font-medium text-[var(--text)]">{e.path}</code>
       </div>
-      <p className="mt-2 text-sm text-[var(--gh-text-dim)]">{e.desc}</p>
-      <div className="mt-4 grid gap-3 lg:grid-cols-2">
+      <p className="mt-3 text-sm text-[var(--text-muted)]">{e.desc}</p>
+      <div className="mt-5 grid gap-3 lg:grid-cols-2">
         <Code title="curl" code={curl} />
         <Code title="example response" code={e.response} />
       </div>
       {e.method === "GET" ? (
-        <div className="mt-3">
-          <button type="button" onClick={run} disabled={busy} className="inline-flex items-center gap-2 rounded border border-cyan-400/50 bg-cyan-400/10 px-3 py-1.5 text-sm text-cyan-200 hover:bg-cyan-400/20 disabled:opacity-60">
+        <div className="mt-4">
+          <button type="button" onClick={run} disabled={busy} className="btn btn-primary btn-sm disabled:opacity-60">
             {busy ? <Loader2 className="size-4 animate-spin" /> : <Play className="size-4" />} Try it
           </button>
-          {out && <pre className="mt-3 max-h-64 overflow-auto rounded border border-[var(--gh-line)] bg-black/50 p-3 text-xs text-slate-200 whitespace-pre-wrap">{out}</pre>}
+          {out && <pre className="mt-3 max-h-64 overflow-auto whitespace-pre-wrap rounded-[var(--r-control)] bg-[#0c0e11] p-4 font-mono text-xs leading-relaxed text-[#cfd5df] shadow-[0_0_0_1px_var(--hairline)]">{out}</pre>}
         </div>
-      ) : <p className="mt-3 text-xs text-[var(--gh-text-dim)]">Try it is available for GET endpoints only.</p>}
+      ) : <p className="mt-4 text-xs text-[var(--text-faint)]">Try it is available for GET endpoints only.</p>}
     </Panel>
   );
 }
 
 export function ApiExplorer() {
   return (
-    <div className="space-y-4">
-      <nav aria-label="Endpoints" className="mb-6 flex flex-wrap gap-2">
-        {EPS.map((e) => <a key={slug(e)} href={`#${slug(e)}`} className="rounded border border-[var(--gh-line)] bg-white/5 px-2 py-1 font-mono text-xs text-white/80 hover:bg-white/10">{e.method} {e.path.split("?")[0]}</a>)}
+    <div className="space-y-5">
+      <nav aria-label="Endpoints" className="mb-8 flex flex-wrap gap-2">
+        {EPS.map((e) => <a key={slug(e)} href={`#${slug(e)}`} className="rounded-full bg-white/[0.05] px-3 py-1.5 font-mono text-xs text-[var(--text-muted)] transition-colors hover:bg-white/[0.1] hover:text-[var(--text)]">{e.method} {e.path.split("?")[0]}</a>)}
       </nav>
       {EPS.map((e) => <Row key={slug(e)} e={e} />)}
     </div>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Braces, KeyRound, Cloud } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, CtaBand, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, CtaBand, Feature, btnGhost, textLink } from "@/components/marketing/ui";
 import { ApiExplorer } from "@/components/marketing/api-explorer";
 import { Code } from "@/components/marketing/copy-button";
 
@@ -16,16 +17,16 @@ export default function ApiReferencePage() {
           <Link href="/docs" className={btnGhost}>All docs</Link>
         </Hero>
         <Section title="Conventions" kicker="Before you start">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Panel><h3 className="font-medium text-white">Format</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Requests and responses are JSON. Inputs are validated with Zod; invalid input returns 400 with an error list.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Auth</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">The hosted app uses Clerk sessions. In demo mode all routes are open and backed by mock data.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Static demo</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">The GitHub Pages build has no API, so Try it shows a friendly message there. Run locally for live responses.</p></Panel>
+          <div className="grid gap-10 md:grid-cols-3">
+            <Feature icon={Braces} tone="mint" title="Format">Requests and responses are JSON. Inputs are validated with Zod; invalid input returns 400 with an error list.</Feature>
+            <Feature icon={KeyRound} tone="blue" title="Auth">The hosted app uses Clerk sessions. In demo mode all routes are open and backed by mock data.</Feature>
+            <Feature icon={Cloud} tone="amber" title="Static demo">The GitHub Pages build has no API, so Try it shows a friendly message there. Run locally for live responses.</Feature>
           </div>
-          <div className="mt-4"><Code title="error shape" code={`{ "error": "Validation failed", "issues": [{ "path": ["name"], "message": "Too short" }] }`} /></div>
+          <div className="mt-10"><Code title="error shape" code={`{ "error": "Validation failed", "issues": [{ "path": ["name"], "message": "Too short" }] }`} /></div>
         </Section>
         <Section title="Endpoints" kicker="Reference"><ApiExplorer /></Section>
         <Section title="Related" kicker="Next">
-          <p className="text-sm text-[var(--gh-text-dim)]">New here? Start with the <Link className="text-cyan-300 underline" href="/docs/quick-start">Quick start</Link>, learn the <Link className="text-cyan-300 underline" href="/agents">agents</Link>, or read <Link className="text-cyan-300 underline" href="/security">security practices</Link>.</p>
+          <p className="max-w-2xl leading-relaxed text-[var(--text-muted)]">New here? Start with the <Link className={textLink} href="/docs/quick-start">Quick start</Link>, learn the <Link className={textLink} href="/agents">agents</Link>, or read <Link className={textLink} href="/security">security practices</Link>.</p>
         </Section>
         <CtaBand />
       </Page>

@@ -1,90 +1,114 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import type { AgentSpec } from "@/lib/agent-catalog";
 
-export const btnPrimary =
-  "gh-bevel inline-flex items-center justify-center gap-2 bg-[#22e5ff] px-6 py-3 text-sm font-medium text-[#05060d] transition-colors hover:bg-[#6cf0ff] gh-box-glow";
-export const btnGhost =
-  "gh-bevel inline-flex items-center justify-center gap-2 border border-[var(--gh-line)] bg-white/5 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10";
+export const btnPrimary = "btn btn-primary btn-lg";
+export const btnGhost = "btn btn-secondary btn-lg";
 
-export const COLOR: Record<AgentSpec["color"], { text: string; ring: string; bg: string }> = {
-  cyan: { text: "text-cyan-300", ring: "border-cyan-400/40", bg: "bg-cyan-400/10" },
-  violet: { text: "text-violet-300", ring: "border-violet-400/40", bg: "bg-violet-400/10" },
-  emerald: { text: "text-emerald-300", ring: "border-emerald-400/40", bg: "bg-emerald-400/10" },
-  amber: { text: "text-amber-300", ring: "border-amber-400/40", bg: "bg-amber-400/10" },
-  rose: { text: "text-rose-300", ring: "border-rose-400/40", bg: "bg-rose-400/10" },
-  sky: { text: "text-sky-300", ring: "border-sky-400/40", bg: "bg-sky-400/10" },
-  fuchsia: { text: "text-fuchsia-300", ring: "border-fuchsia-400/40", bg: "bg-fuchsia-400/10" },
-  lime: { text: "text-lime-300", ring: "border-lime-400/40", bg: "bg-lime-400/10" },
+/** Per-agent accent. Apply `accentStyle(color)` on a wrapper, then use `var(--a)` inside. */
+export function accentStyle(color: AgentSpec["color"]): CSSProperties {
+  return { "--a": `var(--agent-${color})` } as CSSProperties;
+}
+/** Tailwind helpers that read the --a variable set by accentStyle. */
+export const ACCENT = {
+  text: "text-[var(--a)]",
+  tint: "bg-[color-mix(in_srgb,var(--a)_14%,transparent)]",
+  chip: "bg-[color-mix(in_srgb,var(--a)_13%,transparent)] text-[var(--a)]",
+  dot: "bg-[var(--a)]",
 };
 
 export function Page({ children }: { children: ReactNode }) {
-  return <main className="relative mx-auto w-full max-w-6xl px-4 pb-24 sm:px-6">{children}</main>;
+  return <div className="relative pb-12">{children}</div>;
 }
 
-export function Hero({ eyebrow, title, lead, children }: { eyebrow: string; title: ReactNode; lead: string; children?: ReactNode }) {
+export function Hero({ eyebrow, title, lead, children, accent }: { eyebrow: string; title: ReactNode; lead: string; children?: ReactNode; accent?: AgentSpec["color"] }) {
   return (
-    <header className="relative pb-10 pt-14 sm:pt-20">
-      <div className="gh-grid pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 opacity-40" />
-      <p className="gh-hud mb-3">{eyebrow}</p>
-      <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">{title}</h1>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--gh-text-dim)] sm:text-lg">{lead}</p>
-      {children && <div className="mt-6 flex flex-wrap gap-3">{children}</div>}
+    <header className="relative overflow-hidden" style={accent ? accentStyle(accent) : undefined}>
+      <div className="bg-atmosphere pointer-events-none absolute inset-0" aria-hidden />
+      {accent && <div aria-hidden className="pointer-events-none absolute -top-32 right-[8%] h-80 w-[34rem] rounded-full bg-[var(--a)] opacity-[0.10] blur-[110px]" />}
+      <div className="bg-dots fade-mask-b pointer-events-none absolute inset-0 opacity-30" aria-hidden />
+      <div className="container-page relative pb-14 pt-16 sm:pb-20 sm:pt-24">
+        <p className={`eyebrow reveal ${accent ? "!text-[var(--a)]" : ""}`}>{eyebrow}</p>
+        <h1 className="h-display reveal reveal-1 mt-4 max-w-3xl text-[clamp(2.25rem,5.4vw,4rem)]">{title}</h1>
+        <p className="reveal reveal-2 mt-5 max-w-2xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">{lead}</p>
+        {children && <div className="reveal reveal-3 mt-8 flex flex-wrap gap-3">{children}</div>}
+      </div>
     </header>
   );
 }
 
 export function Section({ id, kicker, title, children }: { id?: string; kicker?: string; title: string; children: ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-24 py-8 sm:py-10">
-      {kicker && <p className="gh-hud mb-2">{kicker}</p>}
-      <h2 className="mb-5 text-2xl font-semibold tracking-tight text-white">{title}</h2>
+    <section id={id} className="container-page scroll-mt-24 py-10 sm:py-14">
+      <div className="mb-7 max-w-2xl">
+        {kicker && <p className="eyebrow mb-2">{kicker}</p>}
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)] sm:text-[1.75rem]">{title}</h2>
+      </div>
       {children}
     </section>
   );
 }
 
 export function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <div className={`gh-glass gh-bevel relative p-5 ${className}`}>
-      <span className="gh-rivet absolute left-4 top-2" />
-      <span className="gh-rivet absolute right-8 top-2" />
-      {children}
-    </div>
-  );
+  return <div className={`surface relative p-6 ${className}`}>{children}</div>;
 }
 
 export function LinkCard({ href, title, desc, tag }: { href: string; title: string; desc: string; tag?: string }) {
   return (
-    <Link href={href} className="group block">
-      <Panel className="h-full transition-colors group-hover:border-cyan-400/50">
-        {tag && <p className="gh-hud mb-2">{tag}</p>}
-        <h3 className="flex items-center justify-between font-medium text-white">
+    <Link href={href} className="group block h-full rounded-[var(--r-card)]">
+      <div className="surface card-lift h-full p-6">
+        {tag && <p className="mb-3 text-xs font-medium text-[var(--text-faint)]">{tag}</p>}
+        <h3 className="flex items-center justify-between gap-3 text-[1.0625rem] font-semibold text-[var(--text)]">
           {title}
-          <ArrowRight className="size-4 text-cyan-300 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="size-4 shrink-0 text-[var(--text-faint)] transition-all duration-200 group-hover:translate-x-1 group-hover:text-[var(--mint)]" />
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[var(--gh-text-dim)]">{desc}</p>
-      </Panel>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{desc}</p>
+      </div>
     </Link>
   );
 }
 
 export function CtaBand({ title = "See the crew work on your own brief", sub = "Open the live dashboard, describe a SaaS idea and watch eight agents build it." }: { title?: string; sub?: string }) {
   return (
-    <section className="py-10">
-      <Panel className="flex flex-col items-start justify-between gap-5 p-8 sm:flex-row sm:items-center">
-        <div>
-          <h2 className="text-xl font-semibold text-white">{title}</h2>
-          <p className="mt-1 text-sm text-[var(--gh-text-dim)]">{sub}</p>
+    <section className="container-page py-10 sm:py-14">
+      <div className="surface-raised relative overflow-hidden px-7 py-10 sm:px-12 sm:py-14">
+        <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-72 w-96 rounded-full bg-[var(--mint)] opacity-[0.10] blur-[90px]" />
+        <div aria-hidden className="pointer-events-none absolute -bottom-28 left-1/4 h-60 w-80 rounded-full bg-[var(--blue)] opacity-[0.08] blur-[90px]" />
+        <div className="relative flex flex-col items-start justify-between gap-7 sm:flex-row sm:items-center">
+          <div className="max-w-xl">
+            <h2 className="h-display text-2xl sm:text-[2rem]">{title}</h2>
+            <p className="mt-3 text-[var(--text-muted)]">{sub}</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/dashboard" className={btnPrimary}>Try the live dashboard <ArrowRight className="size-4" /></Link>
+            <Link href="/docs" className={btnGhost}>Read the docs</Link>
+          </div>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <Link href="/dashboard" className={btnPrimary}>Try the live dashboard <ArrowRight className="size-4" /></Link>
-          <Link href="/docs" className={btnGhost}>Read the docs</Link>
-        </div>
-      </Panel>
+      </div>
     </section>
   );
 }
 
-export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+/** Small inline text link used in prose. */
+export const textLink = "text-[var(--blue)] underline decoration-[var(--blue)]/30 underline-offset-4 transition-colors hover:decoration-[var(--blue)]";
+
+const TONES = {
+  mint: "bg-[var(--mint-tint)] text-[var(--mint)]",
+  amber: "bg-[var(--amber-tint)] text-[var(--amber)]",
+  blue: "bg-[var(--blue-tint)] text-[var(--blue)]",
+  coral: "bg-[var(--coral-tint)] text-[var(--coral)]",
+} as const;
+
+/** Open (borderless) feature column: icon tile, title, copy. */
+export function Feature({ icon: Icon, tone = "mint", title, children }: { icon: React.ComponentType<{ className?: string }>; tone?: keyof typeof TONES; title: string; children: ReactNode }) {
+  return (
+    <div>
+      <span className={`grid size-10 place-items-center rounded-[12px] ${TONES[tone]}`}><Icon className="size-5" /></span>
+      <h3 className="mt-4 text-[1.0625rem] font-semibold text-[var(--text)]">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{children}</p>
+    </div>
+  );
+}
+
+export const basePath =process.env.NEXT_PUBLIC_BASE_PATH || "";

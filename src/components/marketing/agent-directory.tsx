@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { ChevronDown, Search } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Search } from "lucide-react";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
-import { COLOR, Panel } from "./ui";
+import { ACCENT, Panel, accentStyle, textLink } from "./ui";
 
 export function AgentDirectory() {
   const [q, setQ] = useState("");
@@ -19,51 +19,51 @@ export function AgentDirectory() {
       <div className="mb-5 flex flex-col gap-3 sm:flex-row">
         <label className="relative flex-1">
           <span className="sr-only">Search agents</span>
-          <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[var(--gh-text-dim)]" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search agents, sub-agents, tools..." className="w-full rounded-md border border-[var(--gh-line)] bg-black/30 py-2.5 pl-9 pr-3 text-sm text-white placeholder:text-[var(--gh-text-dim)] focus:outline-2 focus:outline-cyan-300" />
+          <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[var(--text-faint)]" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search agents, sub-agents, tools..." className="h-12 w-full rounded-[var(--r-control)] bg-[var(--surface-2)] pl-11 pr-4 text-sm text-[var(--text)] shadow-[var(--inner-top),0_0_0_1px_var(--hairline)] transition-shadow placeholder:text-[var(--text-faint)] focus:shadow-[0_0_0_2px_rgba(62,230,160,0.45)] focus:outline-none" />
         </label>
-        <label className="flex items-center gap-2 text-sm text-[var(--gh-text-dim)]">
+        <label className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
           Tool
-          <select value={tool} onChange={(e) => setTool(e.target.value)} className="rounded-md border border-[var(--gh-line)] bg-[#0e1224] px-3 py-2.5 text-sm text-white">
+          <select value={tool} onChange={(e) => setTool(e.target.value)} className="h-12 rounded-[var(--r-control)] bg-[var(--surface-2)] px-4 text-sm text-[var(--text)] shadow-[var(--inner-top),0_0_0_1px_var(--hairline)] focus:shadow-[0_0_0_2px_rgba(62,230,160,0.45)] focus:outline-none">
             {tools.map((t) => <option key={t}>{t}</option>)}
           </select>
         </label>
       </div>
-      <p className="mb-3 text-xs text-[var(--gh-text-dim)]" aria-live="polite">{list.length} of {AGENT_CATALOG.length} lead agents shown</p>
-      {list.length === 0 && <Panel><p className="text-sm text-[var(--gh-text-dim)]">No agent matches that search. <button className="text-cyan-300 underline" onClick={() => { setQ(""); setTool("All"); }}>Clear filters</button></p></Panel>}
+      <p className="mb-4 text-sm text-[var(--text-faint)]" aria-live="polite">{list.length} of {AGENT_CATALOG.length} lead agents shown</p>
+      {list.length === 0 && <Panel><p className="text-sm text-[var(--text-muted)]">No agent matches that search. <button className={textLink} onClick={() => { setQ(""); setTool("All"); }}>Clear filters</button></p></Panel>}
       <div className="grid gap-4 md:grid-cols-2">
         {list.map((a) => {
-          const c = COLOR[a.color];
           const isOpen = !!open[a.name];
           return (
-            <Panel key={a.name}>
-              <div className="flex items-start justify-between gap-3">
+            <div key={a.name} style={accentStyle(a.color)} className="surface card-lift relative overflow-hidden p-6">
+              <div aria-hidden className="pointer-events-none absolute -right-12 -top-16 size-44 rounded-full bg-[var(--a)] opacity-[0.07] blur-3xl" />
+              <div className="relative flex items-start justify-between gap-3">
                 <div>
-                  <p className={`gh-hud ${c.text}`}>{a.codename}</p>
-                  <h3 className="text-lg font-semibold text-white">{a.name}</h3>
-                  <p className="text-sm text-[var(--gh-text-dim)]">{a.tagline}</p>
+                  <span className={`chip ${ACCENT.chip}`}><span className={`size-1.5 rounded-full ${ACCENT.dot}`} />{a.codename}</span>
+                  <h3 className="mt-3 text-xl font-semibold text-[var(--text)]">{a.name}</h3>
+                  <p className="mt-1 text-sm text-[var(--text-muted)]">{a.tagline}</p>
                 </div>
-                <Link href={`/agents/${a.name.toLowerCase()}`} className="shrink-0 text-xs text-cyan-300 underline">Details</Link>
+                <Link href={`/agents/${a.name.toLowerCase()}`} className="btn btn-ghost btn-sm shrink-0 gap-1 !px-2.5">Details<ArrowUpRight className="size-3.5" /></Link>
               </div>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {a.tools.map((t) => <span key={t} className={`rounded border px-2 py-0.5 text-xs ${c.ring} ${c.bg} ${c.text}`}>{t}</span>)}
+              <div className="relative mt-4 flex flex-wrap gap-1.5">
+                {a.tools.map((t) => <span key={t} className="chip">{t}</span>)}
               </div>
-              <p className="mt-3 text-sm text-white/80"><span className="text-[var(--gh-text-dim)]">Produces: </span>{a.produces}</p>
-              <button type="button" aria-expanded={isOpen} onClick={() => setOpen((o) => ({ ...o, [a.name]: !isOpen }))} className="mt-3 flex w-full items-center justify-between border-t border-[var(--gh-line)] pt-3 text-sm text-white">
+              <p className="relative mt-4 text-sm text-[var(--text)]"><span className="text-[var(--text-faint)]">Produces </span>{a.produces}</p>
+              <button type="button" aria-expanded={isOpen} onClick={() => setOpen((o) => ({ ...o, [a.name]: !isOpen }))} className="relative mt-5 flex w-full items-center justify-between rounded-[10px] bg-white/[0.03] px-3.5 py-2.5 text-sm font-medium text-[var(--text)] transition-colors hover:bg-white/[0.06]">
                 {a.subAgents.length} sub-agents
-                <ChevronDown className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`size-4 text-[var(--text-muted)] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
               </button>
               {isOpen && (
-                <ul className="mt-2 space-y-2">
+                <ul className="relative mt-2 space-y-1.5">
                   {a.subAgents.map((s) => (
-                    <li key={s.id} className="rounded border border-[var(--gh-line)] bg-black/20 px-3 py-2 text-sm">
-                      <span className="font-medium text-white">{s.name}</span>
-                      <span className="block text-xs text-[var(--gh-text-dim)]">{s.role}</span>
+                    <li key={s.id} className="rounded-[10px] bg-black/20 px-3.5 py-2.5 text-sm">
+                      <span className="font-medium text-[var(--text)]">{s.name}</span>
+                      <span className="block text-xs text-[var(--text-muted)]">{s.role}</span>
                     </li>
                   ))}
                 </ul>
               )}
-            </Panel>
+            </div>
           );
         })}
       </div>
