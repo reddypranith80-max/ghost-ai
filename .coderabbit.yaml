@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en-US
+early_access: false
+reviews:
+  profile: assertive
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+  path_filters:
+    - "!package-lock.json"
+    - "!**/*.lock"
+    - "!.next/**"
+    - "!out/**"
+    - "!docs/diagrams/**"
+    - "!**/*.svg"
+  path_instructions:
+    - path: "src/app/api/**"
+      instructions: |
+        Validate all input with zod, return correct HTTP status codes, check authentication/authorization
+        (Clerk) before touching data, never leak internal error details, and avoid SQL string concatenation.
+    - path: "src/components/**"
+      instructions: |
+        Check accessibility (labels, keyboard focus, aria, contrast), avoid needless client components and
+        re-renders, and keep components small and typed.
+    - path: "docs/**"
+      instructions: |
+        Check accuracy against the code, clarity for newcomers, and that Mermaid diagrams are valid.
+    - path: ".github/**"
+      instructions: |
+        Check least-privilege workflow permissions, pinned action versions, and no secret exposure.
+    - path: "Dockerfile"
+      instructions: Check for non-root user, small final image, layer caching, and no secrets baked in.
+chat:
+  auto_reply: true

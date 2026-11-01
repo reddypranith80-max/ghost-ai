@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+.git
+.github
+.pages-stash
+docs
+*.md
+.env*
+!.env.example
+*.db
+*.db-journal
+*.tsbuildinfo
+Dockerfile
+docker-compose.yml

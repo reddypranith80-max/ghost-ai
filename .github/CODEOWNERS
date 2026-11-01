@@ -1,0 +1,6 @@
+# Default owner for everything
+*                 @pranithgurram
+/.github/         @pranithgurram
+/Dockerfile       @pranithgurram
+/src/app/api/     @pranithgurram
+/src/db/          @pranithgurram

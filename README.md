@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ghost AI
 
-## Getting Started
+[![Live demo](https://img.shields.io/badge/live%20demo-GitHub%20Pages-blue)](https://<user>.github.io/<repo>/)
+[![CI](https://github.com/<user>/<repo>/actions/workflows/ci.yml/badge.svg)](https://github.com/<user>/<repo>/actions)
 
-First, run the development server:
+Feed in a goal and a tech stack, then watch specialised AI agents plan tasks, split modules, commit code and ship.
+
+Live demo (static, mock data): https://<user>.github.io/<repo>/
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000, no secrets needed (demo mode)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other: `npx tsc --noEmit`, `npm run lint`, `npm run build`, `node scripts/pages-build.mjs` (static export to `out/`), `docker build -t ghost-ai .`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Name | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_DEMO` | no | `1` = demo mode, mock data, no Clerk |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | prod | Clerk frontend key |
+| `CLERK_SECRET_KEY` | prod | Clerk backend key |
+| `TURSO_DATABASE_URL` | prod | libSQL URL (default local `file:` SQLite) |
+| `TURSO_AUTH_TOKEN` | prod | Turso token |
+| `GITHUB_PAGES` | build | `true` = static export |
+| `NEXT_PUBLIC_BASE_PATH` | Pages | e.g. `/<repo>` |
+| `DOCKER` | build | `1` = standalone output |
 
-## Learn More
+## Docs
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[architecture](docs/architecture.md) · [context](docs/context.md) · [methods](docs/methods.md) · [logs](docs/logs.md) · [connectivity](docs/connectivity.md) · [prose](docs/prose.md) · [agents](docs/agents.md) · [ADR 0001](docs/adr/0001-stack.md)

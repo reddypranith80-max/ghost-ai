@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    image: ghost-ai-web:local
+    ports:
+      - "3000:3000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: file:/data/local.db
+    volumes:
+      - ghost-data:/data
+    restart: unless-stopped
+volumes:
+  ghost-data:
