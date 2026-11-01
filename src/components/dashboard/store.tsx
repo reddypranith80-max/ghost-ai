@@ -10,11 +10,11 @@ import { advance, demoSeed, makeCommit, makeLogLine, recomputeAgents, seedNotes,
 
 export type Toast = { id: number; title: string; body?: string; kind: "ok" | "info" | "warn"; files?: string[] };
 export const ACCENTS = [
-  { id: "cyan", label: "Cyan", color: "#22e5ff" },
-  { id: "violet", label: "Violet", color: "#a06bff" },
-  { id: "emerald", label: "Emerald", color: "#34d399" },
-  { id: "amber", label: "Amber", color: "#fbbf24" },
-  { id: "rose", label: "Rose", color: "#fb7185" },
+  { id: "mint", label: "Mint", color: "#3ee6a0" },
+  { id: "blue", label: "Blue", color: "#7b8cff" },
+  { id: "amber", label: "Amber", color: "#ffb454" },
+  { id: "coral", label: "Coral", color: "#ff7a6b" },
+  { id: "sky", label: "Sky", color: "#5ad7e6" },
 ] as const;
 
 type Ctx = {

@@ -1,16 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo } from "react";
-import { Activity, BarChart3, GitCommit, Network, Play, Radio, Target, Terminal } from "lucide-react";
-import { STATUS_META, STATUS_ORDER, agentHex, sparkline } from "@/lib/sim";
+import { Activity, GitCommit, Play, Radio, Target } from "lucide-react";
+import { STATUS_META, STATUS_ORDER, sparkline } from "@/lib/sim";
 import { useDash } from "./store";
 import { FlowGraph } from "./flow";
 import { LogLines } from "./agents";
-import { NeedProject, PageHead, Panel, Ring, Sparkline, fmtTime, hud } from "./kit";
+import { NeedProject, PageHead, Panel, Ring, SoftLink, Sparkline, STATUS_UI, agentColor, codename, fmtTime, tint } from "./kit";
 
 export function OverviewView() {
-  const { project, feed, runNext, running, source, setLogsAgent } = useDash();
+  const { project, feed, runNext, running, source, setLogsAgent, loading } = useDash();
   const stats = useMemo(() => {
     if (!project) return null;
     const total = project.tasks.length;
@@ -18,90 +17,101 @@ export function OverviewView() {
     const prog = total ? Math.round(project.tasks.reduce((s, t) => s + t.progress, 0) / total) : 0;
     return { total, done, prog, working: project.agents.filter((a) => a.status === "working").length, running: project.tasks.filter((t) => t.status === "running").length };
   }, [project]);
-  if (!project || !stats) return <NeedProject />;
+  if (!project || !stats) return <NeedProject loading={loading} />;
   const counts = STATUS_ORDER.map((s) => ({ s, n: project.tasks.filter((t) => t.status === s).length }));
   const max = Math.max(1, ...counts.map((c) => c.n));
   const kpis = [
-    { label: "Tasks done", value: `${stats.done}/${stats.total}`, delta: `${stats.total ? Math.round((stats.done / stats.total) * 100) : 0}% complete`, seed: "done", trend: 0.75, color: "#34d399", icon: Target },
-    { label: "Agents working", value: `${stats.working}/8`, delta: `${stats.running} tasks in flight`, seed: "work", trend: 0.55, color: "var(--acc)", icon: Radio },
-    { label: "Commits", value: String(project.gitlog.length), delta: `last ${project.gitlog.at(-1)?.hash ?? "-"}`, seed: "commits", trend: 0.8, color: "#a06bff", icon: GitCommit },
-    { label: "Build health", value: `${Math.min(99, 82 + (stats.done % 15))}%`, delta: "checks passing", seed: "health", trend: 0.6, color: "#fbbf24", icon: Activity },
+    { label: "Tasks done", value: `${stats.done}/${stats.total}`, delta: `${stats.total ? Math.round((stats.done / stats.total) * 100) : 0}% complete`, seed: "done", trend: 0.75, color: "var(--mint)", icon: Target },
+    { label: "Agents working", value: `${stats.working}/8`, delta: `${stats.running} tasks in flight`, seed: "work", trend: 0.55, color: "var(--amber)", icon: Radio },
+    { label: "Commits", value: String(project.gitlog.length), delta: `last ${project.gitlog.at(-1)?.hash ?? "-"}`, seed: "commits", trend: 0.8, color: "var(--blue)", icon: GitCommit },
+    { label: "Build health", value: `${Math.min(99, 82 + (stats.done % 15))}%`, delta: "checks passing", seed: "health", trend: 0.6, color: "var(--agent-fuchsia)", icon: Activity },
   ];
   const recent = [...project.gitlog].reverse().slice(0, 6);
   return (
     <>
-      <PageHead kicker={`Mission control / ${project.status}`} title={project.name}>
-        <span className="rounded-md border border-[var(--gh-line)] px-2.5 py-1 font-mono text-[11px] uppercase">{source === "live" ? "live api" : "simulation"}</span>
-        <button onClick={() => void runNext()} disabled={running} className="gh-btn gh-btn-primary">
+      <PageHead title={project.name} description={`${project.status === "shipped" ? "Shipped" : project.status === "building" ? "Building" : "Planning"} · ${project.brief}`}>
+        <span className={source === "live" ? "chip chip-mint" : "chip"}>
+          <span className="size-1.5 rounded-full" style={{ background: source === "live" ? "var(--mint)" : "var(--text-faint)" }} />
+          {source === "live" ? "Live API" : "Simulation"}
+        </span>
+        <button onClick={() => void runNext()} disabled={running} className="btn btn-primary disabled:opacity-70">
           <Play className="size-4" /> {running ? "Executing..." : "Run next step"}
         </button>
       </PageHead>
 
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {kpis.map((k) => (
-          <div key={k.label} className="gh-glass gh-corners rounded-md p-3.5">
-            <div className="flex items-center justify-between"><span className={hud}>{k.label}</span><k.icon className="size-3.5 text-muted-foreground" /></div>
-            <div className="mt-2 flex items-end justify-between gap-2">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {kpis.map((k, i) => (
+          <div key={k.label} className={`gh-glass !bg-[var(--surface-1)] reveal reveal-${i + 1} relative flex min-w-0 flex-col justify-between gap-5 overflow-hidden !rounded-2xl p-5`}>
+            <div className="flex items-center gap-2 text-[13px] font-medium text-[var(--text-muted)]">
+              <span className="flex size-6 items-center justify-center rounded-lg" style={{ background: tint(k.color, 14), color: k.color }}><k.icon className="size-3.5" /></span>
+              {k.label}
+            </div>
+            <div className="flex items-end justify-between gap-3">
               <div className="min-w-0">
-                <div className="font-display text-2xl font-semibold tabular-nums sm:text-3xl">{k.value}</div>
-                <div className="truncate text-[11px] text-muted-foreground">{k.delta}</div>
+                <div className="font-display text-[2rem] font-semibold leading-none tracking-[-0.03em] tabular-nums sm:text-[2.25rem]">{k.value}</div>
+                <div className="mt-2 truncate text-xs text-[var(--text-faint)]">{k.delta}</div>
               </div>
-              <Sparkline data={sparkline(project.id + k.seed + stats.done, 14, k.trend)} color={k.color} w={72} h={30} />
+              <div className="hidden sm:block"><Sparkline data={sparkline(project.id + k.seed + stats.done, 14, k.trend)} color={k.color} w={72} h={34} /></div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-3.5 grid gap-3.5 xl:grid-cols-3">
-        <Panel title="Mission progress" icon={<Target />} className="xl:col-span-1">
-          <div className="flex flex-wrap items-center gap-4">
+      <div className="mt-4 grid gap-4 xl:grid-cols-3">
+        <Panel title="Mission progress" className="reveal reveal-5 xl:col-span-1">
+          <div className="flex flex-wrap items-center gap-5">
             <Ring value={stats.prog} label="overall" />
             <div className="min-w-0 flex-1 basis-40">
-              <p className="text-sm text-muted-foreground">{project.brief}</p>
-              <div className="mt-2 flex flex-wrap gap-1">{project.stack.map((s) => <span key={s} className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--acc)]">{s}</span>)}</div>
+              <p className="line-clamp-4 text-sm leading-relaxed text-[var(--text-muted)]">{project.brief}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">{project.stack.map((s) => <span key={s} className="chip">{s}</span>)}</div>
             </div>
           </div>
-          <div className="mt-4 grid grid-cols-4 gap-1.5">
+          <div className="mt-6 grid grid-cols-4 gap-2">
             {project.agents.map((a) => (
-              <button key={a.name} onClick={() => setLogsAgent(a.name)} title={`${a.name}: ${a.status}`} className="rounded-sm border border-[var(--gh-line)] py-1 text-center font-mono text-[9px] uppercase hover:bg-white/5" style={{ color: agentHex(a.name), opacity: a.status === "idle" ? 0.55 : 1 }}>
-                {a.name.slice(0, 4)}
+              <button key={a.name} onClick={() => setLogsAgent(a.name)} title={`${a.name}: ${a.status}`}
+                className="flex flex-col items-center gap-1.5 rounded-xl bg-white/[0.035] py-2.5 text-[11px] font-medium transition-[background,transform] duration-150 hover:-translate-y-0.5 hover:bg-white/[0.07]"
+                style={{ opacity: a.status === "idle" ? 0.6 : 1 }}>
+                <span className="size-2 rounded-full" style={{ background: agentColor(a.name) }} />
+                <span className="text-[var(--text-muted)]">{codename(a.name)}</span>
               </button>
             ))}
           </div>
         </Panel>
 
-        <Panel title="Agent activity" icon={<Terminal />} live className="xl:col-span-2" bodyClass="p-0">
-          <LogLines lines={feed.length ? feed : []} className="h-64 rounded-b-md" />
+        <Panel title="Agent activity" live className="reveal reveal-6 flex flex-col xl:col-span-2" bodyClass="!p-2 !pt-2 flex flex-1 flex-col">
+          <LogLines lines={feed.length ? feed : []} className="min-h-64 flex-1 rounded-xl" />
         </Panel>
 
-        <Panel title="Pipeline" icon={<Network />} right={<Link href="/dashboard/flow" className="text-[11px] text-[var(--acc)] hover:underline">Open flow</Link>} className="xl:col-span-2" bodyClass="p-1.5">
-          <div className="overflow-x-auto"><div className="min-w-[520px]"><FlowGraph project={project} compact /></div></div>
+        <Panel title="Pipeline" right={<SoftLink href="/dashboard/flow">Open flow</SoftLink>} className="reveal reveal-7 xl:col-span-2" bodyClass="!p-3">
+          <div className="overflow-x-auto"><div className="min-w-[560px]"><FlowGraph project={project} compact /></div></div>
         </Panel>
 
-        <Panel title="Tasks by status" icon={<BarChart3 />} right={<Link href="/dashboard/tasks" className="text-[11px] text-[var(--acc)] hover:underline">Board</Link>}>
-          <ul className="grid gap-2.5">
+        <Panel title="Tasks by status" right={<SoftLink href="/dashboard/tasks">Board</SoftLink>} className="reveal reveal-8">
+          <ul className="grid gap-4 pt-1">
             {counts.map(({ s, n }) => (
-              <li key={s} className="grid grid-cols-[4.5rem_1fr_1.5rem] items-center gap-2 text-xs">
-                <span className="text-muted-foreground">{STATUS_META[s].label}</span>
-                <div className="h-3 rounded-sm bg-white/5"><div className="h-full rounded-sm transition-[width] duration-700" style={{ width: `${(n / max) * 100}%`, background: STATUS_META[s].color, boxShadow: `0 0 10px ${STATUS_META[s].color}66` }} /></div>
-                <span className="text-right font-mono tabular-nums">{n}</span>
+              <li key={s} className="grid gap-1.5 text-[13px]">
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-2 text-[var(--text-muted)]"><span className="size-1.5 rounded-full" style={{ background: STATUS_UI[s] }} />{STATUS_META[s].label}</span>
+                  <span className="font-medium tabular-nums">{n}</span>
+                </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]"><div className="h-full rounded-full transition-[width] duration-700" style={{ width: `${(n / max) * 100}%`, background: STATUS_UI[s] }} /></div>
               </li>
             ))}
           </ul>
         </Panel>
 
-        <Panel title="Recent commits" icon={<GitCommit />} right={<Link href="/dashboard/git" className="text-[11px] text-[var(--acc)] hover:underline">All</Link>} className="xl:col-span-3" bodyClass="p-0">
-          <ul className="divide-y divide-[var(--gh-line)]/60">
+        <Panel title="Recent commits" right={<SoftLink href="/dashboard/git">View all</SoftLink>} className="xl:col-span-3" bodyClass="!px-2 !pb-2">
+          <ul>
             {recent.map((c) => (
-              <li key={c.id} className="flex items-center gap-3 px-3.5 py-2 text-sm">
-                <span className="size-2 shrink-0 rounded-full" style={{ background: agentHex(c.agent) }} />
-                <code className="font-mono text-xs text-[var(--acc)]">{c.hash}</code>
-                <span className="min-w-0 flex-1 truncate">{c.message}</span>
-                <span className="hidden font-mono text-[10px] uppercase text-muted-foreground sm:inline">{c.agent} / {c.files} files</span>
-                <span className="font-mono text-[10px] text-muted-foreground">{fmtTime(c.at)}</span>
+              <li key={c.id} className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors hover:bg-white/[0.035]">
+                <span className="size-2 shrink-0 rounded-full" style={{ background: agentColor(c.agent) }} />
+                <span className="min-w-0 flex-1 truncate font-medium">{c.message}</span>
+                <code className="hidden rounded-md bg-white/[0.05] px-1.5 py-0.5 font-mono text-xs text-[var(--text-muted)] sm:inline">{c.hash}</code>
+                <span className="hidden text-[13px] text-[var(--text-faint)] md:inline">{codename(c.agent)} · {c.files} files</span>
+                <span className="text-xs tabular-nums text-[var(--text-faint)]">{fmtTime(c.at)}</span>
               </li>
             ))}
-            {!recent.length && <li className="px-3.5 py-6 text-center text-sm text-muted-foreground">No commits yet. Press <b>Run next step</b> and the first merge will land here.</li>}
+            {!recent.length && <li className="px-3 py-8 text-center text-sm text-[var(--text-muted)]">No commits yet. Press <b className="font-semibold text-foreground">Run next step</b> and the first merge will land here.</li>}
           </ul>
         </Panel>
       </div>

@@ -8,9 +8,9 @@ import { Input } from "@/components/ui/input";
 import { ProjectInput } from "@/lib/contracts";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
 import { fetchStack } from "@/lib/client-data";
-import { STACK_SUGGESTIONS, agentHex } from "@/lib/sim";
+import { STACK_SUGGESTIONS } from "@/lib/sim";
 import { useDash } from "./store";
-import { field, hud } from "./kit";
+import { agentColor, cap, field, lbl } from "./kit";
 import { cn } from "cn";
 
 const TEMPLATES = [
@@ -74,89 +74,91 @@ export function NewProjectWizard() {
     <Dialog open={newOpen} onOpenChange={(o) => { setNewOpen(o); if (!o) reset(); }}>
       <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle className="font-display text-lg">New project</DialogTitle>
+          <DialogTitle className="font-display text-xl">New project</DialogTitle>
           <DialogDescription>Brief the crew. Eight agents plan, build, review and ship.</DialogDescription>
         </DialogHeader>
-        <ol className="flex items-center gap-2">
+        <ol className="flex items-center gap-3">
           {steps.map((s, i) => (
-            <li key={s} className="flex flex-1 items-center gap-2">
-              <span className={cn("flex size-6 items-center justify-center rounded-full border font-mono text-[11px]", i <= step ? "border-[var(--acc)] bg-[color-mix(in_srgb,var(--acc)_20%,transparent)] text-[var(--acc)]" : "border-[var(--gh-line)] text-muted-foreground")}>
+            <li key={s} className="flex flex-1 items-center gap-2.5 last:flex-none">
+              <span className={cn("flex size-7 items-center justify-center rounded-full text-xs font-semibold transition-colors duration-200", i < step ? "bg-[var(--mint)] text-[var(--mint-ink)]" : i === step ? "bg-[var(--mint-tint)] text-[var(--mint)] shadow-[0_0_0_1.5px_rgba(62,230,160,0.5)]" : "bg-white/[0.06] text-[var(--text-faint)]")}>
                 {i < step ? <Check className="size-3.5" /> : i + 1}
               </span>
-              <span className={cn("text-xs", i === step ? "text-foreground" : "text-muted-foreground")}>{s}</span>
-              {i < 2 && <span className="h-px flex-1 bg-[var(--gh-line)]" />}
+              <span className={cn("text-[13px] font-medium", i === step ? "text-foreground" : "text-[var(--text-faint)]")}>{s}</span>
+              {i < 2 && <span className={cn("h-px flex-1 rounded transition-colors duration-300", i < step ? "bg-[var(--mint)]/50" : "bg-white/[0.08]")} />}
             </li>
           ))}
         </ol>
 
         {step === 0 && (
-          <div className="grid gap-3">
-            <div className={hud}>Start from a template</div>
-            <div className="flex flex-wrap gap-1.5">
-              {TEMPLATES.map((t) => (
-                <button key={t.name} type="button" onClick={() => { setName(t.name); setBrief(t.brief); setStack(t.stack); }}
-                  className="flex items-center gap-1 rounded-md border border-[var(--gh-line)] px-2 py-1 text-xs hover:border-[var(--acc)]/60 hover:bg-white/5">
-                  <Sparkles className="size-3 text-[var(--acc)]" /> {t.name}
-                </button>
-              ))}
+          <div className="grid gap-4">
+            <div className="grid gap-2.5">
+              <div className={lbl}>Start from a template</div>
+              <div className="flex flex-wrap gap-2">
+                {TEMPLATES.map((t) => (
+                  <button key={t.name} type="button" onClick={() => { setName(t.name); setBrief(t.brief); setStack(t.stack); }}
+                    className="flex h-9 items-center gap-2 rounded-xl bg-white/[0.045] px-3 text-[13px] font-medium transition-[background,transform] duration-150 hover:-translate-y-0.5 hover:bg-white/[0.09] active:scale-[0.98]">
+                    <Sparkles className="size-3.5 text-[var(--mint)]" /> {t.name}
+                  </button>
+                ))}
+              </div>
             </div>
             <Input placeholder="Project name" value={name} onChange={(e) => setName(e.target.value)} maxLength={60} aria-label="Project name" />
-            <textarea placeholder="What should it do? Who is it for?" value={brief} onChange={(e) => setBrief(e.target.value)} rows={4} className={field} aria-label="Brief" />
+            <textarea placeholder="What should it do? Who is it for?" value={brief} onChange={(e) => setBrief(e.target.value)} rows={4} className={cn(field, "resize-none leading-relaxed")} aria-label="Brief" />
           </div>
         )}
 
         {step === 1 && (
-          <div className="grid gap-3">
-            <div className={hud}>Suggested stack {stack.length ? `(${stack.length} selected)` : ""}</div>
-            <div className="flex flex-wrap gap-1.5">
+          <div className="grid gap-4">
+            <div className={lbl}>Suggested stack {stack.length ? `(${stack.length} selected)` : ""}</div>
+            <div className="flex flex-wrap gap-2">
               {suggest.map((s) => (
                 <button key={s} type="button" onClick={() => toggle(s)} aria-pressed={stack.includes(s)}
-                  className={cn("rounded-full border px-2.5 py-1 font-mono text-[11px] transition-colors", stack.includes(s) ? "border-[var(--acc)] bg-[color-mix(in_srgb,var(--acc)_18%,transparent)] text-[var(--acc)]" : "border-[var(--gh-line)] text-muted-foreground hover:text-foreground")}>
-                  {stack.includes(s) && <Check className="mr-1 inline size-3" />}{s}
+                  className={cn("flex h-8 items-center rounded-full px-3 text-[13px] font-medium transition-[background,color,transform] duration-150 active:scale-[0.97]", stack.includes(s) ? "bg-[var(--mint-tint)] text-[var(--mint)] shadow-[0_0_0_1px_rgba(62,230,160,0.35)]" : "bg-white/[0.05] text-[var(--text-muted)] hover:bg-white/[0.09] hover:text-foreground")}>
+                  {stack.includes(s) && <Check className="mr-1.5 size-3.5" />}{s}
                 </button>
               ))}
               {stack.filter((s) => !suggest.includes(s)).map((s) => (
-                <button key={s} type="button" onClick={() => toggle(s)} className="rounded-full border border-[var(--acc)] bg-[color-mix(in_srgb,var(--acc)_18%,transparent)] px-2.5 py-1 font-mono text-[11px] text-[var(--acc)]">{s} x</button>
+                <button key={s} type="button" onClick={() => toggle(s)} className="flex h-8 items-center rounded-full bg-[var(--mint-tint)] px-3 text-[13px] font-medium text-[var(--mint)] shadow-[0_0_0_1px_rgba(62,230,160,0.35)]">{s} x</button>
               ))}
             </div>
             <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); addCustom(); }}>
               <Input placeholder="Add your own (e.g. Astro)" value={custom} onChange={(e) => setCustom(e.target.value)} aria-label="Custom technology" />
-              <button type="submit" className="gh-btn gh-btn-ghost !h-8">Add</button>
+              <button type="submit" className="btn btn-secondary">Add</button>
             </form>
           </div>
         )}
 
         {step === 2 && (
-          <div className="grid gap-3">
-            <div className="rounded-md border border-[var(--gh-line)] bg-white/[0.03] p-3">
-              <p className="font-display text-base font-medium">{name}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{brief}</p>
-              <div className="mt-2 flex flex-wrap gap-1">{stack.map((s) => <span key={s} className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--acc)]">{s}</span>)}</div>
+          <div className="grid gap-4">
+            <div className="rounded-xl bg-white/[0.04] p-4">
+              <p className="font-display text-lg font-semibold tracking-tight">{name}</p>
+              <p className="mt-1 text-sm leading-relaxed text-[var(--text-muted)]">{brief}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">{stack.map((s) => <span key={s} className="chip">{s}</span>)}</div>
             </div>
-            <div className={hud}>Agent plan preview</div>
-            <ul className="grid grid-cols-2 gap-1.5">
+            <div className={lbl}>Agent plan preview</div>
+            <ul className="grid grid-cols-2 gap-2">
               {AGENT_CATALOG.map((a, i) => (
-                <li key={a.name} className="rounded-md border border-[var(--gh-line)] p-2 text-xs">
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase" style={{ color: agentHex(a.name) }}>
-                    <span className="size-1.5 rounded-full" style={{ background: agentHex(a.name) }} /> {i + 1}. {a.codename}
+                <li key={a.name} className="rounded-xl bg-white/[0.03] p-3 text-xs">
+                  <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: agentColor(a.name) }}>
+                    <span className="size-1.5 rounded-full" style={{ background: agentColor(a.name) }} /> {i + 1}. {cap(a.codename)}
                   </div>
-                  <p className="mt-0.5 text-muted-foreground">{a.produces}</p>
-                  <p className="mt-0.5 text-[10px] text-muted-foreground/70">+ {a.subAgents.length} side agents</p>
+                  <p className="mt-1 leading-snug text-[var(--text-muted)]">{a.produces}</p>
+                  <p className="mt-1 text-[11px] text-[var(--text-faint)]">+ {a.subAgents.length} side agents</p>
                 </li>
               ))}
             </ul>
           </div>
         )}
 
-        {err && <p className="text-xs text-destructive" role="alert">{err}</p>}
-        <div className="flex items-center justify-between gap-2 pt-1">
-          <button type="button" onClick={() => { setErr(null); if (step) setStep(step - 1); else setNewOpen(false); }} className="gh-btn gh-btn-ghost !h-9">
+        {err && <p className="text-[13px] text-[var(--coral)]" role="alert">{err}</p>}
+        <div className="flex items-center justify-between gap-2">
+          <button type="button" onClick={() => { setErr(null); if (step) setStep(step - 1); else setNewOpen(false); }} className="btn btn-ghost">
             <ArrowLeft className="size-4" /> {step ? "Back" : "Cancel"}
           </button>
           {step < 2 ? (
-            <button type="button" onClick={next} className="gh-btn gh-btn-primary !h-9">Next <ArrowRight className="size-4" /></button>
+            <button type="button" onClick={next} className="btn btn-primary">Next <ArrowRight className="size-4" /></button>
           ) : (
-            <button type="button" onClick={launch} disabled={busy} className="gh-btn gh-btn-primary !h-9"><Rocket className="size-4" /> {busy ? "Launching..." : "Launch agents"}</button>
+            <button type="button" onClick={launch} disabled={busy} className="btn btn-primary disabled:opacity-70"><Rocket className="size-4" /> {busy ? "Launching..." : "Launch agents"}</button>
           )}
         </div>
       </DialogContent>
