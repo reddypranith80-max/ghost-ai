@@ -344,7 +344,6 @@ The **Ghost Notebook** is a Jupyter notebook that clones the repo, starts the se
 - Download (raw file): <https://raw.githubusercontent.com/reddypranith80-max/ghost-ai/main/notebooks/ghost-notebook.ipynb>
 - View on GitHub: [notebooks/ghost-notebook.ipynb](notebooks/ghost-notebook.ipynb)
 - Open in Google Colab: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/reddypranith80-max/ghost-ai/blob/main/notebooks/ghost-notebook.ipynb)
-- View on nbviewer: <https://nbviewer.org/github/reddypranith80-max/ghost-ai/blob/main/notebooks/ghost-notebook.ipynb>
 
 ## Book
 
