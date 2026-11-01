@@ -1,0 +1,23 @@
+{
+  "generatedFromCommit": "163c25f",
+  "commitDate": "2026-11-01T22:04:05+05:30",
+  "workingTreeDirty": true,
+  "pdfPages": 315,
+  "expectedPagesFromPieces": 315,
+  "pdfBytes": 7124450,
+  "markdownBytes": 816142,
+  "markdownLines": 15449,
+  "proseWords": 29509,
+  "codeLines": 11130,
+  "annotatedFiles": 148,
+  "chapters": 59,
+  "mermaid": {
+    "blocks": 18,
+    "rendered": 0,
+    "cached": 18,
+    "fromDiagramsDir": 0,
+    "failed": 0
+  },
+  "filesWithoutNotes": 0,
+  "startsWithPdfMagic": true
+}

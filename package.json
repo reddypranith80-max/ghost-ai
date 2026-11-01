@@ -15,7 +15,8 @@
     "test:e2e": "playwright test",
     "demo:record": "node scripts/record-demo.mjs",
     "docker:build": "docker build -t ghost-ai-web:local .",
-    "docker:up": "docker compose up --build"
+    "docker:up": "docker compose up --build",
+    "docs:book": "node scripts/build-book.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

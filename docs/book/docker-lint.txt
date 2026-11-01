@@ -1,0 +1,11 @@
+$ npx --yes dockerfilelint Dockerfile
+
+File:   Dockerfile
+Issues: 1
+
+Line 31: HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+Issue  Category      Title                 Description
+    1  Possible Bug  Invalid Argument      The arguments to this command are invalid
+                     Format
+
+[exit code: 1]
