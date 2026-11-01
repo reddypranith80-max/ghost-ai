@@ -6,9 +6,8 @@ import { GITHUB_URL, NAV_LINKS } from "./nav-data";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 h-16 border-b border-[var(--gh-line)] bg-[#05060d]/70 backdrop-blur-xl">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--gh-cyan)]/60 to-transparent" />
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
+    <header className="sticky top-0 z-50 h-16 bg-[#0a0b0d]/72 shadow-[0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl backdrop-saturate-150">
+      <div className="mx-auto flex h-full max-w-[1160px] items-center justify-between gap-4 px-6">
         <Link href="/" aria-label="Ghost AI home" className="shrink-0">
           <Logo />
         </Link>
@@ -17,7 +16,7 @@ export function SiteHeader() {
             <Link
               key={l.href}
               href={l.href}
-              className="px-3 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[var(--gh-text-dim)] transition-colors hover:text-[var(--gh-cyan)]"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition-colors duration-150 hover:bg-white/5 hover:text-[var(--text)]"
             >
               {l.label}
             </Link>
@@ -26,7 +25,7 @@ export function SiteHeader() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[var(--gh-text-dim)] transition-colors hover:text-[var(--gh-cyan)]"
+            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition-colors duration-150 hover:bg-white/5 hover:text-[var(--text)]"
           >
             GitHub
           </a>
@@ -34,7 +33,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 lg:flex">
             <AuthNav />
-            <Link href="/dashboard" className="gh-btn gh-btn-primary">
+            <Link href="/dashboard" className="btn btn-primary btn-sm">
               Launch app
             </Link>
           </div>

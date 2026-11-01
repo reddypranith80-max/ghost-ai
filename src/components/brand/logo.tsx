@@ -1,38 +1,32 @@
 import { useId } from "react";
 
-const BODY = "M24 4 C14 4 8 11 8 20 V42 L14 37 L19 42 L24 37 L29 42 L34 37 L40 42 V20 C40 11 34 4 24 4Z";
+const BODY =
+  "M24 4C14.6 4 8 10.8 8 20v20.5c0 1.4 1.6 2.1 2.6 1.2l3.7-3.4a1.6 1.6 0 0 1 2.2 0l2.7 2.5a1.6 1.6 0 0 0 2.2 0L24 40l2.6 2.8a1.6 1.6 0 0 0 2.2 0l2.7-2.5a1.6 1.6 0 0 1 2.2 0l3.7 3.4c1 .9 2.6.2 2.6-1.2V20C40 10.8 33.4 4 24 4Z";
 
-/** Geometric ghost with circuit traces; cyan to violet gradient glow. */
+/** Geometric ghost: solid signal-mint body, two ink eyes. Reads at 16px. */
 export function LogoMark({ size = 28, className = "" }: { size?: number; className?: string }) {
   const id = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
     <svg width={size} height={size} viewBox="0 0 48 48" className={className} aria-hidden="true">
       <defs>
-        <linearGradient id={`g${id}`} x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#22e5ff" />
-          <stop offset="1" stopColor="#a06bff" />
+        <linearGradient id={`g${id}`} x1="10" y1="4" x2="38" y2="44" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#6ff5bd" />
+          <stop offset="1" stopColor="#3ee6a0" />
         </linearGradient>
-        <filter id={`f${id}`} x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="2.2" />
-        </filter>
       </defs>
-      <path d={BODY} fill={`url(#g${id})`} opacity=".4" filter={`url(#f${id})`} />
-      <path d={BODY} fill="#070a18" stroke={`url(#g${id})`} strokeWidth="2" strokeLinejoin="round" />
-      <path d="M14 17 H19 L21 19 M34 17 H29 L27 19" stroke={`url(#g${id})`} strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <rect x="15" y="20" width="6" height="6" rx="1.2" fill="#22e5ff" />
-      <rect x="27" y="20" width="6" height="6" rx="1.2" fill="#a06bff" />
-      <path d="M18 31 H22 V33 H26 V31 H30" stroke={`url(#g${id})`} strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="24" cy="9.5" r="1.4" fill="#fff" />
+      <path d={BODY} fill={`url(#g${id})`} />
+      <ellipse cx="18" cy="21" rx="2.8" ry="3.6" fill="#0a0b0d" />
+      <ellipse cx="30" cy="21" rx="2.8" ry="3.6" fill="#0a0b0d" />
     </svg>
   );
 }
 
 export function Logo({ className = "", size = 28 }: { className?: string; size?: number }) {
   return (
-    <span className={`inline-flex items-center gap-2 font-display font-bold tracking-tight ${className}`}>
+    <span className={`inline-flex items-center gap-2.5 font-display font-bold tracking-tight ${className}`}>
       <LogoMark size={size} />
-      <span className="text-[1.05rem] leading-none">
-        Ghost<span className="gh-text-gradient">.AI</span>
+      <span className="text-[1.1rem] leading-none tracking-[-0.03em]">
+        Ghost<span className="text-[var(--mint)]">.AI</span>
       </span>
     </span>
   );

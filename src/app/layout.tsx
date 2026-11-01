@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth-provider";
 
-const grotesk = Space_Grotesk({ variable: "--font-grotesk", subsets: ["latin"], display: "swap" });
-const inter = Inter({ variable: "--font-body", subsets: ["latin"], display: "swap" });
-const jetbrains = JetBrains_Mono({ variable: "--font-code", subsets: ["latin"], display: "swap" });
+const display = Bricolage_Grotesque({ variable: "--font-grotesk", subsets: ["latin"], display: "swap" });
+const body = Instrument_Sans({ variable: "--font-body", subsets: ["latin"], display: "swap" });
+const mono = Geist_Mono({ variable: "--font-code", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "Ghost AI | Multi-agent SaaS builder", template: "%s | Ghost AI" },
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${grotesk.variable} ${inter.variable} ${jetbrains.variable} dark h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${mono.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <AuthProvider>{children}</AuthProvider>
