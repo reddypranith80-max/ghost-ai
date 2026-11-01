@@ -37,7 +37,7 @@ const CAPTION_JS = (text) => {
     el = document.createElement("div");
     el.id = "__demo_caption";
     el.setAttribute("aria-hidden", "true");
-    el.style.cssText = "position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:2147483647;max-width:min(1000px,92vw);padding:12px 22px;border-radius:10px;background:rgba(5,6,13,.92);border:1px solid #22e5ff;box-shadow:0 0 30px -6px #22e5ff;color:#fff;font:600 20px/1.35 system-ui,sans-serif;text-align:center;pointer-events:none;transition:opacity .25s";
+    el.style.cssText = "position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:2147483647;max-width:min(1000px,92vw);padding:12px 22px;border-radius:14px;background:rgba(16,18,22,.94);border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 40px -8px rgba(0,0,0,.6);color:#f2f4f5;font:600 20px/1.35 'Segoe UI',system-ui,sans-serif;text-align:center;pointer-events:none;transition:opacity .25s";
     document.body.appendChild(el);
   }
   el.textContent = text;
@@ -66,7 +66,7 @@ try {
   // 1. Landing
   await go("/", "Ghost AI: describe a SaaS, and a crew of 8 AI agents builds it.");
   await wait(3500);
-  await say("Scroll through the pipeline, the live terminal and the I/O demo...");
+  await say("Scroll through the pipeline, the agent crew and the five-stage flow...");
   await scroll(1500, 20); await wait(1200);
   await scroll(1500, 20); await wait(1200);
   const crew = page.locator("button[aria-expanded]").filter({ has: page.getByRole("heading", { name: "Backend" }) });
