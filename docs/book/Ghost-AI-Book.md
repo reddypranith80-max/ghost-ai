@@ -2,7 +2,7 @@
 
 An annotated, reproducible mirror of the Ghost AI repository: the story, the architecture, every source file, the layout and the execution log.
 
-- Generated from commit `c77d3de` (2026-11-01, "docs: premium README, Ghost Notebook, fork guide, link checker and report") plus uncommitted working-tree changes
+- Generated from commit `df2a896` (2026-11-02, "docs: update README, code tour and auth guide for the redesign; extend commit history; ignore agent scratch files")
 - Generator: `node scripts/build-book.mjs` (`npm run docs:book`)
 - Repository: Ghost AI, package `web` 0.1.0
 
@@ -246,7 +246,7 @@ Parallel agents sharing one working directory are not isolated, and Chapter 4 do
 
 ## 3. The build timeline
 
-The repository has **10 commits** in total (2026-11-01 to 2026-11-01), touching 191 distinct paths with 47,620 lines added and 4,359 removed (lockfile and binary files included in the counts where git reports them). The list below is chronological and is generated from `git log --stat`; times are as recorded by git, in the author's time zone.
+The repository has **20 commits** in total (2026-11-01 to 2026-11-02), touching 195 distinct paths with 51,093 lines added and 6,463 removed (lockfile and binary files included in the counts where git reports them). The list below is chronological and is generated from `git log --stat`; times are as recorded by git, in the author's time zone.
 
 ### At a glance
 
@@ -262,6 +262,16 @@ The repository has **10 commits** in total (2026-11-01 to 2026-11-01), touching 
 | 8 | `163c25f` | 2026-11-01 22:04:05 +05:30 | 5 | 17 | 2 | fix(ci): make typecheck pass on clean checkout, gate CodeQL on public repos, audit prod deps only; track .env.example |
 | 9 | `b99e188` | 2026-11-01 22:11:32 +05:30 | 13 | 16,737 | 1 | docs(book): generate 'Building Ghost AI from Scratch' (md + pdf) via scripts/build-book.mjs |
 | 10 | `c77d3de` | 2026-11-01 22:12:47 +05:30 | 10 | 1,434 | 55 | docs: premium README, Ghost Notebook, fork guide, link checker and report |
+| 11 | `1726171` | 2026-11-01 22:14:41 +05:30 | 8 | 1,232 | 75 | fix: correct GitHub owner in CODEOWNERS and site link; add commit history; rebuild book |
+| 12 | `4f081f9` | 2026-11-01 22:20:14 +05:30 | 2 | 5 | 11 | docs: drop unresolved nbviewer link; refresh link report (0 failures) |
+| 13 | `27f1a67` | 2026-11-01 23:06:07 +05:30 | 9 | 194 | 10 | fix(auth): make real Clerk sign-in work end to end |
+| 14 | `ef6f662` | 2026-11-01 23:42:02 +05:30 | 17 | 409 | 287 | Design system overhaul: Ink & Signal tokens, fonts, logo, ui kit, site chrome |
+| 15 | `f2d44a4` | 2026-11-01 23:42:51 +05:30 | 3 | 8 | 1 | chore: NEXT_DIST_DIR so parallel builds do not collide |
+| 16 | `865fa95` | 2026-11-01 23:50:04 +05:30 | 8 | 481 | 793 | Redesign home page in Ink & Signal system |
+| 17 | `45b62c4` | 2026-11-02 01:15:28 +05:30 | 19 | 416 | 337 | Restyle marketing pages and auth screens with Ink & Signal |
+| 18 | `d97ef0a` | 2026-11-02 01:15:38 +05:30 | 12 | 696 | 583 | Dashboard redesign: Ink & Signal shell, KPI tiles, kanban, timeline, flow graph, dialogs |
+| 19 | `61a1b73` | 2026-11-02 01:27:20 +05:30 | 3 | 2 | 2 | feat(demo): re-record demo video and poster on the Ink & Signal redesign |
+| 20 | `df2a896` | 2026-11-02 01:28:09 +05:30 | 5 | 30 | 5 | docs: update README, code tour and auth guide for the redesign; extend commit history; ignore agent scratch files |
 
 Lines added per commit, excluding `package-lock.json` (a bar is proportional to the largest commit):
 
@@ -276,6 +286,16 @@ Lines added per commit, excluding `package-lock.json` (a bar is proportional to 
  8 163c25f                                                     17
  9 b99e188  ##########################################         16,737
 10 c77d3de  ####                                               1,434
+11 1726171  ###                                                1,232
+12 4f081f9                                                     5
+13 27f1a67                                                     153
+14 ef6f662  #                                                  409
+15 f2d44a4                                                     8
+16 865fa95  #                                                  481
+17 45b62c4  #                                                  416
+18 d97ef0a  ##                                                 696
+19 61a1b73                                                     2
+20 df2a896                                                     30
 ```
 
 ### 1. `0c701eb` Initial commit from Create Next App
@@ -716,6 +736,314 @@ Where the files landed: `docs` 6, `(root)` 2, `notebooks` 1, `scripts` 1.
 | M | `package.json` | 1 | 0 |
 | A | `scripts/check-links.mjs` | 325 | 0 |
 
+### 11. `1726171` fix: correct GitHub owner in CODEOWNERS and site link; add commit history; rebuild book
+
+- **Date:** 2026-11-01T22:14:41+05:30
+- **Author:** Pranith
+- **Full hash:** `1726171226cc1a87a1f2c817cd9fd120d5d5335d`
+- **Change size:** 8 files, +1,232 / -75
+- **Status mix:** 7 modified, 1 added
+
+Commit message body:
+
+```text
+- CODEOWNERS and the site's GitHub link pointed at the wrong account.
+- docs/COMMIT-HISTORY.md maps every commit to the area and agent behind it.
+- Book regenerated (332 pages) to include the README, notebook, link checker and history.
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `docs` (5), `.github` (1), `(root)` (1), `src/components` (1).
+
+Where the files landed: `docs` 5, `.github` 1, `(root)` 1, `src/components` 1.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `.github/CODEOWNERS` | 5 | 5 |
+| M | `README.md` | 2 | 0 |
+| A | `docs/COMMIT-HISTORY.md` | 97 | 0 |
+| M | `docs/README.md` | 1 | 0 |
+| M | `docs/book/Ghost-AI-Book.md` | 1114 | 57 |
+| M | `docs/book/Ghost-AI-Book.pdf` | bin | bin |
+| M | `docs/book/build-info.json` | 12 | 12 |
+| M | `src/components/site/nav-data.ts` | 1 | 1 |
+
+### 12. `4f081f9` docs: drop unresolved nbviewer link; refresh link report (0 failures)
+
+- **Date:** 2026-11-01T22:20:14+05:30
+- **Author:** Pranith
+- **Full hash:** `4f081f9b47a11e407ad435966b928a5339c4720e`
+- **Change size:** 2 files, +5 / -11
+- **Status mix:** 2 modified
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `(root)` (1), `docs` (1).
+
+Where the files landed: `(root)` 1, `docs` 1.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `README.md` | 0 | 1 |
+| M | `docs/LINK-REPORT.md` | 5 | 10 |
+
+### 13. `27f1a67` fix(auth): make real Clerk sign-in work end to end
+
+- **Date:** 2026-11-01T23:06:07+05:30
+- **Author:** Pranith
+- **Full hash:** `27f1a67a5f84abffb25c011869b55f297743bd62`
+- **Change size:** 9 files, +194 / -10
+- **Status mix:** 7 modified, 2 added
+
+Commit message body:
+
+```text
+Found by running against a real (accountless) Clerk dev instance:
+- next build failed once keys were present: Clerk's SignIn/SignUp/header button render in the browser and need a Suspense boundary under Cache Components. Added boundaries with a skeleton.
+- Verified sign-up hung on /sign-up/verify-email-address: Clerk's before-setActive hook awaits a server action that throws here. ClerkActionGuard replaces it with one that always resolves.
+- Clerk form text was unreadable: this Clerk version ignores colorText/colorInputBackground; use colorForeground/colorMutedForeground/colorInput.
+- Added npm run test:clerk (9 checks: sign-up, dashboard, protected API write, sign-out lock) using @clerk/testing, plus docs for no-account dev keys.
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `src/components` (5), `(root)` (2), `docs` (1), `scripts` (1).
+
+Where the files landed: `src/components` 5, `(root)` 2, `docs` 1, `scripts` 1.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `docs/auth.md` | 20 | 0 |
+| M | `package-lock.json` | 41 | 0 |
+| M | `package.json` | 3 | 1 |
+| A | `scripts/clerk-auth-check.mjs` | 63 | 0 |
+| M | `src/components/auth-provider.tsx` | 9 | 2 |
+| M | `src/components/auth/appearance.ts` | 12 | 5 |
+| M | `src/components/auth/auth-nav.tsx` | 6 | 1 |
+| M | `src/components/auth/auth-shell.tsx` | 20 | 1 |
+| A | `src/components/auth/clerk-action-guard.tsx` | 20 | 0 |
+
+### 14. `ef6f662` Design system overhaul: Ink & Signal tokens, fonts, logo, ui kit, site chrome
+
+- **Date:** 2026-11-01T23:42:02+05:30
+- **Author:** Pranith
+- **Full hash:** `ef6f662466912347f09f668343a9f26f339e9d29`
+- **Change size:** 17 files, +409 / -287
+- **Status mix:** 1 added, 16 modified
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `src/components` (11), `src/app` (4), `docs` (1), `public` (1).
+
+Where the files landed: `src/components` 11, `src/app` 4, `docs` 1, `public` 1.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| A | `docs/DESIGN-SYSTEM.md` | 41 | 0 |
+| M | `public/brand/ghost-ai-logo.svg` | 1 | 1 |
+| M | `src/app/ghost-kit.css` | 158 | 43 |
+| M | `src/app/globals.css` | 123 | 145 |
+| M | `src/app/icon.svg` | 1 | 1 |
+| M | `src/app/layout.tsx` | 5 | 5 |
+| M | `src/components/brand/logo.tsx` | 12 | 18 |
+| M | `src/components/site/mobile-nav.tsx` | 9 | 14 |
+| M | `src/components/site/site-footer.tsx` | 15 | 14 |
+| M | `src/components/site/site-header.tsx` | 5 | 6 |
+| M | `src/components/ui/badge.tsx` | 6 | 6 |
+| M | `src/components/ui/button.tsx` | 16 | 17 |
+| M | `src/components/ui/card.tsx` | 4 | 4 |
+| M | `src/components/ui/dialog.tsx` | 3 | 3 |
+| M | `src/components/ui/input.tsx` | 1 | 1 |
+| M | `src/components/ui/table.tsx` | 4 | 4 |
+| M | `src/components/ui/tabs.tsx` | 5 | 5 |
+
+### 15. `f2d44a4` chore: NEXT_DIST_DIR so parallel builds do not collide
+
+- **Date:** 2026-11-01T23:42:51+05:30
+- **Author:** Pranith
+- **Full hash:** `f2d44a4888694e1aa3681bfbc8fb0f0c28e58429`
+- **Change size:** 3 files, +8 / -1
+- **Status mix:** 3 modified
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `(root)` (3).
+
+Where the files landed: `(root)` 3.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `.gitignore` | 1 | 0 |
+| M | `next.config.ts` | 2 | 0 |
+| M | `tsconfig.json` | 5 | 1 |
+
+### 16. `865fa95` Redesign home page in Ink & Signal system
+
+- **Date:** 2026-11-01T23:50:04+05:30
+- **Author:** Pranith
+- **Full hash:** `865fa9599d2f5836a3db0bc85e294278a186ec1f`
+- **Change size:** 8 files, +481 / -793
+- **Status mix:** 7 modified, 1 deleted
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `src/components` (8).
+
+Where the files landed: `src/components` 8.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `src/components/landing/agent-terminal.tsx` | 79 | 37 |
+| M | `src/components/landing/crew.tsx` | 22 | 50 |
+| M | `src/components/landing/hero.tsx` | 27 | 131 |
+| D | `src/components/landing/io-demo.tsx` | 0 | 250 |
+| M | `src/components/landing/landing.tsx` | 7 | 8 |
+| M | `src/components/landing/pipeline-diagram.tsx` | 117 | 42 |
+| M | `src/components/landing/reveal.tsx` | 13 | 20 |
+| M | `src/components/landing/static-sections.tsx` | 216 | 255 |
+
+### 17. `45b62c4` Restyle marketing pages and auth screens with Ink & Signal
+
+- **Date:** 2026-11-02T01:15:28+05:30
+- **Author:** Pranith
+- **Full hash:** `45b62c460fbcec5bb3ee3eb7cd0d7cd038cc673c`
+- **Change size:** 19 files, +416 / -337
+- **Status mix:** 19 modified
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `src/app` (10), `src/components` (9).
+
+Where the files landed: `src/app` 10, `src/components` 9.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `src/app/(marketing)/agents/[slug]/page.tsx` | 30 | 27 |
+| M | `src/app/(marketing)/agents/page.tsx` | 6 | 5 |
+| M | `src/app/(marketing)/api-reference/page.tsx` | 8 | 7 |
+| M | `src/app/(marketing)/changelog/page.tsx` | 19 | 14 |
+| M | `src/app/(marketing)/demo/page.tsx` | 6 | 5 |
+| M | `src/app/(marketing)/docs/[slug]/page.tsx` | 24 | 7 |
+| M | `src/app/(marketing)/how-it-works/page.tsx` | 54 | 40 |
+| M | `src/app/(marketing)/pricing/page.tsx` | 26 | 22 |
+| M | `src/app/(marketing)/security/page.tsx` | 14 | 16 |
+| M | `src/app/not-found.tsx` | 10 | 12 |
+| M | `src/components/auth/appearance.ts` | 19 | 16 |
+| M | `src/components/auth/auth-nav.tsx` | 2 | 4 |
+| M | `src/components/auth/auth-shell.tsx` | 48 | 35 |
+| M | `src/components/auth/clerk-nav.tsx` | 1 | 4 |
+| M | `src/components/marketing/agent-directory.tsx` | 25 | 25 |
+| M | `src/components/marketing/api-explorer.tsx` | 12 | 12 |
+| M | `src/components/marketing/copy-button.tsx` | 6 | 6 |
+| M | `src/components/marketing/demo-player.tsx` | 32 | 30 |
+| M | `src/components/marketing/ui.tsx` | 74 | 50 |
+
+### 18. `d97ef0a` Dashboard redesign: Ink & Signal shell, KPI tiles, kanban, timeline, flow graph, dialogs
+
+- **Date:** 2026-11-02T01:15:38+05:30
+- **Author:** Pranith
+- **Full hash:** `d97ef0a917fdafad72eeb74948ae6ca8a7ea1528`
+- **Change size:** 12 files, +696 / -583
+- **Status mix:** 12 modified
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `src/components` (12).
+
+Where the files landed: `src/components` 12.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `src/components/dashboard/agents.tsx` | 85 | 82 |
+| M | `src/components/dashboard/exports.tsx` | 28 | 28 |
+| M | `src/components/dashboard/flow.tsx` | 49 | 51 |
+| M | `src/components/dashboard/gitlog.tsx` | 44 | 66 |
+| M | `src/components/dashboard/kit.tsx` | 111 | 60 |
+| M | `src/components/dashboard/new-project-wizard.tsx` | 44 | 42 |
+| M | `src/components/dashboard/overview.tsx` | 58 | 48 |
+| M | `src/components/dashboard/projects.tsx` | 46 | 33 |
+| M | `src/components/dashboard/settings.tsx` | 40 | 35 |
+| M | `src/components/dashboard/shell.tsx` | 129 | 80 |
+| M | `src/components/dashboard/store.tsx` | 5 | 5 |
+| M | `src/components/dashboard/tasks.tsx` | 57 | 53 |
+
+### 19. `61a1b73` feat(demo): re-record demo video and poster on the Ink & Signal redesign
+
+- **Date:** 2026-11-02T01:27:20+05:30
+- **Author:** Pranith
+- **Full hash:** `61a1b732d77c4aa2dad9ddb179d2bdecf2e80112`
+- **Change size:** 3 files, +2 / -2
+- **Status mix:** 3 modified
+
+Commit message body:
+
+```text
+Captions restyled to match; opening caption no longer mentions the removed I/O demo.
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `public` (2), `scripts` (1).
+
+Where the files landed: `public` 2, `scripts` 1.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `public/demo/ghost-ai-demo.webm` | bin | bin |
+| M | `public/demo/poster.png` | bin | bin |
+| M | `scripts/record-demo.mjs` | 2 | 2 |
+
+### 20. `df2a896` docs: update README, code tour and auth guide for the redesign; extend commit history; ignore agent scratch files
+
+- **Date:** 2026-11-02T01:28:09+05:30
+- **Author:** Pranith
+- **Full hash:** `df2a896284b09294d32778fd2cd9ebd7e1c7cec9`
+- **Change size:** 5 files, +30 / -5
+- **Status mix:** 5 modified
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `docs` (3), `(root)` (2).
+
+Where the files landed: `docs` 3, `(root)` 2.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `.gitignore` | 4 | 0 |
+| M | `README.md` | 1 | 1 |
+| M | `docs/CODE-TOUR.md` | 2 | 2 |
+| M | `docs/COMMIT-HISTORY.md` | 22 | 1 |
+| M | `docs/auth.md` | 1 | 1 |
+
 ## 4. Problems hit and how they were solved
 
 This chapter is deliberately blunt. Each entry gives the symptom, the cause, the fix, and where the fix lives in the repository so you can verify it. Where a fact comes from the repository itself (a code comment, a commit message, a troubleshooting table) it is marked **Evidence**. Where it comes from the build agents' own account and the original console output is not preserved in the repository, it is marked **Reported**, and the explanation of the cause should be read as the best available account, not a forensic reconstruction.
@@ -1015,7 +1343,7 @@ Each agent edits only the files it owns.
 
 ## 12. Authentication
 
-*Source: `docs/auth.md` (37 lines), reproduced in full.*
+*Source: `docs/auth.md` (57 lines), reproduced in full.*
 
 Auth is optional. Without keys the app runs in **demo mode**: no sign-in, `/dashboard` is open, and `/sign-in` and `/sign-up` show an explainer with a "Continue in demo mode" button.
 
@@ -1044,7 +1372,7 @@ Auth is optional. Without keys the app runs in **demo mode**: no sign-in, `/dash
 - `src/components/auth-provider.tsx`: `AUTH_ENABLED` = publishable key present and `NEXT_PUBLIC_DEMO !== "1"`. Clerk is `require()`d lazily so it is never bundled when disabled.
 - `src/proxy.ts`: `clerkMiddleware` only when enabled; protects `/dashboard(.*)` and non-GET `/api/projects(.*)`.
 - `src/lib/auth.ts`: `getUserId()` for route handlers (null in demo mode).
-- `src/components/auth/*`: `AuthNav` (header), `AuthShell` (split-screen pages), dark/cyan/violet theme via `appearance.variables`.
+- `src/components/auth/*`: `AuthNav` (header), `AuthShell` (split-screen pages), dark mint-accent theme via `appearance.variables`.
 - Static GitHub Pages build (`NEXT_PUBLIC_DEMO=1`): the proxy is moved aside, Clerk is excluded, and the auth pages export as the explainer.
 
 ### Troubleshooting
@@ -1052,6 +1380,26 @@ Auth is optional. Without keys the app runs in **demo mode**: no sign-in, `/dash
 - Redirect loop: make sure `NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in` and the proxy matcher is unchanged.
 - GitHub button missing: the connection is not enabled in the Clerk dashboard.
 - Keys set but still demo: `NEXT_PUBLIC_DEMO=1` is set, or the dev server was not restarted.
+
+### No Clerk account yet? Get temporary dev keys in one command
+Clerk's CLI can create throwaway development keys with **no account**:
+
+```bash
+# run it in an EMPTY scratch folder (it scaffolds files into whatever folder it runs in)
+mkdir clerk-scratch && cd clerk-scratch
+npx clerk@latest init --accountless --framework next --pm npm --no-skills
+```
+Copy `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` from the scratch folder's `.env.local` into this repo's `.env.local` (git-ignored). Run `clerk auth login` later to claim the instance as your own.
+A fresh accountless instance offers **email + Google**. To get the **GitHub** button, enable it in the Clerk dashboard (step 4 above) after claiming.
+
+### Automated sign-up check
+`npm run test:clerk` signs up a throwaway user with a `+clerk_test` email (verification code is always `424242`, no email is sent), lands on `/dashboard`, creates a project through the protected API, signs out and confirms the dashboard and API are locked again.
+It uses `@clerk/testing` to pass Clerk's bot protection. Start the app first and point `BASE_URL` at it (default `http://localhost:3210`).
+Last verified: 9/9 checks pass on both `next dev` and a production `next start` build (keys from a temporary accountless instance). The GitHub OAuth round trip is **not** automated: it needs a real GitHub login.
+
+### Two fixes worth knowing about
+- **Suspense around Clerk UI.** With Cache Components on, `<SignIn/>`, `<SignUp/>` and the header button render in the browser and must sit inside `<Suspense>`. Without it, `next build` fails with "client rendering was requested outside a Suspense boundary" as soon as keys are present (a keyless build hides this).
+- **`ClerkActionGuard`.** Clerk's Next provider runs a server action before every sign-in and only continues when it resolves. In this setup it threw ("`cookies` was called outside a request scope"), so a verified sign-up hung on the verify page. `src/components/auth/clerk-action-guard.tsx` replaces that hook with one that always resolves; Clerk's own after-hook still calls `router.refresh()`. If a future Clerk/Next release fixes this, the guard can be deleted.
 
 
 ## 13. DevOps guide
@@ -1190,12 +1538,12 @@ A walk through the repo. Paths are relative to the folder with `package.json`.
 
 | Path | URL | What it is |
 |---|---|---|
-| `page.tsx`, `layout.tsx` | `/` | Landing page and the root layout (loads fonts Space Grotesk, Inter, JetBrains Mono, and the auth provider) |
+| `page.tsx`, `layout.tsx` | `/` | Landing page and the root layout (loads fonts Bricolage Grotesque, Instrument Sans, Geist Mono, and the auth provider) |
 | `(marketing)/` | `/agents`, `/agents/[slug]`, `/api-reference`, `/changelog`, `/demo`, `/docs`, `/docs/[slug]`, `/how-it-works`, `/pricing`, `/security` | Public info pages |
 | `(auth)/sign-in`, `(auth)/sign-up` | `/sign-in`, `/sign-up` | Clerk forms, or an explainer in demo mode |
 | `dashboard/` | `/dashboard` (overview), `/dashboard/projects`, `/dashboard/tasks`, `/dashboard/agents`, `/dashboard/git`, `/dashboard/flow`, `/dashboard/exports`, `/dashboard/settings` | The control room |
 | `api/` | `/api/*` | JSON routes (list below) |
-| `globals.css`, `ghost-kit.css` | | Styles (Tailwind v4 + the dark/cyan/violet kit) |
+| `globals.css`, `ghost-kit.css` | | Styles (Tailwind v4 + the dark Ink & Signal design system, see DESIGN-SYSTEM.md) |
 | `not-found.tsx`, `icon.svg` | | 404 page and tab icon |
 
 API routes: `health`, `openapi`, `stats`, `stack`, `agents`, `agents/[name]`, `projects`, `projects/[id]`, `projects/[id]/run`, `projects/[id]/tasks`, `projects/[id]/tasks/[taskId]`, `projects/[id]/gitlog`, `projects/[id]/export`. Examples: [COMMANDS.md](COMMANDS.md#5-api-examples-curl).
@@ -1972,25 +2320,25 @@ Every tracked source and configuration file, with a note on what it is and how i
 
 ## 22. How to read the listings
 
-Part III covers **150 files** (11,307 lines). Excluded on purpose: `package-lock.json` (generated), `public/demo/*` (binary video and poster), `docs/diagrams/*.svg` (generated renderings of the diagrams in Part II), and `docs/*.md` (reproduced in Part II).
+Part III covers **151 files** (11,401 lines). Excluded on purpose: `package-lock.json` (generated), `public/demo/*` (binary video and poster), `docs/diagrams/*.svg` (generated renderings of the diagrams in Part II), and `docs/*.md` (reproduced in Part II).
 
 Each entry has: the path; line count and size; the language; exports and routes detected from the text; a note written by reading the file (kept in `docs/book/file-notes.json`); the files it imports and the files that use it (resolved from import statements, including the `@/` alias); and then the complete source with line numbers.
 
 | Chapter | Files | Lines |
 |---|---|---|
-| Root configuration, containers and tooling | 14 | 373 |
-| Root documents | 5 | 448 |
+| Root configuration, containers and tooling | 14 | 386 |
+| Root documents | 5 | 447 |
 | GitHub automation and templates | 9 | 192 |
-| Scripts | 7 | 1,606 |
+| Scripts | 8 | 1,669 |
 | Shared library and data layer | 15 | 1,333 |
 | API route handlers | 13 | 277 |
-| App shell, styles and public pages | 18 | 925 |
+| App shell, styles and public pages | 18 | 1,060 |
 | Dashboard routes | 9 | 69 |
-| Components: UI primitives, brand and auth | 14 | 789 |
-| Components: site chrome | 5 | 255 |
-| Components: landing page | 8 | 1,179 |
-| Components: marketing pages | 7 | 479 |
-| Components: dashboard | 12 | 2,069 |
+| Components: UI primitives, brand and auth | 15 | 851 |
+| Components: site chrome | 5 | 250 |
+| Components: landing page | 7 | 867 |
+| Components: marketing pages | 7 | 505 |
+| Components: dashboard | 12 | 2,182 |
 | Tests | 6 | 555 |
 | Public assets | 6 | 6 |
 | Book generator inputs | 1 | 150 |
@@ -2002,7 +2350,7 @@ The files at the repository root that configure the toolchain: package manifest,
 
 ### `package.json`
 
-**Lines:** 55 · **Size:** 1.6 KB · **Language:** json
+**Lines:** 57 · **Size:** 1.6 KB · **Language:** json
 
 Scripts (dev, build, lint, typecheck, build:pages, docs:diagrams, docs:check, docs:book, test:e2e, demo:record, docker:*), runtime dependencies (Next 16.4.3, React 19.3, Clerk, libSQL, Drizzle, Zod, framer-motion, lucide) and dev dependencies (Playwright, mermaid, jsdom, eslint, TypeScript). The book generator is wired in as `docs:book`.
 
@@ -2026,7 +2374,8 @@ Scripts (dev, build, lint, typecheck, build:pages, docs:diagrams, docs:check, do
     "demo:record": "node scripts/record-demo.mjs",
     "docker:build": "docker build -t ghost-ai-web:local .",
     "docker:up": "docker compose up --build",
-    "docs:book": "node scripts/build-book.mjs"
+    "docs:book": "node scripts/build-book.mjs",
+    "test:clerk": "node scripts/clerk-auth-check.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -2045,6 +2394,7 @@ Scripts (dev, build, lint, typecheck, build:pages, docs:diagrams, docs:check, do
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@clerk/testing": "^2.2.53",
     "@mermaid-js/mermaid-cli": "^12.0.0",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/turbopack": "^4",
@@ -2066,7 +2416,7 @@ Scripts (dev, build, lint, typecheck, build:pages, docs:diagrams, docs:check, do
 
 ### `next.config.ts`
 
-**Lines:** 30 · **Size:** 769 B · **Language:** typescript · **Exports:** `default`
+**Lines:** 32 · **Size:** 928 B · **Language:** typescript · **Exports:** `default`
 
 Central build switches. When GITHUB_PAGES=true it turns on static export (`output: export`, unoptimized images, trailing slashes, basePath/assetPrefix) and turns OFF cacheComponents and partialPrefetching because Partial Prerendering is not supported in a static export. When DOCKER=1 it uses `output: standalone`. It also routes CSS through the Tailwind Turbopack loader.
 
@@ -2077,6 +2427,8 @@ const isPages = process.env.GITHUB_PAGES === "true";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const nextConfig: NextConfig = {
+  // Lets parallel builds/servers use separate output folders (e.g. NEXT_DIST_DIR=.next-home). Default: .next
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   // PPR features are unsupported in static export (GitHub Pages demo).
   cacheComponents: !isPages,
   partialPrefetching: !isPages,
@@ -2105,7 +2457,7 @@ export default nextConfig;
 
 ### `tsconfig.json`
 
-**Lines:** 34 · **Size:** 670 B · **Language:** json
+**Lines:** 38 · **Size:** 809 B · **Language:** json
 
 TypeScript configuration: strict mode, bundler module resolution, the @/* path alias to src/*, and Next plugin settings.
 
@@ -2140,9 +2492,13 @@ TypeScript configuration: strict mode, bundler module resolution, the @/* path a
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
+    ".next-home/types/**/*.ts",
+    ".next-mkt/types/**/*.ts",
+    ".next-dash/types/**/*.ts",
+    ".next-qa/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".next-*/**"]
 }
 ```
 
@@ -2427,7 +2783,7 @@ NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/dashboard
 
 ### `.gitignore`
 
-**Lines:** 50 · **Size:** 590 B · **Language:** plaintext
+**Lines:** 55 · **Size:** 648 B · **Language:** plaintext
 
 Ignores dependencies, build output (.next, out), local SQLite databases, env files (with an exception for .env.example), Playwright results and the temporary pages stash. The `.pages-stash` entry exists because of the concurrent pages-build incident described in Part I.
 
@@ -2449,6 +2805,7 @@ Ignores dependencies, build output (.next, out), local SQLite databases, env fil
 
 # next.js
 /.next/
+/.next-*/
 /out/
 
 # production
@@ -2482,6 +2839,10 @@ local.db*
 .pages-stash/
 test-results/
 playwright-report/
+
+# agent scratch files
+*.tmp.mjs
+pw-*.config.ts
 ```
 
 ### `vercel.json`
@@ -2505,7 +2866,7 @@ The Markdown documents at the repository root. The `docs/` folder is reproduced 
 
 ### `README.md`
 
-**Lines:** 374 · **Size:** 25.9 KB · **Language:** markdown
+**Lines:** 373 · **Size:** 25.9 KB · **Language:** markdown
 
 Project front door: what Ghost AI is, a quick start, scripts, the stack, and a link map into docs/. It embeds one Mermaid diagram.
 
@@ -2633,7 +2994,7 @@ More: [docs/agents.md](docs/agents.md).
 Route group `src/app/(marketing)` with pages `/how-it-works`, `/agents` (plus `/agents/[slug]`), `/demo`, `/docs` (plus `/docs/[slug]`), `/pricing`, `/security`, `/api-reference` and `/changelog`. The home page is `src/app/page.tsx`. Navigation links live in [`src/components/site/nav-data.ts`](src/components/site/nav-data.ts). It connects to the dashboard through the call-to-action buttons and to the docs pages through `/docs`.
 
 ### Design system and fonts
-A dark, cyan/violet "ghost kit" theme in [`src/app/ghost-kit.css`](src/app/ghost-kit.css) and [`src/app/globals.css`](src/app/globals.css), on top of Tailwind CSS v4. Fonts come from `next/font/google`: Space Grotesk (headings), Inter (body) and JetBrains Mono (code), wired up in [`src/app/layout.tsx`](src/app/layout.tsx). Base components (button, card, dialog, input, table, tabs, badge) are in `src/components/ui/`; the logo is `public/brand/ghost-ai-logo.svg`.
+A sleek dark "Ink & Signal" theme (near-black canvas, mint / amber / blue / coral accents, soft 12-16px surfaces; see [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)) in [`src/app/ghost-kit.css`](src/app/ghost-kit.css) and [`src/app/globals.css`](src/app/globals.css), on top of Tailwind CSS v4. Fonts come from `next/font/google`: Bricolage Grotesque (headings), Instrument Sans (body) and Geist Mono (hashes and code), wired up in [`src/app/layout.tsx`](src/app/layout.tsx). Base components (button, card, dialog, input, table, tabs, badge) are in `src/components/ui/`; the logo is `public/brand/ghost-ai-logo.svg`.
 
 ### Dashboard
 `/dashboard` has **8 views**, each a route under `src/app/dashboard/`: overview, projects, tasks (kanban with drag and move), agents, git (commit timeline), flow (pipeline graph), exports and settings. There is a **command palette** (open with `Ctrl K`) and a **New project wizard** (`new-project-wizard.tsx`). State is managed by [`src/components/dashboard/store.tsx`](src/components/dashboard/store.tsx), which reads from the API or from demo data. Components are in `src/components/dashboard/`.
@@ -2856,7 +3217,6 @@ The **Ghost Notebook** is a Jupyter notebook that clones the repo, starts the se
 - Download (raw file): <https://raw.githubusercontent.com/reddypranith80-max/ghost-ai/main/notebooks/ghost-notebook.ipynb>
 - View on GitHub: [notebooks/ghost-notebook.ipynb](notebooks/ghost-notebook.ipynb)
 - Open in Google Colab: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/reddypranith80-max/ghost-ai/blob/main/notebooks/ghost-notebook.ipynb)
-- View on nbviewer: <https://nbviewer.org/github/reddypranith80-max/ghost-ai/blob/main/notebooks/ghost-notebook.ipynb>
 
 ## Book
 
@@ -4581,6 +4941,78 @@ if (!noRender && failed.length === 0 && blocks.length) {
 process.exit(failed.length ? 1 : 0);
 ````
 
+### `scripts/clerk-auth-check.mjs`
+
+**Lines:** 63 · **Size:** 4.0 KB · **Language:** javascript
+
+(No hand-written note for this file. Detected exports: none.)
+
+```js
+/**
+ * Real Clerk sign-up check. Needs Clerk keys in .env.local and the app running (BASE_URL, default :3210).
+ * Uses a +clerk_test email (code 424242) and @clerk/testing's token to pass bot protection. Creates and deletes its own data.
+ *   npm run test:clerk            (BASE_URL=http://localhost:3000 npm run test:clerk)
+ */
+import { mkdirSync } from "node:fs";
+import { chromium } from "@playwright/test";
+import { clerkSetup, setupClerkTestingToken } from "@clerk/testing/playwright";
+import { config } from "dotenv";
+config({ path: ".env.local" });
+console.log("setup..."); await clerkSetup(); console.log("testing token ready");
+const base = process.env.BASE_URL || "http://localhost:3210";
+const email = `ghostqa${Date.now()}+clerk_test@example.com`;
+const password = "Gh0st!Qa-7vXk#" + Math.random().toString(36).slice(2, 8);
+mkdirSync("test-results", { recursive: true });
+const b = await chromium.launch({ channel: "msedge" });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+const p = await ctx.newPage();
+await setupClerkTestingToken({ page: p });
+const errs = []; p.on("pageerror", e => errs.push(String(e).slice(0, 160)));
+const step = (n, ok, extra = "") => console.log(`${ok ? "PASS" : "FAIL"}  ${n} ${extra}`);
+
+await p.goto(base + "/dashboard", { waitUntil: "domcontentloaded" });
+await p.waitForURL(/sign-in/, { timeout: 20000 }).catch(() => {});
+step("unauthenticated /dashboard redirects to /sign-in", /sign-in/.test(p.url()));
+
+await p.goto(base + "/sign-up", { waitUntil: "domcontentloaded" });
+await p.locator('input[name="emailAddress"]').waitFor({ timeout: 30000 });
+await p.fill('input[name="emailAddress"]', email);
+await p.fill('input[name="password"]', password);
+await p.locator("button.cl-formButtonPrimary").click();
+const otp = p.locator('input[name="codeInput"], input[autocomplete="one-time-code"], input[inputmode="numeric"]').first();
+const gotOtp = await otp.waitFor({ timeout: 25000 }).then(() => true).catch(() => false);
+step("email verification step shown", gotOtp);
+if (gotOtp) { await otp.click(); await p.keyboard.type("424242", { delay: 120 }); }
+await p.waitForURL(/\/dashboard/, { timeout: 40000 }).catch(() => {});
+step("signed up and landed on /dashboard", /\/dashboard/.test(p.url()), p.url());
+await p.waitForTimeout(6000);
+await p.screenshot({ path: "test-results/clerk-dashboard-signedin.png" });
+
+const hasUserBtn = await p.locator(".cl-userButtonTrigger, .cl-userButtonBox, [data-clerk-component='UserButton']").first().isVisible().catch(() => false);
+step("UserButton visible in the header", hasUserBtn);
+
+const r = await p.evaluate(async () => {
+  const res = await fetch("/api/projects", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ name: "Clerk QA project", brief: "Created by the signed-in e2e check.", stack: ["Next.js", "Clerk"] }) });
+  return { status: res.status, body: await res.json().catch(() => null) };
+});
+step("signed-in POST /api/projects is allowed", r.status === 201, `status ${r.status}`);
+const pid = r.body && r.body.id;
+const list = await p.evaluate(async () => (await (await fetch("/api/projects")).json()).map(x => x.name));
+step("new project listed for this user", list.includes("Clerk QA project"), JSON.stringify(list));
+if (pid) { const d = await p.evaluate(async id => (await fetch("/api/projects/" + id, { method: "DELETE" })).status, pid); step("cleanup DELETE", d === 200, `status ${d}`); }
+
+await p.evaluate(async () => { await window.Clerk.signOut(); });
+await p.waitForTimeout(2500);
+await p.goto(base + "/dashboard", { waitUntil: "domcontentloaded" });
+await p.waitForURL(/sign-in/, { timeout: 20000 }).catch(() => {});
+step("after sign-out /dashboard is protected again", /sign-in/.test(p.url()));
+const anon = await p.evaluate(async () => (await fetch("/api/projects", { method: "POST", headers: { "content-type": "application/json" }, body: "{}" })).status);
+step("after sign-out POST /api/projects is 401", anon === 401, `status ${anon}`);
+console.log("pageerrors:", errs.length ? errs : "none");
+process.exitCode = process.exitCode || 0;
+await b.close();
+```
+
 ### `scripts/fix-win-export.mjs`
 
 **Lines:** 31 · **Size:** 1.4 KB · **Language:** javascript · **Exports:** `fixWindowsExport`
@@ -4722,7 +5154,7 @@ const CAPTION_JS = (text) => {
     el = document.createElement("div");
     el.id = "__demo_caption";
     el.setAttribute("aria-hidden", "true");
-    el.style.cssText = "position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:2147483647;max-width:min(1000px,92vw);padding:12px 22px;border-radius:10px;background:rgba(5,6,13,.92);border:1px solid #22e5ff;box-shadow:0 0 30px -6px #22e5ff;color:#fff;font:600 20px/1.35 system-ui,sans-serif;text-align:center;pointer-events:none;transition:opacity .25s";
+    el.style.cssText = "position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:2147483647;max-width:min(1000px,92vw);padding:12px 22px;border-radius:14px;background:rgba(16,18,22,.94);border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 40px -8px rgba(0,0,0,.6);color:#f2f4f5;font:600 20px/1.35 'Segoe UI',system-ui,sans-serif;text-align:center;pointer-events:none;transition:opacity .25s";
     document.body.appendChild(el);
   }
   el.textContent = text;
@@ -4751,7 +5183,7 @@ try {
   // 1. Landing
   await go("/", "Ghost AI: describe a SaaS, and a crew of 8 AI agents builds it.");
   await wait(3500);
-  await say("Scroll through the pipeline, the live terminal and the I/O demo...");
+  await say("Scroll through the pipeline, the agent crew and the five-stage flow...");
   await scroll(1500, 20); await wait(1200);
   await scroll(1500, 20); await wait(1200);
   const crew = page.locator("button[aria-expanded]").filter({ has: page.getByRole("heading", { name: "Backend" }) });
@@ -5003,7 +5435,7 @@ Single source of truth for the crew: eight lead agents with codename, tagline, c
 
 **Imports from:** `src/lib/contracts.ts`
 
-**Used by:** `src/app/(marketing)/agents/[slug]/page.tsx`, `src/app/(marketing)/agents/page.tsx`, `src/app/(marketing)/how-it-works/page.tsx`, `src/app/api/agents/[name]/route.ts`, `src/app/api/agents/route.ts`, `src/components/dashboard/agents.tsx` +9 more
+**Used by:** `src/app/(marketing)/agents/[slug]/page.tsx`, `src/app/(marketing)/agents/page.tsx`, `src/app/(marketing)/how-it-works/page.tsx`, `src/app/api/agents/[name]/route.ts`, `src/app/api/agents/route.ts`, `src/components/dashboard/agents.tsx` +8 more
 
 ```ts
 import type { AgentName } from "./contracts";
@@ -6947,7 +7379,7 @@ export default function Page() {
 
 ### `src/app/(marketing)/agents/[slug]/page.tsx`
 
-**Lines:** 74 · **Size:** 3.5 KB · **Language:** typescript · **Exports:** `generateStaticParams`, `generateMetadata`, `AgentDetail (default)` · **Page route:** `/agents/:slug`
+**Lines:** 77 · **Size:** 3.8 KB · **Language:** typescript · **Exports:** `generateStaticParams`, `generateMetadata`, `AgentDetail (default)` · **Page route:** `/agents/:slug`
 
 Agent detail page generated for each of the eight agents from AGENT_CATALOG via generateStaticParams, with metadata per agent and extra copy from agent-extras.ts.
 
@@ -6958,7 +7390,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand, COLOR, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, Panel, LinkCard, CtaBand, ACCENT, accentStyle, btnGhost } from "@/components/marketing/ui";
 import { Code } from "@/components/marketing/copy-button";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
 import { AGENT_EXTRAS } from "@/components/marketing/agent-extras";
@@ -6978,42 +7410,45 @@ export default async function AgentDetail({ params }: { params: Promise<{ slug: 
   const a = AGENT_CATALOG.find((x) => x.name.toLowerCase() === slug);
   if (!a) notFound();
   const x = AGENT_EXTRAS[a.name];
-  const c = COLOR[a.color];
   return (
     <SiteShell>
       <Page>
-        <Hero eyebrow={`Agent // ${a.codename}`} title={<>{a.name} <span className={c.text}>agent</span></>} lead={a.tagline}>
+        <Hero accent={a.color} eyebrow={`Agent · ${a.codename}`} title={<>{a.name} <span className={ACCENT.text}>agent</span></>} lead={a.tagline}>
           <Link href="/agents" className={btnGhost}>All agents</Link>
-          <Link href={`/api-reference#get-api-agents-name`} className={btnGhost}>Agent API</Link>
+          <Link href="/api-reference#get-api-agents-name" className={btnGhost}>Agent API</Link>
         </Hero>
 
-        <Section title="At a glance" kicker="Overview">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Panel><p className="gh-hud">Produces</p><p className="mt-2 text-white">{a.produces}</p></Panel>
-            <Panel><p className="gh-hud">Tools</p><div className="mt-2 flex flex-wrap gap-1.5">{a.tools.map((t) => <span key={t} className={`rounded border px-2 py-0.5 text-xs ${c.ring} ${c.bg} ${c.text}`}>{t}</span>)}</div></Panel>
-            <Panel><p className="gh-hud">In plain words</p><p className="mt-2 text-sm text-white/90">{x.eli5}</p></Panel>
-          </div>
-        </Section>
+        <div style={accentStyle(a.color)}>
+          <Section title="At a glance" kicker="Overview">
+            <div className="grid gap-4 md:grid-cols-3">
+              <Panel><p className="text-sm font-medium text-[var(--text-faint)]">Produces</p><p className="mt-3 text-lg font-medium leading-snug text-[var(--text)]">{a.produces}</p></Panel>
+              <Panel><p className="text-sm font-medium text-[var(--text-faint)]">Tools</p><div className="mt-3 flex flex-wrap gap-1.5">{a.tools.map((t) => <span key={t} className={`chip ${ACCENT.chip}`}>{t}</span>)}</div></Panel>
+              <Panel><p className="text-sm font-medium text-[var(--text-faint)]">In plain words</p><p className="mt-3 text-[var(--text)]">{x.eli5}</p></Panel>
+            </div>
+          </Section>
 
-        <Section title="Sub-agents" kicker={`${a.subAgents.length} specialists`}>
-          <div className="grid gap-4 md:grid-cols-3">
-            {a.subAgents.map((s) => (
-              <Panel key={s.id}><h3 className="font-medium text-white">{s.name}</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">{s.role}</p><p className="gh-hud mt-3">{s.id}</p></Panel>
-            ))}
-          </div>
-        </Section>
+          <Section title="Sub-agents" kicker={`${a.subAgents.length} specialists`}>
+            <div className="grid gap-4 md:grid-cols-3">
+              {a.subAgents.map((s) => (
+                <Panel key={s.id}>
+                  <span className={`block h-1 w-8 rounded-full ${ACCENT.dot}`} />
+                  <h3 className="mt-4 font-semibold text-[var(--text)]">{s.name}</h3>
+                  <p className="mt-2 text-sm text-[var(--text-muted)]">{s.role}</p>
+                </Panel>
+              ))}
+            </div>
+          </Section>
 
-        <Section title="Typical tasks" kicker="What it picks up">
-          <Panel>
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {x.tasks.map((t) => <li key={t} className="flex items-start gap-2 text-sm text-white/90"><span className={`mt-1.5 size-1.5 rounded-full ${c.bg} ring-1 ring-current ${c.text}`} />{t}</li>)}
+          <Section title="Typical tasks" kicker="What it picks up">
+            <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
+              {x.tasks.map((t) => <li key={t} className="flex items-start gap-3 text-[var(--text)]"><span className={`mt-2 size-1.5 shrink-0 rounded-full ${ACCENT.dot}`} />{t}</li>)}
             </ul>
-          </Panel>
-        </Section>
+          </Section>
 
-        <Section title="Example output" kicker="What lands in your git log">
-          <Code title={`${a.codename.toLowerCase()}.commit`} code={x.example} />
-        </Section>
+          <Section title="Example output" kicker="What lands in your git log">
+            <Code title={`${a.codename.toLowerCase()}.commit`} code={x.example} />
+          </Section>
+        </div>
 
         <Section title="Works closely with" kicker="Related agents">
           <div className="grid gap-4 sm:grid-cols-3">
@@ -7032,7 +7467,7 @@ export default async function AgentDetail({ params }: { params: Promise<{ slug: 
 
 ### `src/app/(marketing)/agents/page.tsx`
 
-**Lines:** 37 · **Size:** 2.5 KB · **Language:** typescript · **Exports:** `metadata`, `AgentsPage (default)` · **Page route:** `/agents`
+**Lines:** 38 · **Size:** 2.4 KB · **Language:** typescript · **Exports:** `metadata`, `AgentsPage (default)` · **Page route:** `/agents`
 
 Agent directory page (server component) that hands the catalogue to the client-side searchable AgentDirectory.
 
@@ -7041,8 +7476,9 @@ Agent directory page (server component) that hands the catalogue to the client-s
 ```tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FileCheck2, Eye, ShieldCheck } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, LinkCard, CtaBand, Feature, btnGhost } from "@/components/marketing/ui";
 import { AgentDirectory } from "@/components/marketing/agent-directory";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
 
@@ -7058,10 +7494,10 @@ export default function AgentsPage() {
         </Hero>
         <Section title="Agent directory" kicker="Filter and explore"><AgentDirectory /></Section>
         <Section title="How the crew collaborates" kicker="Hand-offs">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Panel><h3 className="font-medium text-white">Shared contracts</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Every agent reads the same Zod contracts and OpenAPI file, so the API Backend writes is the API Frontend calls.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Visible work</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Agents publish status (idle, working, done), tasks and commits that the dashboard streams in real time.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Gated shipping</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Security and Reviewer sit at the end of the line. Nothing ships without a Go.</p></Panel>
+          <div className="grid gap-10 md:grid-cols-3">
+            <Feature icon={FileCheck2} tone="mint" title="Shared contracts">Every agent reads the same Zod contracts and OpenAPI file, so the API Backend writes is the API Frontend calls.</Feature>
+            <Feature icon={Eye} tone="blue" title="Visible work">Agents publish status (idle, working, done), tasks and commits that the dashboard streams in real time.</Feature>
+            <Feature icon={ShieldCheck} tone="amber" title="Gated shipping">Security and Reviewer sit at the end of the line. Nothing ships without a Go.</Feature>
           </div>
         </Section>
         <Section title="Keep exploring" kicker="Next">
@@ -7080,7 +7516,7 @@ export default function AgentsPage() {
 
 ### `src/app/(marketing)/api-reference/page.tsx`
 
-**Lines:** 34 · **Size:** 2.6 KB · **Language:** typescript · **Exports:** `metadata`, `ApiReferencePage (default)` · **Page route:** `/api-reference`
+**Lines:** 35 · **Size:** 2.4 KB · **Language:** typescript · **Exports:** `metadata`, `ApiReferencePage (default)` · **Page route:** `/api-reference`
 
 Public API reference page listing the endpoints with copyable curl commands and the interactive ApiExplorer.
 
@@ -7089,8 +7525,9 @@ Public API reference page listing the endpoints with copyable curl commands and 
 ```tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Braces, KeyRound, Cloud } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, CtaBand, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, CtaBand, Feature, btnGhost, textLink } from "@/components/marketing/ui";
 import { ApiExplorer } from "@/components/marketing/api-explorer";
 import { Code } from "@/components/marketing/copy-button";
 
@@ -7105,16 +7542,16 @@ export default function ApiReferencePage() {
           <Link href="/docs" className={btnGhost}>All docs</Link>
         </Hero>
         <Section title="Conventions" kicker="Before you start">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Panel><h3 className="font-medium text-white">Format</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Requests and responses are JSON. Inputs are validated with Zod; invalid input returns 400 with an error list.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Auth</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">The hosted app uses Clerk sessions. In demo mode all routes are open and backed by mock data.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Static demo</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">The GitHub Pages build has no API, so Try it shows a friendly message there. Run locally for live responses.</p></Panel>
+          <div className="grid gap-10 md:grid-cols-3">
+            <Feature icon={Braces} tone="mint" title="Format">Requests and responses are JSON. Inputs are validated with Zod; invalid input returns 400 with an error list.</Feature>
+            <Feature icon={KeyRound} tone="blue" title="Auth">The hosted app uses Clerk sessions. In demo mode all routes are open and backed by mock data.</Feature>
+            <Feature icon={Cloud} tone="amber" title="Static demo">The GitHub Pages build has no API, so Try it shows a friendly message there. Run locally for live responses.</Feature>
           </div>
-          <div className="mt-4"><Code title="error shape" code={`{ "error": "Validation failed", "issues": [{ "path": ["name"], "message": "Too short" }] }`} /></div>
+          <div className="mt-10"><Code title="error shape" code={`{ "error": "Validation failed", "issues": [{ "path": ["name"], "message": "Too short" }] }`} /></div>
         </Section>
         <Section title="Endpoints" kicker="Reference"><ApiExplorer /></Section>
         <Section title="Related" kicker="Next">
-          <p className="text-sm text-[var(--gh-text-dim)]">New here? Start with the <Link className="text-cyan-300 underline" href="/docs/quick-start">Quick start</Link>, learn the <Link className="text-cyan-300 underline" href="/agents">agents</Link>, or read <Link className="text-cyan-300 underline" href="/security">security practices</Link>.</p>
+          <p className="max-w-2xl leading-relaxed text-[var(--text-muted)]">New here? Start with the <Link className={textLink} href="/docs/quick-start">Quick start</Link>, learn the <Link className={textLink} href="/agents">agents</Link>, or read <Link className={textLink} href="/security">security practices</Link>.</p>
         </Section>
         <CtaBand />
       </Page>
@@ -7125,7 +7562,7 @@ export default function ApiReferencePage() {
 
 ### `src/app/(marketing)/changelog/page.tsx`
 
-**Lines:** 50 · **Size:** 3.4 KB · **Language:** typescript · **Exports:** `metadata`, `ChangelogPage (default)` · **Page route:** `/changelog`
+**Lines:** 55 · **Size:** 3.8 KB · **Language:** typescript · **Exports:** `metadata`, `ChangelogPage (default)` · **Page route:** `/changelog`
 
 In-app changelog page rendered from static entries inside the marketing layout kit.
 
@@ -7133,8 +7570,9 @@ In-app changelog page rendered from static entries inside the marketing layout k
 
 ```tsx
 import type { Metadata } from "next";
+import { Radio, Wrench, LayoutTemplate } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand } from "@/components/marketing/ui";
+import { Page, Hero, Section, LinkCard, CtaBand, Feature } from "@/components/marketing/ui";
 
 export const metadata: Metadata = { title: "Changelog | Ghost AI", description: "Release notes for Ghost AI v0.1 to v0.3." };
 
@@ -7150,24 +7588,28 @@ export default function ChangelogPage() {
       <Page>
         <Hero eyebrow="Changelog" title={<>What <span className="gh-text-gradient">shipped</span>, and when</>} lead="Three releases so far. Each one is built and reviewed by the same crew you see on this site." />
         <Section title="Releases" kicker="Newest first">
-          <ol className="relative space-y-5 border-l border-[var(--gh-line)] pl-6">
-            {RELEASES.map((r) => (
-              <li key={r.v} className="relative">
-                <span className="gh-rivet absolute -left-[30px] top-5" />
-                <Panel>
-                  <div className="flex flex-wrap items-baseline gap-3"><span className="gh-hud">{r.v}</span><time className="text-xs text-[var(--gh-text-dim)]">{r.date}</time></div>
-                  <h3 className="mt-2 text-lg font-medium text-white">{r.title}</h3>
-                  <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-white/80">{r.items.map((i) => <li key={i}>{i}</li>)}</ul>
-                </Panel>
+          <ol className="relative">
+            <span aria-hidden className="absolute bottom-2 left-[7px] top-2 w-px bg-gradient-to-b from-[var(--mint)]/60 via-white/10 to-transparent" />
+            {RELEASES.map((r, i) => (
+              <li key={r.v} className="relative grid gap-3 pb-12 pl-9 last:pb-0 md:grid-cols-[150px_1fr] md:gap-8">
+                <span aria-hidden className={`absolute left-0 top-1.5 size-[15px] rounded-full ring-4 ring-[var(--ink)] ${i === 0 ? "bg-[var(--mint)] shadow-[0_0_14px_rgba(62,230,160,0.7)]" : "bg-[var(--surface-3)] shadow-[0_0_0_1px_var(--hairline-strong)]"}`} />
+                <div className="md:pt-0.5">
+                  <span className={`chip ${i === 0 ? "chip-mint" : ""}`}>{r.v}</span>
+                  <time className="mt-2 block text-sm text-[var(--text-faint)]">{r.date}</time>
+                </div>
+                <div className="surface p-6">
+                  <h3 className="text-lg font-semibold text-[var(--text)]">{r.title}</h3>
+                  <ul className="mt-4 space-y-2.5">{r.items.map((it) => <li key={it} className="flex gap-3 text-sm text-[var(--text-muted)]"><span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-[var(--text-faint)]" />{it}</li>)}</ul>
+                </div>
               </li>
             ))}
           </ol>
         </Section>
         <Section title="Up next" kicker="Roadmap">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Panel><h3 className="font-medium text-white">Streaming runs</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Live agent output over server-sent events.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Custom agents</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Define your own side agents in the catalog.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Template library</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Start from CRM, marketplace or SaaS-starter briefs.</p></Panel>
+          <div className="grid gap-10 md:grid-cols-3">
+            <Feature icon={Radio} tone="mint" title="Streaming runs">Live agent output over server-sent events.</Feature>
+            <Feature icon={Wrench} tone="blue" title="Custom agents">Define your own side agents in the catalog.</Feature>
+            <Feature icon={LayoutTemplate} tone="amber" title="Template library">Start from CRM, marketplace or SaaS-starter briefs.</Feature>
           </div>
         </Section>
         <Section title="Related" kicker="Links">
@@ -7186,7 +7628,7 @@ export default function ChangelogPage() {
 
 ### `src/app/(marketing)/demo/page.tsx`
 
-**Lines:** 32 · **Size:** 2.1 KB · **Language:** typescript · **Exports:** `metadata`, `DemoPage (default)` · **Page route:** `/demo`
+**Lines:** 33 · **Size:** 2.0 KB · **Language:** typescript · **Exports:** `metadata`, `DemoPage (default)` · **Page route:** `/demo`
 
 Demo page: shows a storyboard first and swaps to the real recorded video (public/demo) through DemoPlayer.
 
@@ -7194,8 +7636,9 @@ Demo page: shows a storyboard first and swaps to the real recorded video (public
 
 ```tsx
 import type { Metadata } from "next";
+import { FileText, GitMerge, Gavel } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand } from "@/components/marketing/ui";
+import { Page, Hero, Section, LinkCard, CtaBand, Feature } from "@/components/marketing/ui";
 import { DemoPlayer } from "@/components/marketing/demo-player";
 
 export const metadata: Metadata = { title: "Demo | Ghost AI", description: "Watch Ghost AI turn a brief into a shipped SaaS in under a minute." };
@@ -7207,10 +7650,10 @@ export default function DemoPage() {
         <Hero eyebrow="Demo" title={<>Watch the crew <span className="gh-text-gradient">build a SaaS</span></>} lead="A 40-second walkthrough: brief in, eight agents out, Go / No-Go at the end. Jump between chapters on the right." />
         <Section title="Walkthrough" kicker="Play"><DemoPlayer /></Section>
         <Section title="What you will see" kicker="Highlights">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Panel><h3 className="font-medium text-white">A real brief</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Name, description and stack are validated before any agent starts.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Agents in parallel</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Backend and Frontend commit side by side. Tasks move from todo to done.</p></Panel>
-            <Panel><h3 className="font-medium text-white">A clear verdict</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">The Reviewer lists required fixes or gives a Go. Export the result as JSON or Markdown.</p></Panel>
+          <div className="grid gap-10 md:grid-cols-3">
+            <Feature icon={FileText} tone="mint" title="A real brief">Name, description and stack are validated before any agent starts.</Feature>
+            <Feature icon={GitMerge} tone="blue" title="Agents in parallel">Backend and Frontend commit side by side. Tasks move from todo to done.</Feature>
+            <Feature icon={Gavel} tone="amber" title="A clear verdict">The Reviewer lists required fixes or gives a Go. Export the result as JSON or Markdown.</Feature>
           </div>
         </Section>
         <Section title="Go deeper" kicker="Next">
@@ -7229,7 +7672,7 @@ export default function DemoPage() {
 
 ### `src/app/(marketing)/docs/[slug]/page.tsx`
 
-**Lines:** 44 · **Size:** 1.9 KB · **Language:** typescript · **Exports:** `generateStaticParams`, `generateMetadata`, `GuidePage (default)` · **Page route:** `/docs/:slug`
+**Lines:** 61 · **Size:** 3.0 KB · **Language:** typescript · **Exports:** `generateStaticParams`, `generateMetadata`, `GuidePage (default)` · **Page route:** `/docs/:slug`
 
 Renders one guide from the GUIDES list in guides.ts; static params make every guide a pre-rendered page.
 
@@ -7240,7 +7683,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, LinkCard, CtaBand, btnGhost } from "@/components/marketing/ui";
 import { Code } from "@/components/marketing/copy-button";
 import { GUIDES } from "@/components/marketing/guides";
 
@@ -7261,15 +7704,32 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   return (
     <SiteShell>
       <Page>
-        <Hero eyebrow={`Docs // ${g.time} read`} title={g.title} lead={g.desc}>
+        <Hero eyebrow={`Docs · ${g.time} read`} title={g.title} lead={g.desc}>
           <Link href="/docs" className={btnGhost}>All guides</Link>
           <Link href="/api-reference" className={btnGhost}>API reference</Link>
         </Hero>
-        {g.sections.map((s, i) => (
-          <Section key={s.h} title={s.h} kicker={`Part ${i + 1}`}>
-            <Panel><p className="text-sm leading-relaxed text-white/85">{s.p}</p>{s.code && <div className="mt-3"><Code code={s.code} /></div>}</Panel>
-          </Section>
-        ))}
+        <div className="container-page grid gap-10 pb-6 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-16">
+          <aside className="hidden lg:block">
+            <nav aria-label="On this page" className="sticky top-24">
+              <p className="mb-3 text-sm font-semibold text-[var(--text)]">On this page</p>
+              <ul className="space-y-1 border-l border-[var(--hairline)]">
+                {g.sections.map((s, i) => (
+                  <li key={s.h}><a href={`#step-${i + 1}`} className="-ml-px block border-l border-transparent py-1 pl-4 text-sm text-[var(--text-muted)] transition-colors hover:border-[var(--mint)] hover:text-[var(--text)]">{s.h}</a></li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+          <div className="max-w-2xl">
+            {g.sections.map((s, i) => (
+              <section key={s.h} id={`step-${i + 1}`} className="scroll-mt-24 border-t border-[var(--hairline)] py-9 first:border-0 first:pt-2">
+                <p className="eyebrow mb-2">Part {i + 1}</p>
+                <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">{s.h}</h2>
+                <p className="mt-3 leading-[1.75] text-[var(--text-muted)]">{s.p}</p>
+                {s.code && <div className="mt-5"><Code code={s.code} /></div>}
+              </section>
+            ))}
+          </div>
+        </div>
         <Section title="Keep reading" kicker="Next">
           <div className="grid gap-4 sm:grid-cols-3">
             {others.map((o) => <LinkCard key={o.slug} href={o.slug === "api" ? "/api-reference" : `/docs/${o.slug}`} title={o.title} desc={o.desc} tag={o.time} />)}
@@ -7325,7 +7785,7 @@ export default function DocsHub() {
 
 ### `src/app/(marketing)/how-it-works/page.tsx`
 
-**Lines:** 136 · **Size:** 8.4 KB · **Language:** typescript · **Exports:** `metadata`, `HowItWorksPage (default)` · **Page route:** `/how-it-works`
+**Lines:** 150 · **Size:** 10.0 KB · **Language:** typescript · **Exports:** `metadata`, `HowItWorksPage (default)` · **Page route:** `/how-it-works`
 
 Explains the pipeline from brief to shipped code and the agent roles, drawing on AGENT_CATALOG.
 
@@ -7335,33 +7795,38 @@ Explains the pipeline from brief to shipped code and the agent roles, drawing on
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand, btnPrimary, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, Panel, LinkCard, CtaBand, btnPrimary, btnGhost, textLink } from "@/components/marketing/ui";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
 
 export const metadata: Metadata = { title: "How it works | Ghost AI", description: "From brief to shipped SaaS: the Ghost AI agent pipeline explained step by step." };
 
 const STEPS = [
-  { n: "01", t: "You write a brief and pick a stack", d: "Two things go in: a plain-English description of your product and the technologies you like (for example Next.js, Clerk, Drizzle). Ghost AI checks them with a Zod schema so nothing vague slips through.", who: "You" },
-  { n: "02", t: "The Architect makes the plan", d: "ATLAS reads the brief, chooses libraries, draws the database, writes the API contract and splits everything into modules and tasks.", who: "Architect" },
-  { n: "03", t: "Backend and Frontend build in parallel", d: "FORGE builds APIs and data while PRISM builds pages and components. They work from the same contract, so the pieces fit when they meet.", who: "Backend + Frontend" },
-  { n: "04", t: "DevOps and QA harden the build", d: "HELM sets up CI and containers. ECHO writes tests and tries to break things. Failed tasks go back to the right agent.", who: "DevOps + QA" },
-  { n: "05", t: "Security audits everything", d: "AEGIS scans dependencies, checks permissions, sniffs for leaked secrets and adds security headers.", who: "Security" },
-  { n: "06", t: "The Reviewer says Go or No-Go", d: "JUDGE checks every pull request against a definition of done. If something is missing you get a list of required fixes; otherwise it ships.", who: "Reviewer" },
+  { n: "01", t: "You write a brief and pick a stack", d: "Two things go in: a plain-English description of your product and the technologies you like (for example Next.js, Clerk, Drizzle). Ghost AI checks them with a Zod schema so nothing vague slips through.", who: "You", c: "var(--mint)" },
+  { n: "02", t: "The Architect makes the plan", d: "ATLAS reads the brief, chooses libraries, draws the database, writes the API contract and splits everything into modules and tasks.", who: "Architect", c: "var(--agent-cyan)" },
+  { n: "03", t: "Backend and Frontend build in parallel", d: "FORGE builds APIs and data while PRISM builds pages and components. They work from the same contract, so the pieces fit when they meet.", who: "Backend + Frontend", c: "var(--agent-violet)" },
+  { n: "04", t: "DevOps and QA harden the build", d: "HELM sets up CI and containers. ECHO writes tests and tries to break things. Failed tasks go back to the right agent.", who: "DevOps + QA", c: "var(--agent-amber)" },
+  { n: "05", t: "Security audits everything", d: "AEGIS scans dependencies, checks permissions, sniffs for leaked secrets and adds security headers.", who: "Security", c: "var(--agent-rose)" },
+  { n: "06", t: "The Reviewer says Go or No-Go", d: "JUDGE checks every pull request against a definition of done. If something is missing you get a list of required fixes; otherwise it ships.", who: "Reviewer", c: "var(--agent-lime)" },
 ];
+
+const TXT = "#eceef2";
 
 function Flow() {
   const nodes = ["Brief", "Architect", "Backend", "Frontend", "DevOps", "QA", "Security", "Reviewer", "Ship"];
+  const hue = ["#3ee6a0", "#5ad7e6", "#9d8cff", "#e98af0", "#ffb454", "#3ee6a0", "#ff7a8e", "#b7e65a", "#3ee6a0"];
   const pos: [number, number][] = [[50, 130], [170, 130], [310, 60], [310, 200], [450, 60], [450, 200], [590, 130], [720, 130], [850, 130]];
   const edges: [number, number][] = [[0, 1], [1, 2], [1, 3], [2, 4], [3, 5], [2, 5], [3, 4], [4, 6], [5, 6], [6, 7], [7, 8]];
   return (
     <svg viewBox="0 0 920 260" role="img" aria-label="Pipeline diagram: Brief to Architect, fan out to Backend and Frontend, then DevOps and QA, Security, Reviewer, Ship" className="w-full">
       {edges.map(([a, b], i) => (
-        <line key={i} x1={pos[a][0] + 38} y1={pos[a][1]} x2={pos[b][0] - 38} y2={pos[b][1]} stroke="#22e5ff" strokeOpacity={0.6} strokeWidth={1.5} className="gh-flow" />
+        <line key={i} x1={pos[a][0] + 38} y1={pos[a][1]} x2={pos[b][0] - 38} y2={pos[b][1]} stroke="#ffffff" strokeOpacity={0.22} strokeWidth={1.5} className="gh-flow" />
       ))}
       {nodes.map((n, i) => (
         <g key={n}>
-          <rect x={pos[i][0] - 38} y={pos[i][1] - 18} width={76} height={36} rx={6} fill="#0e1224" stroke={i === 8 ? "#a06bff" : "#22e5ff"} strokeOpacity={0.7} />
-          <text x={pos[i][0]} y={pos[i][1] + 4} textAnchor="middle" fontSize={12} fill="#e8ecff">{n}</text>
+          <rect x={pos[i][0] - 38} y={pos[i][1] - 18} width={76} height={36} rx={12} fill="#1b1f25" />
+          <rect x={pos[i][0] - 38} y={pos[i][1] - 18} width={76} height={36} rx={12} fill={hue[i]} fillOpacity={0.1} />
+          <circle cx={pos[i][0] - 26} cy={pos[i][1]} r={3} fill={hue[i]} />
+          <text x={pos[i][0] + 4} y={pos[i][1] + 4} textAnchor="middle" fontSize={12} fontWeight={500} fill={TXT}>{n}</text>
         </g>
       ))}
     </svg>
@@ -7369,16 +7834,16 @@ function Flow() {
 }
 
 function GitSvg() {
-  const rows = [["a1f3c9d", "feat(api): projects routes", "Backend"], ["b72e0a1", "feat(ui): task board", "Frontend"], ["c09d4be", "ci: add workflow", "DevOps"], ["d4417f2", "test(e2e): create project", "QA"]];
+  const rows = [["a1f3c9d", "feat(api): projects routes", "Backend", "#9d8cff"], ["b72e0a1", "feat(ui): task board", "Frontend", "#e98af0"], ["c09d4be", "ci: add workflow", "DevOps", "#ffb454"], ["d4417f2", "test(e2e): create project", "QA", "#3ee6a0"]];
   return (
     <svg viewBox="0 0 420 190" className="w-full" role="img" aria-label="Git log timeline with four commits by different agents">
-      <line x1={30} y1={20} x2={30} y2={170} stroke="#22e5ff" strokeOpacity={0.5} />
+      <line x1={30} y1={20} x2={30} y2={170} stroke="#ffffff" strokeOpacity={0.14} />
       {rows.map((r, i) => (
         <g key={r[0]}>
-          <circle cx={30} cy={30 + i * 42} r={6} fill="#a06bff" />
-          <text x={50} y={26 + i * 42} fontSize={12} fill="#22e5ff" fontFamily="monospace">{r[0]}</text>
-          <text x={120} y={26 + i * 42} fontSize={12} fill="#e8ecff">{r[1]}</text>
-          <text x={50} y={42 + i * 42} fontSize={10} fill="#8b93b8">by {r[2]} agent</text>
+          <circle cx={30} cy={30 + i * 42} r={5} fill={r[3]} />
+          <text x={50} y={26 + i * 42} fontSize={12} fill="#9aa1ad" fontFamily="monospace">{r[0]}</text>
+          <text x={120} y={26 + i * 42} fontSize={12} fill={TXT}>{r[1]}</text>
+          <text x={50} y={42 + i * 42} fontSize={10} fill="#6b7280">by {r[2]} agent</text>
         </g>
       ))}
     </svg>
@@ -7386,14 +7851,18 @@ function GitSvg() {
 }
 
 function TaskSvg() {
-  const cols = [["todo", 3], ["running", 2], ["review", 1], ["done", 4]] as const;
+  const cols = [["todo", 3, "#6b7280"], ["running", 2, "#ffb454"], ["review", 1, "#7b8cff"], ["done", 4, "#3ee6a0"]] as const;
   return (
     <svg viewBox="0 0 420 190" className="w-full" role="img" aria-label="Task board with four status columns">
-      {cols.map(([name, n], i) => (
+      {cols.map(([name, n, c], i) => (
         <g key={name} transform={`translate(${i * 104 + 6},6)`}>
-          <text x={0} y={12} fontSize={11} fill="#22e5ff" fontFamily="monospace">{name.toUpperCase()}</text>
+          <text x={0} y={12} fontSize={11} fontWeight={500} fill={c}>{name}</text>
           {Array.from({ length: n }).map((_, k) => (
-            <rect key={k} x={0} y={22 + k * 40} width={94} height={32} rx={5} fill="#0e1224" stroke="#78a0ff" strokeOpacity={0.35} />
+            <g key={k}>
+              <rect x={0} y={22 + k * 40} width={94} height={32} rx={8} fill="#1b1f25" />
+              <rect x={8} y={34 + k * 40} width={40 + ((k * 13) % 30)} height={4} rx={2} fill={c} fillOpacity={0.7} />
+              <rect x={8} y={42 + k * 40} width={28} height={3} rx={1.5} fill="#ffffff" fillOpacity={0.12} />
+            </g>
           ))}
         </g>
       ))}
@@ -7411,19 +7880,23 @@ export default function HowItWorksPage() {
         </Hero>
 
         <Section kicker="The big picture" title="The pipeline at a glance">
-          <Panel><Flow /></Panel>
-          <p className="mt-3 text-sm text-[var(--gh-text-dim)]">Docs runs alongside the whole pipeline, writing guides as modules land. Read the full diagram in <Link className="text-cyan-300 underline" href="/docs/architecture">Architecture</Link>.</p>
+          <div className="surface-raised p-4 sm:p-8"><Flow /></div>
+          <p className="mt-4 text-sm text-[var(--text-muted)]">Docs runs alongside the whole pipeline, writing guides as modules land. Read the full diagram in <Link className={textLink} href="/docs/architecture">Architecture</Link>.</p>
         </Section>
 
         <Section kicker="Step by step" title="Six steps, one direction">
-          <ol className="grid gap-4 md:grid-cols-2">
+          <ol className="relative">
+            <span aria-hidden className="absolute bottom-4 left-[19px] top-4 w-px bg-gradient-to-b from-white/15 via-white/10 to-transparent" />
             {STEPS.map((s) => (
-              <li key={s.n}>
-                <Panel className="h-full">
-                  <div className="flex items-baseline justify-between"><span className="gh-hud">Step {s.n}</span><span className="text-xs text-[var(--gh-text-dim)]">{s.who}</span></div>
-                  <h3 className="mt-2 font-medium text-white">{s.t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--gh-text-dim)]">{s.d}</p>
-                </Panel>
+              <li key={s.n} className="relative grid grid-cols-[40px_1fr] gap-5 pb-9 last:pb-0 sm:gap-7">
+                <span className="relative z-10 grid size-10 place-items-center rounded-full bg-[var(--surface-3)] font-mono text-xs font-semibold shadow-[0_0_0_4px_var(--ink),0_0_0_5px_var(--hairline)]" style={{ color: s.c }}>{s.n}</span>
+                <div className="pt-1.5">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-lg font-semibold text-[var(--text)]">{s.t}</h3>
+                    <span className="chip">{s.who}</span>
+                  </div>
+                  <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">{s.d}</p>
+                </div>
               </li>
             ))}
           </ol>
@@ -7431,23 +7904,24 @@ export default function HowItWorksPage() {
 
         <Section kicker="Vocabulary" title="Tasks, modules and git logs">
           <div className="grid gap-4 md:grid-cols-2">
-            <Panel>
-              <h3 className="font-medium text-white">Tasks and modules</h3>
-              <p className="mt-2 text-sm text-[var(--gh-text-dim)]">A module is a chunk of your product (Auth, Billing, Dashboard). A task is one small job inside a module, owned by exactly one agent, with a status: todo, running, review, done or failed, and a progress number.</p>
-              <div className="mt-3"><TaskSvg /></div>
+            <Panel className="sm:p-8">
+              <h3 className="text-lg font-semibold text-[var(--text)]">Tasks and modules</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">A module is a chunk of your product (Auth, Billing, Dashboard). A task is one small job inside a module, owned by exactly one agent, with a status: todo, running, review, done or failed, and a progress number.</p>
+              <div className="mt-6 rounded-[12px] bg-black/25 p-3"><TaskSvg /></div>
             </Panel>
-            <Panel>
-              <h3 className="font-medium text-white">Git logs</h3>
-              <p className="mt-2 text-sm text-[var(--gh-text-dim)]">Every agent commits its work with a hash, a message and a file count. The git-log timeline lets you audit who changed what and when, just like a human team.</p>
-              <div className="mt-3"><GitSvg /></div>
+            <Panel className="sm:p-8">
+              <h3 className="text-lg font-semibold text-[var(--text)]">Git logs</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">Every agent commits its work with a hash, a message and a file count. The git-log timeline lets you audit who changed what and when, just like a human team.</p>
+              <div className="mt-6 rounded-[12px] bg-black/25 p-3"><GitSvg /></div>
             </Panel>
           </div>
         </Section>
 
         <Section kicker="Simple words" title="Explain it like I'm five">
-          <Panel className="border-cyan-400/30">
-            <p className="text-base leading-relaxed text-white/90">Imagine building a treehouse. One friend draws the plan (Architect). One saws the wood (Backend) while another paints it (Frontend). A friend checks it will not fall (QA), another adds locks (Security), and a teacher says &quot;yes, it is safe&quot; (Reviewer). Ghost AI is all those friends, working at the same time, and you can watch them from a dashboard.</p>
-          </Panel>
+          <figure className="surface-raised relative overflow-hidden p-8 sm:p-12">
+            <div aria-hidden className="pointer-events-none absolute -left-16 -top-20 h-64 w-80 rounded-full bg-[var(--amber)] opacity-[0.07] blur-[80px]" />
+            <blockquote className="relative max-w-3xl font-[family-name:var(--font-display)] text-xl leading-relaxed tracking-[-0.01em] text-[var(--text)] sm:text-2xl">Imagine building a treehouse. One friend draws the plan (Architect). One saws the wood (Backend) while another paints it (Frontend). A friend checks it will not fall (QA), another adds locks (Security), and a teacher says &quot;yes, it is safe&quot; (Reviewer). Ghost AI is all those friends, working at the same time, and you can watch them from a dashboard.</blockquote>
+          </figure>
         </Section>
 
         <Section kicker="Meet the crew" title="Who does what">
@@ -7472,7 +7946,7 @@ export default function HowItWorksPage() {
 
 ### `src/app/(marketing)/pricing/page.tsx`
 
-**Lines:** 87 · **Size:** 5.0 KB · **Language:** typescript · **Exports:** `metadata`, `PricingPage (default)` · **Page route:** `/pricing`
+**Lines:** 91 · **Size:** 6.1 KB · **Language:** typescript · **Exports:** `metadata`, `PricingPage (default)` · **Page route:** `/pricing`
 
 Pricing tiers page (static marketing copy).
 
@@ -7483,14 +7957,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Check, Minus } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, CtaBand, btnPrimary, btnGhost } from "@/components/marketing/ui";
+import { Page, Hero, Section, CtaBand, btnPrimary, btnGhost, textLink } from "@/components/marketing/ui";
 
 export const metadata: Metadata = { title: "Pricing | Ghost AI", description: "Demo pricing for Hobby, Pro and Team plans. No real billing." };
 
 const TIERS = [
-  { name: "Hobby", price: "$0", per: "forever", blurb: "Explore the crew on side projects.", cta: "Start free", href: "/dashboard", hot: false },
-  { name: "Pro", price: "$29", per: "per month", blurb: "For solo founders shipping real products.", cta: "Try Pro (demo)", href: "/dashboard", hot: true },
-  { name: "Team", price: "$99", per: "per month", blurb: "Shared projects for small teams.", cta: "Try Team (demo)", href: "/dashboard", hot: false },
+  { name: "Hobby", price: "$0", per: "forever", blurb: "Explore the crew on side projects.", cta: "Start free", href: "/dashboard", hot: false, perks: ["3 projects", "All 8 lead agents", "Basic security audit"] },
+  { name: "Pro", price: "$29", per: "per month", blurb: "For solo founders shipping real products.", cta: "Try Pro (demo)", href: "/dashboard", hot: true, perks: ["Unlimited projects", "4 parallel runs", "API access and full security audit"] },
+  { name: "Team", price: "$99", per: "per month", blurb: "Shared projects for small teams.", cta: "Try Team (demo)", href: "/dashboard", hot: false, perks: ["10 team seats", "12 parallel runs", "Custom side agents and priority support"] },
 ];
 const ROWS: [string, string | boolean, string | boolean, string | boolean][] = [
   ["Projects", "3", "Unlimited", "Unlimited"],
@@ -7514,8 +7988,8 @@ const FAQ = [
 ];
 
 function Cell({ v }: { v: string | boolean }) {
-  if (v === true) return <Check className="mx-auto size-4 text-emerald-300" aria-label="Included" />;
-  if (v === false) return <Minus className="mx-auto size-4 text-white/30" aria-label="Not included" />;
+  if (v === true) return <Check className="mx-auto size-4 text-[var(--mint)]" aria-label="Included" />;
+  if (v === false) return <Minus className="mx-auto size-4 text-white/25" aria-label="Not included" />;
   return <>{v}</>;
 }
 
@@ -7525,26 +7999,30 @@ export default function PricingPage() {
       <Page>
         <Hero eyebrow="Pricing" title={<>Simple plans, <span className="gh-text-gradient">zero billing</span></>} lead="These tiers are illustrative demo pricing. Nothing here charges you." />
         <Section title="Choose a plan" kicker="Demo pricing">
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid items-stretch gap-4 md:grid-cols-3">
             {TIERS.map((t) => (
-              <Panel key={t.name} className={t.hot ? "gh-box-glow" : ""}>
-                <div className="flex items-center justify-between"><h3 className="text-lg font-semibold text-white">{t.name}</h3>{t.hot && <span className="gh-hud">Popular</span>}</div>
-                <p className="mt-3 text-4xl font-semibold text-white">{t.price}<span className="ml-1 text-sm font-normal text-[var(--gh-text-dim)]">{t.per}</span></p>
-                <p className="mt-2 text-sm text-[var(--gh-text-dim)]">{t.blurb}</p>
-                <Link href={t.href} className={`${t.hot ? btnPrimary : btnGhost} mt-5 w-full`}>{t.cta}</Link>
-              </Panel>
+              <div key={t.name} className={`relative flex flex-col overflow-hidden p-7 ${t.hot ? "surface-raised !shadow-[var(--inner-top),0_0_0_1px_rgba(62,230,160,0.35),0_30px_70px_-30px_rgba(62,230,160,0.35)]" : "surface"}`}>
+                {t.hot && <div aria-hidden className="pointer-events-none absolute -top-24 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-[var(--mint)] opacity-[0.13] blur-[70px]" />}
+                <div className="relative flex items-center justify-between"><h3 className="text-lg font-semibold text-[var(--text)]">{t.name}</h3>{t.hot && <span className="chip chip-mint">Popular</span>}</div>
+                <p className="relative mt-5 font-[family-name:var(--font-display)] text-5xl font-bold tracking-[-0.04em] text-[var(--text)]">{t.price}<span className="ml-2 font-[family-name:var(--font-body)] text-sm font-normal tracking-normal text-[var(--text-muted)]">{t.per}</span></p>
+                <p className="relative mt-3 text-sm text-[var(--text-muted)]">{t.blurb}</p>
+                <ul className="relative mt-6 flex-1 space-y-2.5">
+                  {t.perks.map((p) => <li key={p} className="flex items-start gap-2.5 text-sm text-[var(--text)]"><Check className={`mt-0.5 size-4 shrink-0 ${t.hot ? "text-[var(--mint)]" : "text-[var(--text-faint)]"}`} aria-hidden />{p}</li>)}
+                </ul>
+                <Link href={t.href} className={`${t.hot ? btnPrimary : btnGhost} relative mt-8 w-full`}>{t.cta}</Link>
+              </div>
             ))}
           </div>
         </Section>
         <Section title="Compare plans" kicker="Details">
-          <div className="gh-glass overflow-x-auto rounded-md">
+          <div className="surface overflow-x-auto">
             <table className="w-full min-w-[560px] text-sm">
-              <thead><tr className="border-b border-[var(--gh-line)] text-left"><th className="p-3 font-medium text-white">Feature</th>{TIERS.map((t) => <th key={t.name} className="p-3 text-center font-medium text-white">{t.name}</th>)}</tr></thead>
+              <thead><tr className="text-left"><th className="px-5 py-4 font-medium text-[var(--text-faint)]">Feature</th>{TIERS.map((t) => <th key={t.name} className={`px-5 py-4 text-center font-semibold ${t.hot ? "text-[var(--mint)]" : "text-[var(--text)]"}`}>{t.name}</th>)}</tr></thead>
               <tbody>
-                {ROWS.map((r) => (
-                  <tr key={r[0]} className="border-b border-[var(--gh-line)] last:border-0">
-                    <td className="p-3 text-white/85">{r[0]}</td>
-                    {[r[1], r[2], r[3]].map((v, i) => <td key={i} className="p-3 text-center text-white/80"><Cell v={v} /></td>)}
+                {ROWS.map((r, ri) => (
+                  <tr key={r[0]} className={ri % 2 === 0 ? "bg-white/[0.025]" : ""}>
+                    <td className="px-5 py-3.5 text-[var(--text)]">{r[0]}</td>
+                    {[r[1], r[2], r[3]].map((v, i) => <td key={i} className="px-5 py-3.5 text-center text-[var(--text-muted)]"><Cell v={v} /></td>)}
                   </tr>
                 ))}
               </tbody>
@@ -7552,14 +8030,14 @@ export default function PricingPage() {
           </div>
         </Section>
         <Section title="Frequently asked questions" kicker="FAQ">
-          <div className="grid gap-3 md:grid-cols-2">
+          <div className="grid gap-x-14 gap-y-9 md:grid-cols-2">
             {FAQ.map(([q, a]) => (
-              <Panel key={q}><h3 className="font-medium text-white">{q}</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">{a}</p></Panel>
+              <div key={q}><h3 className="font-semibold text-[var(--text)]">{q}</h3><p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{a}</p></div>
             ))}
           </div>
         </Section>
         <Section title="Still deciding?" kicker="Explore">
-          <p className="text-sm text-[var(--gh-text-dim)]">Watch the <Link href="/demo" className="text-cyan-300 underline">demo</Link>, meet the <Link href="/agents" className="text-cyan-300 underline">agents</Link> or read the <Link href="/docs" className="text-cyan-300 underline">docs</Link>.</p>
+          <p className="max-w-2xl text-[var(--text-muted)]">Watch the <Link href="/demo" className={textLink}>demo</Link>, meet the <Link href="/agents" className={textLink}>agents</Link> or read the <Link href="/docs" className={textLink}>docs</Link>.</p>
         </Section>
         <CtaBand />
       </Page>
@@ -7570,7 +8048,7 @@ export default function PricingPage() {
 
 ### `src/app/(marketing)/security/page.tsx`
 
-**Lines:** 54 · **Size:** 4.1 KB · **Language:** typescript · **Exports:** `metadata`, `SecurityPage (default)` · **Page route:** `/security`
+**Lines:** 52 · **Size:** 4.0 KB · **Language:** typescript · **Exports:** `metadata`, `SecurityPage (default)` · **Page route:** `/security`
 
 Security posture page describing auth, validation, rate limiting and headers, with copyable examples.
 
@@ -7580,19 +8058,19 @@ Security posture page describing auth, validation, rate limiting and headers, wi
 import type { Metadata } from "next";
 import { KeyRound, ShieldCheck, Package, GitPullRequest, Lock, Eye } from "lucide-react";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, Section, Panel, LinkCard, CtaBand } from "@/components/marketing/ui";
+import { Page, Hero, Section, Panel, LinkCard, CtaBand, Feature } from "@/components/marketing/ui";
 import { Code } from "@/components/marketing/copy-button";
 
 export const metadata: Metadata = { title: "Security | Ghost AI", description: "How Ghost AI protects projects: Clerk auth, Zod validation, CSP headers, dependency scans and CodeRabbit reviews." };
 
 const PRACTICES = [
-  { icon: KeyRound, t: "Clerk authentication", d: "Sessions, sign-in and user management are delegated to Clerk. Protected routes verify the session on the server." },
-  { icon: ShieldCheck, t: "Zod validation", d: "Every request body is parsed against a Zod schema from contracts.ts. Bad input gets a 400, never reaches the database." },
-  { icon: Lock, t: "CSP and security headers", d: "Content-Security-Policy, frame-ancestors none, no-sniff and strict referrer policy are set on every response." },
-  { icon: Package, t: "Dependency scans", d: "The Dependency Dog runs npm audit in CI. High or critical findings fail the build." },
-  { icon: GitPullRequest, t: "CodeRabbit reviews", d: "Each pull request gets an automated review, then the Reviewer agent checks the definition of done." },
-  { icon: Eye, t: "Secret hygiene", d: "The Secret Sniffer scans for leaked keys. Only public keys are exposed to the browser." },
-];
+  { icon: KeyRound, tone: "mint", t: "Clerk authentication", d: "Sessions, sign-in and user management are delegated to Clerk. Protected routes verify the session on the server." },
+  { icon: ShieldCheck, tone: "blue", t: "Zod validation", d: "Every request body is parsed against a Zod schema from contracts.ts. Bad input gets a 400, never reaches the database." },
+  { icon: Lock, tone: "amber", t: "CSP and security headers", d: "Content-Security-Policy, frame-ancestors none, no-sniff and strict referrer policy are set on every response." },
+  { icon: Package, tone: "coral", t: "Dependency scans", d: "The Dependency Dog runs npm audit in CI. High or critical findings fail the build." },
+  { icon: GitPullRequest, tone: "mint", t: "CodeRabbit reviews", d: "Each pull request gets an automated review, then the Reviewer agent checks the definition of done." },
+  { icon: Eye, tone: "blue", t: "Secret hygiene", d: "The Secret Sniffer scans for leaked keys. Only public keys are exposed to the browser." },
+] as const;
 
 export default function SecurityPage() {
   return (
@@ -7600,10 +8078,8 @@ export default function SecurityPage() {
       <Page>
         <Hero eyebrow="Security" title={<>Built to be <span className="gh-text-gradient">hard to break</span></>} lead="The AEGIS agent audits every build, and the same practices protect this site. Here is what we do, in plain language." />
         <Section title="Practices" kicker="What we do">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {PRACTICES.map(({ icon: I, t, d }) => (
-              <Panel key={t}><I className="size-5 text-cyan-300" /><h3 className="mt-3 font-medium text-white">{t}</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">{d}</p></Panel>
-            ))}
+          <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+            {PRACTICES.map(({ icon, tone, t, d }) => <Feature key={t} icon={icon} tone={tone} title={t}>{d}</Feature>)}
           </div>
         </Section>
         <Section title="Example headers" kicker="Config">
@@ -7611,13 +8087,13 @@ export default function SecurityPage() {
         </Section>
         <Section title="Threat model in short" kicker="Think like an attacker">
           <div className="grid gap-4 md:grid-cols-3">
-            <Panel><h3 className="font-medium text-white">Bad input</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Mitigated by Zod schemas and parameterised queries through Drizzle.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Stolen access</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Mitigated by Clerk sessions, role checks and short-lived tokens.</p></Panel>
-            <Panel><h3 className="font-medium text-white">Vulnerable packages</h3><p className="mt-2 text-sm text-[var(--gh-text-dim)]">Mitigated by audits in CI and a small dependency list.</p></Panel>
+            {[["Bad input", "Mitigated by Zod schemas and parameterised queries through Drizzle."], ["Stolen access", "Mitigated by Clerk sessions, role checks and short-lived tokens."], ["Vulnerable packages", "Mitigated by audits in CI and a small dependency list."]].map(([h, p]) => (
+              <Panel key={h}><span className="chip chip-coral">Risk</span><h3 className="mt-4 font-semibold text-[var(--text)]">{h}</h3><p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{p}</p></Panel>
+            ))}
           </div>
         </Section>
         <Section title="Report an issue" kicker="Responsible disclosure">
-          <Panel><p className="text-sm text-white/85">Found something? Open a private security advisory on the repository with steps to reproduce. This is a demo project, so there is no bounty, but reports are welcome and credited.</p></Panel>
+          <div className="surface-raised p-7 sm:p-9"><p className="max-w-3xl leading-relaxed text-[var(--text)]">Found something? Open a private security advisory on the repository with steps to reproduce. This is a demo project, so there is no bounty, but reports are welcome and credited.</p></div>
         </Section>
         <Section title="Related" kicker="Links">
           <div className="grid gap-4 sm:grid-cols-3">
@@ -7635,79 +8111,194 @@ export default function SecurityPage() {
 
 ### `src/app/ghost-kit.css`
 
-**Lines:** 61 · **Size:** 3.7 KB · **Language:** css
+**Lines:** 176 · **Size:** 9.4 KB · **Language:** css
 
 The Ghost AI utility layer: gh-btn buttons with clipped corners, dots/noise/aurora backgrounds, corner brackets, animations (marquee, rise, blink, pulse, float, scan) with reduced-motion fallbacks, and global overflow guards that stop horizontal scrolling on phones.
 
 **Used by:** `src/app/globals.css`
 
 ```css
-/* ===== Ghost AI extended kit (HUD / mechanical utilities) ===== */
-.font-display { font-family: var(--font-grotesk), var(--font-body), system-ui, sans-serif; }
+/* ==========================================================================
+   Ghost AI kit: "Ink & Signal"
+   --------------------------------------------------------------------------
+   Tokens live in globals.css (--ink, --surface-1..3, --mint, --amber, --blue,
+   --coral, --agent-*, --hairline, --shadow-1/2). Utilities defined here:
+
+   LAYOUT      .container-page  .section  .section-tight  .divider-soft
+   SURFACES    .surface  .surface-raised  .surface-inset  .card-lift
+   TYPE        .h-display  .eyebrow  .text-balance  .text-muted-quiet  .kbd
+   CHIPS       .chip  .chip-mint  .chip-amber  .chip-blue  .chip-coral
+   BUTTONS     .btn  .btn-primary  .btn-secondary  .btn-ghost  .btn-outline
+               .btn-sm  .btn-lg   (legacy .gh-btn / -primary / -ghost / -lg map here)
+   BACKGROUNDS .bg-atmosphere  .bg-dots  .bg-noise  .fade-mask-b
+   MOTION      .reveal  .reveal-1 ... .reveal-8  (staggered page-load rise, --d)
+   LEGACY      gh-grid gh-glass gh-bevel gh-hud gh-panel gh-box-glow gh-aurora
+               gh-dots gh-noise gh-text-gradient gh-rise gh-pulse gh-float
+               gh-marquee gh-caret gh-flow  (restyled);
+               gh-scanlines gh-rivet gh-ticks gh-corners gh-scanbar gh-glow-cyan
+               (neutralised: no visual output)
+   ========================================================================== */
+
 html { scroll-behavior: smooth; }
 body { overflow-x: clip; }
+html, body { max-width: 100vw; }
+.font-display { font-family: var(--font-grotesk), var(--font-body), system-ui, sans-serif; }
 
-.gh-btn {
-  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
-  height: 2.5rem; padding: 0 1.1rem; font-size: .8rem; font-weight: 600; white-space: nowrap;
-  font-family: var(--font-code), ui-monospace, monospace; letter-spacing: .04em;
-  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-  transition: filter .2s, transform .2s, background .2s;
+/* ---------- layout ---------- */
+.container-page { width: 100%; max-width: 1160px; margin-inline: auto; padding-inline: 24px; }
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.section-tight { padding-block: clamp(40px, 6vw, 72px); }
+.divider-soft {
+  height: 1px; border: 0; width: 100%;
+  background: linear-gradient(90deg, transparent, var(--hairline-strong), transparent);
 }
-.gh-btn:active { transform: translateY(1px); }
-.gh-btn-primary { color: #04121a; background: linear-gradient(100deg, #22e5ff, #a06bff); }
-.gh-btn-primary:hover { filter: brightness(1.12) saturate(1.1); }
-.gh-btn-ghost { color: #dbe3ff; background: rgba(120,160,255,.16); }
-.gh-btn-ghost:hover { background: rgba(34,229,255,.2); }
-.gh-btn-lg { height: 3rem; padding: 0 1.5rem; font-size: .85rem; }
 
-.gh-dots { background-image: radial-gradient(rgba(140,170,255,.28) 1px, transparent 1px); background-size: 22px 22px; }
-.gh-noise { position: relative; }
-.gh-noise::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .08; mix-blend-mode: overlay;
+/* ---------- surfaces ---------- */
+.surface {
+  background: var(--surface-1);
+  border-radius: var(--r-card);
+  box-shadow: var(--inner-top), 0 0 0 1px var(--hairline);
+}
+.surface-raised {
+  background: linear-gradient(180deg, var(--surface-3), var(--surface-2));
+  border-radius: var(--r-card);
+  box-shadow: var(--inner-top), 0 0 0 1px var(--hairline), var(--shadow-1);
+}
+.surface-inset {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: var(--r-control);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.card-lift { transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease); }
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--inner-top), 0 0 0 1px var(--hairline-strong), var(--shadow-2);
+}
+
+/* ---------- type ---------- */
+.h-display {
+  font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.04;
+  text-wrap: balance; color: var(--text);
+}
+.eyebrow { font-size: 0.8125rem; font-weight: 500; color: var(--mint); letter-spacing: 0; }
+.text-balance { text-wrap: balance; }
+.text-muted-quiet { color: var(--text-muted); }
+.kbd {
+  display: inline-flex; align-items: center; height: 20px; padding: 0 6px; border-radius: 6px;
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);
+  background: var(--surface-3); box-shadow: 0 0 0 1px var(--hairline), 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- chips ---------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 500; white-space: nowrap;
+  color: var(--text-muted); background: rgba(255, 255, 255, 0.05);
+}
+.chip-mint { color: var(--mint); background: var(--mint-tint); }
+.chip-amber { color: var(--amber); background: var(--amber-tint); }
+.chip-blue { color: var(--blue); background: var(--blue-tint); }
+.chip-coral { color: var(--coral); background: var(--coral-tint); }
+
+/* ---------- buttons ---------- */
+.btn, .gh-btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 40px; padding: 0 16px; border-radius: var(--r-control);
+  font-family: var(--font-sans); font-size: 0.875rem; font-weight: 550; letter-spacing: -0.005em; white-space: nowrap;
+  color: var(--text); background: var(--surface-3);
+  box-shadow: var(--inner-top), 0 0 0 1px var(--hairline);
+  transition: transform 0.15s var(--ease), background 0.18s var(--ease), box-shadow 0.18s var(--ease), filter 0.18s;
+}
+.btn:hover, .gh-btn:hover { background: #222730; }
+.btn:active, .gh-btn:active { transform: scale(0.98); }
+.btn-primary, .gh-btn-primary {
+  color: var(--mint-ink); background: var(--mint); font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px -8px rgba(62, 230, 160, 0.55);
+}
+.btn-primary:hover, .gh-btn-primary:hover { background: #5cf0b4; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 8px 26px -8px rgba(62, 230, 160, 0.7); }
+.btn-secondary { background: var(--surface-3); }
+.btn-ghost, .gh-btn-ghost { background: transparent; box-shadow: none; color: var(--text-muted); }
+.btn-ghost:hover, .gh-btn-ghost:hover { background: rgba(255, 255, 255, 0.06); color: var(--text); }
+.btn-outline { background: transparent; box-shadow: 0 0 0 1px var(--hairline-strong); }
+.btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
+.btn-sm { height: 32px; padding: 0 12px; font-size: 0.8125rem; border-radius: 10px; }
+.btn-lg, .gh-btn-lg { height: 48px; padding: 0 22px; font-size: 0.95rem; border-radius: 14px; }
+
+/* ---------- backgrounds ---------- */
+.bg-atmosphere {
+  background:
+    radial-gradient(720px 380px at 78% 0%, rgba(62, 230, 160, 0.11), transparent 65%),
+    radial-gradient(620px 340px at 8% 6%, rgba(255, 180, 84, 0.07), transparent 65%),
+    radial-gradient(900px 500px at 50% 110%, rgba(123, 140, 255, 0.06), transparent 65%);
+}
+.bg-dots, .gh-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.13) 1px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+.bg-noise, .gh-noise { position: relative; }
+.bg-noise::before, .gh-noise::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
-.gh-aurora {
-  background:
-    radial-gradient(600px 300px at 15% 20%, rgba(34,229,255,.16), transparent 70%),
-    radial-gradient(700px 360px at 85% 70%, rgba(160,107,255,.2), transparent 70%),
-    radial-gradient(500px 260px at 50% 100%, rgba(255,90,200,.08), transparent 70%);
-}
-.gh-panel { background: var(--gh-panel); border: 1px solid var(--gh-line); backdrop-filter: blur(10px); }
-.gh-corners { position: relative; }
-.gh-corners::before, .gh-corners::after {
-  content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none;
-  border-color: var(--gh-cyan); border-style: solid; opacity: .85;
-}
-.gh-corners::before { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; }
-.gh-corners::after { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; }
+.fade-mask-b { mask-image: linear-gradient(to bottom, #000 40%, transparent); -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent); }
 
+/* ---------- motion: one orchestrated staggered reveal ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.reveal, .gh-rise { animation: rise 0.6s var(--ease) both; animation-delay: var(--d, 0ms); }
+.reveal-1 { --d: 60ms; } .reveal-2 { --d: 140ms; } .reveal-3 { --d: 220ms; } .reveal-4 { --d: 300ms; }
+.reveal-5 { --d: 380ms; } .reveal-6 { --d: 460ms; } .reveal-7 { --d: 540ms; } .reveal-8 { --d: 620ms; }
+
+@keyframes gh-dash { to { stroke-dashoffset: -24; } }
+.gh-flow { stroke-dasharray: 4 8; animation: gh-dash 1.2s linear infinite; }
 @keyframes gh-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .gh-marquee { animation: gh-marquee 38s linear infinite; width: max-content; }
 .gh-marquee:hover { animation-play-state: paused; }
-@keyframes gh-rise { from { opacity: .01; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.gh-rise { animation: gh-rise .8s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes gh-blink { 50% { opacity: 0; } }
 .gh-caret { animation: gh-blink 1s steps(1) infinite; }
-@keyframes gh-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+@keyframes gh-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 .gh-pulse { animation: gh-pulse 2s ease-in-out infinite; }
-@keyframes gh-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.gh-float { animation: gh-float 6s ease-in-out infinite; }
-@keyframes gh-scan { from { top: -10%; } to { top: 110%; } }
-.gh-scanbar { position: absolute; left: 0; right: 0; height: 80px; pointer-events: none;
-  background: linear-gradient(180deg, transparent, rgba(34,229,255,.08), transparent); animation: gh-scan 7s linear infinite; }
-@media (prefers-reduced-motion: reduce) {
-  .gh-marquee, .gh-rise, .gh-caret, .gh-pulse, .gh-float, .gh-scanbar { animation: none; }
+@keyframes gh-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.gh-float { animation: gh-float 7s ease-in-out infinite; }
+
+/* ---------- legacy classes, restyled ---------- */
+.gh-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1.2px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 72%);
 }
+.gh-glass, .gh-panel {
+  background: rgba(16, 18, 22, 0.72); backdrop-filter: blur(16px) saturate(1.2);
+  border: 0; border-radius: var(--r-card);
+  box-shadow: var(--inner-top), 0 0 0 1px var(--hairline), var(--shadow-1);
+}
+.gh-bevel { clip-path: none; border-radius: var(--r-card); }
+.gh-hud {
+  font-family: var(--font-sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0;
+  text-transform: none; color: var(--text-muted);
+}
+.gh-box-glow { box-shadow: var(--inner-top), 0 0 0 1px var(--hairline), var(--shadow-2); }
+.gh-text-gradient {
+  background: linear-gradient(100deg, var(--mint), #8fe8d4 55%, var(--blue));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.gh-aurora { background: radial-gradient(620px 320px at 20% 20%, rgba(62,230,160,.09), transparent 70%), radial-gradient(640px 340px at 85% 75%, rgba(255,180,84,.06), transparent 70%); }
+.gh-glow-cyan { text-shadow: none; }
+.gh-scanlines::after, .gh-corners::before, .gh-corners::after { content: none; }
+.gh-corners { position: relative; }
+.gh-ticks, .gh-rivet, .gh-scanbar { display: none; }
 
 /* Grid children may shrink below content width (prevents horizontal overflow on phones). */
 main [class*="grid"] > * { min-width: 0; }
-html, body { max-width: 100vw; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
 ```
 
 ### `src/app/globals.css`
 
-**Lines:** 202 · **Size:** 6.8 KB · **Language:** css
+**Lines:** 180 · **Size:** 5.7 KB · **Language:** css
 
 Tailwind v4 entry: imports tw-animate and shadcn, maps theme tokens (including fonts --font-sans/--font-display/--font-mono/--font-heading to the next/font variables --font-body/--font-grotesk/--font-code), defines light and dark shadcn tokens in oklch, then the Ghost design tokens (--gh-void, --gh-cyan, --gh-violet, ...) with the dark radial-gradient body and HUD utilities.
 
@@ -7730,6 +8321,15 @@ Tailwind v4 entry: imports tw-animate and shadcn, maps theme tokens (including f
   --font-display: var(--font-grotesk), var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-code), ui-monospace, SFMono-Regular, monospace;
   --font-heading: var(--font-grotesk), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --color-mint: var(--mint);
+  --color-amber: var(--amber);
+  --color-signal-blue: var(--blue);
+  --color-coral: var(--coral);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --shadow-soft: var(--shadow-1);
+  --shadow-lift: var(--shadow-2);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -7759,175 +8359,144 @@ Tailwind v4 entry: imports tw-animate and shadcn, maps theme tokens (including f
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
 }
 
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+/* ===== Ghost AI "Ink & Signal" tokens. Dark is the only theme. ===== */
+:root, .dark {
+  color-scheme: dark;
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* canvas + tonal surfaces (depth by tone, not borders) */
+  --ink: #0a0b0d;
+  --surface-1: #101216;
+  --surface-2: #15181d;
+  --surface-3: #1b1f25;
+  --hairline: rgba(255, 255, 255, 0.07);
+  --hairline-strong: rgba(255, 255, 255, 0.12);
+
+  /* text */
+  --text: #eceef2;
+  --text-muted: #9aa1ad;
+  --text-faint: #6b7280;
+
+  /* signal accents */
+  --mint: #3ee6a0;
+  --mint-ink: #04170f;
+  --amber: #ffb454;
+  --blue: #7b8cff;
+  --coral: #ff7a6b;
+  --mint-tint: rgba(62, 230, 160, 0.12);
+  --amber-tint: rgba(255, 180, 84, 0.12);
+  --blue-tint: rgba(123, 140, 255, 0.13);
+  --coral-tint: rgba(255, 122, 107, 0.12);
+
+  /* agent hues (tuned to sit together) */
+  --agent-cyan: #5ad7e6;
+  --agent-violet: #9d8cff;
+  --agent-emerald: #3ee6a0;
+  --agent-amber: #ffb454;
+  --agent-rose: #ff7a8e;
+  --agent-sky: #6cb6ff;
+  --agent-fuchsia: #e98af0;
+  --agent-lime: #b7e65a;
+
+  /* elevation */
+  --inner-top: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px -4px rgba(0, 0, 0, 0.45);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+  --shadow-mint: 0 8px 28px -8px rgba(62, 230, 160, 0.45);
+
+  /* radii + motion */
+  --r-card: 16px;
+  --r-control: 12px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* shadcn semantic mapping */
+  --background: var(--ink);
+  --foreground: var(--text);
+  --card: var(--surface-1);
+  --card-foreground: var(--text);
+  --popover: var(--surface-2);
+  --popover-foreground: var(--text);
+  --primary: var(--mint);
+  --primary-foreground: var(--mint-ink);
+  --secondary: var(--surface-3);
+  --secondary-foreground: var(--text);
+  --muted: var(--surface-2);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--surface-3);
+  --accent-foreground: var(--text);
+  --destructive: var(--coral);
+  --border: var(--hairline);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: rgba(62, 230, 160, 0.55);
+  --chart-1: var(--mint);
+  --chart-2: var(--blue);
+  --chart-3: var(--amber);
+  --chart-4: var(--coral);
+  --chart-5: var(--agent-cyan);
+  --radius: 0.75rem;
+  --sidebar: var(--surface-1);
+  --sidebar-foreground: var(--text);
+  --sidebar-primary: var(--mint);
+  --sidebar-primary-foreground: var(--mint-ink);
+  --sidebar-accent: var(--surface-3);
+  --sidebar-accent-foreground: var(--text);
+  --sidebar-border: var(--hairline);
+  --sidebar-ring: var(--ring);
+
+  /* legacy aliases (kept so older components inherit the new look) */
+  --gh-void: var(--ink);
+  --gh-panel: var(--surface-1);
+  --gh-line: var(--hairline);
+  --gh-cyan: var(--mint);
+  --gh-violet: var(--blue);
+  --gh-text-dim: var(--text-muted);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
+    background: var(--ink);
   }
-}
-/* ===== Ghost AI design tokens (dark-first, mechanical HUD) ===== */
-:root {
-  --gh-void: #05060d;
-  --gh-panel: rgba(14, 18, 36, 0.62);
-  --gh-line: rgba(120, 160, 255, 0.18);
-  --gh-cyan: #22e5ff;
-  --gh-violet: #a06bff;
-  --gh-text-dim: #8b93b8;
-}
-.dark body {
-  background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(160, 107, 255, 0.16), transparent 60%),
-    radial-gradient(900px 500px at 0% 10%, rgba(34, 229, 255, 0.1), transparent 60%),
-    var(--gh-void);
-  color: #e8ecff;
-}
-.gh-grid {
-  background-image:
-    linear-gradient(var(--gh-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--gh-line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
-}
-.gh-scanlines::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 3px);
-}
-.gh-glass {
-  background: var(--gh-panel);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--gh-line);
-}
-.gh-bevel {
-  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
-}
-.gh-hud {
-  font-family: var(--font-code), ui-monospace, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gh-cyan);
-}
-.gh-glow-cyan { text-shadow: 0 0 18px rgba(34, 229, 255, 0.55); }
-.gh-box-glow { box-shadow: 0 0 0 1px rgba(34,229,255,.35), 0 0 32px -6px rgba(34,229,255,.45); }
-.gh-text-gradient {
-  background: linear-gradient(100deg, var(--gh-cyan), var(--gh-violet) 70%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.gh-ticks {
-  display: inline-block;
-  background-image: repeating-linear-gradient(90deg, var(--gh-line) 0 1px, transparent 1px 8px);
-  height: 6px;
-}
-.gh-rivet {
-  width: 6px; height: 6px; border-radius: 9999px;
-  background: radial-gradient(circle at 30% 30%, #9fb0ff, #2a3158);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.08);
-}
-@keyframes gh-dash { to { stroke-dashoffset: -24; } }
-.gh-flow { stroke-dasharray: 4 8; animation: gh-dash 1.2s linear infinite; }
-@media (prefers-reduced-motion: reduce) {
-  .gh-flow { animation: none; }
-  html { scroll-behavior: auto; }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    background:
+      radial-gradient(900px 480px at 78% -8%, rgba(62, 230, 160, 0.09), transparent 62%),
+      radial-gradient(760px 420px at 6% -4%, rgba(255, 180, 84, 0.06), transparent 62%),
+      var(--ink);
+    background-repeat: no-repeat;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    font-weight: 650;
+    text-wrap: balance;
+  }
+  ::selection { background: rgba(62, 230, 160, 0.3); color: #fff; }
+  :focus-visible { outline: 2px solid rgba(62, 230, 160, 0.6); outline-offset: 2px; }
 }
 ```
 
 ### `src/app/icon.svg`
 
-**Lines:** 1 · **Size:** 765 B · **Language:** xml
+**Lines:** 1 · **Size:** 508 B · **Language:** xml
 
 App icon (favicon) served by the Next.js file convention.
 
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><defs><linearGradient id="g" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#22e5ff"/><stop offset="1" stop-color="#a06bff"/></linearGradient></defs><rect width="48" height="48" rx="10" fill="#05060d"/><path d="M24 6 C15 6 10 12 10 20 V40 L15 36 L19.5 40 L24 36 L28.5 40 L33 36 L38 40 V20 C38 12 33 6 24 6Z" fill="#070a18" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"/><rect x="16" y="20" width="5" height="5" rx="1" fill="#22e5ff"/><rect x="27" y="20" width="5" height="5" rx="1" fill="#a06bff"/><path d="M19 30 H22 V32 H26 V30 H29" stroke="url(#g)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#0a0b0d"/><path d="M24 7C16.3 7 11 12.6 11 20v19.2c0 1.2 1.4 1.8 2.3 1l3.2-2.9a1.4 1.4 0 0 1 1.9 0l2.3 2.1a1.4 1.4 0 0 0 1.9 0L24 37.5l2.4 2.1a1.4 1.4 0 0 0 1.9 0l2.3-2.1a1.4 1.4 0 0 1 1.9 0l3.2 2.9c.9.8 2.3.2 2.3-1V20C37 12.6 31.7 7 24 7Z" fill="#3ee6a0"/><ellipse cx="19" cy="21" rx="2.6" ry="3.4" fill="#0a0b0d"/><ellipse cx="29" cy="21" rx="2.6" ry="3.4" fill="#0a0b0d"/></svg>
 ```
 
 ### `src/app/layout.tsx`
@@ -7940,13 +8509,13 @@ Root layout. Loads Space Grotesk, Inter and JetBrains Mono through next/font und
 
 ```tsx
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth-provider";
 
-const grotesk = Space_Grotesk({ variable: "--font-grotesk", subsets: ["latin"], display: "swap" });
-const inter = Inter({ variable: "--font-body", subsets: ["latin"], display: "swap" });
-const jetbrains = JetBrains_Mono({ variable: "--font-code", subsets: ["latin"], display: "swap" });
+const display = Bricolage_Grotesque({ variable: "--font-grotesk", subsets: ["latin"], display: "swap" });
+const body = Instrument_Sans({ variable: "--font-body", subsets: ["latin"], display: "swap" });
+const mono = Geist_Mono({ variable: "--font-code", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "Ghost AI | Multi-agent SaaS builder", template: "%s | Ghost AI" },
@@ -7958,7 +8527,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${grotesk.variable} ${inter.variable} ${jetbrains.variable} dark h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${mono.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <AuthProvider>{children}</AuthProvider>
@@ -7970,7 +8539,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ### `src/app/not-found.tsx`
 
-**Lines:** 21 · **Size:** 989 B · **Language:** typescript · **Exports:** `NotFound (default)`
+**Lines:** 19 · **Size:** 953 B · **Language:** typescript · **Exports:** `NotFound (default)`
 
 Custom 404 page inside the site shell. A Playwright test visits an unknown URL to confirm it renders.
 
@@ -7979,22 +8548,20 @@ Custom 404 page inside the site shell. A Playwright test visits an unknown URL t
 ```tsx
 import Link from "next/link";
 import { SiteShell } from "@/components/site/site-shell";
-import { Page, Hero, LinkCard, btnPrimary } from "@/components/marketing/ui";
+import { Hero, LinkCard, btnPrimary } from "@/components/marketing/ui";
 
 export default function NotFound() {
   return (
     <SiteShell>
-      <Page>
-        <Hero eyebrow="Error 404" title={<>This page <span className="gh-text-gradient">went ghost</span></>} lead="The page you wanted does not exist or has moved. Try one of these instead.">
-          <Link href="/" className={btnPrimary}>Back home</Link>
-        </Hero>
-        <div className="grid gap-4 pb-10 sm:grid-cols-2 lg:grid-cols-4">
-          <LinkCard href="/how-it-works" title="How it works" desc="The pipeline in simple words." />
-          <LinkCard href="/agents" title="Agents" desc="All eight leads." />
-          <LinkCard href="/docs" title="Docs" desc="Guides and API reference." />
-          <LinkCard href="/dashboard" title="Dashboard" desc="Try the live app." />
-        </div>
-      </Page>
+      <Hero eyebrow="Error 404" title={<>This page <span className="gh-text-gradient">went ghost</span></>} lead="The page you wanted does not exist or has moved. Try one of these instead.">
+        <Link href="/" className={btnPrimary}>Back home</Link>
+      </Hero>
+      <div className="container-page grid gap-4 pb-20 sm:grid-cols-2 lg:grid-cols-4">
+        <LinkCard href="/how-it-works" title="How it works" desc="The pipeline in simple words." />
+        <LinkCard href="/agents" title="Agents" desc="All eight leads." />
+        <LinkCard href="/docs" title="Docs" desc="Guides and API reference." />
+        <LinkCard href="/dashboard" title="Dashboard" desc="Try the live app." />
+      </div>
     </SiteShell>
   );
 }
@@ -8199,14 +8766,18 @@ shadcn/ui primitives, the logo, and the lazily loaded Clerk integration.
 
 ### `src/components/auth-provider.tsx`
 
-**Lines:** 11 · **Size:** 657 B · **Language:** typescript · **Exports:** `AUTH_ENABLED`, `AuthProvider`
+**Lines:** 18 · **Size:** 775 B · **Language:** typescript · **Exports:** `AUTH_ENABLED`, `AuthProvider`
 
 Decides whether Clerk is on: AUTH_ENABLED is true only with a publishable key and when NEXT_PUBLIC_DEMO is not 1. Clerk is required lazily so demo and static builds never bundle it; otherwise children render unwrapped.
 
-**Used by:** `src/app/layout.tsx`, `src/components/auth/auth-nav.tsx`, `src/components/auth/auth-shell.tsx`, `src/components/auth/clerk-form.tsx`, `src/components/dashboard/settings.tsx`, `src/lib/auth.ts`
+**Imports from:** `src/components/auth/clerk-action-guard.tsx`
+
+**Used by:** `src/app/layout.tsx`, `src/components/auth/auth-nav.tsx`, `src/components/auth/auth-shell.tsx`, `src/components/auth/clerk-form.tsx`, `src/components/dashboard/settings.tsx`, `src/components/dashboard/shell.tsx` +1 more
 
 ```tsx
-/** Clerk is enabled only when keys exist and this isn't the static demo build; otherwise no auth (demo mode). */
+import { ClerkActionGuard } from "@/components/auth/clerk-action-guard";
+
+/** Clerk is on only when keys exist and this isn't the static demo build; otherwise no auth (demo mode). */
 export const AUTH_ENABLED =
   !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.NEXT_PUBLIC_DEMO !== "1";
 
@@ -8215,43 +8786,58 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Required lazily so the static demo build never bundles Clerk (it uses server actions).
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { ClerkProvider } = require("@clerk/nextjs") as typeof import("@clerk/nextjs");
-  return <ClerkProvider>{children}</ClerkProvider>;
+  return (
+    <ClerkProvider>
+      <ClerkActionGuard />
+      {children}
+    </ClerkProvider>
+  );
 }
 ```
 
 ### `src/components/auth/appearance.ts`
 
-**Lines:** 19 · **Size:** 649 B · **Language:** typescript · **Exports:** `clerkAppearance`
+**Lines:** 29 · **Size:** 1.2 KB · **Language:** typescript · **Exports:** `clerkAppearance`
 
 Clerk appearance variables giving the sign-in widgets the dark cyan/violet theme without a theme package.
 
 **Used by:** `src/components/auth/clerk-form.tsx`
 
 ```ts
-/** Dark theme with cyan/violet accent (no @clerk/ui theme package needed; uses appearance.variables). */
+/**
+ * "Ink & Signal" Clerk theme: mint primary with dark text on tonal surfaces (no @clerk/ui theme package;
+ * uses appearance.variables). Uses the current Clerk variable names; the older colorText /
+ * colorInputBackground are ignored by this version. Clerk needs literal colour values here, so these
+ * mirror the tokens in src/app/globals.css (--surface-1/2/3, --mint, --text...).
+ */
 export const clerkAppearance = {
   variables: {
-    colorPrimary: "#22e5ff",
-    colorBackground: "#0b0b14",
-    colorInputBackground: "#12121f",
-    colorText: "#f4f4f8",
-    colorTextSecondary: "#a1a1b5",
-    colorTextOnPrimaryBackground: "#06060c",
+    colorPrimary: "#3ee6a0",
+    colorPrimaryForeground: "#04170f",
+    colorBackground: "#15181d",
+    colorForeground: "#eceef2",
+    colorMutedForeground: "#9aa1ad",
+    colorMuted: "#1b1f25",
+    colorInput: "#101216",
+    colorInputForeground: "#eceef2",
+    colorBorder: "rgba(255,255,255,0.09)",
     colorNeutral: "#ffffff",
-    colorDanger: "#ff6b81",
-    borderRadius: "0.6rem",
+    colorDanger: "#ff7a6b",
+    colorRing: "rgba(62,230,160,0.55)",
+    borderRadius: "0.75rem",
   },
   elements: {
     rootBox: "w-full max-w-[400px]",
-    card: "bg-[#0b0b14] border border-white/10 shadow-[0_0_60px_-20px_#a06bff]",
-    footerActionLink: "text-[#a06bff] hover:text-[#22e5ff]",
+    card: "!rounded-[16px] !border-0 !bg-[#15181d] !shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(255,255,255,0.07),0_24px_70px_-24px_rgba(0,0,0,0.7)]",
+    footer: "!bg-transparent",
+    footerActionLink: "!text-[#7b8cff] hover:!text-[#3ee6a0]",
   },
 };
 ```
 
 ### `src/components/auth/auth-nav.tsx`
 
-**Lines:** 23 · **Size:** 814 B · **Language:** typescript · **Exports:** `AuthNav`
+**Lines:** 26 · **Size:** 884 B · **Language:** typescript · **Exports:** `AuthNav`
 
 Header auth control that lazily delegates to ClerkNav only when AUTH_ENABLED.
 
@@ -8262,6 +8848,7 @@ Header auth control that lazily delegates to ClerkNav only when AUTH_ENABLED.
 ```tsx
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { AUTH_ENABLED } from "@/components/auth-provider";
 
@@ -8270,13 +8857,15 @@ export function AuthNav() {
   if (AUTH_ENABLED) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { ClerkNav } = require("./clerk-nav") as typeof import("./clerk-nav");
-    return <ClerkNav />;
+    return (
+      <Suspense fallback={<span className="h-8 w-20 animate-pulse rounded-[10px] bg-white/10" aria-hidden />}>
+        <ClerkNav />
+      </Suspense>
+    );
   }
   return (
     <div className="flex items-center gap-2">
-      <span className="rounded-full border border-violet-400/30 bg-violet-400/10 px-2.5 py-0.5 text-xs font-medium text-violet-200">
-        Demo mode
-      </span>
+      <span className="chip chip-blue">Demo mode</span>
       <Link href="/dashboard" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
         Dashboard
       </Link>
@@ -8287,7 +8876,7 @@ export function AuthNav() {
 
 ### `src/components/auth/auth-shell.tsx`
 
-**Lines:** 66 · **Size:** 3.9 KB · **Language:** typescript · **Exports:** `AuthShell`
+**Lines:** 98 · **Size:** 6.0 KB · **Language:** typescript · **Exports:** `AuthShell`
 
 Layout of the sign-in/up pages: logo, explanatory copy, and either ClerkForm or the demo-mode continue button.
 
@@ -8296,46 +8885,66 @@ Layout of the sign-in/up pages: logo, explanatory copy, and either ClerkForm or 
 **Used by:** `src/app/(auth)/sign-in/[[...sign-in]]/page.tsx`, `src/app/(auth)/sign-up/[[...sign-up]]/page.tsx`
 
 ```tsx
+import { Suspense } from "react";
 import Link from "next/link";
-import { ArrowRight, GitBranch, Mail, ShieldCheck } from "lucide-react";
+import { ArrowRight, Download, GitBranch, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { AUTH_ENABLED } from "@/components/auth-provider";
 import { ClerkForm } from "./clerk-form";
 
 const FEED = [
-  { who: "Planner", msg: "Split issue #214 into 4 tasks", c: "#22e5ff" },
-  { who: "Coder", msg: "Opened PR: fix flaky retry logic", c: "#a06bff" },
-  { who: "Reviewer", msg: "Approved with 2 suggestions", c: "#22e5ff" },
-  { who: "Tester", msg: "48 checks passed", c: "#a06bff" },
+  { who: "Architect", msg: "Split the brief into 6 modules", c: "var(--agent-cyan)" },
+  { who: "Backend", msg: "feat(api): projects routes", c: "var(--agent-violet)" },
+  { who: "QA", msg: "e2e: 18 passed", c: "var(--agent-emerald)" },
+  { who: "Reviewer", msg: "Verdict: Go", c: "var(--agent-lime)" },
+];
+
+const POINTS = [
+  { icon: GitBranch, tone: "bg-[var(--mint-tint)] text-[var(--mint)]", t: "Eight agents, one pipeline", d: "Plan, build, test, secure and review, all visible." },
+  { icon: ShieldCheck, tone: "bg-[var(--blue-tint)] text-[var(--blue)]", t: "A Go / No-Go on every build", d: "Nothing ships until the Reviewer signs off." },
+  { icon: Download, tone: "bg-[var(--amber-tint)] text-[var(--amber)]", t: "Export what you built", d: "Take projects out as JSON or Markdown." },
 ];
 
 export function AuthShell({ mode }: { mode: "sign-in" | "sign-up" }) {
   const title = mode === "sign-in" ? "Welcome back" : "Create your account";
   return (
-    <main className="grid min-h-screen lg:grid-cols-2">
-      <section className="relative hidden flex-col justify-between overflow-hidden border-r border-white/10 bg-[radial-gradient(ellipse_at_top_left,#22e5ff22,transparent_55%),radial-gradient(ellipse_at_bottom_right,#a06bff2a,transparent_55%)] p-10 lg:flex">
-        <Link href="/"><Logo className="text-lg" /></Link>
-        <div className="space-y-8">
-          <h2 className="max-w-md text-3xl font-semibold tracking-tight">A team of AI agents that ships while you sleep.</h2>
-          <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex gap-2"><ShieldCheck className="size-4 text-[#22e5ff]" />Every change reviewed and tested before it lands</li>
-            <li className="flex gap-2"><GitBranch className="size-4 text-[#a06bff]" />Works on your GitHub repos, PR by PR</li>
-            <li className="flex gap-2"><Mail className="size-4 text-[#22e5ff]" />Sign in with email or GitHub</li>
+    <main className="grid min-h-screen lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+      <section className="relative hidden flex-col justify-between overflow-hidden bg-[var(--surface-1)] p-12 lg:flex xl:p-16">
+        <div aria-hidden className="bg-atmosphere pointer-events-none absolute inset-0" />
+        <div aria-hidden className="bg-dots fade-mask-b pointer-events-none absolute inset-0 opacity-25" />
+        <Link href="/" className="relative w-fit"><Logo className="text-lg" /></Link>
+        <div className="reveal relative space-y-10">
+          <h2 className="h-display max-w-md text-4xl xl:text-[2.75rem]">A crew of AI agents that builds your SaaS.</h2>
+          <ul className="max-w-md space-y-5">
+            {POINTS.map(({ icon: I, tone, t, d }) => (
+              <li key={t} className="flex gap-4">
+                <span className={`grid size-10 shrink-0 place-items-center rounded-[12px] ${tone}`}><I className="size-5" /></span>
+                <span><span className="block font-semibold text-[var(--text)]">{t}</span><span className="text-sm text-[var(--text-muted)]">{d}</span></span>
+              </li>
+            ))}
           </ul>
-          <div className="max-w-md space-y-2 rounded-xl border border-white/10 bg-black/30 p-4 font-mono text-xs">
+          <div aria-hidden className="max-w-md space-y-2.5 rounded-[16px] bg-black/30 p-5 text-[0.8rem] shadow-[var(--inner-top),0_0_0_1px_var(--hairline)]">
             {FEED.map((f) => (
-              <div key={f.msg} className="flex gap-2">
-                <span style={{ color: f.c }}>{f.who}</span>
-                <span className="text-muted-foreground">{f.msg}</span>
+              <div key={f.msg} className="flex items-center gap-3">
+                <span className="size-1.5 shrink-0 rounded-full" style={{ background: f.c }} />
+                <span className="w-[4.75rem] shrink-0 font-medium" style={{ color: f.c }}>{f.who}</span>
+                <span className="truncate text-[var(--text-muted)]">{f.msg}</span>
               </div>
             ))}
           </div>
         </div>
-        <p className="text-xs text-muted-foreground">Ghost.AI</p>
+        <p className="relative text-sm text-[var(--text-faint)]">Ghost.AI</p>
       </section>
-      <section className="flex flex-col items-center justify-center gap-6 p-6">
-        <Link href="/" className="lg:hidden"><Logo /></Link>
-        {AUTH_ENABLED ? <ClerkForm mode={mode} /> : <Explainer title={title} />}
+      <section className="relative flex flex-col items-center justify-center gap-8 px-6 py-12">
+        <div aria-hidden className="pointer-events-none absolute right-0 top-0 h-72 w-96 rounded-full bg-[var(--mint)] opacity-[0.05] blur-[90px] lg:hidden" />
+        <Link href="/" className="relative lg:hidden"><Logo /></Link>
+        {AUTH_ENABLED ? (
+          <Suspense fallback={<FormSkeleton />}>
+            <ClerkForm mode={mode} />
+          </Suspense>
+        ) : (
+          <Explainer title={title} />
+        )}
       </section>
     </main>
   );
@@ -8343,24 +8952,67 @@ export function AuthShell({ mode }: { mode: "sign-in" | "sign-up" }) {
 
 function Explainer({ title }: { title: string }) {
   return (
-    <div className="w-full max-w-md space-y-5 rounded-2xl border border-white/10 bg-card p-6 shadow-[0_0_60px_-25px_#a06bff]">
+    <div className="surface-raised reveal reveal-1 w-full max-w-md space-y-6 p-7 sm:p-8">
       <div>
-        <span className="rounded-full border border-violet-400/30 bg-violet-400/10 px-2.5 py-0.5 text-xs text-violet-200">Demo mode</span>
-        <h1 className="mt-3 text-xl font-semibold">{title}</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
+        <span className="chip chip-blue">Demo mode</span>
+        <h1 className="h-display mt-4 text-2xl">{title}</h1>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
           Authentication (email + GitHub) is powered by Clerk and is not configured here, so everything runs as a local demo.
         </p>
       </div>
-      <ol className="space-y-2 text-sm">
-        <li><b className="text-[#22e5ff]">1.</b> Create a free app at clerk.com and enable Email and GitHub.</li>
-        <li><b className="text-[#22e5ff]">2.</b> Put the keys in <code className="rounded bg-white/10 px-1">.env.local</code>: <code className="rounded bg-white/10 px-1">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> and <code className="rounded bg-white/10 px-1">CLERK_SECRET_KEY</code>.</li>
-        <li><b className="text-[#22e5ff]">3.</b> Restart <code className="rounded bg-white/10 px-1">npm run dev</code>. See docs/auth.md.</li>
+      <ol className="space-y-3 text-sm leading-relaxed text-[var(--text-muted)]">
+        <li className="flex gap-3"><b className="grid size-5 shrink-0 place-items-center rounded-full bg-[var(--mint-tint)] text-xs text-[var(--mint)]">1</b><span>Create a free app at clerk.com and enable Email and GitHub.</span></li>
+        <li className="flex gap-3"><b className="grid size-5 shrink-0 place-items-center rounded-full bg-[var(--mint-tint)] text-xs text-[var(--mint)]">2</b><span>Put the keys in <code className="rounded-md bg-white/[0.07] px-1.5 py-0.5 font-mono text-xs text-[var(--text)]">.env.local</code>: <code className="break-all rounded-md bg-white/[0.07] px-1.5 py-0.5 font-mono text-xs text-[var(--text)]">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> and <code className="rounded-md bg-white/[0.07] px-1.5 py-0.5 font-mono text-xs text-[var(--text)]">CLERK_SECRET_KEY</code>.</span></li>
+        <li className="flex gap-3"><b className="grid size-5 shrink-0 place-items-center rounded-full bg-[var(--mint-tint)] text-xs text-[var(--mint)]">3</b><span>Restart <code className="rounded-md bg-white/[0.07] px-1.5 py-0.5 font-mono text-xs text-[var(--text)]">npm run dev</code>. See docs/auth.md.</span></li>
       </ol>
-      <Link href="/dashboard" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#22e5ff] px-4 py-2 text-sm font-medium text-black hover:opacity-90">
+      <Link href="/dashboard" className="btn btn-primary btn-lg w-full">
         Continue in demo mode <ArrowRight className="size-4" />
       </Link>
     </div>
   );
+}
+
+/** Shown while Clerk's form loads (Clerk renders in the browser, so Cache Components needs a Suspense boundary). */
+function FormSkeleton() {
+  return (
+    <div role="status" aria-label="Loading sign-in form" className="surface-raised w-full max-w-[400px] animate-pulse space-y-4 p-8">
+      <div className="mx-auto h-6 w-40 rounded-lg bg-white/10" />
+      <div className="h-10 rounded-[12px] bg-white/5" />
+      <div className="h-10 rounded-[12px] bg-white/5" />
+      <div className="h-10 rounded-[12px] bg-[var(--mint)]/20" />
+    </div>
+  );
+}
+```
+
+### `src/components/auth/clerk-action-guard.tsx`
+
+**Lines:** 20 · **Size:** 877 B · **Language:** typescript · **Exports:** `ClerkActionGuard`
+
+(No hand-written note for this file. Detected exports: ClerkActionGuard.)
+
+**Used by:** `src/components/auth-provider.tsx`
+
+```tsx
+"use client";
+
+import { useEffect } from "react";
+
+/**
+ * Clerk's Next provider runs `invalidateCacheAction()` (a server action) before every sign-in/sign-up
+ * `setActive`, and only continues when it resolves. If that action throws, the flow hangs forever
+ * (sign-up verified, but the user is never redirected to the dashboard).
+ *
+ * We replace the hook with one that always resolves. Clerk's own `__internal_onAfterSetActive`
+ * still calls `router.refresh()`, which re-renders server state with the new session.
+ * Runs in useEffect so it executes after the provider's layout effect that installs the original hook.
+ */
+export function ClerkActionGuard() {
+  useEffect(() => {
+    const w = window as unknown as { __internal_onBeforeSetActive?: (intent?: string) => Promise<void> };
+    w.__internal_onBeforeSetActive = () => Promise.resolve();
+  }, []);
+  return null;
 }
 ```
 
@@ -8395,7 +9047,7 @@ export function ClerkForm({ mode }: { mode: "sign-in" | "sign-up" }) {
 
 ### `src/components/auth/clerk-nav.tsx`
 
-**Lines:** 30 · **Size:** 1.0 KB · **Language:** typescript · **Exports:** `ClerkNav`
+**Lines:** 27 · **Size:** 927 B · **Language:** typescript · **Exports:** `ClerkNav`
 
 Sign-in link or UserButton depending on session. Uses the same lazy require path as AuthProvider so all share one Clerk module instance (React context).
 
@@ -8416,10 +9068,7 @@ export function ClerkNav() {
         <Link href="/sign-in" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
           Sign in
         </Link>
-        <Link
-          href="/sign-up"
-          className="rounded-lg bg-[#22e5ff] px-3 py-1 text-sm font-medium text-black transition-opacity hover:opacity-90"
-        >
+        <Link href="/sign-up" className="btn btn-primary btn-sm">
           Get started
         </Link>
       </Show>
@@ -8436,7 +9085,7 @@ export function ClerkNav() {
 
 ### `src/components/brand/logo.tsx`
 
-**Lines:** 39 · **Size:** 1.9 KB · **Language:** typescript · **Exports:** `LogoMark`, `Logo`
+**Lines:** 33 · **Size:** 1.4 KB · **Language:** typescript · **Exports:** `LogoMark`, `Logo`
 
 LogoMark (geometric ghost with circuit traces and cyan-to-violet gradient) and Logo (mark plus wordmark) used across header, footer, auth and dashboard.
 
@@ -8445,39 +9094,33 @@ LogoMark (geometric ghost with circuit traces and cyan-to-violet gradient) and L
 ```tsx
 import { useId } from "react";
 
-const BODY = "M24 4 C14 4 8 11 8 20 V42 L14 37 L19 42 L24 37 L29 42 L34 37 L40 42 V20 C40 11 34 4 24 4Z";
+const BODY =
+  "M24 4C14.6 4 8 10.8 8 20v20.5c0 1.4 1.6 2.1 2.6 1.2l3.7-3.4a1.6 1.6 0 0 1 2.2 0l2.7 2.5a1.6 1.6 0 0 0 2.2 0L24 40l2.6 2.8a1.6 1.6 0 0 0 2.2 0l2.7-2.5a1.6 1.6 0 0 1 2.2 0l3.7 3.4c1 .9 2.6.2 2.6-1.2V20C40 10.8 33.4 4 24 4Z";
 
-/** Geometric ghost with circuit traces; cyan to violet gradient glow. */
+/** Geometric ghost: solid signal-mint body, two ink eyes. Reads at 16px. */
 export function LogoMark({ size = 28, className = "" }: { size?: number; className?: string }) {
   const id = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
     <svg width={size} height={size} viewBox="0 0 48 48" className={className} aria-hidden="true">
       <defs>
-        <linearGradient id={`g${id}`} x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#22e5ff" />
-          <stop offset="1" stopColor="#a06bff" />
+        <linearGradient id={`g${id}`} x1="10" y1="4" x2="38" y2="44" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#6ff5bd" />
+          <stop offset="1" stopColor="#3ee6a0" />
         </linearGradient>
-        <filter id={`f${id}`} x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="2.2" />
-        </filter>
       </defs>
-      <path d={BODY} fill={`url(#g${id})`} opacity=".4" filter={`url(#f${id})`} />
-      <path d={BODY} fill="#070a18" stroke={`url(#g${id})`} strokeWidth="2" strokeLinejoin="round" />
-      <path d="M14 17 H19 L21 19 M34 17 H29 L27 19" stroke={`url(#g${id})`} strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <rect x="15" y="20" width="6" height="6" rx="1.2" fill="#22e5ff" />
-      <rect x="27" y="20" width="6" height="6" rx="1.2" fill="#a06bff" />
-      <path d="M18 31 H22 V33 H26 V31 H30" stroke={`url(#g${id})`} strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="24" cy="9.5" r="1.4" fill="#fff" />
+      <path d={BODY} fill={`url(#g${id})`} />
+      <ellipse cx="18" cy="21" rx="2.8" ry="3.6" fill="#0a0b0d" />
+      <ellipse cx="30" cy="21" rx="2.8" ry="3.6" fill="#0a0b0d" />
     </svg>
   );
 }
 
 export function Logo({ className = "", size = 28 }: { className?: string; size?: number }) {
   return (
-    <span className={`inline-flex items-center gap-2 font-display font-bold tracking-tight ${className}`}>
+    <span className={`inline-flex items-center gap-2.5 font-display font-bold tracking-tight ${className}`}>
       <LogoMark size={size} />
-      <span className="text-[1.05rem] leading-none">
-        Ghost<span className="gh-text-gradient">.AI</span>
+      <span className="text-[1.1rem] leading-none tracking-[-0.03em]">
+        Ghost<span className="text-[var(--mint)]">.AI</span>
       </span>
     </span>
   );
@@ -8486,7 +9129,7 @@ export function Logo({ className = "", size = 28 }: { className?: string; size?:
 
 ### `src/components/ui/badge.tsx`
 
-**Lines:** 51 · **Size:** 1.9 KB · **Language:** typescript · **Exports:** `Badge`, `badgeVariants`
+**Lines:** 51 · **Size:** 1.8 KB · **Language:** typescript · **Exports:** `Badge`, `badgeVariants`
 
 shadcn/ui Badge component generated by the shadcn CLI (class-variance-authority variants).
 
@@ -8497,20 +9140,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
 const badgeVariants = cva(
-  "group/badge inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-4xl border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3!",
+  "group/badge inline-flex h-6 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2.5 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3!",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        default: "bg-[var(--mint-tint)] text-[var(--mint)] [a]:hover:bg-[rgba(62,230,160,0.2)]",
         secondary:
-          "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",
+          "bg-white/6 text-muted-foreground [a]:hover:bg-white/10",
         destructive:
-          "bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20",
+          "bg-[var(--coral-tint)] text-[var(--coral)] focus-visible:ring-destructive/30 [a]:hover:bg-destructive/20",
         outline:
-          "border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground",
+          "shadow-[0_0_0_1px_var(--hairline-strong)] text-foreground [a]:hover:bg-white/5",
         ghost:
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-[var(--blue)] underline-offset-4 hover:underline",
       },
     },
     defaultVariants: {
@@ -8546,7 +9189,7 @@ export { Badge, badgeVariants }
 
 ### `src/components/ui/button.tsx`
 
-**Lines:** 57 · **Size:** 3.2 KB · **Language:** typescript · **Exports:** `Button`, `buttonVariants`
+**Lines:** 56 · **Size:** 2.9 KB · **Language:** typescript · **Exports:** `Button`, `buttonVariants`
 
 shadcn/ui Button with variants and sizes.
 
@@ -8558,33 +9201,32 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-xl border border-transparent bg-clip-padding text-sm font-medium tracking-[-0.005em] whitespace-nowrap transition-[transform,background-color,box-shadow,color] duration-150 ease-out outline-none select-none focus-visible:ring-3 focus-visible:ring-ring active:not-aria-[haspopup]:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 aria-invalid:ring-3 aria-invalid:ring-destructive/30 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/80",
+        default:
+          "bg-primary text-primary-foreground font-semibold shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_1px_2px_rgba(0,0,0,0.4),0_6px_20px_-8px_rgba(62,230,160,0.55)] hover:bg-[#5cf0b4] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_26px_-8px_rgba(62,230,160,0.7)]",
         outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+          "bg-transparent text-foreground shadow-[0_0_0_1px_var(--hairline-strong)] hover:bg-white/5 aria-expanded:bg-white/5",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+          "bg-secondary text-secondary-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_var(--hairline)] hover:bg-[#222730] aria-expanded:bg-secondary",
         ghost:
-          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+          "text-muted-foreground hover:bg-white/6 hover:text-foreground aria-expanded:bg-white/6 aria-expanded:text-foreground",
         destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-destructive/12 text-destructive hover:bg-destructive/20 focus-visible:ring-destructive/40",
+        link: "text-[var(--blue)] underline-offset-4 hover:underline",
       },
       size: {
         default:
-          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        icon: "size-8",
-        "icon-xs":
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm":
-          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
-        "icon-lg": "size-9",
+          "h-10 gap-2 px-4 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
+        xs: "h-7 gap-1 rounded-lg px-2.5 text-xs in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-8 gap-1.5 rounded-[10px] px-3 text-[0.8125rem] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-12 gap-2 rounded-[14px] px-5 text-[0.95rem] has-data-[icon=inline-end]:pr-4 has-data-[icon=inline-start]:pl-4",
+        icon: "size-10",
+        "icon-xs": "size-7 rounded-lg in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm": "size-8 rounded-[10px] in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-12 rounded-[14px]",
       },
     },
     defaultVariants: {
@@ -8632,7 +9274,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-xl bg-card py-(--card-spacing) text-sm text-card-foreground ring-1 ring-foreground/10 [--card-spacing:--spacing(4)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(3)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
+        "group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-2xl bg-card py-(--card-spacing) text-sm text-card-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_var(--hairline)] [--card-spacing:--spacing(6)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-2xl *:[img:last-child]:rounded-b-2xl",
         className
       )}
       {...props}
@@ -8645,7 +9287,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-header"
       className={cn(
-        "group/card-header @container/card-header grid auto-rows-min items-start gap-1 rounded-t-xl px-(--card-spacing) has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-(--card-spacing)",
+        "group/card-header @container/card-header grid auto-rows-min items-start gap-1 rounded-t-2xl px-(--card-spacing) has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-(--card-spacing)",
         className
       )}
       {...props}
@@ -8658,7 +9300,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "font-heading text-base leading-snug font-medium group-data-[size=sm]/card:text-sm",
+        "font-heading text-base leading-snug font-semibold tracking-[-0.02em] group-data-[size=sm]/card:text-sm",
         className
       )}
       {...props}
@@ -8704,7 +9346,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center rounded-b-xl border-t bg-muted/50 p-(--card-spacing)",
+        "flex items-center rounded-b-2xl bg-white/[0.03] p-(--card-spacing)",
         className
       )}
       {...props}
@@ -8725,7 +9367,7 @@ export {
 
 ### `src/components/ui/dialog.tsx`
 
-**Lines:** 160 · **Size:** 4.0 KB · **Language:** typescript · **Exports:** `Dialog`, `DialogClose`, `DialogContent`, `DialogDescription`, `DialogFooter`, `DialogHeader`, `DialogOverlay`, `DialogPortal`, `DialogTitle`, `DialogTrigger`
+**Lines:** 160 · **Size:** 4.1 KB · **Language:** typescript · **Exports:** `Dialog`, `DialogClose`, `DialogContent`, `DialogDescription`, `DialogFooter`, `DialogHeader`, `DialogOverlay`, `DialogPortal`, `DialogTitle`, `DialogTrigger`
 
 shadcn/ui Dialog built on Base UI primitives; used by the wizard, confirmations and the commit viewer.
 
@@ -8767,7 +9409,7 @@ function DialogOverlay({
     <DialogPrimitive.Backdrop
       data-slot="dialog-overlay"
       className={cn(
-        "fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 isolate z-50 bg-black/60 duration-150 supports-backdrop-filter:backdrop-blur-sm data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
         className
       )}
       {...props}
@@ -8789,7 +9431,7 @@ function DialogContent({
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-5 rounded-2xl bg-popover p-6 text-sm text-popover-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_var(--hairline-strong),0_30px_80px_-20px_rgba(0,0,0,0.8)] duration-150 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
           className
         )}
         {...props}
@@ -8801,7 +9443,7 @@ function DialogContent({
             render={
               <Button
                 variant="ghost"
-                className="absolute top-2 right-2"
+                className="absolute top-3 right-3"
                 size="icon-sm"
               />
             }
@@ -8898,7 +9540,7 @@ export {
 
 ### `src/components/ui/input.tsx`
 
-**Lines:** 19 · **Size:** 1.0 KB · **Language:** typescript · **Exports:** `Input`
+**Lines:** 19 · **Size:** 1.1 KB · **Language:** typescript · **Exports:** `Input`
 
 shadcn/ui Input.
 
@@ -8915,7 +9557,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       type={type}
       data-slot="input"
       className={cn(
-        "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+        "h-10 w-full min-w-0 rounded-xl border-0 bg-black/30 px-3 py-1 text-base shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.08)] transition-[box-shadow,background-color] duration-150 outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-[var(--text-faint)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.14)] focus-visible:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(62,230,160,0.6),0_0_0_4px_rgba(62,230,160,0.14)] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:shadow-[0_0_0_1px_var(--coral),0_0_0_4px_rgba(255,122,107,0.15)] md:text-sm",
         className
       )}
       {...props}
@@ -8928,7 +9570,7 @@ export { Input }
 
 ### `src/components/ui/table.tsx`
 
-**Lines:** 115 · **Size:** 2.3 KB · **Language:** typescript · **Exports:** `Table`, `TableHeader`, `TableBody`, `TableFooter`, `TableHead`, `TableRow`, `TableCell`, `TableCaption`
+**Lines:** 115 · **Size:** 2.4 KB · **Language:** typescript · **Exports:** `Table`, `TableHeader`, `TableBody`, `TableFooter`, `TableHead`, `TableRow`, `TableCell`, `TableCaption`
 
 shadcn/ui Table parts.
 
@@ -8957,7 +9599,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b", className)}
+      className={cn("[&_tr]:border-b [&_tr]:border-white/[0.06]", className)}
       {...props}
     />
   )
@@ -8991,7 +9633,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b transition-colors hover:bg-muted/50 has-aria-expanded:bg-muted/50 data-[state=selected]:bg-muted",
+        "border-b border-white/[0.05] transition-colors duration-150 hover:bg-white/[0.03] has-aria-expanded:bg-muted/50 data-[state=selected]:bg-muted",
         className
       )}
       {...props}
@@ -9004,7 +9646,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-10 px-2 text-left align-middle font-medium whitespace-nowrap text-foreground [&:has([role=checkbox])]:pr-0",
+        "h-11 px-3 text-left align-middle text-xs font-medium whitespace-nowrap text-muted-foreground [&:has([role=checkbox])]:pr-0",
         className
       )}
       {...props}
@@ -9017,7 +9659,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0",
+        "px-3 py-3 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0",
         className
       )}
       {...props}
@@ -9082,11 +9724,11 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  "group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
+  "group/tabs-list inline-flex w-fit items-center justify-center rounded-xl p-1 text-muted-foreground group-data-horizontal/tabs:h-10 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
   {
     variants: {
       variant: {
-        default: "bg-muted",
+        default: "bg-black/30 shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]",
         line: "gap-1 bg-transparent",
       },
     },
@@ -9116,10 +9758,10 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
       className={cn(
-        "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-1.5 py-0.5 text-sm font-medium whitespace-nowrap text-foreground/60 transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 aria-disabled:pointer-events-none aria-disabled:opacity-50 dark:text-muted-foreground dark:hover:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-lg border border-transparent px-3 py-0.5 text-sm font-medium whitespace-nowrap text-foreground/60 transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 aria-disabled:pointer-events-none aria-disabled:opacity-50 dark:text-muted-foreground dark:hover:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent dark:group-data-[variant=line]/tabs-list:data-active:border-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent",
-        "data-active:bg-background data-active:text-foreground dark:data-active:border-input dark:data-active:bg-input/30 dark:data-active:text-foreground",
-        "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
+        "data-active:bg-[var(--surface-3)] data-active:text-foreground data-active:shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_3px_rgba(0,0,0,0.4)]",
+        "after:absolute after:bg-[var(--mint)] after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
         className
       )}
       {...props}
@@ -9146,7 +9788,7 @@ Header, footer, mobile navigation and the page shell.
 
 ### `src/components/site/mobile-nav.tsx`
 
-**Lines:** 79 · **Size:** 2.8 KB · **Language:** typescript · **Exports:** `MobileNav`
+**Lines:** 74 · **Size:** 2.7 KB · **Language:** typescript · **Exports:** `MobileNav`
 
 Mobile hamburger menu with focus handling that closes on navigation.
 
@@ -9184,7 +9826,7 @@ export function MobileNav({ children }: { children?: React.ReactNode }) {
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex size-10 items-center justify-center border border-[var(--gh-line)] text-[#dbe3ff] hover:text-[var(--gh-cyan)]"
+        className="inline-flex size-10 items-center justify-center rounded-xl bg-white/5 text-[var(--text)] transition-colors hover:bg-white/10"
       >
         {open ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>
@@ -9193,21 +9835,18 @@ export function MobileNav({ children }: { children?: React.ReactNode }) {
           id="mobile-menu"
           role="dialog"
           aria-label="Site menu"
-          className="fixed inset-x-0 top-16 bottom-0 z-50 overflow-y-auto bg-[#05060d]/95 px-4 pb-10 pt-4 backdrop-blur-xl"
+          className="fixed inset-x-0 top-16 bottom-0 z-50 overflow-y-auto bg-[#0a0b0d]/95 px-6 pb-10 pt-4 backdrop-blur-xl"
         >
-          <p className="gh-hud mb-3">{"// navigation"}</p>
+          <p className="gh-hud mb-2">Navigation</p>
           <nav className="flex flex-col">
-            {NAV_LINKS.map((l, i) => (
+            {NAV_LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between border-b border-[var(--gh-line)] py-4 font-display text-xl text-[#e8ecff] hover:text-[var(--gh-cyan)]"
+                className="flex items-center justify-between border-b border-white/[0.06] py-4 font-display text-xl font-semibold tracking-tight text-[var(--text)] transition-colors hover:text-[var(--mint)]"
               >
-                <span>
-                  <span className="mr-3 font-mono text-xs text-[var(--gh-cyan)]">0{i + 1}</span>
-                  {l.label}
-                </span>
+                <span>{l.label}</span>
                 <ArrowUpRight className="size-4 opacity-60" />
               </Link>
             ))}
@@ -9215,17 +9854,15 @@ export function MobileNav({ children }: { children?: React.ReactNode }) {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between border-b border-[var(--gh-line)] py-4 font-display text-xl text-[#e8ecff]"
+              className="flex items-center justify-between border-b border-white/[0.06] py-4 font-display text-xl font-semibold tracking-tight text-[var(--text)]"
             >
-              <span>
-                <span className="mr-3 font-mono text-xs text-[var(--gh-cyan)]">06</span>GitHub
-              </span>
+              <span>GitHub</span>
               <ArrowUpRight className="size-4 opacity-60" />
             </a>
           </nav>
           <div className="mt-6 flex flex-col gap-3" onClick={() => setOpen(false)}>
             {children}
-            <Link href="/dashboard" className="gh-btn gh-btn-primary gh-btn-lg w-full">
+            <Link href="/dashboard" className="btn btn-primary btn-lg w-full">
               Launch app
             </Link>
           </div>
@@ -9258,7 +9895,7 @@ export const NAV_LINKS = [
 
 ### `src/components/site/site-footer.tsx`
 
-**Lines:** 105 · **Size:** 4.0 KB · **Language:** typescript · **Exports:** `SiteFooter`
+**Lines:** 106 · **Size:** 3.9 KB · **Language:** typescript · **Exports:** `SiteFooter`
 
 Site footer with link columns and logo.
 
@@ -9306,26 +9943,26 @@ const POWERED = ["Next.js", "Clerk", "Drizzle", "shadcn/ui", "CodeRabbit", "Verc
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-auto border-t border-[var(--gh-line)] bg-[#04050b]">
-      <div className="absolute inset-0 gh-dots opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+    <footer className="relative mt-auto bg-[var(--surface-1)] shadow-[0_-1px_0_rgba(255,255,255,0.06)]">
+      <div className="bg-dots absolute inset-0 opacity-25 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
+      <div className="relative mx-auto max-w-[1160px] px-6 py-16">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_repeat(3,1fr)]">
           <div>
             <Link href="/" aria-label="Ghost AI home">
               <Logo />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--gh-text-dim)]">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--text-muted)]">
               Eight specialised agents that plan, build, test, secure, document and review your SaaS, with every
               commit on the record.
             </p>
-            <div className="mt-5 inline-flex items-center gap-2 border border-emerald-400/30 bg-emerald-400/10 px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-widest text-emerald-300">
-              <span className="gh-pulse size-1.5 rounded-full bg-emerald-400" />
+            <div className="mt-5 chip chip-mint">
+              <span className="gh-pulse size-1.5 rounded-full bg-[var(--mint)]" />
               All systems operational
             </div>
           </div>
           {COLUMNS.map((c) => (
             <div key={c.title}>
-              <h3 className="gh-hud mb-4">{c.title}</h3>
+              <h3 className="mb-4 font-sans text-sm font-semibold tracking-normal text-[var(--text)]">{c.title}</h3>
               <ul className="space-y-2.5">
                 {c.links.map((l) => (
                   <li key={l.label}>
@@ -9334,12 +9971,12 @@ export function SiteFooter() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-[#b8c0e6] transition-colors hover:text-[var(--gh-cyan)]"
+                        className="text-sm text-[var(--text-muted)] transition-colors duration-150 hover:text-[var(--text)]"
                       >
                         {l.label} <span aria-hidden="true">↗</span>
                       </a>
                     ) : (
-                      <Link href={l.href} className="text-sm text-[#b8c0e6] transition-colors hover:text-[var(--gh-cyan)]">
+                      <Link href={l.href} className="text-sm text-[var(--text-muted)] transition-colors duration-150 hover:text-[var(--text)]">
                         {l.label}
                       </Link>
                     )}
@@ -9350,13 +9987,14 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-10 border-t border-[var(--gh-line)] pt-6">
-          <p className="gh-hud mb-3 !text-[var(--gh-text-dim)]">Powered by</p>
+        <div className="divider-soft mt-12" />
+        <div className="pt-8">
+          <p className="gh-hud mb-3">Powered by</p>
           <ul className="flex flex-wrap gap-2">
             {POWERED.map((p) => (
               <li
                 key={p}
-                className="border border-[var(--gh-line)] bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-[#c9d1f5]"
+                className="chip"
               >
                 {p}
               </li>
@@ -9364,7 +10002,7 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="mt-8 flex flex-col gap-2 text-xs text-[var(--gh-text-dim)] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-2 text-xs text-[var(--text-faint)] sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Ghost AI. Built by agents, reviewed by humans.</p>
           <p className="font-mono">build: ghost-ai / main · v0.1.0</p>
         </div>
@@ -9376,7 +10014,7 @@ export function SiteFooter() {
 
 ### `src/components/site/site-header.tsx`
 
-**Lines:** 48 · **Size:** 1.8 KB · **Language:** typescript · **Exports:** `SiteHeader`
+**Lines:** 47 · **Size:** 1.7 KB · **Language:** typescript · **Exports:** `SiteHeader`
 
 Sticky header with desktop nav, auth control and mobile menu.
 
@@ -9393,9 +10031,8 @@ import { GITHUB_URL, NAV_LINKS } from "./nav-data";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 h-16 border-b border-[var(--gh-line)] bg-[#05060d]/70 backdrop-blur-xl">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--gh-cyan)]/60 to-transparent" />
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
+    <header className="sticky top-0 z-50 h-16 bg-[#0a0b0d]/72 shadow-[0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl backdrop-saturate-150">
+      <div className="mx-auto flex h-full max-w-[1160px] items-center justify-between gap-4 px-6">
         <Link href="/" aria-label="Ghost AI home" className="shrink-0">
           <Logo />
         </Link>
@@ -9404,7 +10041,7 @@ export function SiteHeader() {
             <Link
               key={l.href}
               href={l.href}
-              className="px-3 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[var(--gh-text-dim)] transition-colors hover:text-[var(--gh-cyan)]"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition-colors duration-150 hover:bg-white/5 hover:text-[var(--text)]"
             >
               {l.label}
             </Link>
@@ -9413,7 +10050,7 @@ export function SiteHeader() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-2 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[var(--gh-text-dim)] transition-colors hover:text-[var(--gh-cyan)]"
+            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition-colors duration-150 hover:bg-white/5 hover:text-[var(--text)]"
           >
             GitHub
           </a>
@@ -9421,7 +10058,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 lg:flex">
             <AuthNav />
-            <Link href="/dashboard" className="gh-btn gh-btn-primary">
+            <Link href="/dashboard" className="btn btn-primary btn-sm">
               Launch app
             </Link>
           </div>
@@ -9468,7 +10105,7 @@ The sections of the home page.
 
 ### `src/components/landing/agent-terminal.tsx`
 
-**Lines:** 75 · **Size:** 3.2 KB · **Language:** typescript · **Exports:** `AgentTerminal`
+**Lines:** 117 · **Size:** 5.6 KB · **Language:** typescript · **Exports:** `AgentTerminal`
 
 Animated fake terminal in the hero that types agent log lines.
 
@@ -9478,19 +10115,22 @@ Animated fake terminal in the hero that types agent log lines.
 "use client";
 
 import { useEffect, useState } from "react";
+import { Check, GitBranch } from "lucide-react";
 
-type Line = { who: string; color: string; text: string };
+type Line = { who: string; agent: string; color: string; text: string };
 
 const LINES: Line[] = [
-  { who: "you", color: "#e8ecff", text: 'ghost new "Invoice tracker for freelancers" --stack next,clerk,drizzle' },
-  { who: "ATLAS", color: "#22e5ff", text: "Reading brief... 3 modules, 14 tasks, 6 tables planned." },
-  { who: "FORGE", color: "#a06bff", text: "commit a91f3c2  feat(db): invoices, clients, payments schema" },
-  { who: "PRISM", color: "#e879f9", text: "commit 5be07d1  feat(ui): invoice table + empty states" },
-  { who: "HELM", color: "#fbbf24", text: "CI green. Preview deployed to ghost-invoices.vercel.app" },
-  { who: "ECHO", color: "#34d399", text: "42 tests passed, 0 failed. Coverage 87%." },
-  { who: "AEGIS", color: "#fb7185", text: "1 finding fixed: missing authz check on /api/invoices/:id" },
-  { who: "JUDGE", color: "#a3e635", text: "GO. Definition of done met. Shipping." },
+  { who: "you", agent: "", color: "var(--text)", text: 'ghost new "Invoice tracker" --stack next,clerk,drizzle' },
+  { who: "ATLAS", agent: "Architect", color: "var(--agent-cyan)", text: "Brief read. 3 modules, 14 tasks, 6 tables planned." },
+  { who: "FORGE", agent: "Backend", color: "var(--agent-violet)", text: "a91f3c2  feat(db): invoices, clients, payments schema" },
+  { who: "PRISM", agent: "Frontend", color: "var(--agent-fuchsia)", text: "5be07d1  feat(ui): invoice table and empty states" },
+  { who: "HELM", agent: "DevOps", color: "var(--agent-amber)", text: "CI green. Preview deployed." },
+  { who: "ECHO", agent: "QA", color: "var(--agent-emerald)", text: "42 tests passed, 0 failed." },
+  { who: "AEGIS", agent: "Security", color: "var(--agent-rose)", text: "1 finding fixed: missing authz on /api/invoices/:id" },
+  { who: "JUDGE", agent: "Reviewer", color: "var(--agent-lime)", text: "GO. Definition of done met." },
 ];
+
+const ROSTER = LINES.slice(1);
 
 export function AgentTerminal() {
   const [count, setCount] = useState(LINES.length);
@@ -9504,48 +10144,87 @@ export function AgentTerminal() {
       if (cancelled) return;
       setCount(line + 1);
       setChars(ch);
-      if (line >= LINES.length) return;
       const len = LINES[line].text.length;
-      if (ch < len) timer = setTimeout(() => run(line, ch + 2), 14);
-      else if (line + 1 < LINES.length) timer = setTimeout(() => run(line + 1, 0), 380);
+      if (ch < len) timer = setTimeout(() => run(line, ch + 2), 16);
+      else if (line + 1 < LINES.length) timer = setTimeout(() => run(line + 1, 0), 420);
       else
         timer = setTimeout(() => {
           setCount(0);
-          run(0, 0);
-        }, 5000);
+          timer = setTimeout(() => run(0, 0), 600);
+        }, 6000);
     };
-    timer = setTimeout(() => run(0, 0), 0);
+    timer = setTimeout(() => run(0, 0), 900);
     return () => {
       cancelled = true;
       clearTimeout(timer);
     };
   }, []);
 
+  const typingIdx = count > 0 && chars < LINES[count - 1].text.length ? count - 1 : -1;
+  const finished = count >= LINES.length && typingIdx === -1;
+  // roster index i corresponds to line i+1
+  const doneAgents = ROSTER.filter((_, i) => i + 1 < count - 1 || (i + 1 === count - 1 && typingIdx === -1)).length;
+  const pct = finished ? 100 : Math.round((doneAgents / ROSTER.length) * 100);
+
   return (
-    <div className="gh-panel gh-corners relative overflow-hidden font-mono text-[0.72rem] leading-relaxed sm:text-xs">
-      <div className="flex items-center justify-between border-b border-[var(--gh-line)] bg-white/[0.03] px-3 py-2">
-        <div className="flex items-center gap-1.5">
-          <span className="size-2.5 rounded-full bg-rose-400/80" />
-          <span className="size-2.5 rounded-full bg-amber-300/80" />
-          <span className="size-2.5 rounded-full bg-emerald-400/80" />
+    <div className="surface-raised overflow-hidden rounded-[20px] text-left shadow-[0_40px_120px_-30px_rgba(62,230,160,0.18),var(--shadow-2)]">
+      <div className="flex items-center justify-between gap-3 px-4 py-3.5 sm:px-5">
+        <div className="flex min-w-0 items-center gap-2.5 text-sm">
+          <GitBranch className="size-4 shrink-0 text-[var(--text-faint)]" />
+          <span className="truncate font-medium text-[var(--text)]">invoice-tracker</span>
+          <span className="hidden text-[var(--text-faint)] sm:inline">run #12 (sample)</span>
         </div>
-        <span className="gh-hud !text-[0.6rem]">agent-terminal // live</span>
+        <span className={`chip ${finished ? "chip-mint" : "chip-amber"}`}>
+          <span className={`size-1.5 rounded-full ${finished ? "bg-[var(--mint)]" : "gh-pulse bg-[var(--amber)]"}`} />
+          {finished ? "Shipped" : "Running"}
+        </span>
       </div>
-      <div className="relative min-h-[17rem] space-y-1.5 p-4 sm:min-h-[19rem]">
-        <div className="gh-scanbar" />
-        {LINES.map((l, i) => {
-          if (i >= count) return null;
-          const text = i === count - 1 ? l.text.slice(0, chars) : l.text;
-          return (
-            <p key={i} className="break-words">
-              <span style={{ color: l.color }} className="mr-2 font-semibold">
-                {l.who === "you" ? "$" : `[${l.who}]`}
-              </span>
-              <span className="text-[#c9d1f5]">{text}</span>
-              {i === count - 1 && <span className="gh-caret ml-0.5 inline-block h-3 w-1.5 translate-y-0.5 bg-[var(--gh-cyan)]" />}
-            </p>
-          );
-        })}
+
+      <div className="grid md:grid-cols-[210px_1fr]">
+        <ul className="hidden space-y-0.5 bg-black/20 p-3 md:block" aria-hidden>
+          {ROSTER.map((a, i) => {
+            const idx = i + 1;
+            const done = idx < count - 1 || (idx === count - 1 && typingIdx === -1);
+            const run = !done && idx === count - 1;
+            return (
+              <li key={a.who} className="flex items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-[0.8125rem]">
+                <span
+                  className={`size-2 shrink-0 rounded-full ${run ? "gh-pulse" : ""}`}
+                  style={{ background: done || run ? a.color : "var(--surface-3)" }}
+                />
+                <span className={done || run ? "text-[var(--text)]" : "text-[var(--text-faint)]"}>{a.agent}</span>
+                {done && <Check className="ml-auto size-3.5 text-[var(--mint)]" />}
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="min-w-0 p-4 font-mono text-[0.75rem] leading-[1.7] sm:p-5 sm:text-[0.8125rem]">
+          <div className="min-h-[15.5rem] space-y-1 sm:min-h-[16.5rem]">
+            {LINES.map((l, i) => {
+              if (i >= count) return null;
+              const text = i === typingIdx ? l.text.slice(0, chars) : l.text;
+              return (
+                <p key={i} className="break-words">
+                  <span style={{ color: l.color }} className="mr-2 font-semibold">
+                    {l.who === "you" ? "$" : l.who.toLowerCase()}
+                  </span>
+                  <span className={l.who === "you" ? "text-[var(--text)]" : "text-[var(--text-muted)]"}>{text}</span>
+                  {i === typingIdx && <span className="gh-caret ml-0.5 inline-block h-3.5 w-[3px] translate-y-0.5 rounded-sm bg-[var(--mint)]" />}
+                </p>
+              );
+            })}
+          </div>
+          <div className="mt-4 flex items-center gap-3 font-sans text-xs text-[var(--text-faint)]">
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/[0.06]">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-[var(--amber)] to-[var(--mint)] transition-[width] duration-500"
+                style={{ width: `${pct}%` }}
+              />
+            </div>
+            <span className="w-9 text-right tabular-nums">{pct}%</span>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -9554,7 +10233,7 @@ export function AgentTerminal() {
 
 ### `src/components/landing/crew.tsx`
 
-**Lines:** 103 · **Size:** 4.2 KB · **Language:** typescript · **Exports:** `Crew`
+**Lines:** 75 · **Size:** 3.4 KB · **Language:** typescript · **Exports:** `Crew`
 
 Landing section showing the eight agents as expandable cards revealing side agents.
 
@@ -9571,80 +10250,52 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
 import { Reveal, SectionHead } from "./reveal";
 
-const HEX: Record<string, string> = {
-  cyan: "#22e5ff",
-  violet: "#a06bff",
-  emerald: "#34d399",
-  amber: "#fbbf24",
-  rose: "#fb7185",
-  sky: "#38bdf8",
-  fuchsia: "#e879f9",
-  lime: "#a3e635",
-};
-
 export function Crew() {
   const [open, setOpen] = useState<string | null>("Architect");
   return (
-    <section className="relative border-b border-[var(--gh-line)] bg-[#070a16] py-16 sm:py-24">
-      <div className="gh-scanlines absolute inset-0" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+    <section className="relative">
+      <div className="container-page section">
         <Reveal>
           <SectionHead
-            tag="the crew"
-            title={
-              <>
-                Eight leads. <span className="gh-text-gradient">Twenty-four sidekicks.</span>
-              </>
-            }
+            tag="The crew"
+            title="Eight leads. Twenty-four sidekicks."
             sub="Each lead owns a stage of the pipeline and delegates focused chores to its sub-agents. Tap a card to meet the team."
           />
         </Reveal>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {AGENT_CATALOG.map((a, i) => {
-            const c = HEX[a.color];
+            const c = `var(--agent-${a.color})`;
             const isOpen = open === a.name;
             return (
-              <Reveal key={a.name} delay={(i % 4) * 0.06}>
+              <Reveal key={a.name} delay={(i % 4) * 0.05}>
                 <div
-                  className="gh-panel gh-bevel relative h-full"
-                  style={{ borderColor: isOpen ? c : undefined, boxShadow: isOpen ? `0 0 28px -10px ${c}` : undefined }}
+                  className={`surface card-lift overflow-hidden transition-colors ${isOpen ? "bg-[var(--surface-2)]" : ""}`}
+                  style={isOpen ? { boxShadow: `var(--inner-top), 0 0 0 1px color-mix(in srgb, ${c} 35%, transparent), var(--shadow-1)` } : undefined}
                 >
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? null : a.name)}
-                    className="flex w-full flex-col p-5 text-left"
+                    className="flex w-full flex-col rounded-[16px] p-5 text-left outline-offset-[-2px]"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-[0.65rem] tracking-[0.2em]" style={{ color: c }}>
-                        {String(i + 1).padStart(2, "0")} {"//"} {a.codename}
+                      <span className="flex items-center gap-2 text-xs font-medium text-[var(--text-muted)]">
+                        <span className="size-2 rounded-full" style={{ background: c }} />
+                        {a.codename}
                       </span>
-                      <ChevronDown className={`size-4 text-[var(--gh-text-dim)] transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                      <ChevronDown className={`size-4 text-[var(--text-faint)] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
                     </div>
-                    <h3 className="mt-3 font-display text-xl font-bold text-white">{a.name}</h3>
-                    <p className="mt-1 text-sm text-[#b8c0e6]">{a.tagline}</p>
-                    <p className="mt-3 text-xs text-[var(--gh-text-dim)]">
-                      <span className="font-mono uppercase" style={{ color: c }}>
-                        ships:{" "}
-                      </span>
-                      {a.produces}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {a.tools.map((t) => (
-                        <span key={t} className="border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[0.62rem] text-[#c9d1f5]">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                    <h3 className="mt-5 text-xl font-semibold text-[var(--text)]">{a.name}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-[var(--text-muted)]">{a.tagline}</p>
                   </button>
                   {isOpen && (
-                    <ul className="space-y-2 border-t border-dashed border-[var(--gh-line)] p-5 pt-4">
+                    <ul className="space-y-3 px-5 pb-5">
                       {a.subAgents.map((s) => (
                         <li key={s.id} className="flex gap-2.5 text-sm">
-                          <span className="mt-1.5 size-1.5 shrink-0 rounded-full" style={{ background: c }} />
+                          <span className="mt-[7px] size-1.5 shrink-0 rounded-full" style={{ background: c, opacity: 0.8 }} />
                           <span>
-                            <span className="font-medium text-white">{s.name}</span>
-                            <span className="block text-xs text-[var(--gh-text-dim)]">{s.role}</span>
+                            <span className="font-medium text-[var(--text)]">{s.name}</span>
+                            <span className="block text-[0.8125rem] leading-snug text-[var(--text-muted)]">{s.role}</span>
                           </span>
                         </li>
                       ))}
@@ -9656,8 +10307,8 @@ export function Crew() {
           })}
         </div>
         <Reveal>
-          <div className="mt-8">
-            <Link href="/agents" className="gh-btn gh-btn-ghost">
+          <div className="mt-10">
+            <Link href="/agents" className="btn btn-secondary">
               Full agent roster <ArrowRight className="size-4" />
             </Link>
           </div>
@@ -9670,419 +10321,52 @@ export function Crew() {
 
 ### `src/components/landing/hero.tsx`
 
-**Lines:** 145 · **Size:** 6.1 KB · **Language:** typescript · **Exports:** `Hero`, `Stats`
+**Lines:** 41 · **Size:** 2.2 KB · **Language:** typescript · **Exports:** `Hero`
 
 Hero section with headline, CTA buttons, the terminal and pipeline diagram, plus the Stats strip.
 
-**Imports from:** `src/components/landing/agent-terminal.tsx`, `src/components/landing/pipeline-diagram.tsx`, `src/components/landing/reveal.tsx`
+**Imports from:** `src/components/landing/agent-terminal.tsx`
 
 **Used by:** `src/components/landing/landing.tsx`
 
 ```tsx
-"use client";
-
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { ArrowRight, PlayCircle } from "lucide-react";
 import { AgentTerminal } from "./agent-terminal";
-import { PipelineDiagram } from "./pipeline-diagram";
-import { Reveal } from "./reveal";
-
-const WORDS = ["Describe", "it.", "Ghost", "ships", "it."];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-[var(--gh-line)]">
-      <div className="gh-aurora absolute inset-0" />
-      <div className="gh-grid absolute inset-0 opacity-60" />
-      <div className="gh-noise absolute inset-0" />
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-14 pt-12 sm:px-6 sm:pt-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:pb-20 lg:pt-20">
-        <div>
-          <p className="gh-rise gh-hud mb-5 inline-flex items-center gap-2 border border-[var(--gh-line)] bg-white/[0.03] px-3 py-1.5">
-            <span className="gh-pulse size-1.5 rounded-full bg-[var(--gh-cyan)]" />
-            v0.1 // 8 agents online
-          </p>
-          <h1 className="font-display text-[2.6rem] font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            {WORDS.map((w, i) => (
-              <span
-                key={i}
-                className={`gh-rise mr-[0.25em] inline-block ${i >= 2 ? "gh-text-gradient" : ""}`}
-                style={{ animationDelay: `${0.1 + i * 0.09}s` }}
-              >
-                {w}
-              </span>
-            ))}
-          </h1>
-          <p className="gh-rise mt-6 max-w-xl text-base leading-relaxed text-[#b8c0e6] sm:text-lg" style={{ animationDelay: "0.6s" }}>
-            Give Ghost AI a goal and a tech stack. A crew of eight specialised agents and their sidekicks plan the
-            work, write the code, test it, harden it, document it and hand you a reviewed, shippable SaaS, with every
-            commit on the record.
-          </p>
-          <div className="gh-rise mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.75s" }}>
-            <Link href="/dashboard" className="gh-btn gh-btn-primary gh-btn-lg">
-              Launch the app <ArrowRight className="size-4" />
-            </Link>
-            <Link href="/demo" className="gh-btn gh-btn-ghost gh-btn-lg">
-              <PlayCircle className="size-4" /> Watch the demo
-            </Link>
-          </div>
-          <dl className="gh-rise mt-8 grid max-w-md grid-cols-3 gap-3 font-mono text-xs" style={{ animationDelay: "0.9s" }}>
-            {[
-              ["8", "lead agents"],
-              ["24", "sub-agents"],
-              ["0", "secrets to run"],
-            ].map(([n, l]) => (
-              <div key={l} className="border-l-2 border-[var(--gh-cyan)]/60 pl-3">
-                <dt className="font-display text-2xl font-bold text-white">{n}</dt>
-                <dd className="text-[var(--gh-text-dim)]">{l}</dd>
-              </div>
-            ))}
-          </dl>
+    <section className="relative overflow-hidden">
+      <div className="bg-atmosphere pointer-events-none absolute inset-x-0 top-0 h-[780px]" />
+      <div className="bg-dots pointer-events-none absolute inset-x-0 top-0 h-[560px] opacity-40 [mask-image:radial-gradient(ellipse_70%_70%_at_50%_0%,#000,transparent)]" />
+      <div className="container-page relative pb-20 pt-16 text-center sm:pb-28 sm:pt-24">
+        <p className="reveal reveal-1 chip chip-mint mx-auto mb-7">
+          <span className="gh-pulse size-1.5 rounded-full bg-[var(--mint)]" />
+          Eight agents online
+        </p>
+        <h1 className="reveal reveal-2 h-display mx-auto max-w-4xl text-[2.6rem] sm:text-6xl lg:text-[4.75rem]">
+          Describe it. <span className="text-[var(--mint)]">Ghost ships it.</span>
+        </h1>
+        <p className="reveal reveal-3 mx-auto mt-6 max-w-xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
+          Give Ghost AI a goal and a stack. A crew of eight specialist agents plans, builds, tests, secures and
+          documents it, then hands you a reviewed project with every commit on the record.
+        </p>
+        <div className="reveal reveal-4 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link href="/dashboard" className="btn btn-primary btn-lg w-full sm:w-auto">
+            Get started <ArrowRight className="size-4" />
+          </Link>
+          <Link href="/demo" className="btn btn-secondary btn-lg w-full sm:w-auto">
+            <PlayCircle className="size-4" /> Watch the demo
+          </Link>
         </div>
-        <div className="gh-rise min-w-0" style={{ animationDelay: "0.4s" }}>
-          <AgentTerminal />
-        </div>
-      </div>
+        <p className="reveal reveal-5 mt-4 text-[0.8125rem] text-[var(--text-faint)]">No keys, no card. Runs locally with sample data.</p>
 
-      <Reveal>
-        <div className="relative mx-auto max-w-7xl px-4 pb-14 sm:px-6">
-          <div className="gh-panel gh-corners relative p-4 sm:p-6">
-            <div className="mb-2 flex items-center justify-between">
-              <span className="gh-hud">pipeline // architect → reviewer</span>
-              <span className="font-mono text-[0.65rem] text-[var(--gh-text-dim)]">7 stages · live flow</span>
-            </div>
-            <div className="overflow-x-auto">
-              <div className="min-w-[560px]">
-                <PipelineDiagram />
-              </div>
-            </div>
+        <div className="reveal reveal-7 relative mx-auto mt-16 max-w-4xl sm:mt-20">
+          <div className="pointer-events-none absolute -inset-x-10 -top-10 h-40 rounded-full bg-[var(--mint)]/10 blur-3xl" />
+          <div className="relative">
+            <AgentTerminal />
           </div>
         </div>
-      </Reveal>
-    </section>
-  );
-}
-
-function Counter({ to, suffix = "", started }: { to: number; suffix?: string; started: boolean }) {
-  const [v, setV] = useState(to);
-  useEffect(() => {
-    if (!started) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const t0 = performance.now();
-    const tick = (t: number) => {
-      const p = Math.min(1, Math.max(0, (t - t0) / 1400));
-      setV(Math.round(to * (1 - Math.pow(1 - p, 3))));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [started, to]);
-  return (
-    <>
-      {v.toLocaleString("en-US")}
-      {suffix}
-    </>
-  );
-}
-
-const STATS = [
-  { n: 8, s: "", l: "Lead agents", d: "Architect to Reviewer, each with a codename and toolset." },
-  { n: 24, s: "", l: "Sub-agents", d: "Three specialist sidekicks per lead for focused chores." },
-  { n: 1200, s: "+", l: "Tasks planned", d: "Across demo projects, split by module and owner." },
-  { n: 100, s: "%", l: "Commits traceable", d: "Every change carries an agent, hash and file count." },
-];
-
-export function Stats() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [started, setStarted] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver((e) => e.some((x) => x.isIntersecting) && (setStarted(true), io.disconnect()), {
-      threshold: 0.3,
-    });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return (
-    <section className="relative border-b border-[var(--gh-line)] bg-[#070a16]">
-      <div ref={ref} className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-[var(--gh-line)] px-0 lg:grid-cols-4">
-        {STATS.map((s) => (
-          <div key={s.l} className="relative bg-[#070a16] p-5 sm:p-8">
-            <span className="gh-rivet absolute right-3 top-3" />
-            <p className="font-display text-4xl font-bold text-white sm:text-5xl">
-              <span className="gh-text-gradient">
-                <Counter to={s.n} suffix={s.s} started={started} />
-              </span>
-            </p>
-            <p className="gh-hud mt-2 !text-[0.65rem]">{s.l}</p>
-            <p className="mt-2 text-xs leading-relaxed text-[var(--gh-text-dim)] sm:text-sm">{s.d}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-```
-
-### `src/components/landing/io-demo.tsx`
-
-**Lines:** 250 · **Size:** 11.6 KB · **Language:** typescript · **Exports:** `IoDemo`
-
-Interactive input-to-output demo: choose a sample brief and watch a task board and file list appear.
-
-**Imports from:** `src/components/landing/reveal.tsx`
-
-**Used by:** `src/components/landing/landing.tsx`
-
-```tsx
-"use client";
-
-import { useState } from "react";
-import { ArrowRight, FileCode2, GitCommit, ListChecks, Network } from "lucide-react";
-import { Reveal, SectionHead } from "./reveal";
-
-type Sample = {
-  id: string;
-  name: string;
-  brief: string;
-  stack: string[];
-  tasks: { t: string; a: string; s: "done" | "running" | "todo"; p: number }[];
-  modules: { m: string; files: string[] }[];
-  git: { h: string; msg: string; a: string; f: number }[];
-  flow: string[];
-};
-
-const SAMPLES: Sample[] = [
-  {
-    id: "invoice",
-    name: "Invoice tracker",
-    brief: "Freelancers create clients, send invoices, and see who has paid. Email reminders for overdue ones.",
-    stack: ["Next.js", "Clerk", "Drizzle", "Tailwind"],
-    tasks: [
-      { t: "Design invoices + clients schema", a: "Architect", s: "done", p: 100 },
-      { t: "POST /api/invoices with Zod validation", a: "Backend", s: "done", p: 100 },
-      { t: "Invoice table with status filters", a: "Frontend", s: "running", p: 64 },
-      { t: "Overdue reminder cron", a: "DevOps", s: "todo", p: 0 },
-    ],
-    modules: [
-      { m: "billing", files: ["schema.ts", "invoices.ts", "totals.test.ts"] },
-      { m: "clients", files: ["clients.ts", "client-card.tsx"] },
-      { m: "dashboard", files: ["page.tsx", "revenue-chart.tsx"] },
-    ],
-    git: [
-      { h: "a91f3c2", msg: "feat(db): invoices and clients schema", a: "Backend", f: 4 },
-      { h: "5be07d1", msg: "feat(ui): invoice table and filters", a: "Frontend", f: 6 },
-      { h: "0c44e9a", msg: "test: totals and tax rounding", a: "QA", f: 2 },
-    ],
-    flow: ["Architect", "Backend", "Frontend", "QA", "Security", "Reviewer"],
-  },
-  {
-    id: "habit",
-    name: "Habit streaks",
-    brief: "A daily habit tracker with streaks, reminders and a weekly summary email for each user.",
-    stack: ["Next.js", "libSQL", "shadcn/ui", "Framer Motion"],
-    tasks: [
-      { t: "Model habits, check-ins and streaks", a: "Architect", s: "done", p: 100 },
-      { t: "Streak calculation service", a: "Backend", s: "done", p: 100 },
-      { t: "Animated streak ring component", a: "Frontend", s: "done", p: 100 },
-      { t: "Weekly summary job + docs", a: "Docs", s: "running", p: 40 },
-    ],
-    modules: [
-      { m: "habits", files: ["habits.ts", "streaks.ts", "streaks.test.ts"] },
-      { m: "checkins", files: ["checkin-button.tsx", "route.ts"] },
-      { m: "summary", files: ["weekly.ts", "email-template.tsx"] },
-    ],
-    git: [
-      { h: "7d2e1b8", msg: "feat(core): streak engine with timezone support", a: "Backend", f: 3 },
-      { h: "e3a90f4", msg: "feat(ui): animated streak ring", a: "Frontend", f: 2 },
-      { h: "b15c2d7", msg: "docs: how streaks are calculated", a: "Docs", f: 1 },
-    ],
-    flow: ["Architect", "Backend", "Frontend", "Docs", "QA", "Reviewer"],
-  },
-  {
-    id: "support",
-    name: "Support desk",
-    brief: "A shared inbox where teams triage tickets, assign owners and track response-time targets.",
-    stack: ["Next.js", "Clerk", "Drizzle", "Zod"],
-    tasks: [
-      { t: "Roles: agent, lead, admin", a: "Security", s: "done", p: 100 },
-      { t: "Ticket lifecycle + SLA timers", a: "Backend", s: "running", p: 72 },
-      { t: "Kanban triage board", a: "Frontend", s: "running", p: 35 },
-      { t: "Playwright: assign + resolve flow", a: "QA", s: "todo", p: 0 },
-    ],
-    modules: [
-      { m: "tickets", files: ["tickets.ts", "sla.ts", "sla.test.ts"] },
-      { m: "inbox", files: ["board.tsx", "ticket-card.tsx"] },
-      { m: "access", files: ["roles.ts", "guard.ts"] },
-    ],
-    git: [
-      { h: "f08a6c1", msg: "feat(auth): role guard for ticket routes", a: "Security", f: 3 },
-      { h: "2b7d9e5", msg: "feat(api): SLA timers and breach flags", a: "Backend", f: 5 },
-      { h: "9c31a0d", msg: "feat(ui): triage board columns", a: "Frontend", f: 4 },
-    ],
-    flow: ["Architect", "Security", "Backend", "Frontend", "QA", "Reviewer"],
-  },
-];
-
-const TABS = [
-  { id: "tasks", label: "Tasks", icon: ListChecks },
-  { id: "modules", label: "Modules", icon: FileCode2 },
-  { id: "git", label: "Git log", icon: GitCommit },
-  { id: "flow", label: "Flow", icon: Network },
-] as const;
-
-const STATUS: Record<string, string> = {
-  done: "border-emerald-400/40 bg-emerald-400/10 text-emerald-300",
-  running: "border-cyan-300/40 bg-cyan-300/10 text-cyan-200",
-  todo: "border-white/15 bg-white/5 text-[#9aa3c7]",
-};
-
-export function IoDemo() {
-  const [sid, setSid] = useState(SAMPLES[0].id);
-  const [tab, setTab] = useState<(typeof TABS)[number]["id"]>("tasks");
-  const s = SAMPLES.find((x) => x.id === sid)!;
-
-  return (
-    <section className="relative overflow-hidden border-b border-[var(--gh-line)] py-16 sm:py-24">
-      <div className="gh-dots absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <Reveal>
-          <SectionHead
-            tag="input → output"
-            title={
-              <>
-                A sentence goes in. <span className="gh-text-gradient">A project comes out.</span>
-              </>
-            }
-            sub="Pick a sample brief and see exactly what Ghost AI hands back: tasks, modules, commits and the agent flow."
-          />
-        </Reveal>
-        <Reveal>
-          <div className="mb-4 flex flex-wrap gap-2" role="tablist" aria-label="Sample projects">
-            {SAMPLES.map((x) => (
-              <button
-                key={x.id}
-                role="tab"
-                aria-selected={x.id === sid}
-                onClick={() => setSid(x.id)}
-                className={`border px-3 py-2 font-mono text-xs transition-colors ${
-                  x.id === sid
-                    ? "border-[var(--gh-cyan)] bg-[var(--gh-cyan)]/10 text-[var(--gh-cyan)]"
-                    : "border-[var(--gh-line)] text-[var(--gh-text-dim)] hover:text-white"
-                }`}
-              >
-                {x.name}
-              </button>
-            ))}
-          </div>
-          <div className="grid gap-4 lg:grid-cols-[0.8fr_auto_1.4fr] lg:items-stretch">
-            <div className="gh-panel gh-corners relative p-5">
-              <p className="gh-hud mb-3">in // brief + stack</p>
-              <p className="font-display text-lg leading-snug text-white">{s.name}</p>
-              <p className="mt-3 text-sm leading-relaxed text-[#b8c0e6]">&ldquo;{s.brief}&rdquo;</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {s.stack.map((t) => (
-                  <span key={t} className="border border-[var(--gh-line)] bg-white/[0.04] px-2 py-1 font-mono text-[0.7rem] text-[#c9d1f5]">
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-6 border-t border-dashed border-[var(--gh-line)] pt-4 font-mono text-[0.7rem] text-[var(--gh-text-dim)]">
-                $ ghost new &quot;{s.name}&quot; --stack {s.stack.join(",").toLowerCase()}
-              </div>
-            </div>
-            <div className="flex items-center justify-center text-[var(--gh-cyan)]">
-              <ArrowRight className="size-6 rotate-90 lg:rotate-0" />
-            </div>
-            <div className="gh-panel gh-corners relative p-5">
-              <div className="mb-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="Outputs">
-                <span className="gh-hud mr-2">out //</span>
-                {TABS.map((t) => (
-                  <button
-                    key={t.id}
-                    role="tab"
-                    aria-selected={tab === t.id}
-                    onClick={() => setTab(t.id)}
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 font-mono text-xs transition-colors ${
-                      tab === t.id ? "bg-white/10 text-white" : "text-[var(--gh-text-dim)] hover:text-white"
-                    }`}
-                  >
-                    <t.icon className="size-3.5" />
-                    {t.label}
-                  </button>
-                ))}
-              </div>
-              <div className="min-h-[15rem]">
-                {tab === "tasks" && (
-                  <ul className="space-y-2.5">
-                    {s.tasks.map((t) => (
-                      <li key={t.t} className="border border-[var(--gh-line)] bg-black/20 p-3">
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span className="text-sm text-white">{t.t}</span>
-                          <span className={`border px-2 py-0.5 font-mono text-[0.65rem] uppercase ${STATUS[t.s]}`}>{t.s}</span>
-                        </div>
-                        <div className="mt-2 flex items-center gap-3">
-                          <span className="font-mono text-[0.65rem] text-[var(--gh-cyan)]">{t.a}</span>
-                          <div className="h-1 flex-1 bg-white/10">
-                            <div className="h-full bg-gradient-to-r from-[var(--gh-cyan)] to-[var(--gh-violet)]" style={{ width: `${t.p}%` }} />
-                          </div>
-                          <span className="font-mono text-[0.65rem] text-[var(--gh-text-dim)]">{t.p}%</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {tab === "modules" && (
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    {s.modules.map((m) => (
-                      <div key={m.m} className="border border-[var(--gh-line)] bg-black/20 p-3">
-                        <p className="font-display text-sm font-semibold text-white">/{m.m}</p>
-                        <ul className="mt-2 space-y-1 font-mono text-[0.7rem] text-[#9fb0ff]">
-                          {m.files.map((f) => (
-                            <li key={f} className="break-all">└ {f}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {tab === "git" && (
-                  <ul className="space-y-0 border-l border-[var(--gh-line)] pl-4 font-mono text-xs">
-                    {s.git.map((g) => (
-                      <li key={g.h} className="relative pb-4 last:pb-0">
-                        <span className="absolute -left-[1.32rem] top-1 size-2 rounded-full bg-[var(--gh-cyan)] shadow-[0_0_10px_var(--gh-cyan)]" />
-                        <p className="text-white">
-                          <span className="mr-2 text-[var(--gh-violet)]">{g.h}</span>
-                          {g.msg}
-                        </p>
-                        <p className="mt-0.5 text-[var(--gh-text-dim)]">
-                          {g.a} · {g.f} files changed
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {tab === "flow" && (
-                  <div className="flex flex-wrap items-center gap-2">
-                    {s.flow.map((n, i) => (
-                      <span key={n} className="flex items-center gap-2">
-                        <span className="gh-bevel border border-[var(--gh-cyan)]/50 bg-[var(--gh-cyan)]/10 px-3 py-2 font-mono text-xs text-white">
-                          {n}
-                        </span>
-                        {i < s.flow.length - 1 && <ArrowRight className="size-4 text-[var(--gh-cyan)]" />}
-                      </span>
-                    ))}
-                    <p className="mt-4 w-full text-sm text-[var(--gh-text-dim)]">
-                      Agents run in dependency order. The Reviewer only says GO when tests, security and docs checks pass.
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
@@ -10091,31 +10375,30 @@ export function IoDemo() {
 
 ### `src/components/landing/landing.tsx`
 
-**Lines:** 23 · **Size:** 504 B · **Language:** typescript · **Exports:** `Landing`
+**Lines:** 22 · **Size:** 490 B · **Language:** typescript · **Exports:** `Landing`
 
 Composes the landing page sections in order.
 
-**Imports from:** `src/components/landing/hero.tsx`, `src/components/landing/static-sections.tsx`, `src/components/landing/io-demo.tsx`, `src/components/landing/crew.tsx`
+**Imports from:** `src/components/landing/hero.tsx`, `src/components/landing/static-sections.tsx`, `src/components/landing/crew.tsx`, `src/components/landing/pipeline-diagram.tsx`
 
 **Used by:** `src/app/page.tsx`
 
 ```tsx
-import { Hero, Stats } from "./hero";
-import { StackMarquee, Bento, Timeline, UseCases, DemoTeaser, PricingTeaser, Faq, FinalCta } from "./static-sections";
-import { IoDemo } from "./io-demo";
+import { Hero } from "./hero";
+import { Facts, StackStrip, Bento, Flow, DemoTeaser, PricingTeaser, Faq, FinalCta } from "./static-sections";
 import { Crew } from "./crew";
+import { PipelineSection } from "./pipeline-diagram";
 
 export function Landing() {
   return (
     <>
       <Hero />
-      <Stats />
+      <StackStrip />
+      <Facts />
       <Bento />
-      <IoDemo />
+      <PipelineSection />
       <Crew />
-      <Timeline />
-      <StackMarquee />
-      <UseCases />
+      <Flow />
       <DemoTeaser />
       <PricingTeaser />
       <Faq />
@@ -10127,25 +10410,32 @@ export function Landing() {
 
 ### `src/components/landing/pipeline-diagram.tsx`
 
-**Lines:** 88 · **Size:** 2.9 KB · **Language:** typescript · **Exports:** `PipelineDiagram`
+**Lines:** 163 · **Size:** 7.3 KB · **Language:** typescript · **Exports:** `PipelineSection`
 
 Static animated SVG of the agent pipeline.
 
-**Used by:** `src/components/landing/hero.tsx`
+**Imports from:** `src/components/landing/reveal.tsx`
+
+**Used by:** `src/components/landing/landing.tsx`
 
 ```tsx
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
+import { Reveal, SectionHead } from "./reveal";
 
-type N = { id: string; label: string; x: number; y: number; c: string };
+type S = "done" | "run" | "wait";
+type N = { id: string; label: string; code: string; x: number; y: number; c: string; s: S };
+
+const W = 150;
+const H = 54;
 const NODES: N[] = [
-  { id: "a", label: "ARCHITECT", x: 70, y: 150, c: "#22e5ff" },
-  { id: "b", label: "BACKEND", x: 250, y: 70, c: "#22e5ff" },
-  { id: "f", label: "FRONTEND", x: 250, y: 230, c: "#a06bff" },
-  { id: "d", label: "DEVOPS", x: 430, y: 70, c: "#22e5ff" },
-  { id: "q", label: "QA", x: 430, y: 230, c: "#a06bff" },
-  { id: "s", label: "SECURITY", x: 610, y: 150, c: "#22e5ff" },
-  { id: "r", label: "REVIEWER", x: 790, y: 150, c: "#a06bff" },
+  { id: "a", label: "Architect", code: "ATLAS", x: 85, y: 140, c: "var(--agent-cyan)", s: "done" },
+  { id: "b", label: "Backend", code: "FORGE", x: 265, y: 60, c: "var(--agent-violet)", s: "done" },
+  { id: "f", label: "Frontend", code: "PRISM", x: 265, y: 220, c: "var(--agent-fuchsia)", s: "done" },
+  { id: "d", label: "DevOps", code: "HELM", x: 445, y: 60, c: "var(--agent-amber)", s: "done" },
+  { id: "q", label: "QA", code: "ECHO", x: 445, y: 220, c: "var(--agent-emerald)", s: "done" },
+  { id: "s", label: "Security", code: "AEGIS", x: 625, y: 140, c: "var(--agent-rose)", s: "run" },
+  { id: "r", label: "Reviewer", code: "JUDGE", x: 805, y: 140, c: "var(--agent-lime)", s: "wait" },
 ];
 const EDGES: [string, string][] = [
   ["a", "b"],
@@ -10158,11 +10448,11 @@ const EDGES: [string, string][] = [
 ];
 const get = (id: string) => NODES.find((n) => n.id === id)!;
 
-export function PipelineDiagram() {
+function PipelineSvg() {
   const reduce = useReducedMotion();
   return (
     <svg
-      viewBox="0 0 860 300"
+      viewBox="0 0 890 280"
       role="img"
       aria-label="Agent pipeline: Architect to Backend and Frontend, then DevOps and QA, Security, Reviewer"
       className="h-auto w-full"
@@ -10170,67 +10460,137 @@ export function PipelineDiagram() {
       {EDGES.map(([from, to], i) => {
         const a = get(from);
         const b = get(to);
-        const mx = (a.x + b.x) / 2;
-        const d = `M${a.x + 50} ${a.y} C ${mx + 20} ${a.y}, ${mx - 20} ${b.y}, ${b.x - 50} ${b.y}`;
+        const x1 = a.x + W / 2;
+        const x2 = b.x - W / 2;
+        const mx = (x1 + x2) / 2;
+        const d = `M${x1} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${x2} ${b.y}`;
+        const active = b.s === "wait";
         return (
           <g key={i}>
+            <path d={d} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth={2} strokeLinecap="round" />
             <motion.path
               d={d}
               fill="none"
-              stroke="rgba(120,160,255,.35)"
-              strokeWidth={1.5}
-              initial={reduce ? false : { pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 0.9, delay: 0.3 + i * 0.12 }}
+              stroke={active ? "var(--amber)" : "var(--mint)"}
+              strokeOpacity={active ? 0.9 : 0.55}
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeDasharray={active ? "3 7" : undefined}
+              className={active ? "gh-flow" : undefined}
+              initial={reduce || active ? false : { pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.9, delay: 0.2 + i * 0.1, ease: [0.2, 0.7, 0.2, 1] }}
             />
-            <path d={d} fill="none" stroke="#22e5ff" strokeWidth={1.5} className="gh-flow" opacity={0.8} />
           </g>
         );
       })}
       {NODES.map((n, i) => (
         <motion.g
           key={n.id}
-          initial={reduce ? false : { opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          style={{ transformOrigin: `${n.x}px ${n.y}px` }}
-          transition={{ duration: 0.5, delay: i * 0.1 }}
+          initial={reduce ? false : { opacity: 0, y: 6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.5, delay: i * 0.07, ease: [0.2, 0.7, 0.2, 1] }}
         >
-          <polygon
-            points={`${n.x - 50},${n.y - 14} ${n.x - 40},${n.y - 24} ${n.x + 50},${n.y - 24} ${n.x + 50},${n.y + 14} ${n.x + 40},${n.y + 24} ${n.x - 50},${n.y + 24}`}
-            fill="#0a0e1f"
-            stroke={n.c}
-            strokeWidth={1.4}
-          />
-          <circle cx={n.x - 42} cy={n.y} r={2.5} fill={n.c}>
-            {!reduce && (
-              <animate attributeName="opacity" values="1;.3;1" dur="2s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
-            )}
-          </circle>
-          <text
-            x={n.x + 4}
-            y={n.y + 4}
-            textAnchor="middle"
-            fill="#e8ecff"
-            fontSize="11"
-            letterSpacing="1.5"
-            fontFamily="var(--font-code), monospace"
-          >
+          {n.s === "run" && <rect x={n.x - W / 2 - 4} y={n.y - H / 2 - 4} width={W + 8} height={H + 8} rx={18} fill="none" stroke="var(--amber)" strokeOpacity={0.35} strokeWidth={1.5} />}
+          <rect x={n.x - W / 2} y={n.y - H / 2} width={W} height={H} rx={14} fill="#161a20" stroke="rgba(255,255,255,0.08)" />
+          <circle cx={n.x - W / 2 + 22} cy={n.y} r={5} fill={n.c} opacity={n.s === "wait" ? 0.45 : 1} />
+          <text x={n.x - W / 2 + 38} y={n.y - 3} fill="#eceef2" fontSize="14" fontWeight="600" fontFamily="var(--font-grotesk), sans-serif">
             {n.label}
           </text>
+          <text x={n.x - W / 2 + 38} y={n.y + 14} fill="#6b7280" fontSize="10.5" fontFamily="var(--font-code), monospace">
+            {n.code}
+          </text>
+          {n.s === "done" && (
+            <g transform={`translate(${n.x + W / 2 - 24}, ${n.y - 8})`}>
+              <circle cx="8" cy="8" r="8" fill="rgba(62,230,160,0.14)" />
+              <path d="M4.6 8.2l2.4 2.3 4.4-4.6" fill="none" stroke="var(--mint)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+            </g>
+          )}
+          {n.s === "run" && (
+            <circle cx={n.x + W / 2 - 16} cy={n.y} r={4} fill="var(--amber)">
+              {!reduce && <animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite" />}
+            </circle>
+          )}
         </motion.g>
       ))}
     </svg>
+  );
+}
+
+const STAGES: { label: string; code: string; c: string; s: S }[] = [
+  { label: "Architect", code: "ATLAS", c: "var(--agent-cyan)", s: "done" },
+  { label: "Backend + Frontend", code: "FORGE, PRISM", c: "var(--agent-violet)", s: "done" },
+  { label: "DevOps + QA", code: "HELM, ECHO", c: "var(--agent-amber)", s: "done" },
+  { label: "Security", code: "AEGIS", c: "var(--agent-rose)", s: "run" },
+  { label: "Reviewer", code: "JUDGE", c: "var(--agent-lime)", s: "wait" },
+];
+
+function PipelineList() {
+  return (
+    <ol className="relative space-y-3 pl-1" aria-label="Pipeline stages">
+      {STAGES.map((s, i) => (
+        <li key={s.label} className="relative flex items-center gap-4 rounded-[12px] bg-[var(--surface-2)] px-4 py-3.5">
+          {i < STAGES.length - 1 && (
+            <span className="absolute left-[1.45rem] top-full h-3 w-px" style={{ background: s.s === "wait" ? "var(--hairline)" : "var(--mint)", opacity: 0.5 }} />
+          )}
+          <span className="size-2.5 shrink-0 rounded-full" style={{ background: s.c, opacity: s.s === "wait" ? 0.45 : 1 }} />
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-semibold text-[var(--text)]">{s.label}</span>
+            <span className="block font-mono text-[0.7rem] text-[var(--text-faint)]">{s.code}</span>
+          </span>
+          <span className={`chip ${s.s === "done" ? "chip-mint" : s.s === "run" ? "chip-amber" : ""}`}>
+            {s.s === "done" ? "Done" : s.s === "run" ? "Running" : "Queued"}
+          </span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function PipelineSection() {
+  return (
+    <section className="relative">
+      <div className="container-page section">
+        <Reveal>
+          <SectionHead
+            tag="The pipeline"
+            title="Seven agents in a single, ordered flow."
+            sub="Work fans out after planning, converges at the security gate, and only ships when the Reviewer says go. The sample below is a run in progress."
+          />
+        </Reveal>
+        <Reveal delay={0.05}>
+          <div className="surface rounded-[20px] p-5 sm:p-8">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <span className="text-sm font-medium text-[var(--text)]">Sample run</span>
+              <span className="flex items-center gap-4 text-xs text-[var(--text-muted)]">
+                <span className="flex items-center gap-1.5"><span className="size-1.5 rounded-full bg-[var(--mint)]" />Done</span>
+                <span className="flex items-center gap-1.5"><span className="size-1.5 rounded-full bg-[var(--amber)]" />Running</span>
+                <span className="flex items-center gap-1.5"><span className="size-1.5 rounded-full bg-white/25" />Queued</span>
+              </span>
+            </div>
+            <div className="hidden md:block">
+              <PipelineSvg />
+            </div>
+            <div className="md:hidden">
+              <PipelineList />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 }
 ```
 
 ### `src/components/landing/reveal.tsx`
 
-**Lines:** 89 · **Size:** 2.4 KB · **Language:** typescript · **Exports:** `Reveal`, `SectionHead`, `Rivets`
+**Lines:** 82 · **Size:** 2.3 KB · **Language:** typescript · **Exports:** `Reveal`, `SectionHead`, `Mint`
 
 Scroll-reveal helper deliberately visible by default (SSR, no-JS, screenshots), plus SectionHead and Rivets decoration.
 
-**Used by:** `src/components/landing/crew.tsx`, `src/components/landing/hero.tsx`, `src/components/landing/io-demo.tsx`, `src/components/landing/static-sections.tsx`
+**Used by:** `src/components/landing/crew.tsx`, `src/components/landing/pipeline-diagram.tsx`, `src/components/landing/static-sections.tsx`
 
 ```tsx
 "use client";
@@ -10239,7 +10599,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Scroll reveal that is VISIBLE by default (SSR / no-JS / screenshots).
- * After mount, elements that are below the fold get hidden and fade in when they enter the viewport.
+ * After mount, elements below the fold are hidden and fade in as they enter the viewport.
  */
 export function Reveal({
   children,
@@ -10270,7 +10630,7 @@ export function Reveal({
           io.disconnect();
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.01 },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.01 },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -10281,9 +10641,9 @@ export function Reveal({
       ref={ref}
       className={className}
       style={{
-        opacity: state === "hidden" ? 0.01 : 1,
-        transform: state === "hidden" ? "translateY(22px)" : "none",
-        transition: state === "ssr" ? "none" : `opacity .7s ease ${delay}s, transform .7s cubic-bezier(.2,.7,.2,1) ${delay}s`,
+        opacity: state === "hidden" ? 0.001 : 1,
+        transform: state === "hidden" ? "translateY(14px)" : "none",
+        transition: state === "ssr" ? "none" : `opacity .6s var(--ease) ${delay}s, transform .6s var(--ease) ${delay}s`,
       }}
     >
       {children}
@@ -10302,31 +10662,24 @@ export function SectionHead({
   sub?: string;
   align?: "left" | "center";
 }) {
+  const c = align === "center";
   return (
-    <div className={`mb-10 max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}>
-      <p className="gh-hud mb-3 flex items-center gap-2" style={{ justifyContent: align === "center" ? "center" : "flex-start" }}>
-        <span className="gh-ticks w-8" />
-        {tag}
-      </p>
-      <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">{title}</h2>
-      {sub && <p className="mt-3 text-base leading-relaxed text-[var(--gh-text-dim)]">{sub}</p>}
+    <div className={`mb-12 max-w-2xl sm:mb-14 ${c ? "mx-auto text-center" : ""}`}>
+      <p className="eyebrow mb-4">{tag}</p>
+      <h2 className="text-balance text-[1.9rem] font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--text)] sm:text-[2.6rem]">
+        {title}
+      </h2>
+      {sub && <p className="mt-4 text-base leading-relaxed text-[var(--text-muted)] sm:text-[1.0625rem]">{sub}</p>}
     </div>
   );
 }
 
-export function Rivets() {
-  return (
-    <>
-      <span className="gh-rivet absolute left-3 top-2" />
-      <span className="gh-rivet absolute right-6 top-2" />
-    </>
-  );
-}
+export const Mint = ({ children }: { children: React.ReactNode }) => <span className="text-[var(--mint)]">{children}</span>;
 ```
 
 ### `src/components/landing/static-sections.tsx`
 
-**Lines:** 406 · **Size:** 20.2 KB · **Language:** typescript · **Exports:** `Bento`, `Timeline`, `StackMarquee`, `UseCases`, `DemoTeaser`, `PricingTeaser`, `Faq`, `FinalCta`
+**Lines:** 367 · **Size:** 18.4 KB · **Language:** typescript · **Exports:** `StackStrip`, `Facts`, `Bento`, `Flow`, `DemoTeaser`, `PricingTeaser`, `Faq`, `FinalCta`
 
 Server-friendly landing sections: Bento, Timeline, StackMarquee, UseCases, DemoTeaser, PricingTeaser, Faq (accordion) and FinalCta.
 
@@ -10336,130 +10689,153 @@ Server-friendly landing sections: Bento, Timeline, StackMarquee, UseCases, DemoT
 
 ```tsx
 import Link from "next/link";
-import {
-  ArrowRight,
-  Bot,
-  Boxes,
-  FileText,
-  GitCommit,
-  ListChecks,
-  Play,
-  ShieldCheck,
-  Workflow,
-  Check,
-  Quote,
-} from "lucide-react";
+import { ArrowRight, Bot, FileText, GitCommit, ListChecks, Play, ShieldCheck, Check } from "lucide-react";
 import { Reveal, SectionHead } from "./reveal";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+/* ---------- Stack strip (quiet) ---------- */
+const STACK = ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Clerk", "Drizzle ORM", "libSQL", "Zod", "Framer Motion", "Vercel", "Playwright", "Vitest"];
+
+export function StackStrip() {
+  return (
+    <section aria-label="Technology stack" className="container-page pb-4">
+      <Reveal>
+        <p className="mb-5 text-center text-[0.8125rem] text-[var(--text-faint)]">Built with, and builds for, the modern TypeScript stack</p>
+        <ul className="mx-auto flex max-w-3xl flex-wrap justify-center gap-2">
+          {STACK.map((s) => (
+            <li key={s} className="chip h-7 px-3 text-[0.8125rem]">
+              {s}
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+    </section>
+  );
+}
+
+/* ---------- Facts ---------- */
+const FACTS = [
+  ["8", "lead agents", "var(--mint)"],
+  ["24", "sub-agents", "var(--blue)"],
+  ["13", "API routes", "var(--amber)"],
+  ["0", "secrets to run", "var(--coral)"],
+] as const;
+
+export function Facts() {
+  return (
+    <section className="container-page pt-16 sm:pt-20">
+      <Reveal>
+        <dl className="mx-auto grid max-w-3xl grid-cols-2 gap-y-8 sm:grid-cols-4">
+          {FACTS.map(([n, l, c]) => (
+            <div key={l} className="text-center">
+              <dt className="font-display text-[2.5rem] font-semibold leading-none tracking-[-0.04em]" style={{ color: c }}>
+                {n}
+              </dt>
+              <dd className="mt-2 text-sm text-[var(--text-muted)]">{l}</dd>
+            </div>
+          ))}
+        </dl>
+      </Reveal>
+    </section>
+  );
+}
+
 /* ---------- Bento ---------- */
+const ROSTER = [
+  ["Backend", "Route /api/invoices", "var(--agent-violet)", "Working"],
+  ["Frontend", "Invoice table", "var(--agent-fuchsia)", "Working"],
+  ["QA", "Waiting on build", "var(--text-faint)", "Idle"],
+  ["Architect", "Blueprint approved", "var(--agent-emerald)", "Done"],
+];
+
+const card = "surface card-lift relative flex h-full flex-col p-6 sm:p-7";
+const iconWrap = "mb-5 flex size-10 items-center justify-center rounded-[12px]";
+
 export function Bento() {
   return (
-    <section className="relative border-b border-[var(--gh-line)] py-16 sm:py-24">
-      <div className="gh-aurora absolute inset-0 opacity-70" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+    <section className="relative">
+      <div className="container-page section">
         <Reveal>
           <SectionHead
-            tag="capabilities"
-            title={
-              <>
-                Everything a build crew needs, <span className="gh-text-gradient">in one cockpit.</span>
-              </>
-            }
+            tag="Capabilities"
+            title="Everything a build crew needs, in one place."
             sub="Not a chatbot. A pipeline with owners, status, receipts and a gate at the end."
           />
         </Reveal>
         <div className="grid gap-4 md:grid-cols-6">
           <Reveal className="md:col-span-4">
-            <div className="gh-panel gh-corners relative h-full p-6">
-              <Bot className="size-6 text-[var(--gh-cyan)]" />
-              <h3 className="mt-3 font-display text-xl font-bold text-white">Live agent roster</h3>
-              <p className="mt-2 max-w-md text-sm text-[#b8c0e6]">
+            <div className={card}>
+              <div className={iconWrap} style={{ background: "var(--mint-tint)", color: "var(--mint)" }}>
+                <Bot className="size-5" />
+              </div>
+              <h3 className="text-xl font-semibold">Live agent roster</h3>
+              <p className="mt-2 max-w-md text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">
                 See which agent is working, idle or done, and the exact task each one is on right now.
               </p>
-              <div className="mt-5 grid gap-2 font-mono text-xs sm:grid-cols-2">
-                {[
-                  ["FORGE", "working", "Route /api/invoices", "#a06bff"],
-                  ["PRISM", "working", "Invoice table", "#e879f9"],
-                  ["ECHO", "idle", "Waiting on build", "#8b93b8"],
-                  ["ATLAS", "done", "Blueprint approved", "#34d399"],
-                ].map(([n, s, t, c]) => (
-                  <div key={n} className="flex items-center gap-2 border border-[var(--gh-line)] bg-black/25 px-3 py-2">
-                    <span className="size-2 rounded-full" style={{ background: c }} />
-                    <span className="text-white">{n}</span>
-                    <span className="ml-auto truncate text-[var(--gh-text-dim)]">
-                      {s} · {t}
+              <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                {ROSTER.map(([n, t, c, s]) => (
+                  <div key={n} className="flex items-center gap-3 rounded-[12px] bg-black/25 px-3.5 py-3">
+                    <span className="size-2 shrink-0 rounded-full" style={{ background: c }} />
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-medium text-[var(--text)]">{n}</span>
+                      <span className="block truncate text-xs text-[var(--text-muted)]">{t}</span>
                     </span>
+                    <span className="text-xs text-[var(--text-faint)]">{s}</span>
                   </div>
                 ))}
               </div>
             </div>
           </Reveal>
-          <Reveal className="md:col-span-2" delay={0.06}>
-            <div className="gh-panel gh-corners relative h-full p-6">
-              <GitCommit className="size-6 text-[var(--gh-violet)]" />
-              <h3 className="mt-3 font-display text-xl font-bold text-white">Git-log timeline</h3>
-              <p className="mt-2 text-sm text-[#b8c0e6]">Every commit with hash, author agent and files touched.</p>
-              <p className="mt-4 font-mono text-[0.7rem] leading-6 text-[#9fb0ff]">
-                a91f3c2 feat(db)
-                <br />
-                5be07d1 feat(ui)
-                <br />
-                0c44e9a test: totals
-              </p>
+          <Reveal className="md:col-span-2" delay={0.05}>
+            <div className={card}>
+              <div className={iconWrap} style={{ background: "var(--blue-tint)", color: "var(--blue)" }}>
+                <GitCommit className="size-5" />
+              </div>
+              <h3 className="text-xl font-semibold">Git-log timeline</h3>
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">Every commit with hash, author agent and files touched.</p>
+              <ul className="mt-auto space-y-1.5 pt-6 font-mono text-xs text-[var(--text-muted)]">
+                {[["a91f3c2", "feat(db)"], ["5be07d1", "feat(ui)"], ["0c44e9a", "test: totals"]].map(([h, m]) => (
+                  <li key={h}>
+                    <span className="mr-2 text-[var(--blue)]">{h}</span>
+                    {m}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
           <Reveal className="md:col-span-2">
-            <div className="gh-panel gh-corners relative h-full p-6">
-              <ListChecks className="size-6 text-emerald-300" />
-              <h3 className="mt-3 font-display text-xl font-bold text-white">Task board</h3>
-              <p className="mt-2 text-sm text-[#b8c0e6]">Work split by module and moved from todo to done.</p>
-              <div className="mt-4 space-y-2">
+            <div className={card}>
+              <div className={iconWrap} style={{ background: "var(--amber-tint)", color: "var(--amber)" }}>
+                <ListChecks className="size-5" />
+              </div>
+              <h3 className="text-xl font-semibold">Task board</h3>
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">Work split by module and moved from todo to done.</p>
+              <div className="mt-auto space-y-2.5 pt-6">
                 {[72, 45, 100].map((p, i) => (
-                  <div key={i} className="h-1.5 bg-white/10">
-                    <div className="h-full bg-gradient-to-r from-emerald-300 to-[var(--gh-cyan)]" style={{ width: `${p}%` }} />
+                  <div key={i} className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+                    <div className="h-full rounded-full bg-gradient-to-r from-[var(--amber)] to-[var(--mint)]" style={{ width: `${p}%` }} />
                   </div>
                 ))}
               </div>
             </div>
           </Reveal>
-          <Reveal className="md:col-span-2" delay={0.06}>
-            <div className="gh-panel gh-corners relative h-full p-6">
-              <Workflow className="size-6 text-[var(--gh-cyan)]" />
-              <h3 className="mt-3 font-display text-xl font-bold text-white">Flow graph</h3>
-              <p className="mt-2 text-sm text-[#b8c0e6]">Architect to Reviewer, drawn as it runs, with flowing data lines.</p>
-              <div className="mt-4 flex items-center gap-1">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <span key={i} className="flex items-center gap-1">
-                    <span className="size-3 border border-[var(--gh-cyan)] bg-[var(--gh-cyan)]/20" />
-                    {i < 4 && <span className="gh-ticks w-4" />}
-                  </span>
-                ))}
+          <Reveal className="md:col-span-2" delay={0.05}>
+            <div className={card}>
+              <div className={iconWrap} style={{ background: "var(--coral-tint)", color: "var(--coral)" }}>
+                <ShieldCheck className="size-5" />
               </div>
+              <h3 className="text-xl font-semibold">Security gate</h3>
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">AEGIS audits dependencies, authorisation and leaked secrets before review.</p>
             </div>
           </Reveal>
-          <Reveal className="md:col-span-2" delay={0.12}>
-            <div className="gh-panel gh-corners relative h-full p-6">
-              <ShieldCheck className="size-6 text-rose-300" />
-              <h3 className="mt-3 font-display text-xl font-bold text-white">Security gate</h3>
-              <p className="mt-2 text-sm text-[#b8c0e6]">AEGIS audits dependencies, authorisation and leaked secrets before review.</p>
-            </div>
-          </Reveal>
-          <Reveal className="md:col-span-3">
-            <div className="gh-panel gh-corners relative h-full p-6">
-              <Boxes className="size-6 text-amber-300" />
-              <h3 className="mt-3 font-display text-xl font-bold text-white">Bring your own stack</h3>
-              <p className="mt-2 text-sm text-[#b8c0e6]">
-                Pick Next.js, Clerk, Drizzle, Tailwind or your own mix. The Architect&apos;s Stack Scout fits the plan to it.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal className="md:col-span-3" delay={0.06}>
-            <div className="gh-panel gh-corners relative h-full p-6">
-              <FileText className="size-6 text-sky-300" />
-              <h3 className="mt-3 font-display text-xl font-bold text-white">Docs that explain themselves</h3>
-              <p className="mt-2 text-sm text-[#b8c0e6]">
-                SCRIBE writes a README, plain-language guides, an API reference and a changelog as the code lands.
-              </p>
+          <Reveal className="md:col-span-2" delay={0.1}>
+            <div className={card}>
+              <div className={iconWrap} style={{ background: "rgba(108,182,255,0.13)", color: "var(--agent-sky)" }}>
+                <FileText className="size-5" />
+              </div>
+              <h3 className="text-xl font-semibold">Docs that explain themselves</h3>
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">SCRIBE writes the README, guides, API reference and changelog as the code lands.</p>
             </div>
           </Reveal>
         </div>
@@ -10468,42 +10844,42 @@ export function Bento() {
   );
 }
 
-/* ---------- Timeline ---------- */
+/* ---------- Flow (5 steps) ---------- */
 const STEPS = [
-  ["01", "Brief", "Describe your goal in plain words and choose a tech stack.", "You"],
-  ["02", "Plan", "ATLAS splits the work into modules and tasks and drafts the API contract.", "Architect"],
-  ["03", "Build", "FORGE and PRISM commit backend and frontend code in parallel.", "Backend + Frontend"],
-  ["04", "Verify", "HELM ships a pipeline, ECHO tests, AEGIS audits, SCRIBE documents.", "DevOps, QA, Security, Docs"],
-  ["05", "Ship", "JUDGE reviews every change and gives a Go / No-Go with required fixes.", "Reviewer"],
+  ["01", "Brief", "Describe your goal in plain words and choose a tech stack.", "You", "var(--mint)"],
+  ["02", "Plan", "ATLAS splits the work into modules and tasks and drafts the API contract.", "Architect", "var(--agent-cyan)"],
+  ["03", "Build", "FORGE and PRISM commit backend and frontend code in parallel.", "Backend + Frontend", "var(--agent-violet)"],
+  ["04", "Verify", "HELM ships a pipeline, ECHO tests, AEGIS audits, SCRIBE documents.", "DevOps, QA, Security, Docs", "var(--amber)"],
+  ["05", "Ship", "JUDGE reviews every change and gives a Go / No-Go with required fixes.", "Reviewer", "var(--agent-lime)"],
 ];
 
-export function Timeline() {
+export function Flow() {
   return (
-    <section className="relative border-b border-[var(--gh-line)] bg-[#070a16] py-16 sm:py-24">
-      <div className="gh-dots absolute inset-0 opacity-30" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+    <section className="relative">
+      <div className="container-page section">
         <Reveal>
-          <SectionHead tag="how it works" title="From brief to shipped in five stages" sub="Each stage has an owner, an output and a checkpoint, so nothing happens off the record." />
+          <SectionHead tag="How it works" title="From brief to shipped in five stages" sub="Each stage has an owner, an output and a checkpoint, so nothing happens off the record." />
         </Reveal>
-        <ol className="relative grid gap-4 md:grid-cols-5">
-          <div className="absolute left-0 right-0 top-[1.15rem] hidden h-px bg-gradient-to-r from-[var(--gh-cyan)] via-[var(--gh-violet)] to-transparent md:block" />
-          {STEPS.map(([n, t, d, who], i) => (
+        <ol className="relative grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="pointer-events-none absolute left-0 right-0 top-[19px] hidden h-px bg-gradient-to-r from-[var(--mint)]/50 via-[var(--blue)]/30 to-transparent lg:block" />
+          {STEPS.map(([n, t, d, who, c], i) => (
             <li key={n}>
-              <Reveal delay={i * 0.07}>
-                <div className="relative">
-                  <span className="relative z-10 mb-4 flex size-9 items-center justify-center border border-[var(--gh-cyan)] bg-[#070a16] font-mono text-xs text-[var(--gh-cyan)] gh-bevel">
-                    {n}
-                  </span>
-                  <h3 className="font-display text-lg font-bold text-white">{t}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-[#b8c0e6]">{d}</p>
-                  <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[var(--gh-violet)]">{who}</p>
-                </div>
+              <Reveal delay={i * 0.06}>
+                <span
+                  className="relative mb-5 flex size-10 items-center justify-center rounded-full bg-[var(--surface-3)] text-sm font-semibold tabular-nums"
+                  style={{ color: c, boxShadow: `0 0 0 6px var(--ink), 0 0 0 7px color-mix(in srgb, ${c} 30%, transparent)` }}
+                >
+                  {n}
+                </span>
+                <h3 className="text-lg font-semibold">{t}</h3>
+                <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">{d}</p>
+                <p className="mt-3 text-xs font-medium text-[var(--text-faint)]">{who}</p>
               </Reveal>
             </li>
           ))}
         </ol>
         <Reveal>
-          <Link href="/how-it-works" className="gh-btn gh-btn-ghost mt-10">
+          <Link href="/how-it-works" className="btn btn-secondary mt-12">
             Read the full walkthrough <ArrowRight className="size-4" />
           </Link>
         </Reveal>
@@ -10512,109 +10888,50 @@ export function Timeline() {
   );
 }
 
-/* ---------- Marquee ---------- */
-const STACK = ["Next.js", "React", "Tailwind CSS", "shadcn/ui", "Clerk", "Drizzle ORM", "libSQL", "Zod", "Framer Motion", "TypeScript", "Vercel", "CodeRabbit", "Playwright", "Vitest"];
-
-export function StackMarquee() {
-  const row = [...STACK, ...STACK];
-  return (
-    <section aria-label="Technology stack" className="relative overflow-hidden border-b border-[var(--gh-line)] bg-[#04050b] py-6">
-      <p className="gh-hud mb-3 text-center !text-[var(--gh-text-dim)]">built with / works with</p>
-      <div className="[mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
-        <ul className="gh-marquee flex gap-3">
-          {row.map((s, i) => (
-            <li key={i} className="gh-bevel border border-[var(--gh-line)] bg-white/[0.03] px-5 py-2.5 font-mono text-sm text-[#c9d1f5]">
-              {s}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Use cases ---------- */
-const CASES = [
-  { who: "Solo founder", what: "Invoice tracker in an afternoon", q: "I wrote two sentences and got a schema, an API, tests and a README. I only had to tweak copy.", m: ["14 tasks", "42 tests", "3 modules"] },
-  { who: "Indie hacker", what: "Habit app with streaks", q: "The git log made it easy to trust. I could see which agent changed what and why.", m: ["9 commits", "87% coverage", "0 secrets"] },
-  { who: "Small team lead", what: "Internal support desk", q: "AEGIS caught a missing authz check before a human ever looked at the pull request.", m: ["1 finding fixed", "3 roles", "GO verdict"] },
-];
-
-export function UseCases() {
-  return (
-    <section className="relative border-b border-[var(--gh-line)] py-16 sm:py-24">
-      <div className="gh-aurora absolute inset-0 opacity-60" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <Reveal>
-          <SectionHead tag="use cases" title="Built for people who ship" sub="Representative scenarios from the demo workspace." />
-        </Reveal>
-        <div className="grid gap-4 md:grid-cols-3">
-          {CASES.map((c, i) => (
-            <Reveal key={c.who} delay={i * 0.07}>
-              <figure className="gh-panel gh-bevel relative flex h-full flex-col p-6">
-                <Quote className="size-5 text-[var(--gh-violet)]" />
-                <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-[#d5dbf7]">{c.q}</blockquote>
-                <figcaption className="mt-5 border-t border-dashed border-[var(--gh-line)] pt-4">
-                  <p className="font-display font-semibold text-white">{c.who}</p>
-                  <p className="text-xs text-[var(--gh-text-dim)]">{c.what}</p>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {c.m.map((x) => (
-                      <span key={x} className="border border-[var(--gh-cyan)]/30 bg-[var(--gh-cyan)]/5 px-2 py-0.5 font-mono text-[0.65rem] text-[var(--gh-cyan)]">
-                        {x}
-                      </span>
-                    ))}
-                  </div>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Demo teaser ---------- */
 export function DemoTeaser() {
   return (
-    <section className="relative border-b border-[var(--gh-line)] bg-[#070a16] py-16 sm:py-24">
-      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2">
-        <Reveal>
-          <SectionHead
-            tag="demo"
-            title="Watch a build from first prompt to GO"
-            sub="Two minutes, one real brief. See ATLAS plan, FORGE and PRISM commit, ECHO test, AEGIS fix a hole and JUDGE sign off."
-          />
-          <ul className="mb-6 space-y-2 text-sm text-[#b8c0e6]">
-            {["Live agent status changing as work lands", "A real git log filling in", "The flow graph lighting up stage by stage"].map((x) => (
-              <li key={x} className="flex gap-2">
-                <Check className="mt-0.5 size-4 shrink-0 text-emerald-300" />
-                {x}
-              </li>
-            ))}
-          </ul>
-          <Link href="/demo" className="gh-btn gh-btn-primary gh-btn-lg">
-            <Play className="size-4" /> Open the demo
-          </Link>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <Link href="/demo" aria-label="Open the demo" className="gh-panel gh-corners group relative block aspect-video overflow-hidden">
-            <div className="gh-aurora absolute inset-0" />
-            <div className="gh-grid absolute inset-0 opacity-50" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="flex size-16 items-center justify-center rounded-full border border-[var(--gh-cyan)] bg-[var(--gh-cyan)]/15 text-[var(--gh-cyan)] shadow-[0_0_40px_-4px_var(--gh-cyan)] transition-transform group-hover:scale-110">
-                <Play className="size-6 fill-current" />
-              </span>
-            </div>
-            <span className="gh-hud absolute left-3 top-3 !text-[0.6rem]">rec // 02:04</span>
-            <span className="absolute bottom-3 left-3 right-3 flex items-center gap-2 font-mono text-[0.65rem] text-[var(--gh-text-dim)]">
-              <span className="h-1 flex-1 bg-white/10">
-                <span className="block h-full w-1/3 bg-[var(--gh-cyan)]" />
-              </span>
-              00:41 / 02:04
-            </span>
-          </Link>
-        </Reveal>
+    <section className="relative">
+      <div className="container-page section">
+        <div className="surface-raised relative overflow-hidden rounded-[24px] p-6 sm:p-10 lg:p-12">
+          <div className="bg-atmosphere pointer-events-none absolute inset-0 opacity-80" />
+          <div className="relative grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal>
+              <p className="eyebrow mb-4">Demo</p>
+              <h2 className="text-balance text-[1.9rem] font-semibold leading-[1.1] tracking-[-0.03em] sm:text-[2.4rem]">Watch a build from first prompt to GO</h2>
+              <p className="mt-4 text-base leading-relaxed text-[var(--text-muted)]">
+                A real recorded walkthrough. See ATLAS plan, FORGE and PRISM commit, ECHO test, AEGIS fix a hole and JUDGE sign off.
+              </p>
+              <ul className="mb-8 mt-6 space-y-2.5 text-sm text-[var(--text-muted)]">
+                {["Live agent status changing as work lands", "A git log filling in", "The flow graph lighting up stage by stage"].map((x) => (
+                  <li key={x} className="flex gap-2.5">
+                    <Check className="mt-0.5 size-4 shrink-0 text-[var(--mint)]" />
+                    {x}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/demo" className="btn btn-primary btn-lg">
+                <Play className="size-4" /> Open the demo
+              </Link>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <Link
+                href="/demo"
+                aria-label="Watch the demo video"
+                className="group relative block aspect-video overflow-hidden rounded-[16px] bg-[var(--surface-1)] shadow-[var(--shadow-2),0_0_0_1px_var(--hairline)] transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${BASE}/demo/poster.png`} alt="" loading="lazy" className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-[1.02]" />
+                <span className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex size-16 items-center justify-center rounded-full bg-[var(--mint)] text-[var(--mint-ink)] shadow-[var(--shadow-mint)] transition-transform duration-200 group-hover:scale-105">
+                    <Play className="size-6 fill-current" />
+                  </span>
+                </span>
+              </Link>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -10629,31 +10946,31 @@ const TIERS = [
 
 export function PricingTeaser() {
   return (
-    <section className="relative border-b border-[var(--gh-line)] py-16 sm:py-24">
-      <div className="gh-dots absolute inset-0 opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+    <section className="relative">
+      <div className="container-page section">
         <Reveal>
-          <SectionHead tag="pricing" title="Start free, scale the crew when you need to" sub="Run the whole thing locally with zero secrets, then upgrade when you ship for real." />
+          <SectionHead tag="Pricing" title="Start free, scale the crew when you need to" sub="Run the whole thing locally with zero secrets, then upgrade when you ship for real." />
         </Reveal>
         <div className="grid gap-4 md:grid-cols-3">
           {TIERS.map((t, i) => (
-            <Reveal key={t.n} delay={i * 0.07}>
+            <Reveal key={t.n} delay={i * 0.06}>
               <div
-                className={`gh-panel gh-bevel relative flex h-full flex-col p-6 ${t.hot ? "!border-[var(--gh-cyan)] shadow-[0_0_40px_-12px_var(--gh-cyan)]" : ""}`}
+                className={`card-lift relative flex h-full flex-col p-7 ${t.hot ? "surface-raised" : "surface"}`}
+                style={t.hot ? { boxShadow: "var(--inner-top), 0 0 0 1px rgba(62,230,160,0.35), var(--shadow-2), 0 24px 60px -24px rgba(62,230,160,0.3)" } : undefined}
               >
-                {t.hot && <span className="gh-hud absolute right-5 top-4 !text-[0.6rem]">popular</span>}
-                <p className="font-mono text-xs uppercase tracking-widest text-[var(--gh-text-dim)]">{t.n}</p>
-                <p className="mt-2 font-display text-3xl font-bold text-white">{t.p}</p>
-                <p className="mt-2 text-sm text-[#b8c0e6]">{t.d}</p>
-                <ul className="my-5 flex-1 space-y-2 text-sm text-[#d5dbf7]">
+                {t.hot && <span className="chip chip-mint absolute right-6 top-6">Popular</span>}
+                <p className="text-sm font-medium text-[var(--text-muted)]">{t.n}</p>
+                <p className="mt-2 font-display text-4xl font-semibold tracking-[-0.03em]">{t.p}</p>
+                <p className="mt-3 text-[0.9375rem] text-[var(--text-muted)]">{t.d}</p>
+                <ul className="my-6 flex-1 space-y-3 text-sm text-[var(--text)]">
                   {t.f.map((x) => (
-                    <li key={x} className="flex gap-2">
-                      <Check className="mt-0.5 size-4 shrink-0 text-[var(--gh-cyan)]" />
+                    <li key={x} className="flex gap-2.5">
+                      <Check className="mt-0.5 size-4 shrink-0 text-[var(--mint)]" />
                       {x}
                     </li>
                   ))}
                 </ul>
-                <Link href={t.href} className={`gh-btn ${t.hot ? "gh-btn-primary" : "gh-btn-ghost"} w-full`}>
+                <Link href={t.href} className={`btn w-full ${t.hot ? "btn-primary" : "btn-secondary"}`}>
                   {t.cta}
                 </Link>
               </div>
@@ -10661,9 +10978,9 @@ export function PricingTeaser() {
           ))}
         </div>
         <Reveal>
-          <p className="mt-6 text-sm text-[var(--gh-text-dim)]">
+          <p className="mt-8 text-sm text-[var(--text-muted)]">
             Compare every plan on the{" "}
-            <Link href="/pricing" className="text-[var(--gh-cyan)] underline-offset-4 hover:underline">
+            <Link href="/pricing" className="text-[var(--mint)] underline-offset-4 hover:underline">
               pricing page
             </Link>
             .
@@ -10686,23 +11003,23 @@ const FAQ = [
 
 export function Faq() {
   return (
-    <section className="relative border-b border-[var(--gh-line)] bg-[#070a16] py-16 sm:py-24">
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
+    <section className="relative">
+      <div className="container-page section grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <Reveal>
-          <SectionHead tag="faq" title="Questions, answered" sub="Still stuck? The docs go deeper on every piece." />
-          <Link href="/docs" className="gh-btn gh-btn-ghost">
+          <SectionHead tag="FAQ" title="Questions, answered" sub="Still stuck? The docs go deeper on every piece." />
+          <Link href="/docs" className="btn btn-secondary -mt-6">
             Read the docs <ArrowRight className="size-4" />
           </Link>
         </Reveal>
-        <Reveal delay={0.08}>
-          <div className="space-y-2">
+        <Reveal delay={0.06}>
+          <div className="space-y-2.5">
             {FAQ.map(([q, a], i) => (
-              <details key={q} className="group gh-panel open:border-[var(--gh-cyan)]/50" open={i === 0}>
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 font-display font-semibold text-white [&::-webkit-details-marker]:hidden">
+              <details key={q} className="group surface rounded-[14px] transition-colors open:bg-[var(--surface-2)]" open={i === 0}>
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-[14px] px-5 py-4 text-[0.9375rem] font-medium text-[var(--text)] transition-colors hover:text-white [&::-webkit-details-marker]:hidden">
                   <span>{q}</span>
-                  <span className="font-mono text-lg text-[var(--gh-cyan)] transition-transform group-open:rotate-45">+</span>
+                  <span className="text-xl leading-none text-[var(--mint)] transition-transform duration-200 group-open:rotate-45">+</span>
                 </summary>
-                <p className="px-4 pb-4 text-sm leading-relaxed text-[#b8c0e6]">{a}</p>
+                <p className="px-5 pb-5 text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">{a}</p>
               </details>
             ))}
           </div>
@@ -10715,24 +11032,21 @@ export function Faq() {
 /* ---------- Final CTA ---------- */
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28">
-      <div className="gh-aurora absolute inset-0" />
-      <div className="gh-grid absolute inset-0 opacity-50" />
-      <div className="gh-noise absolute inset-0" />
-      <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+    <section className="relative overflow-hidden">
+      <div className="bg-atmosphere pointer-events-none absolute inset-0 [transform:scaleY(-1)]" />
+      <div className="container-page relative py-28 text-center sm:py-36">
         <Reveal>
-          <p className="gh-hud mb-4">ready // standing by</p>
-          <h2 className="font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
-            Your crew is <span className="gh-text-gradient">already online.</span>
+          <h2 className="h-display mx-auto max-w-3xl text-[2.4rem] sm:text-6xl">
+            Your crew is <span className="text-[var(--mint)]">already online.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-[#b8c0e6]">
+          <p className="mx-auto mt-5 max-w-xl text-base text-[var(--text-muted)] sm:text-lg">
             Create a project in under a minute and watch eight agents get to work.
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="/dashboard" className="gh-btn gh-btn-primary gh-btn-lg">
-              Launch the app <ArrowRight className="size-4" />
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link href="/dashboard" className="btn btn-primary btn-lg w-full sm:w-auto">
+              Launch app <ArrowRight className="size-4" />
             </Link>
-            <Link href="/sign-up" className="gh-btn gh-btn-ghost gh-btn-lg">
+            <Link href="/sign-up" className="btn btn-secondary btn-lg w-full sm:w-auto">
               Create an account
             </Link>
           </div>
@@ -10749,7 +11063,7 @@ Building blocks and data for the marketing and documentation pages.
 
 ### `src/components/marketing/agent-directory.tsx`
 
-**Lines:** 72 · **Size:** 4.1 KB · **Language:** typescript · **Exports:** `AgentDirectory`
+**Lines:** 72 · **Size:** 4.8 KB · **Language:** typescript · **Exports:** `AgentDirectory`
 
 Client component with search and filter over the agent catalogue.
 
@@ -10761,9 +11075,9 @@ Client component with search and filter over the agent catalogue.
 "use client";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { ChevronDown, Search } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Search } from "lucide-react";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
-import { COLOR, Panel } from "./ui";
+import { ACCENT, Panel, accentStyle, textLink } from "./ui";
 
 export function AgentDirectory() {
   const [q, setQ] = useState("");
@@ -10779,51 +11093,51 @@ export function AgentDirectory() {
       <div className="mb-5 flex flex-col gap-3 sm:flex-row">
         <label className="relative flex-1">
           <span className="sr-only">Search agents</span>
-          <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[var(--gh-text-dim)]" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search agents, sub-agents, tools..." className="w-full rounded-md border border-[var(--gh-line)] bg-black/30 py-2.5 pl-9 pr-3 text-sm text-white placeholder:text-[var(--gh-text-dim)] focus:outline-2 focus:outline-cyan-300" />
+          <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[var(--text-faint)]" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search agents, sub-agents, tools..." className="h-12 w-full rounded-[var(--r-control)] bg-[var(--surface-2)] pl-11 pr-4 text-sm text-[var(--text)] shadow-[var(--inner-top),0_0_0_1px_var(--hairline)] transition-shadow placeholder:text-[var(--text-faint)] focus:shadow-[0_0_0_2px_rgba(62,230,160,0.45)] focus:outline-none" />
         </label>
-        <label className="flex items-center gap-2 text-sm text-[var(--gh-text-dim)]">
+        <label className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
           Tool
-          <select value={tool} onChange={(e) => setTool(e.target.value)} className="rounded-md border border-[var(--gh-line)] bg-[#0e1224] px-3 py-2.5 text-sm text-white">
+          <select value={tool} onChange={(e) => setTool(e.target.value)} className="h-12 rounded-[var(--r-control)] bg-[var(--surface-2)] px-4 text-sm text-[var(--text)] shadow-[var(--inner-top),0_0_0_1px_var(--hairline)] focus:shadow-[0_0_0_2px_rgba(62,230,160,0.45)] focus:outline-none">
             {tools.map((t) => <option key={t}>{t}</option>)}
           </select>
         </label>
       </div>
-      <p className="mb-3 text-xs text-[var(--gh-text-dim)]" aria-live="polite">{list.length} of {AGENT_CATALOG.length} lead agents shown</p>
-      {list.length === 0 && <Panel><p className="text-sm text-[var(--gh-text-dim)]">No agent matches that search. <button className="text-cyan-300 underline" onClick={() => { setQ(""); setTool("All"); }}>Clear filters</button></p></Panel>}
+      <p className="mb-4 text-sm text-[var(--text-faint)]" aria-live="polite">{list.length} of {AGENT_CATALOG.length} lead agents shown</p>
+      {list.length === 0 && <Panel><p className="text-sm text-[var(--text-muted)]">No agent matches that search. <button className={textLink} onClick={() => { setQ(""); setTool("All"); }}>Clear filters</button></p></Panel>}
       <div className="grid gap-4 md:grid-cols-2">
         {list.map((a) => {
-          const c = COLOR[a.color];
           const isOpen = !!open[a.name];
           return (
-            <Panel key={a.name}>
-              <div className="flex items-start justify-between gap-3">
+            <div key={a.name} style={accentStyle(a.color)} className="surface card-lift relative overflow-hidden p-6">
+              <div aria-hidden className="pointer-events-none absolute -right-12 -top-16 size-44 rounded-full bg-[var(--a)] opacity-[0.07] blur-3xl" />
+              <div className="relative flex items-start justify-between gap-3">
                 <div>
-                  <p className={`gh-hud ${c.text}`}>{a.codename}</p>
-                  <h3 className="text-lg font-semibold text-white">{a.name}</h3>
-                  <p className="text-sm text-[var(--gh-text-dim)]">{a.tagline}</p>
+                  <span className={`chip ${ACCENT.chip}`}><span className={`size-1.5 rounded-full ${ACCENT.dot}`} />{a.codename}</span>
+                  <h3 className="mt-3 text-xl font-semibold text-[var(--text)]">{a.name}</h3>
+                  <p className="mt-1 text-sm text-[var(--text-muted)]">{a.tagline}</p>
                 </div>
-                <Link href={`/agents/${a.name.toLowerCase()}`} className="shrink-0 text-xs text-cyan-300 underline">Details</Link>
+                <Link href={`/agents/${a.name.toLowerCase()}`} className="btn btn-ghost btn-sm shrink-0 gap-1 !px-2.5">Details<ArrowUpRight className="size-3.5" /></Link>
               </div>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {a.tools.map((t) => <span key={t} className={`rounded border px-2 py-0.5 text-xs ${c.ring} ${c.bg} ${c.text}`}>{t}</span>)}
+              <div className="relative mt-4 flex flex-wrap gap-1.5">
+                {a.tools.map((t) => <span key={t} className="chip">{t}</span>)}
               </div>
-              <p className="mt-3 text-sm text-white/80"><span className="text-[var(--gh-text-dim)]">Produces: </span>{a.produces}</p>
-              <button type="button" aria-expanded={isOpen} onClick={() => setOpen((o) => ({ ...o, [a.name]: !isOpen }))} className="mt-3 flex w-full items-center justify-between border-t border-[var(--gh-line)] pt-3 text-sm text-white">
+              <p className="relative mt-4 text-sm text-[var(--text)]"><span className="text-[var(--text-faint)]">Produces </span>{a.produces}</p>
+              <button type="button" aria-expanded={isOpen} onClick={() => setOpen((o) => ({ ...o, [a.name]: !isOpen }))} className="relative mt-5 flex w-full items-center justify-between rounded-[10px] bg-white/[0.03] px-3.5 py-2.5 text-sm font-medium text-[var(--text)] transition-colors hover:bg-white/[0.06]">
                 {a.subAgents.length} sub-agents
-                <ChevronDown className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`size-4 text-[var(--text-muted)] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
               </button>
               {isOpen && (
-                <ul className="mt-2 space-y-2">
+                <ul className="relative mt-2 space-y-1.5">
                   {a.subAgents.map((s) => (
-                    <li key={s.id} className="rounded border border-[var(--gh-line)] bg-black/20 px-3 py-2 text-sm">
-                      <span className="font-medium text-white">{s.name}</span>
-                      <span className="block text-xs text-[var(--gh-text-dim)]">{s.role}</span>
+                    <li key={s.id} className="rounded-[10px] bg-black/20 px-3.5 py-2.5 text-sm">
+                      <span className="font-medium text-[var(--text)]">{s.name}</span>
+                      <span className="block text-xs text-[var(--text-muted)]">{s.role}</span>
                     </li>
                   ))}
                 </ul>
               )}
-            </Panel>
+            </div>
           );
         })}
       </div>
@@ -10953,34 +11267,34 @@ function Row({ e }: { e: Ep }) {
     } finally { setBusy(false); }
   }
   return (
-    <Panel className="scroll-mt-24">
+    <Panel className="scroll-mt-24 sm:p-7">
       <div id={slug(e)} className="scroll-mt-24" />
       <div className="flex flex-wrap items-center gap-3">
-        <span className={`rounded px-2 py-0.5 font-mono text-xs font-semibold ${e.method === "GET" ? "bg-emerald-400/15 text-emerald-300" : "bg-amber-400/15 text-amber-300"}`}>{e.method}</span>
-        <code className="break-all text-sm text-white">{e.path}</code>
+        <span className={`chip !font-mono !text-[0.7rem] font-semibold ${e.method === "GET" ? "chip-mint" : "chip-amber"}`}>{e.method}</span>
+        <code className="break-all font-mono text-[0.95rem] font-medium text-[var(--text)]">{e.path}</code>
       </div>
-      <p className="mt-2 text-sm text-[var(--gh-text-dim)]">{e.desc}</p>
-      <div className="mt-4 grid gap-3 lg:grid-cols-2">
+      <p className="mt-3 text-sm text-[var(--text-muted)]">{e.desc}</p>
+      <div className="mt-5 grid gap-3 lg:grid-cols-2">
         <Code title="curl" code={curl} />
         <Code title="example response" code={e.response} />
       </div>
       {e.method === "GET" ? (
-        <div className="mt-3">
-          <button type="button" onClick={run} disabled={busy} className="inline-flex items-center gap-2 rounded border border-cyan-400/50 bg-cyan-400/10 px-3 py-1.5 text-sm text-cyan-200 hover:bg-cyan-400/20 disabled:opacity-60">
+        <div className="mt-4">
+          <button type="button" onClick={run} disabled={busy} className="btn btn-primary btn-sm disabled:opacity-60">
             {busy ? <Loader2 className="size-4 animate-spin" /> : <Play className="size-4" />} Try it
           </button>
-          {out && <pre className="mt-3 max-h-64 overflow-auto rounded border border-[var(--gh-line)] bg-black/50 p-3 text-xs text-slate-200 whitespace-pre-wrap">{out}</pre>}
+          {out && <pre className="mt-3 max-h-64 overflow-auto whitespace-pre-wrap rounded-[var(--r-control)] bg-[#0c0e11] p-4 font-mono text-xs leading-relaxed text-[#cfd5df] shadow-[0_0_0_1px_var(--hairline)]">{out}</pre>}
         </div>
-      ) : <p className="mt-3 text-xs text-[var(--gh-text-dim)]">Try it is available for GET endpoints only.</p>}
+      ) : <p className="mt-4 text-xs text-[var(--text-faint)]">Try it is available for GET endpoints only.</p>}
     </Panel>
   );
 }
 
 export function ApiExplorer() {
   return (
-    <div className="space-y-4">
-      <nav aria-label="Endpoints" className="mb-6 flex flex-wrap gap-2">
-        {EPS.map((e) => <a key={slug(e)} href={`#${slug(e)}`} className="rounded border border-[var(--gh-line)] bg-white/5 px-2 py-1 font-mono text-xs text-white/80 hover:bg-white/10">{e.method} {e.path.split("?")[0]}</a>)}
+    <div className="space-y-5">
+      <nav aria-label="Endpoints" className="mb-8 flex flex-wrap gap-2">
+        {EPS.map((e) => <a key={slug(e)} href={`#${slug(e)}`} className="rounded-full bg-white/[0.05] px-3 py-1.5 font-mono text-xs text-[var(--text-muted)] transition-colors hover:bg-white/[0.1] hover:text-[var(--text)]">{e.method} {e.path.split("?")[0]}</a>)}
       </nav>
       {EPS.map((e) => <Row key={slug(e)} e={e} />)}
     </div>
@@ -10990,7 +11304,7 @@ export function ApiExplorer() {
 
 ### `src/components/marketing/copy-button.tsx`
 
-**Lines:** 32 · **Size:** 1.3 KB · **Language:** typescript · **Exports:** `CopyButton`, `Code`
+**Lines:** 32 · **Size:** 1.4 KB · **Language:** typescript · **Exports:** `CopyButton`, `Code`
 
 CopyButton and Code components for copyable snippets.
 
@@ -11009,10 +11323,10 @@ export function CopyButton({ text, label = "Copy" }: { text: string; label?: str
       onClick={async () => {
         try { await navigator.clipboard.writeText(text); setDone(true); setTimeout(() => setDone(false), 1500); } catch { setDone(false); }
       }}
-      className="inline-flex items-center gap-1.5 rounded border border-[var(--gh-line)] bg-white/5 px-2.5 py-1 text-xs text-white/80 hover:bg-white/10"
+      className="inline-flex h-7 items-center gap-1.5 rounded-lg px-2.5 text-xs font-medium text-[var(--text-muted)] transition-colors hover:bg-white/[0.07] hover:text-[var(--text)] active:scale-95"
       aria-label={`${label} snippet`}
     >
-      {done ? <Check className="size-3.5 text-emerald-300" /> : <Copy className="size-3.5" />}
+      {done ? <Check className="size-3.5 text-[var(--mint)]" /> : <Copy className="size-3.5" />}
       {done ? "Copied" : label}
     </button>
   );
@@ -11020,12 +11334,12 @@ export function CopyButton({ text, label = "Copy" }: { text: string; label?: str
 
 export function Code({ code, title }: { code: string; title?: string }) {
   return (
-    <div className="overflow-hidden rounded-md border border-[var(--gh-line)] bg-black/40">
-      <div className="flex items-center justify-between border-b border-[var(--gh-line)] px-3 py-1.5">
-        <span className="gh-hud">{title ?? "snippet"}</span>
+    <div className="overflow-hidden rounded-[var(--r-card)] bg-[#0c0e11] shadow-[var(--inner-top),0_0_0_1px_var(--hairline)]">
+      <div className="flex items-center justify-between bg-white/[0.03] py-1.5 pl-4 pr-2">
+        <span className="text-xs font-medium text-[var(--text-faint)]">{title ?? "snippet"}</span>
         <CopyButton text={code} />
       </div>
-      <pre className="overflow-x-auto p-3 text-xs leading-relaxed text-slate-200"><code>{code}</code></pre>
+      <pre className="overflow-x-auto px-4 py-4 font-mono text-[0.8rem] leading-[1.7] text-[#cfd5df]"><code>{code}</code></pre>
     </div>
   );
 }
@@ -11033,7 +11347,7 @@ export function Code({ code, title }: { code: string; title?: string }) {
 
 ### `src/components/marketing/demo-player.tsx`
 
-**Lines:** 107 · **Size:** 6.9 KB · **Language:** typescript · **Exports:** `DemoPlayer`
+**Lines:** 109 · **Size:** 7.5 KB · **Language:** typescript · **Exports:** `DemoPlayer`
 
 Storyboard that switches to the recorded demo video with its poster.
 
@@ -11046,7 +11360,7 @@ Storyboard that switches to the recorded demo video with its poster.
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Download, Pause, Play } from "lucide-react";
-import { Panel, btnPrimary, basePath } from "./ui";
+import { btnPrimary, basePath } from "./ui";
 
 const SRC = `${basePath}/demo/ghost-ai-demo.webm`;
 const POSTER = `${basePath}/demo/poster.png`;
@@ -11059,6 +11373,7 @@ const SCENES = [
   { t: 36, title: "Review and ship", caption: "JUDGE checks the definition of done and says Go.", lines: ["VERDICT: GO", "0 blocking findings", "export: project.md ready"], agents: [7] },
 ];
 const NAMES = ["Architect", "Backend", "Frontend", "DevOps", "QA", "Security", "Docs", "Reviewer"];
+const AGENT_VARS = ["cyan", "violet", "fuchsia", "amber", "emerald", "rose", "sky", "lime"];
 const SCENE_MS = 4500;
 
 const SCRIPT = `# Ghost AI demo storyboard\n\n${SCENES.map((s, i) => `${i + 1}. ${s.title} (${s.t}s): ${s.caption}`).join("\n")}\n`;
@@ -11088,62 +11403,63 @@ export function DemoPlayer() {
   const s = SCENES[scene];
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
+    <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
       <div>
-        <Panel className="p-3">
+        <div className="relative rounded-[20px] bg-[var(--surface-2)] p-2 shadow-[var(--inner-top),0_0_0_1px_var(--hairline),0_30px_80px_-30px_rgba(62,230,160,0.18),var(--shadow-2)]">
           {hasVideo ? (
             <video ref={vref} controls preload="metadata" poster={POSTER} src={SRC} onError={() => setHasVideo(false)} onTimeUpdate={(e) => {
               const t = e.currentTarget.currentTime; let idx = 0;
               SCENES.forEach((x, i) => { if (t >= x.t) idx = i; });
               setScene(idx);
-            }} className="aspect-video w-full rounded bg-black" />
+            }} className="aspect-video w-full rounded-[14px] bg-black" />
           ) : (
-            <div className="relative aspect-video w-full overflow-hidden rounded bg-[#05060d]" role="img" aria-label={`Storyboard scene ${scene + 1}: ${s.title}`}>
-              <div className="gh-grid absolute inset-0 opacity-40" />
-              <div className="relative flex h-full flex-col justify-between p-4 sm:p-6">
+            <div className="relative aspect-video w-full overflow-hidden rounded-[14px] bg-[#07080a]" role="img" aria-label={`Storyboard scene ${scene + 1}: ${s.title}`}>
+              <div className="bg-dots absolute inset-0 opacity-25" />
+              <div className="bg-atmosphere absolute inset-0" />
+              <div className="relative flex h-full flex-col justify-between p-4 sm:p-7">
                 <div className="flex items-center justify-between">
-                  <span className="gh-hud">Storyboard // scene {scene + 1} of {SCENES.length}</span>
-                  <button type="button" onClick={() => setPlaying((p) => !p)} className="inline-flex items-center gap-1 rounded border border-[var(--gh-line)] px-2 py-1 text-xs text-white/80 hover:bg-white/10" aria-label={playing ? "Pause storyboard" : "Play storyboard"}>
+                  <span className="chip chip-mint">Storyboard · scene {scene + 1} of {SCENES.length}</span>
+                  <button type="button" onClick={() => setPlaying((p) => !p)} className="btn btn-ghost btn-sm" aria-label={playing ? "Pause storyboard" : "Play storyboard"}>
                     {playing ? <Pause className="size-3.5" /> : <Play className="size-3.5" />}{playing ? "Pause" : "Play"}
                   </button>
                 </div>
                 <div key={scene} className="animate-in fade-in slide-in-from-bottom-2 duration-500">
-                  <h3 className="text-xl font-semibold text-white sm:text-3xl">{s.title}</h3>
-                  <p className="mt-1 text-xs text-[var(--gh-text-dim)] sm:text-sm">{s.caption}</p>
-                  <pre className="mt-3 overflow-hidden rounded border border-[var(--gh-line)] bg-black/50 p-3 text-[11px] leading-relaxed text-cyan-200 sm:text-xs">{s.lines.join("\n")}</pre>
+                  <h3 className="h-display text-2xl sm:text-4xl">{s.title}</h3>
+                  <p className="mt-1.5 text-xs text-[var(--text-muted)] sm:text-sm">{s.caption}</p>
+                  <pre className="mt-4 overflow-hidden rounded-[12px] bg-black/50 p-3.5 font-mono text-[11px] leading-relaxed text-[var(--mint)] shadow-[0_0_0_1px_var(--hairline)] sm:text-xs">{s.lines.join("\n")}</pre>
                 </div>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1.5">
                   {NAMES.map((n, i) => (
-                    <span key={n} className={`rounded border px-1.5 py-0.5 text-[10px] transition-colors sm:text-xs ${s.agents.includes(i) ? "border-cyan-300 bg-cyan-300/20 text-cyan-100" : "border-[var(--gh-line)] text-[var(--gh-text-dim)]"}`}>{n}</span>
+                    <span key={n} style={{ "--a": `var(--agent-${AGENT_VARS[i]})` } as React.CSSProperties} className={`chip transition-colors duration-300 ${s.agents.includes(i) ? "bg-[color-mix(in_srgb,var(--a)_18%,transparent)] text-[var(--a)]" : "!text-[var(--text-faint)]"}`}>{n}</span>
                   ))}
                 </div>
-                <div className="absolute inset-x-0 bottom-0 h-1 bg-white/10"><div className="h-full bg-cyan-300 transition-all duration-500" style={{ width: `${((scene + 1) / SCENES.length) * 100}%` }} /></div>
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-white/10"><div className="h-full bg-[var(--mint)] transition-all duration-500" style={{ width: `${((scene + 1) / SCENES.length) * 100}%` }} /></div>
               </div>
             </div>
           )}
-        </Panel>
-        <p className="mt-2 text-xs text-[var(--gh-text-dim)]">{hasVideo ? "Recorded walkthrough." : "The recorded video is not available yet, so a scripted storyboard plays instead."}</p>
+        </div>
+        <p className="mt-3 px-1 text-sm text-[var(--text-faint)]">{hasVideo ? "Recorded walkthrough." : "The recorded video is not available yet, so a scripted storyboard plays instead."}</p>
       </div>
 
-      <div>
-        <Panel>
-          <h3 className="gh-hud mb-3">Chapters</h3>
-          <ol className="space-y-1.5">
+      <div className="flex flex-col gap-4">
+        <div className="surface p-3">
+          <h3 className="px-3 pb-2 pt-2 text-sm font-semibold text-[var(--text)]">Chapters</h3>
+          <ol className="space-y-1">
             {SCENES.map((c, i) => (
               <li key={c.title}>
-                <button type="button" onClick={() => seek(i)} aria-current={i === scene} className={`flex w-full items-start gap-3 rounded border px-3 py-2 text-left text-sm transition-colors ${i === scene ? "border-cyan-400/60 bg-cyan-400/10 text-white" : "border-[var(--gh-line)] text-white/80 hover:bg-white/5"}`}>
-                  <span className="font-mono text-xs text-cyan-300">{String(Math.floor(c.t / 60)).padStart(1, "0")}:{String(c.t % 60).padStart(2, "0")}</span>
-                  <span>{c.title}<span className="block text-xs text-[var(--gh-text-dim)]">{c.caption}</span></span>
+                <button type="button" onClick={() => seek(i)} aria-current={i === scene} className={`flex w-full items-start gap-3 rounded-[12px] px-3 py-2.5 text-left text-sm transition-colors ${i === scene ? "bg-[var(--mint-tint)] text-[var(--text)]" : "text-[var(--text-muted)] hover:bg-white/[0.04] hover:text-[var(--text)]"}`}>
+                  <span className={`mt-0.5 font-mono text-xs ${i === scene ? "text-[var(--mint)]" : "text-[var(--text-faint)]"}`}>{String(Math.floor(c.t / 60)).padStart(1, "0")}:{String(c.t % 60).padStart(2, "0")}</span>
+                  <span className="font-medium">{c.title}<span className="mt-0.5 block text-xs font-normal text-[var(--text-faint)]">{c.caption}</span></span>
                 </button>
               </li>
             ))}
           </ol>
-        </Panel>
-        <div className="mt-4 flex flex-col gap-2">
-          <Link href="/dashboard" className={btnPrimary}>Try the live dashboard</Link>
-          <a href={`data:text/markdown;charset=utf-8,${encodeURIComponent(SCRIPT)}`} download="ghost-ai-storyboard.md" className="inline-flex items-center gap-2 text-sm text-cyan-300 underline"><Download className="size-4" />Download storyboard script</a>
-          {hasVideo && <a href={SRC} download className="inline-flex items-center gap-2 text-sm text-cyan-300 underline"><Download className="size-4" />Download video (.webm)</a>}
-          {hasVideo && <a href={POSTER} download className="inline-flex items-center gap-2 text-sm text-cyan-300 underline"><Download className="size-4" />Download poster (.png)</a>}
+        </div>
+        <Link href="/dashboard" className={`${btnPrimary} w-full`}>Try the live dashboard</Link>
+        <div className="flex flex-col gap-1 px-1">
+          <a href={`data:text/markdown;charset=utf-8,${encodeURIComponent(SCRIPT)}`} download="ghost-ai-storyboard.md" className="inline-flex items-center gap-2 py-1 text-sm text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"><Download className="size-4" />Download storyboard script</a>
+          {hasVideo && <a href={SRC} download className="inline-flex items-center gap-2 py-1 text-sm text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"><Download className="size-4" />Download video (.webm)</a>}
+          {hasVideo && <a href={POSTER} download className="inline-flex items-center gap-2 py-1 text-sm text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"><Download className="size-4" />Download poster (.png)</a>}
         </div>
       </div>
     </div>
@@ -11212,7 +11528,7 @@ export const GUIDES: Guide[] = [
 
 ### `src/components/marketing/ui.tsx`
 
-**Lines:** 90 · **Size:** 4.4 KB · **Language:** typescript · **Exports:** `btnPrimary`, `btnGhost`, `COLOR`, `Page`, `Hero`, `Section`, `Panel`, `LinkCard`, `CtaBand`, `basePath`
+**Lines:** 114 · **Size:** 5.8 KB · **Language:** typescript · **Exports:** `btnPrimary`, `btnGhost`, `accentStyle`, `ACCENT`, `Page`, `Hero`, `Section`, `Panel`, `LinkCard`, `CtaBand`, `textLink`, `Feature` +1
 
 Shared marketing page primitives: button class names, Page, Hero, Section, Panel, LinkCard and the colour map.
 
@@ -11222,95 +11538,119 @@ Shared marketing page primitives: button class names, Page, Hero, Section, Panel
 
 ```tsx
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import type { AgentSpec } from "@/lib/agent-catalog";
 
-export const btnPrimary =
-  "gh-bevel inline-flex items-center justify-center gap-2 bg-[#22e5ff] px-6 py-3 text-sm font-medium text-[#05060d] transition-colors hover:bg-[#6cf0ff] gh-box-glow";
-export const btnGhost =
-  "gh-bevel inline-flex items-center justify-center gap-2 border border-[var(--gh-line)] bg-white/5 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10";
+export const btnPrimary = "btn btn-primary btn-lg";
+export const btnGhost = "btn btn-secondary btn-lg";
 
-export const COLOR: Record<AgentSpec["color"], { text: string; ring: string; bg: string }> = {
-  cyan: { text: "text-cyan-300", ring: "border-cyan-400/40", bg: "bg-cyan-400/10" },
-  violet: { text: "text-violet-300", ring: "border-violet-400/40", bg: "bg-violet-400/10" },
-  emerald: { text: "text-emerald-300", ring: "border-emerald-400/40", bg: "bg-emerald-400/10" },
-  amber: { text: "text-amber-300", ring: "border-amber-400/40", bg: "bg-amber-400/10" },
-  rose: { text: "text-rose-300", ring: "border-rose-400/40", bg: "bg-rose-400/10" },
-  sky: { text: "text-sky-300", ring: "border-sky-400/40", bg: "bg-sky-400/10" },
-  fuchsia: { text: "text-fuchsia-300", ring: "border-fuchsia-400/40", bg: "bg-fuchsia-400/10" },
-  lime: { text: "text-lime-300", ring: "border-lime-400/40", bg: "bg-lime-400/10" },
+/** Per-agent accent. Apply `accentStyle(color)` on a wrapper, then use `var(--a)` inside. */
+export function accentStyle(color: AgentSpec["color"]): CSSProperties {
+  return { "--a": `var(--agent-${color})` } as CSSProperties;
+}
+/** Tailwind helpers that read the --a variable set by accentStyle. */
+export const ACCENT = {
+  text: "text-[var(--a)]",
+  tint: "bg-[color-mix(in_srgb,var(--a)_14%,transparent)]",
+  chip: "bg-[color-mix(in_srgb,var(--a)_13%,transparent)] text-[var(--a)]",
+  dot: "bg-[var(--a)]",
 };
 
 export function Page({ children }: { children: ReactNode }) {
-  return <main className="relative mx-auto w-full max-w-6xl px-4 pb-24 sm:px-6">{children}</main>;
+  return <div className="relative pb-12">{children}</div>;
 }
 
-export function Hero({ eyebrow, title, lead, children }: { eyebrow: string; title: ReactNode; lead: string; children?: ReactNode }) {
+export function Hero({ eyebrow, title, lead, children, accent }: { eyebrow: string; title: ReactNode; lead: string; children?: ReactNode; accent?: AgentSpec["color"] }) {
   return (
-    <header className="relative pb-10 pt-14 sm:pt-20">
-      <div className="gh-grid pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 opacity-40" />
-      <p className="gh-hud mb-3">{eyebrow}</p>
-      <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">{title}</h1>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--gh-text-dim)] sm:text-lg">{lead}</p>
-      {children && <div className="mt-6 flex flex-wrap gap-3">{children}</div>}
+    <header className="relative overflow-hidden" style={accent ? accentStyle(accent) : undefined}>
+      <div className="bg-atmosphere pointer-events-none absolute inset-0" aria-hidden />
+      {accent && <div aria-hidden className="pointer-events-none absolute -top-32 right-[8%] h-80 w-[34rem] rounded-full bg-[var(--a)] opacity-[0.10] blur-[110px]" />}
+      <div className="bg-dots fade-mask-b pointer-events-none absolute inset-0 opacity-30" aria-hidden />
+      <div className="container-page relative pb-14 pt-16 sm:pb-20 sm:pt-24">
+        <p className={`eyebrow reveal ${accent ? "!text-[var(--a)]" : ""}`}>{eyebrow}</p>
+        <h1 className="h-display reveal reveal-1 mt-4 max-w-3xl text-[clamp(2.25rem,5.4vw,4rem)]">{title}</h1>
+        <p className="reveal reveal-2 mt-5 max-w-2xl text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">{lead}</p>
+        {children && <div className="reveal reveal-3 mt-8 flex flex-wrap gap-3">{children}</div>}
+      </div>
     </header>
   );
 }
 
 export function Section({ id, kicker, title, children }: { id?: string; kicker?: string; title: string; children: ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-24 py-8 sm:py-10">
-      {kicker && <p className="gh-hud mb-2">{kicker}</p>}
-      <h2 className="mb-5 text-2xl font-semibold tracking-tight text-white">{title}</h2>
+    <section id={id} className="container-page scroll-mt-24 py-10 sm:py-14">
+      <div className="mb-7 max-w-2xl">
+        {kicker && <p className="eyebrow mb-2">{kicker}</p>}
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)] sm:text-[1.75rem]">{title}</h2>
+      </div>
       {children}
     </section>
   );
 }
 
 export function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <div className={`gh-glass gh-bevel relative p-5 ${className}`}>
-      <span className="gh-rivet absolute left-4 top-2" />
-      <span className="gh-rivet absolute right-8 top-2" />
-      {children}
-    </div>
-  );
+  return <div className={`surface relative p-6 ${className}`}>{children}</div>;
 }
 
 export function LinkCard({ href, title, desc, tag }: { href: string; title: string; desc: string; tag?: string }) {
   return (
-    <Link href={href} className="group block">
-      <Panel className="h-full transition-colors group-hover:border-cyan-400/50">
-        {tag && <p className="gh-hud mb-2">{tag}</p>}
-        <h3 className="flex items-center justify-between font-medium text-white">
+    <Link href={href} className="group block h-full rounded-[var(--r-card)]">
+      <div className="surface card-lift h-full p-6">
+        {tag && <p className="mb-3 text-xs font-medium text-[var(--text-faint)]">{tag}</p>}
+        <h3 className="flex items-center justify-between gap-3 text-[1.0625rem] font-semibold text-[var(--text)]">
           {title}
-          <ArrowRight className="size-4 text-cyan-300 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="size-4 shrink-0 text-[var(--text-faint)] transition-all duration-200 group-hover:translate-x-1 group-hover:text-[var(--mint)]" />
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[var(--gh-text-dim)]">{desc}</p>
-      </Panel>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{desc}</p>
+      </div>
     </Link>
   );
 }
 
 export function CtaBand({ title = "See the crew work on your own brief", sub = "Open the live dashboard, describe a SaaS idea and watch eight agents build it." }: { title?: string; sub?: string }) {
   return (
-    <section className="py-10">
-      <Panel className="flex flex-col items-start justify-between gap-5 p-8 sm:flex-row sm:items-center">
-        <div>
-          <h2 className="text-xl font-semibold text-white">{title}</h2>
-          <p className="mt-1 text-sm text-[var(--gh-text-dim)]">{sub}</p>
+    <section className="container-page py-10 sm:py-14">
+      <div className="surface-raised relative overflow-hidden px-7 py-10 sm:px-12 sm:py-14">
+        <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-72 w-96 rounded-full bg-[var(--mint)] opacity-[0.10] blur-[90px]" />
+        <div aria-hidden className="pointer-events-none absolute -bottom-28 left-1/4 h-60 w-80 rounded-full bg-[var(--blue)] opacity-[0.08] blur-[90px]" />
+        <div className="relative flex flex-col items-start justify-between gap-7 sm:flex-row sm:items-center">
+          <div className="max-w-xl">
+            <h2 className="h-display text-2xl sm:text-[2rem]">{title}</h2>
+            <p className="mt-3 text-[var(--text-muted)]">{sub}</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/dashboard" className={btnPrimary}>Try the live dashboard <ArrowRight className="size-4" /></Link>
+            <Link href="/docs" className={btnGhost}>Read the docs</Link>
+          </div>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <Link href="/dashboard" className={btnPrimary}>Try the live dashboard <ArrowRight className="size-4" /></Link>
-          <Link href="/docs" className={btnGhost}>Read the docs</Link>
-        </div>
-      </Panel>
+      </div>
     </section>
   );
 }
 
-export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+/** Small inline text link used in prose. */
+export const textLink = "text-[var(--blue)] underline decoration-[var(--blue)]/30 underline-offset-4 transition-colors hover:decoration-[var(--blue)]";
+
+const TONES = {
+  mint: "bg-[var(--mint-tint)] text-[var(--mint)]",
+  amber: "bg-[var(--amber-tint)] text-[var(--amber)]",
+  blue: "bg-[var(--blue-tint)] text-[var(--blue)]",
+  coral: "bg-[var(--coral-tint)] text-[var(--coral)]",
+} as const;
+
+/** Open (borderless) feature column: icon tile, title, copy. */
+export function Feature({ icon: Icon, tone = "mint", title, children }: { icon: React.ComponentType<{ className?: string }>; tone?: keyof typeof TONES; title: string; children: ReactNode }) {
+  return (
+    <div>
+      <span className={`grid size-10 place-items-center rounded-[12px] ${TONES[tone]}`}><Icon className="size-5" /></span>
+      <h3 className="mt-4 text-[1.0625rem] font-semibold text-[var(--text)]">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{children}</p>
+    </div>
+  );
+}
+
+export const basePath =process.env.NEXT_PUBLIC_BASE_PATH || "";
 ```
 
 ## 35. Components: dashboard
@@ -11319,7 +11659,7 @@ The state store, the shell and the eight dashboard views.
 
 ### `src/components/dashboard/agents.tsx`
 
-**Lines:** 226 · **Size:** 13.9 KB · **Language:** typescript · **Exports:** `LogLines`, `AgentsView`, `AssignDialog`, `LogsDrawer`
+**Lines:** 229 · **Size:** 14.1 KB · **Language:** typescript · **Exports:** `LogLines`, `AgentsView`, `AssignDialog`, `LogsDrawer`
 
 Agents view: cards for the eight lead agents expanding into side agents, an assign-task dialog, and a logs drawer that streams simulated log lines from sim.ts.
 
@@ -11331,18 +11671,18 @@ Agents view: cards for the eight lead agents expanding into side agents, an assi
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Bot, ChevronDown, FileText, Plus, ScrollText, Wrench, X } from "lucide-react";
+import { Bot, ChevronDown, FileText, Plus, ScrollText, X } from "lucide-react";
 import { cn } from "cn";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import type { AgentName, ProjectDetail } from "@/lib/contracts";
 import { AGENTS } from "@/lib/contracts";
 import { AGENT_CATALOG, getAgentSpec } from "@/lib/agent-catalog";
-import { agentHex, backlogLines, subAgentView, type LogLine } from "@/lib/sim";
+import { backlogLines, subAgentView, type LogLine } from "@/lib/sim";
 import { useDash } from "./store";
-import { Bar, Dot, NeedProject, PageHead, field, fmtClock, hud } from "./kit";
+import { AgentGlyph, Bar, Dot, NeedProject, PageHead, agentColor, cap, codename, field, fmtClock, lbl, optionCls, selectField, tint } from "./kit";
 
-const LEVEL_COLOR: Record<LogLine["level"], string> = { info: "#8b93b8", ok: "#34d399", warn: "#fbbf24", cmd: "#22e5ff" };
+const LEVEL_COLOR: Record<LogLine["level"], string> = { info: "var(--text-muted)", ok: "var(--mint)", warn: "var(--amber)", cmd: "var(--text)" };
 
 export function LogLines({ lines, className }: { lines: LogLine[]; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -11351,15 +11691,15 @@ export function LogLines({ lines, className }: { lines: LogLine[]; className?: s
     if (el) el.scrollTop = el.scrollHeight;
   }, [lines.length]);
   return (
-    <div ref={ref} className={cn("overflow-y-auto bg-black/30 p-2.5 font-mono text-[11px] leading-relaxed", className)} role="log">
+    <div ref={ref} className={cn("surface-inset overflow-y-auto p-3.5 font-mono text-[11.5px] leading-[1.7]", className)} role="log">
       {lines.map((l) => (
-        <div key={l.id} className="flex gap-2 whitespace-pre-wrap break-words">
-          <span className="shrink-0 text-muted-foreground/60">{fmtClock(l.t)}</span>
-          <span className="shrink-0 font-semibold" style={{ color: agentHex(l.agent) }}>{getAgentSpec(l.agent).codename}</span>
-          <span style={{ color: LEVEL_COLOR[l.level] }}>{l.level === "cmd" ? "$ " : l.level === "ok" ? "OK " : l.level === "warn" ? "WARN " : ""}{l.text}</span>
+        <div key={l.id} className="flex gap-2.5 whitespace-pre-wrap break-words">
+          <span className="shrink-0 tabular-nums text-[var(--text-faint)]">{fmtClock(l.t)}</span>
+          <span className="shrink-0 font-semibold" style={{ color: agentColor(l.agent) }}>{codename(l.agent)}</span>
+          <span style={{ color: LEVEL_COLOR[l.level] }}>{l.level === "cmd" ? "$ " : l.level === "ok" ? "ok " : l.level === "warn" ? "warn " : ""}{l.text}</span>
         </div>
       ))}
-      <div className="gh-caret text-[var(--acc)]">_</div>
+      <div className="gh-caret text-[var(--mint)]">_</div>
     </div>
   );
 }
@@ -11376,75 +11716,78 @@ export function AgentsView() {
   const [assign, setAssign] = useState<AgentName | null>(null);
   if (!project) return <NeedProject />;
   const toggle = (n: string) => setOpen((s) => { const x = new Set(s); if (!x.delete(n)) x.add(n); return x; });
-  const working = project.agents.filter((a) => a.status === "working").length;
+  const workingCount = project.agents.filter((a) => a.status === "working").length;
   return (
     <>
-      <PageHead kicker={`Crew / ${project.name}`} title="Agents">
-        <span className="rounded-md border border-[var(--gh-line)] px-2.5 py-1 font-mono text-xs"><span className="text-[var(--acc)]">{working}</span> working / 8 leads / 24 side agents</span>
-        <button onClick={() => setOpen(open.size ? new Set() : new Set(AGENTS))} className="gh-btn gh-btn-ghost !h-8 text-xs">{open.size ? "Collapse all" : "Expand all"}</button>
+      <PageHead title="Agents" description={`The crew building ${project.name}: eight leads, each with their own side agents.`}>
+        <span className="chip"><span className="size-1.5 rounded-full bg-[var(--amber)]" /><span className="font-semibold text-foreground">{workingCount}</span> working · 8 leads · 24 side agents</span>
+        <button onClick={() => setOpen(open.size ? new Set() : new Set(AGENTS))} className="btn btn-secondary btn-sm">{open.size ? "Collapse all" : "Expand all"}</button>
       </PageHead>
-      <div className="grid gap-3.5 md:grid-cols-2 2xl:grid-cols-3">
-        {AGENT_CATALOG.map((spec) => {
+      <div className="grid items-start gap-4 md:grid-cols-2 2xl:grid-cols-3">
+        {AGENT_CATALOG.map((spec, idx) => {
           const st = project.agents.find((a) => a.name === spec.name);
           const { ts, prog, done } = agentStats(project, spec.name);
-          const c = agentHex(spec.name);
+          const c = agentColor(spec.name);
           const isOpen = open.has(spec.name);
+          const working = st?.status === "working";
           return (
-            <section key={spec.name} className="gh-glass gh-corners rounded-md" style={{ borderTop: `2px solid ${c}`, boxShadow: st?.status === "working" ? `0 0 28px -14px ${c}` : undefined }}>
-              <div className="p-3.5">
-                <div className="flex items-start gap-3">
-                  <div className="flex size-11 shrink-0 items-center justify-center rounded-md border font-display text-lg font-bold" style={{ color: c, borderColor: `${c}66`, background: `${c}14` }}>{spec.codename[0]}</div>
+            <section key={spec.name} className={cn("surface card-lift reveal relative min-w-0 overflow-hidden rounded-2xl", `reveal-${Math.min(8, (idx % 8) + 1)}`)}>
+              <div aria-hidden className="pointer-events-none absolute -right-16 -top-20 size-48 rounded-full opacity-[0.14] blur-3xl" style={{ background: c }} />
+              <div className="relative p-5">
+                <div className="flex items-start gap-3.5">
+                  <AgentGlyph name={spec.name} size={44} />
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-display text-base font-semibold" style={{ color: c }}>{spec.codename}</h3>
-                      <span className="font-mono text-[10px] uppercase text-muted-foreground">{spec.name}</span>
+                    <div className="flex items-baseline gap-2">
+                      <h3 className="font-display text-[17px] font-semibold tracking-tight">{cap(spec.codename)}</h3>
+                      <span className="text-[13px] text-[var(--text-faint)]">{spec.name}</span>
                     </div>
-                    <p className="text-xs text-muted-foreground">{spec.tagline}</p>
+                    <p className="mt-0.5 text-[13px] text-[var(--text-muted)]">{spec.tagline}</p>
                   </div>
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase">
-                    <Dot color={st?.status === "working" ? c : st?.status === "done" ? "#34d399" : "#64748b"} pulse={st?.status === "working"} />
-                    {st?.status ?? "idle"}
+                  <span className="chip" style={working ? { color: c, background: tint(c, 13) } : undefined}>
+                    <Dot color={working ? c : st?.status === "done" ? "var(--mint)" : "var(--text-faint)"} pulse={working} />
+                    <span className="capitalize">{st?.status ?? "idle"}</span>
+                  </span>
+                </div>
+                <div className="mt-4 rounded-xl bg-black/25 px-3.5 py-2.5 text-[13px] leading-snug">
+                  <span className="text-[var(--text-faint)]">Now </span>{st?.currentTask ?? (ts.some((t) => t.status === "todo") ? "Queued - waiting for upstream" : done ? "All tasks delivered" : "Standing by")}
+                </div>
+                <div className="mt-4">
+                  <div className="mb-2 flex items-center justify-between text-xs">
+                    <span className="text-[var(--text-faint)]">{done}/{ts.length} tasks done</span>
+                    <span className="font-semibold tabular-nums">{prog}%</span>
                   </div>
-                </div>
-                <div className="mt-3 rounded-md border border-[var(--gh-line)] bg-black/20 px-2.5 py-2 text-xs">
-                  <span className="text-muted-foreground">Now: </span>{st?.currentTask ?? (ts.some((t) => t.status === "todo") ? "Queued - waiting for upstream" : done ? "All tasks delivered" : "Standing by")}
-                </div>
-                <div className="mt-3 flex items-center gap-3">
                   <Bar value={prog} color={c} />
-                  <span className="font-mono text-xs tabular-nums">{prog}%</span>
                 </div>
-                <div className="mt-1 font-mono text-[10px] uppercase text-muted-foreground">{done}/{ts.length} tasks done</div>
-                <div className="mt-3 flex flex-wrap items-center gap-1.5 text-[11px]">
-                  <Wrench className="size-3 text-muted-foreground" />
-                  {spec.tools.map((t) => <span key={t} className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono">{t}</span>)}
+                <div className="mt-4 flex flex-wrap items-center gap-1.5">
+                  {spec.tools.map((t) => <span key={t} className="chip">{t}</span>)}
                 </div>
-                <p className="mt-2 flex items-start gap-1.5 text-xs text-muted-foreground"><FileText className="mt-0.5 size-3 shrink-0" /> Produces: {spec.produces}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <button onClick={() => setAssign(spec.name)} className="gh-btn gh-btn-primary !h-8 text-xs"><Plus className="size-3.5" /> Assign task</button>
-                  <button onClick={() => setLogsAgent(spec.name)} className="gh-btn gh-btn-ghost !h-8 text-xs"><ScrollText className="size-3.5" /> View logs</button>
-                  <button onClick={() => toggle(spec.name)} aria-expanded={isOpen} className="gh-btn gh-btn-ghost !h-8 text-xs sm:ml-auto">
-                    Side agents ({spec.subAgents.length}) <ChevronDown className={cn("size-3.5 transition-transform", isOpen && "rotate-180")} />
+                <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-[var(--text-faint)]"><FileText className="mt-0.5 size-3.5 shrink-0" /> Produces: {spec.produces}</p>
+                <div className="mt-5 flex flex-wrap items-center gap-2">
+                  <button onClick={() => setAssign(spec.name)} className="btn btn-secondary btn-sm"><Plus className="size-3.5 text-[var(--mint)]" /> Assign task</button>
+                  <button onClick={() => setLogsAgent(spec.name)} className="btn btn-ghost btn-sm"><ScrollText className="size-3.5" /> View logs</button>
+                  <button onClick={() => toggle(spec.name)} aria-expanded={isOpen} className="btn btn-ghost btn-sm sm:ml-auto">
+                    Side agents ({spec.subAgents.length}) <ChevronDown className={cn("size-3.5 transition-transform duration-200", isOpen && "rotate-180")} />
                   </button>
                 </div>
               </div>
               {isOpen && (
-                <ul className="divide-y divide-[var(--gh-line)]/60 border-t border-[var(--gh-line)]">
+                <ul className="relative mx-2 mb-2 grid gap-1 rounded-xl bg-black/20 p-1.5">
                   {spec.subAgents.map((s) => {
                     const v = subAgentView(project, spec.name, s, tick);
-                    const vc = v.status === "working" ? c : v.status === "done" ? "#34d399" : v.status === "queued" ? "#fbbf24" : "#64748b";
+                    const vc = v.status === "working" ? c : v.status === "done" ? "var(--mint)" : v.status === "queued" ? "var(--amber)" : "var(--text-faint)";
                     return (
-                      <li key={s.id} className="px-3.5 py-2.5">
+                      <li key={s.id} className="rounded-lg px-3 py-2.5 transition-colors hover:bg-white/[0.035]">
                         <div className="flex items-center gap-2">
                           <Bot className="size-3.5" style={{ color: vc }} />
                           <span className="text-sm font-medium">{s.name}</span>
-                          <span className="ml-auto flex items-center gap-1.5 font-mono text-[10px] uppercase" style={{ color: vc }}><Dot color={vc} pulse={v.status === "working"} />{v.status}</span>
+                          <span className="ml-auto flex items-center gap-1.5 text-xs capitalize" style={{ color: vc }}><Dot color={vc} pulse={v.status === "working"} />{v.status}</span>
                         </div>
-                        <p className="mt-0.5 text-xs text-muted-foreground">{s.role}</p>
-                        <div className="mt-1.5 flex items-center gap-2"><Bar value={v.progress} color={vc} /><span className="font-mono text-[10px] tabular-nums">{v.progress}%</span></div>
-                        <div className="mt-1.5 rounded-sm bg-black/30 px-2 py-1 font-mono text-[10px] leading-snug text-muted-foreground">
-                          {v.log.map((l, i) => <div key={i} className="truncate"><span className="text-[var(--acc)]">&gt;</span> {l}</div>)}
+                        <p className="mt-0.5 text-xs text-[var(--text-faint)]">{s.role}</p>
+                        <div className="mt-2 flex items-center gap-2.5"><Bar value={v.progress} color={vc} /><span className="text-xs tabular-nums text-[var(--text-muted)]">{v.progress}%</span></div>
+                        <div className="mt-2 rounded-lg bg-black/30 px-2.5 py-1.5 font-mono text-[10.5px] leading-snug text-[var(--text-muted)]">
+                          {v.log.map((l, i) => <div key={i} className="truncate"><span className="text-[var(--mint)]">&gt;</span> {l}</div>)}
                         </div>
-                        <div className="mt-1 text-[10px] text-muted-foreground">Tools: {spec.tools.slice(0, 2).join(", ")} / Output: {spec.produces.split(",")[0].toLowerCase()}</div>
+                        <div className="mt-1.5 text-[11px] text-[var(--text-faint)]">Tools: {spec.tools.slice(0, 2).join(", ")} / Output: {spec.produces.split(",")[0].toLowerCase()}</div>
                       </li>
                     );
                   })}
@@ -11483,31 +11826,31 @@ export function AssignDialog({ agent, onClose }: { agent: AgentName | null; onCl
     <Dialog open={!!agent} onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="font-display text-lg">Assign task</DialogTitle>
-          <DialogDescription>Adds a task to {project?.name ?? "the project"} backlog; {spec.codename} picks it up on the next run.</DialogDescription>
+          <DialogTitle className="font-display text-xl">Assign task</DialogTitle>
+          <DialogDescription>Adds a task to {project?.name ?? "the project"} backlog; {cap(spec.codename)} picks it up on the next run.</DialogDescription>
         </DialogHeader>
-        <form onSubmit={submit} className="grid gap-3">
-          <label className="grid gap-1 text-xs"><span className={hud}>Agent</span>
-            <select value={who} onChange={(e) => setWho(e.target.value as AgentName)} className={field}>
-              {AGENT_CATALOG.map((a) => <option key={a.name} value={a.name} className="bg-[#0a0d1c]">{a.codename} - {a.name}</option>)}
+        <form onSubmit={submit} className="grid gap-4">
+          <label className="grid gap-1.5"><span className={lbl}>Agent</span>
+            <select value={who} onChange={(e) => setWho(e.target.value as AgentName)} className={selectField}>
+              {AGENT_CATALOG.map((a) => <option key={a.name} value={a.name} className={optionCls}>{cap(a.codename)} - {a.name}</option>)}
             </select>
           </label>
-          <label className="grid gap-1 text-xs"><span className={hud}>Task</span>
+          <label className="grid gap-1.5"><span className={lbl}>Task</span>
             <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder={`e.g. ${spec.subAgents[0].role}`} autoFocus />
           </label>
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1.5">
             {spec.subAgents.map((s) => (
-              <button key={s.id} type="button" onClick={() => setTitle(s.role)} className="rounded-full border border-[var(--gh-line)] px-2 py-0.5 text-[11px] text-muted-foreground hover:text-foreground">{s.name}: {s.role}</button>
+              <button key={s.id} type="button" onClick={() => setTitle(s.role)} className="chip cursor-pointer transition-colors hover:bg-white/[0.1] hover:text-foreground">{s.name}: {s.role}</button>
             ))}
           </div>
-          <label className="grid gap-1 text-xs"><span className={hud}>Module</span>
-            <select value={module} onChange={(e) => setModule(e.target.value)} className={field}>{MODULES.map((m) => <option key={m} className="bg-[#0a0d1c]">{m}</option>)}</select>
+          <label className="grid gap-1.5"><span className={lbl}>Module</span>
+            <select value={module} onChange={(e) => setModule(e.target.value)} className={selectField}>{MODULES.map((m) => <option key={m} className={optionCls}>{m}</option>)}</select>
           </label>
-          <label className="grid gap-1 text-xs"><span className={hud}>Notes (optional)</span>
+          <label className="grid gap-1.5"><span className={lbl}>Notes (optional)</span>
             <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} className={field} placeholder="Acceptance criteria, links, constraints" />
           </label>
-          {err && <p className="text-xs text-destructive" role="alert">{err}</p>}
-          <button className="gh-btn gh-btn-primary !h-9" type="submit"><Plus className="size-4" /> Assign to {spec.codename}</button>
+          {err && <p className="text-[13px] text-[var(--coral)]" role="alert">{err}</p>}
+          <button className="btn btn-primary" type="submit"><Plus className="size-4" /> Assign to {cap(spec.codename)}</button>
         </form>
       </DialogContent>
     </Dialog>
@@ -11519,32 +11862,32 @@ export function LogsDrawer() {
   const backlog = useMemo(() => (logsAgent ? backlogLines(logsAgent, 12) : []), [logsAgent]);
   if (!logsAgent) return null;
   const spec = getAgentSpec(logsAgent);
-  const c = agentHex(logsAgent);
+  const c = agentColor(logsAgent);
   const lines = [...backlog, ...feed.filter((l) => l.agent === logsAgent)];
   return (
     <div className="fixed inset-0 z-[70]">
-      <div className="absolute inset-0 bg-black/55" onClick={() => setLogsAgent(null)} />
-      <aside className="absolute inset-y-0 right-0 flex w-[min(30rem,100vw)] flex-col border-l border-[var(--gh-line)] bg-[#070a18] animate-in slide-in-from-right duration-200" role="dialog" aria-label={`${spec.codename} logs`}>
-        <header className="flex items-center gap-3 border-b border-[var(--gh-line)] p-3.5">
-          <div className="flex size-9 items-center justify-center rounded-md border font-display font-bold" style={{ color: c, borderColor: `${c}66`, background: `${c}14` }}>{spec.codename[0]}</div>
+      <div className="absolute inset-0 bg-black/55 backdrop-blur-sm animate-in fade-in duration-150" onClick={() => setLogsAgent(null)} />
+      <aside className="absolute inset-y-0 right-0 flex w-[min(30rem,100vw)] flex-col bg-[var(--surface-1)] shadow-[0_0_0_1px_var(--hairline-strong),var(--shadow-2)] animate-in slide-in-from-right duration-200 sm:inset-y-3 sm:right-3 sm:rounded-2xl" role="dialog" aria-label={`${spec.codename} logs`}>
+        <header className="flex items-center gap-3.5 p-5 pb-4">
+          <AgentGlyph name={logsAgent} size={40} />
           <div className="min-w-0">
-            <h2 className="font-display font-semibold" style={{ color: c }}>{spec.codename} logs</h2>
-            <p className="truncate text-xs text-muted-foreground">{project?.name} / live stream</p>
+            <h2 className="font-display text-lg font-semibold leading-tight" style={{ color: c }}>{cap(spec.codename)} logs</h2>
+            <p className="truncate text-[13px] text-[var(--text-faint)]">{project?.name} · live stream</p>
           </div>
-          <button onClick={() => setLogsAgent(null)} aria-label="Close logs" className="ml-auto text-muted-foreground hover:text-foreground"><X className="size-5" /></button>
+          <button onClick={() => setLogsAgent(null)} aria-label="Close logs" className="btn btn-ghost !h-9 !w-9 !px-0 ml-auto"><X className="size-[18px]" /></button>
         </header>
-        <LogLines lines={lines} className="min-h-0 flex-1" />
-        <div className="border-t border-[var(--gh-line)] p-3">
-          <div className={hud}>Side agents</div>
-          <ul className="mt-2 grid gap-1.5">
+        <div className="flex min-h-0 flex-1 flex-col px-3"><LogLines lines={lines} className="min-h-0 flex-1" /></div>
+        <div className="p-5">
+          <div className="text-[13px] font-medium text-[var(--text-muted)]">Side agents</div>
+          <ul className="mt-3 grid gap-2.5">
             {project && spec.subAgents.map((s) => {
               const v = subAgentView(project, logsAgent, s, tick);
               return (
-                <li key={s.id} className="flex items-center gap-2 text-xs">
-                  <Dot color={v.status === "working" ? c : "#64748b"} pulse={v.status === "working"} />
+                <li key={s.id} className="flex items-center gap-2.5 text-[13px]">
+                  <Dot color={v.status === "working" ? c : "var(--text-faint)"} pulse={v.status === "working"} />
                   <span className="font-medium">{s.name}</span>
-                  <span className="truncate text-muted-foreground">{v.log[1]}</span>
-                  <span className="ml-auto font-mono tabular-nums">{v.progress}%</span>
+                  <span className="truncate text-[var(--text-faint)]">{v.log[1]}</span>
+                  <span className="ml-auto tabular-nums text-[var(--text-muted)]">{v.progress}%</span>
                 </li>
               );
             })}
@@ -11558,7 +11901,7 @@ export function LogsDrawer() {
 
 ### `src/components/dashboard/exports.tsx`
 
-**Lines:** 127 · **Size:** 7.4 KB · **Language:** typescript · **Exports:** `ExportsView`
+**Lines:** 127 · **Size:** 7.9 KB · **Language:** typescript · **Exports:** `ExportsView`
 
 Exports view: file tree of the generated project bundle, per-file download, ZIP download and Save-to-folder using the File System Access API (disabled when unsupported). Logic lives in lib/export.ts.
 
@@ -11576,7 +11919,7 @@ import {
   EXPORT_GROUPS, buildExport, buildTree, byteLen, canPickFolder, downloadFile, downloadZip, fmtBytes, saveToFolder, slug, type ExportFile, type ExportGroup, type TreeNode,
 } from "@/lib/export";
 import { useDash } from "./store";
-import { NeedProject, PageHead, Panel, field, hud } from "./kit";
+import { NeedProject, PageHead, Panel, field, lbl } from "./kit";
 
 type Done = { at: string; mode: string; target: string; count: number; bytes: number };
 
@@ -11624,13 +11967,13 @@ export function ExportsView() {
       <li key={n.path + n.name}>
         <button
           onClick={() => (isDir ? setCollapsed((s) => { const x = new Set(s); const k = n.path + n.name; if (!x.delete(k)) x.add(k); return x; }) : setSel(n.path))}
-          className={cn("flex w-full items-center gap-1.5 rounded px-1.5 py-1 text-left font-mono text-xs hover:bg-white/5", !isDir && current?.path === n.path && "bg-[color-mix(in_srgb,var(--acc)_16%,transparent)]")}
-          style={{ paddingLeft: 6 + depth * 14 }}
+          className={cn("flex h-8 w-full items-center gap-2 rounded-lg px-2 text-left text-[13px] transition-colors duration-150 hover:bg-white/[0.05]", !isDir && current?.path === n.path && "bg-white/[0.08] text-foreground")}
+          style={{ paddingLeft: 8 + depth * 16 }}
         >
-          {isDir ? (open ? <ChevronDown className="size-3" /> : <ChevronRight className="size-3" />) : <span className="w-3" />}
-          {isDir ? (open ? <FolderOpen className="size-3.5 text-amber-300" /> : <Folder className="size-3.5 text-amber-300" />) : <FileText className="size-3.5 text-sky-300" />}
+          {isDir ? (open ? <ChevronDown className="size-3 text-[var(--text-faint)]" /> : <ChevronRight className="size-3 text-[var(--text-faint)]" />) : <span className="w-3" />}
+          {isDir ? (open ? <FolderOpen className="size-4 text-[var(--amber)]" /> : <Folder className="size-4 text-[var(--amber)]" />) : <FileText className="size-4 text-[var(--blue)]" />}
           <span className="min-w-0 flex-1 truncate">{n.name}{isDir && "/"}</span>
-          <span className="text-[10px] text-muted-foreground">{fmtBytes(n.size)}</span>
+          <span className="text-[11px] tabular-nums text-[var(--text-faint)]">{fmtBytes(n.size)}</span>
         </button>
         {isDir && open && <ul>{n.children!.map((c) => renderNode(c, depth + 1))}</ul>}
       </li>
@@ -11639,56 +11982,56 @@ export function ExportsView() {
 
   return (
     <>
-      <PageHead kicker={`Deliver / ${project.name}`} title="Exports">
-        <button onClick={() => void toFolder()} disabled={!files.length || busy || !fsOk} className="gh-btn gh-btn-primary" title={fsOk ? "Write real files into a folder you choose" : "Needs Chrome or Edge (File System Access API)"}>
+      <PageHead title="Exports" description={`Bundle ${project.name} as real files: pick what to include, preview, then save to a folder or download a zip.`}>
+        <button onClick={toZip} disabled={!files.length} className="btn btn-secondary disabled:opacity-50"><Archive className="size-4" /> Download .zip</button>
+        <button onClick={() => void toFolder()} disabled={!files.length || busy || !fsOk} className="btn btn-primary disabled:opacity-50" title={fsOk ? "Write real files into a folder you choose" : "Needs Chrome or Edge (File System Access API)"}>
           <FolderDown className="size-4" /> {busy ? "Writing..." : "Save to folder..."}
         </button>
-        <button onClick={toZip} disabled={!files.length} className="gh-btn gh-btn-ghost"><Archive className="size-4" /> Download .zip</button>
       </PageHead>
 
       {!fsOk && (
-        <p className="mb-3 rounded-md border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-200">
+        <p className="mb-5 rounded-xl bg-[var(--amber-tint)] px-4 py-3 text-[13px] leading-relaxed text-[var(--amber)]">
           Folder saving needs the File System Access API (Chrome / Edge on desktop). Use the .zip or per-file downloads here.
         </p>
       )}
 
-      <div className="grid gap-3.5 lg:grid-cols-[17rem_1fr] xl:grid-cols-[17rem_20rem_1fr]">
-        <Panel title="What to include" icon={<Check />} className="xl:row-span-1">
+      <div className="grid gap-4 lg:grid-cols-[18rem_1fr] xl:grid-cols-[18rem_21rem_1fr]">
+        <Panel title="What to include" icon={<Check />} className="reveal reveal-1">
           <ul className="grid gap-1.5">
             {EXPORT_GROUPS.map((g) => (
               <li key={g.id}>
-                <label className={cn("flex cursor-pointer items-start gap-2.5 rounded-md border p-2 text-sm", groups.includes(g.id) ? "border-[var(--acc)]/50 bg-[color-mix(in_srgb,var(--acc)_8%,transparent)]" : "border-[var(--gh-line)]")}>
-                  <input type="checkbox" checked={groups.includes(g.id)} onChange={() => toggle(g.id)} className="mt-1 accent-[var(--acc)]" />
-                  <span><span className="block font-medium">{g.label}</span><span className="text-xs text-muted-foreground">{g.hint}</span></span>
+                <label className={cn("flex cursor-pointer items-start gap-3 rounded-xl p-3 text-sm transition-colors duration-150", groups.includes(g.id) ? "bg-[var(--mint-tint)]" : "bg-white/[0.03] hover:bg-white/[0.06]")}>
+                  <input type="checkbox" checked={groups.includes(g.id)} onChange={() => toggle(g.id)} className="mt-1 size-4 accent-[var(--mint)]" />
+                  <span><span className="block font-medium">{g.label}</span><span className="text-xs leading-snug text-[var(--text-muted)]">{g.hint}</span></span>
                 </label>
               </li>
             ))}
           </ul>
-          <label className="mt-3 grid gap-1"><span className={hud}>Folder name</span>
-            <input value={folder} onChange={(e) => setFolder(e.target.value)} placeholder={slug(project.name)} className={field} aria-label="Folder name" />
+          <label className="mt-5 grid gap-1.5"><span className={lbl}>Folder name</span>
+            <input value={folder} onChange={(e) => setFolder(e.target.value)} placeholder={slug(project.name)} className={cn(field, "h-10")} aria-label="Folder name" />
           </label>
           {history.length > 0 && (
-            <div className="mt-4">
-              <div className={cn(hud, "mb-1.5")}>This session</div>
-              <ul className="grid gap-1 font-mono text-[11px] text-muted-foreground">
-                {history.map((h, i) => <li key={i} className="truncate"><span className="text-emerald-400">OK</span> {h.at} {h.mode} - {h.count} files, {fmtBytes(h.bytes)}</li>)}
+            <div className="mt-6">
+              <div className={cn(lbl, "mb-2")}>This session</div>
+              <ul className="grid gap-1.5 text-xs text-[var(--text-muted)]">
+                {history.map((h, i) => <li key={i} className="flex items-center gap-2 truncate"><Check className="size-3.5 shrink-0 text-[var(--mint)]" /><span className="truncate">{h.at} · {h.mode} · {h.count} files, {fmtBytes(h.bytes)}</span></li>)}
               </ul>
             </div>
           )}
         </Panel>
 
-        <Panel title={`File tree (${files.length} files, ${fmtBytes(total)})`} icon={<Folder />} bodyClass="p-2">
-          {files.length ? <ul>{renderNode(tree, 0)}</ul> : <p className="p-4 text-center text-sm text-muted-foreground">Tick at least one item to preview the bundle.</p>}
+        <Panel title={`File tree (${files.length} files, ${fmtBytes(total)})`} icon={<Folder />} className="reveal reveal-2" bodyClass="!px-2.5">
+          {files.length ? <ul>{renderNode(tree, 0)}</ul> : <p className="p-6 text-center text-sm text-[var(--text-muted)]">Tick at least one item to preview the bundle.</p>}
         </Panel>
 
         <Panel
-          title={current ? `Preview / ${current.path}` : "Preview"} icon={<FileText />} className="lg:col-span-2 xl:col-span-1"
-          right={current && <button onClick={() => { downloadFile(current); toast({ title: `Downloaded ${current.path.split("/").pop()}`, kind: "ok" }); }} className="flex items-center gap-1 text-[11px] text-[var(--acc)] hover:underline"><Download className="size-3.5" /> Download</button>}
-          bodyClass="p-0"
+          title={current ? `Preview / ${current.path}` : "Preview"} icon={<FileText />} className="reveal reveal-3 lg:col-span-2 xl:col-span-1"
+          right={current && <button onClick={() => { downloadFile(current); toast({ title: `Downloaded ${current.path.split("/").pop()}`, kind: "ok" }); }} className="flex items-center gap-1.5 rounded-lg px-2 py-1 text-[13px] font-medium text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-[var(--mint)]"><Download className="size-3.5" /> Download</button>}
+          bodyClass="!p-2 !pt-2"
         >
           {current ? (
-            <pre className="max-h-[32rem] min-h-72 overflow-auto whitespace-pre p-3 font-mono text-[11px] leading-relaxed text-slate-300">{current.content.slice(0, 12000)}{current.content.length > 12000 && "\n... (truncated in preview, full file is exported)"}</pre>
-          ) : <p className="p-6 text-center text-sm text-muted-foreground">Nothing selected.</p>}
+            <pre className="surface-inset max-h-[32rem] min-h-72 overflow-auto whitespace-pre p-4 font-mono text-[11.5px] leading-relaxed text-[var(--text-muted)]">{current.content.slice(0, 12000)}{current.content.length > 12000 && "\n... (truncated in preview, full file is exported)"}</pre>
+          ) : <p className="p-8 text-center text-sm text-[var(--text-muted)]">Nothing selected.</p>}
         </Panel>
       </div>
     </>
@@ -11698,7 +12041,7 @@ export function ExportsView() {
 
 ### `src/components/dashboard/flow.tsx`
 
-**Lines:** 156 · **Size:** 8.7 KB · **Language:** typescript · **Exports:** `FlowGraph`, `FlowView`
+**Lines:** 154 · **Size:** 8.8 KB · **Language:** typescript · **Exports:** `FlowGraph`, `FlowView`
 
 Flow view: SVG graph of agent nodes and animated edges; clicking a node opens a side panel. Also exports FlowGraph, reused by the overview.
 
@@ -11713,22 +12056,22 @@ import { useState } from "react";
 import { Plus, ScrollText } from "lucide-react";
 import type { AgentName, ProjectDetail } from "@/lib/contracts";
 import { getAgentSpec } from "@/lib/agent-catalog";
-import { agentHex, subAgentView } from "@/lib/sim";
+import { subAgentView } from "@/lib/sim";
 import { useDash } from "./store";
 import { AssignDialog } from "./agents";
-import { AgentTag, Bar, Dot, NeedProject, PageHead, Panel, StatusPill, hud } from "./kit";
-import { cn } from "cn";
+import { AgentTag, Bar, Dot, NeedProject, PageHead, Panel, StatusPill, agentColor, cap, codename, lbl } from "./kit";
 
 type NodeId = AgentName | "Brief";
 const POS: Record<NodeId, [number, number]> = {
-  Brief: [70, 215], Architect: [230, 215], Backend: [410, 120], Frontend: [410, 310], DevOps: [590, 215],
-  Docs: [590, 50], QA: [760, 120], Security: [760, 310], Reviewer: [915, 215],
+  Brief: [72, 215], Architect: [235, 215], Backend: [415, 120], Frontend: [415, 310], DevOps: [595, 215],
+  Docs: [595, 50], QA: [775, 120], Security: [775, 310], Reviewer: [930, 215],
 };
 const EDGES: [NodeId, NodeId][] = [
   ["Brief", "Architect"], ["Architect", "Backend"], ["Architect", "Frontend"], ["Architect", "Docs"], ["Backend", "DevOps"], ["Frontend", "DevOps"],
   ["DevOps", "QA"], ["DevOps", "Security"], ["QA", "Reviewer"], ["Security", "Reviewer"], ["Docs", "Reviewer"],
 ];
-const W = 124, H = 50;
+const W = 130, H = 58;
+const nodeColor = (n: NodeId) => (n === "Brief" ? "var(--mint)" : agentColor(n));
 
 function edgePath(a: NodeId, b: NodeId) {
   const [x1, y1] = POS[a], [x2, y2] = POS[b];
@@ -11744,22 +12087,21 @@ export function FlowGraph({ project, selected, onSelect, compact }: { project: P
     return ts.length ? Math.round(ts.reduce((s, t) => s + t.progress, 0) / ts.length) : 0;
   };
   return (
-    <svg viewBox="0 0 990 380" className="h-auto w-full" role="img" aria-label="Agent pipeline graph">
+    <svg viewBox="0 0 1000 380" className="h-auto w-full" role="img" aria-label="Agent pipeline graph">
       <defs>
-        <pattern id="fg" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(140,170,255,.18)" /></pattern>
+        <pattern id="fg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,.07)" /></pattern>
       </defs>
-      <rect width="990" height="380" fill="url(#fg)" />
+      <rect width="1000" height="380" rx="16" fill="url(#fg)" />
       {EDGES.map(([a, b], i) => {
         const active = state(a) !== "idle";
         const d = edgePath(a, b);
-        const col = a === "Brief" ? "#22e5ff" : agentHex(a as AgentName);
+        const col = nodeColor(a);
         return (
           <g key={i}>
-            <path d={d} fill="none" stroke={active ? col : "rgba(140,160,220,.25)"} strokeWidth={active ? 1.6 : 1} opacity={active ? 0.8 : 1} />
-            {active && !compact && <path d={d} fill="none" stroke={col} strokeWidth="1.6" className="gh-flow" opacity=".9" />}
+            <path d={d} fill="none" strokeWidth="1.5" strokeLinecap="round" style={{ stroke: active ? col : "rgba(255,255,255,.1)", opacity: active ? 0.45 : 1 }} />
             {active && [0, 1].map((k) => (
-              <circle key={k} r={compact ? 3 : 3.6} fill={col} style={{ filter: `drop-shadow(0 0 5px ${col})` }}>
-                <animateMotion dur={`${2.4 + (i % 4) * 0.5}s`} begin={`${k * 1.2 + i * 0.2}s`} repeatCount="indefinite" path={d} />
+              <circle key={k} r={compact ? 2.6 : 3} style={{ fill: col }}>
+                <animateMotion dur={`${3 + (i % 4) * 0.6}s`} begin={`-${k * 1.5 + i * 0.7}s`} repeatCount="indefinite" path={d} />
               </circle>
             ))}
           </g>
@@ -11768,23 +12110,24 @@ export function FlowGraph({ project, selected, onSelect, compact }: { project: P
       {(Object.keys(POS) as NodeId[]).map((n) => {
         const [cx, cy] = POS[n];
         const st = state(n);
-        const c = n === "Brief" ? "#22e5ff" : agentHex(n);
+        const c = nodeColor(n);
         const sel = selected === n;
-        const label = n === "Brief" ? "BRIEF" : getAgentSpec(n).codename;
+        const label = n === "Brief" ? "Brief" : codename(n);
+        const pr = prog(n);
         return (
           <g
             key={n} transform={`translate(${cx - W / 2} ${cy - H / 2})`} role={onSelect ? "button" : undefined} tabIndex={onSelect ? 0 : undefined}
-            aria-label={`${n} ${st}`} className={onSelect ? "cursor-pointer outline-none" : ""}
+            aria-label={`${n} ${st}`} className={onSelect ? "cursor-pointer" : ""}
             onClick={() => onSelect?.(n)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect?.(n); } }}
           >
-            {st === "working" && <rect x="-4" y="-4" width={W + 8} height={H + 8} rx="8" fill="none" stroke={c} opacity=".35" className="gh-pulse" />}
-            <rect width={W} height={H} rx="6" fill="#0a0d1c" stroke={sel ? "#fff" : c} strokeWidth={sel ? 2 : 1.2} opacity={st === "idle" ? 0.7 : 1} />
-            <rect width="4" height={H} rx="2" fill={c} />
-            <text x="16" y="21" fill={c} fontSize="13" fontWeight="700" fontFamily="var(--font-grotesk), sans-serif" letterSpacing="1.5">{label}</text>
-            <text x="16" y="36" fill="#8b93b8" fontSize="9.5" fontFamily="var(--font-code), monospace">{n === "Brief" ? "input" : `${st} / ${prog(n)}%`}</text>
-            <circle cx={W - 14} cy="16" r="4" fill={st === "working" ? c : st === "done" ? "#34d399" : "#64748b"} />
-            <rect x="16" y={H - 7} width={W - 32} height="2.5" rx="1.2" fill="rgba(255,255,255,.1)" />
-            <rect x="16" y={H - 7} width={((W - 32) * prog(n)) / 100} height="2.5" rx="1.2" fill={c} />
+            {(st === "working" || sel) && <rect x="-5" y="-5" width={W + 10} height={H + 10} rx="19" fill="none" strokeWidth="1.2" className={st === "working" ? "gh-pulse" : ""} style={{ stroke: sel ? "var(--mint)" : c, opacity: sel ? 0.7 : 0.35 }} />}
+            <rect width={W} height={H} rx="14" strokeWidth="1" style={{ fill: "var(--surface-3)", stroke: "rgba(255,255,255,0.09)", opacity: st === "idle" ? 0.78 : 1 }} />
+            <circle cx="17" cy="20.5" r="4.5" style={{ fill: c }} />
+            <text x="31" y="25" fontSize="15" fontWeight="600" style={{ fill: "var(--text)", fontFamily: "var(--font-grotesk), var(--font-body), sans-serif" }}>{label}</text>
+            <text x="17" y="41" fontSize="11.5" style={{ fill: "var(--text-faint)", fontFamily: "var(--font-body), sans-serif" }}>{n === "Brief" ? "Input" : `${st} · ${pr}%`}</text>
+            <circle cx={W - 15} cy="20" r="3" style={{ fill: st === "working" ? "var(--amber)" : st === "done" ? "var(--mint)" : "var(--text-faint)" }} />
+            <rect x="17" y={H - 8} width={W - 34} height="2.5" rx="1.25" fill="rgba(255,255,255,.08)" />
+            <rect x="17" y={H - 8} width={((W - 34) * pr) / 100} height="2.5" rx="1.25" style={{ fill: c }} />
           </g>
         );
       })}
@@ -11800,19 +12143,17 @@ export function FlowView() {
   const active: NodeId = sel ?? project.agents.find((a) => a.status === "working")?.name ?? "Architect";
   return (
     <>
-      <PageHead kicker={`Pipeline / ${project.name}`} title="Flow">
-        <span className="font-mono text-xs text-muted-foreground">Click a node. Packets show work moving between agents.</span>
-      </PageHead>
-      <div className="grid gap-3.5 xl:grid-cols-[1fr_22rem]">
-        <Panel title="Agent graph" live bodyClass="overflow-x-auto p-0">
-          <div className="min-w-[680px] p-2"><FlowGraph project={project} selected={active} onSelect={setSel} /></div>
+      <PageHead title="Flow" description="How work moves through the crew. Select a node to inspect an agent; packets show hand-offs in motion." />
+      <div className="grid gap-4 xl:grid-cols-[1fr_22rem]">
+        <Panel title="Agent graph" live className="reveal reveal-1 xl:self-start" bodyClass="overflow-x-auto !p-3">
+          <div className="min-w-[700px]"><FlowGraph project={project} selected={active} onSelect={setSel} /></div>
         </Panel>
-        <Panel title={active === "Brief" ? "Project brief" : `${getAgentSpec(active).codename} / ${active}`} bodyClass="space-y-3">
+        <Panel title={active === "Brief" ? "Project brief" : `${cap(getAgentSpec(active).codename)} / ${active}`} className="reveal reveal-2" bodyClass="space-y-5">
           {active === "Brief" ? (
             <>
-              <p className="text-sm text-muted-foreground">{project.brief}</p>
-              <div className="flex flex-wrap gap-1">{project.stack.map((s) => <span key={s} className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--acc)]">{s}</span>)}</div>
-              <p className="text-xs text-muted-foreground">The brief feeds ATLAS, which fans work out to the rest of the crew.</p>
+              <p className="text-sm leading-relaxed text-[var(--text-muted)]">{project.brief}</p>
+              <div className="flex flex-wrap gap-1.5">{project.stack.map((s) => <span key={s} className="chip">{s}</span>)}</div>
+              <p className="text-[13px] text-[var(--text-faint)]">The brief feeds Atlas, which fans work out to the rest of the crew.</p>
             </>
           ) : (
             <NodePanel project={project} name={active} tick={tick} onAssign={() => setAssign(active)} onLogs={() => setLogsAgent(active)} />
@@ -11828,38 +12169,38 @@ function NodePanel({ project, name, tick, onAssign, onLogs }: { project: Project
   const spec = getAgentSpec(name);
   const st = project.agents.find((a) => a.name === name);
   const tasks = project.tasks.filter((t) => t.agent === name);
-  const c = agentHex(name);
+  const c = agentColor(name);
   return (
     <>
-      <p className="text-sm text-muted-foreground">{spec.tagline}</p>
-      <div className="flex items-center gap-2 text-xs"><Dot color={st?.status === "working" ? c : "#64748b"} pulse={st?.status === "working"} /><span className="font-mono uppercase">{st?.status ?? "idle"}</span><AgentTag name={name} className="ml-auto" /></div>
-      <div className="rounded-md border border-[var(--gh-line)] bg-black/20 p-2.5 text-xs"><span className={hud}>Current task</span><p className="mt-1">{st?.currentTask ?? "No running task"}</p></div>
+      <p className="text-sm text-[var(--text-muted)]">{spec.tagline}</p>
+      <div className="flex items-center gap-2 text-[13px]"><Dot color={st?.status === "working" ? c : "var(--text-faint)"} pulse={st?.status === "working"} /><span className="capitalize">{st?.status ?? "idle"}</span><AgentTag name={name} className="ml-auto" /></div>
+      <div className="rounded-xl bg-black/25 p-3.5 text-[13px]"><span className="text-[var(--text-faint)]">Current task</span><p className="mt-1 font-medium">{st?.currentTask ?? "No running task"}</p></div>
       <div>
-        <div className={cn(hud, "mb-1.5")}>Side agents</div>
-        <ul className="grid gap-2">
+        <div className={`${lbl} mb-2.5`}>Side agents</div>
+        <ul className="grid gap-3">
           {spec.subAgents.map((s) => {
             const v = subAgentView(project, name, s, tick);
             return (
-              <li key={s.id} className="text-xs">
-                <div className="flex items-center gap-2"><span className="font-medium">{s.name}</span><span className="ml-auto font-mono text-[10px] uppercase text-muted-foreground">{v.status}</span></div>
-                <Bar value={v.progress} color={c} className="mt-1" />
+              <li key={s.id} className="text-[13px]">
+                <div className="flex items-center gap-2"><span className="font-medium">{s.name}</span><span className="ml-auto text-xs capitalize text-[var(--text-faint)]">{v.status}</span></div>
+                <Bar value={v.progress} color={c} className="mt-1.5" />
               </li>
             );
           })}
         </ul>
       </div>
       <div>
-        <div className={cn(hud, "mb-1.5")}>Tasks ({tasks.length})</div>
-        <ul className="grid gap-1">
-          {tasks.map((t) => <li key={t.id} className="flex items-center gap-2 text-xs"><span className="min-w-0 flex-1 truncate">{t.title}</span><StatusPill status={t.status} /></li>)}
-          {!tasks.length && <li className="text-xs text-muted-foreground">No tasks yet - assign one.</li>}
+        <div className={`${lbl} mb-2.5`}>Tasks ({tasks.length})</div>
+        <ul className="grid gap-2">
+          {tasks.map((t) => <li key={t.id} className="flex items-center gap-2 text-[13px]"><span className="min-w-0 flex-1 truncate">{t.title}</span><StatusPill status={t.status} /></li>)}
+          {!tasks.length && <li className="text-[13px] text-[var(--text-faint)]">No tasks yet - assign one.</li>}
         </ul>
       </div>
       <div className="flex gap-2">
-        <button onClick={onAssign} className="gh-btn gh-btn-primary !h-8 flex-1 text-xs"><Plus className="size-3.5" /> Assign</button>
-        <button onClick={onLogs} className="gh-btn gh-btn-ghost !h-8 flex-1 text-xs"><ScrollText className="size-3.5" /> Logs</button>
+        <button onClick={onAssign} className="btn btn-primary btn-sm flex-1"><Plus className="size-3.5" /> Assign</button>
+        <button onClick={onLogs} className="btn btn-secondary btn-sm flex-1"><ScrollText className="size-3.5" /> Logs</button>
       </div>
-      <p className="font-mono text-[10px] text-muted-foreground">Tools: {spec.tools.join(" / ")} - Output: {spec.produces}</p>
+      <p className="text-xs leading-relaxed text-[var(--text-faint)]">Tools: {spec.tools.join(" / ")} · Output: {spec.produces}</p>
     </>
   );
 }
@@ -11867,11 +12208,11 @@ function NodePanel({ project, name, tick, onAssign, onLogs }: { project: Project
 
 ### `src/components/dashboard/gitlog.tsx`
 
-**Lines:** 134 · **Size:** 8.1 KB · **Language:** typescript · **Exports:** `GitView`
+**Lines:** 112 · **Size:** 7.6 KB · **Language:** typescript · **Exports:** `GitView`
 
 Git view: commit list with per-agent filter, a commit dialog showing simulated changed files, and copy-hash.
 
-**Imports from:** `src/components/ui/dialog.tsx`, `src/lib/contracts.ts`, `src/lib/agent-catalog.ts`, `src/lib/sim.ts`, `src/components/dashboard/store.tsx`, `src/components/dashboard/kit.tsx`
+**Imports from:** `src/components/ui/dialog.tsx`, `src/lib/contracts.ts`, `src/lib/sim.ts`, `src/components/dashboard/store.tsx`, `src/components/dashboard/kit.tsx`
 
 **Used by:** `src/app/dashboard/git/page.tsx`
 
@@ -11884,89 +12225,67 @@ import { cn } from "cn";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import type { AgentName, GitLog } from "@/lib/contracts";
 import { AGENTS } from "@/lib/contracts";
-import { getAgentSpec } from "@/lib/agent-catalog";
-import { agentHex, commitFiles } from "@/lib/sim";
+import { commitFiles } from "@/lib/sim";
 import { useDash } from "./store";
-import { AgentTag, Empty, NeedProject, PageHead, Panel, field, fmtTime, hud } from "./kit";
-
-const ROW = 46, LANE = 20;
+import { AgentTag, Empty, NeedProject, PageHead, Panel, agentColor, codename, fmtTime, lbl, optionCls, selectField } from "./kit";
 
 export function GitView() {
   const { project, toast, runNext } = useDash();
   const [agent, setAgent] = useState<"all" | AgentName>("all");
   const [open, setOpen] = useState<GitLog | null>(null);
   const commits = useMemo(() => [...(project?.gitlog ?? [])].reverse(), [project]);
-  const lanes = useMemo(() => ["main", ...AGENTS.filter((a) => commits.some((c) => c.agent === a))], [commits]);
   if (!project) return <NeedProject />;
   const shown = commits.filter((c) => agent === "all" || c.agent === agent);
-  const gw = lanes.length * LANE + 14;
-  const laneX = (l: string) => 12 + lanes.indexOf(l) * LANE;
+  const maxN = Math.max(1, ...AGENTS.map((a) => commits.filter((c) => c.agent === a).length));
   const copy = async (hash: string) => {
     try { await navigator.clipboard.writeText(hash); toast({ title: "Hash copied", body: hash, kind: "info" }); }
     catch { toast({ title: "Copy blocked by browser", body: hash, kind: "warn" }); }
   };
   return (
     <>
-      <PageHead kicker={`History / ${project.name}`} title="Git Log">
-        <select value={agent} onChange={(e) => setAgent(e.target.value as "all" | AgentName)} aria-label="Filter by agent" className={cn(field, "w-auto")}>
-          <option value="all" className="bg-[#0a0d1c]">All agents</option>
-          {AGENTS.map((a) => <option key={a} value={a} className="bg-[#0a0d1c]">{getAgentSpec(a).codename} ({a})</option>)}
+      <PageHead title="Git Log" description={`${commits.length} commits merged by the crew into ${project.name}.`}>
+        <select value={agent} onChange={(e) => setAgent(e.target.value as "all" | AgentName)} aria-label="Filter by agent" className={cn(selectField, "!w-auto")}>
+          <option value="all" className={optionCls}>All agents</option>
+          {AGENTS.map((a) => <option key={a} value={a} className={optionCls}>{codename(a)} ({a})</option>)}
         </select>
       </PageHead>
-      <div className="grid gap-3.5 xl:grid-cols-[1fr_18rem]">
-        <Panel title="Branch graph" icon={<GitBranch />} bodyClass="p-0">
+      <div className="grid gap-4 xl:grid-cols-[1fr_20rem]">
+        <Panel title="History" icon={<GitBranch />} className="reveal reveal-1" bodyClass="!px-3 !pb-3">
           {shown.length ? (
-            <div className="overflow-x-auto">
-              <div className="relative min-w-[560px]" style={{ height: shown.length * ROW }}>
-                <svg className="absolute left-0 top-0" width={gw} height={shown.length * ROW} aria-hidden>
-                  {lanes.map((l) => (
-                    <line key={l} x1={laneX(l)} x2={laneX(l)} y1={0} y2={shown.length * ROW} stroke={l === "main" ? "rgba(34,229,255,.4)" : `${agentHex(l as AgentName)}33`} strokeWidth={l === "main" ? 2 : 1} strokeDasharray={l === "main" ? "" : "3 4"} />
-                  ))}
-                  {shown.map((c, i) => {
-                    const y = i * ROW + ROW / 2, x = laneX(c.agent), x0 = laneX("main"), col = agentHex(c.agent);
-                    return (
-                      <g key={c.id}>
-                        <path d={`M${x} ${y} C${x} ${y + 14}, ${x0} ${y + 6}, ${x0} ${y + 20}`} fill="none" stroke={col} strokeWidth="1.5" opacity=".7" />
-                        <circle cx={x} cy={y} r="5" fill="#05060d" stroke={col} strokeWidth="2" style={{ filter: `drop-shadow(0 0 4px ${col})` }} />
-                        <circle cx={x0} cy={y + 20} r="2.5" fill="#22e5ff" />
-                      </g>
-                    );
-                  })}
-                </svg>
-                <ul style={{ paddingLeft: gw }}>
-                  {shown.map((c) => (
-                    <li key={c.id} style={{ height: ROW }} className="flex items-center gap-3 border-b border-[var(--gh-line)]/40 pr-3 hover:bg-white/[0.03]">
-                      <button onClick={() => setOpen(c)} className="flex min-w-0 flex-1 items-center gap-3 text-left">
-                        <code className="font-mono text-xs text-[var(--acc)]">{c.hash}</code>
-                        <span className="min-w-0 flex-1 truncate text-sm">{c.message}</span>
-                      </button>
-                      <AgentTag name={c.agent} className="hidden sm:inline-flex" />
-                      <span className="hidden font-mono text-[10px] text-muted-foreground md:inline">{c.files} files</span>
-                      <span className="font-mono text-[10px] text-muted-foreground">{fmtTime(c.at)}</span>
-                      <button onClick={() => void copy(c.hash)} aria-label={`Copy ${c.hash}`} className="rounded p-1 text-muted-foreground hover:bg-white/10 hover:text-foreground"><Copy className="size-3.5" /></button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <ul className="relative">
+              <span aria-hidden className="absolute bottom-4 left-[21px] top-4 w-px bg-gradient-to-b from-white/[0.14] via-white/[0.08] to-transparent" />
+              {shown.map((c) => (
+                <li key={c.id} className="group relative flex items-center gap-4 rounded-xl py-3 pl-2 pr-2 transition-colors duration-150 hover:bg-white/[0.035]">
+                  <span className="relative z-10 flex size-[26px] shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)]">
+                    <span className="size-2.5 rounded-full ring-[3px] ring-[var(--surface-1)]" style={{ background: agentColor(c.agent) }} />
+                  </span>
+                  <button onClick={() => setOpen(c)} className="flex min-w-0 flex-1 flex-col items-start gap-1 text-left sm:flex-row sm:items-center sm:gap-3">
+                    <span className="min-w-0 flex-1 truncate text-sm font-medium group-hover:text-foreground">{c.message}</span>
+                    <code className="rounded-md bg-white/[0.05] px-1.5 py-0.5 font-mono text-xs text-[var(--text-muted)]">{c.hash}</code>
+                  </button>
+                  <AgentTag name={c.agent} className="hidden md:inline-flex" />
+                  <span className="hidden text-[13px] text-[var(--text-faint)] lg:inline">{c.files} files</span>
+                  <span className="hidden text-xs tabular-nums text-[var(--text-faint)] sm:inline">{fmtTime(c.at)}</span>
+                  <button onClick={() => void copy(c.hash)} aria-label={`Copy ${c.hash}`} className="rounded-lg p-1.5 text-[var(--text-faint)] transition-colors hover:bg-white/[0.08] hover:text-foreground"><Copy className="size-3.5" /></button>
+                </li>
+              ))}
+            </ul>
           ) : (
-            <div className="p-4">
-              <Empty icon={<GitBranch />} title={commits.length ? "No commits for this agent" : "No commits yet"} hint={commits.length ? "Try another agent filter." : "Agents commit as soon as a task is merged. Run a step to see the first one land."}
-                action={commits.length ? <button onClick={() => setAgent("all")} className="gh-btn gh-btn-ghost mt-2 !h-8 text-xs">Show all</button> : <button onClick={() => void runNext()} className="gh-btn gh-btn-primary mt-2 !h-8 text-xs">Run next step</button>} />
-            </div>
+            <Empty icon={<GitBranch />} title={commits.length ? "No commits for this agent" : "No commits yet"} hint={commits.length ? "Try another agent filter." : "Agents commit as soon as a task is merged. Run a step to see the first one land."}
+              action={commits.length ? <button onClick={() => setAgent("all")} className="btn btn-secondary btn-sm">Show all</button> : <button onClick={() => void runNext()} className="btn btn-primary btn-sm">Run next step</button>} />
           )}
         </Panel>
-        <Panel title="Commits by agent">
-          <ul className="grid gap-2">
+        <Panel title="Commits by agent" className="reveal reveal-2 xl:self-start">
+          <ul className="-mx-2 grid gap-0.5">
             {AGENTS.map((a) => {
               const n = commits.filter((c) => c.agent === a).length;
               return (
                 <li key={a}>
-                  <button onClick={() => setAgent(agent === a ? "all" : a)} className={cn("flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-xs hover:bg-white/5", agent === a && "bg-white/10")}>
-                    <span className="size-2 rounded-full" style={{ background: agentHex(a) }} />
-                    <span>{getAgentSpec(a).codename}</span>
-                    <div className="mx-1 h-1.5 flex-1 rounded bg-white/5"><div className="h-full rounded" style={{ width: `${Math.min(100, n * 22)}%`, background: agentHex(a) }} /></div>
-                    <span className="font-mono tabular-nums">{n}</span>
+                  <button onClick={() => setAgent(agent === a ? "all" : a)} className={cn("flex w-full items-center gap-3 rounded-xl px-2.5 py-2 text-[13px] transition-colors duration-150 hover:bg-white/[0.05]", agent === a && "bg-white/[0.08]")}>
+                    <span className="size-2 rounded-full" style={{ background: agentColor(a) }} />
+                    <span className="w-14 text-left font-medium">{codename(a)}</span>
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/[0.06]"><div className="h-full rounded-full transition-[width] duration-500" style={{ width: `${(n / maxN) * 100}%`, background: agentColor(a) }} /></div>
+                    <span className="w-5 text-right tabular-nums text-[var(--text-muted)]">{n}</span>
                   </button>
                 </li>
               );
@@ -11988,20 +12307,20 @@ function CommitDialog({ commit, onClose, onCopy }: { commit: GitLog | null; onCl
         {commit && (
           <>
             <DialogHeader>
-              <DialogTitle className="pr-6 font-display text-lg">{commit.message}</DialogTitle>
+              <DialogTitle className="pr-8 font-display text-xl leading-snug">{commit.message}</DialogTitle>
               <DialogDescription>Authored by the {commit.agent} agent on {fmtTime(commit.at)} UTC</DialogDescription>
             </DialogHeader>
-            <div className="flex items-center gap-2">
-              <code className="rounded-md border border-[var(--gh-line)] bg-black/30 px-2 py-1 font-mono text-sm text-[var(--acc)]">{commit.hash}</code>
-              <button onClick={async () => { await onCopy(commit.hash); setCopied(true); setTimeout(() => setCopied(false), 1500); }} className="gh-btn gh-btn-ghost !h-8 text-xs">
-                {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />} {copied ? "Copied" : "Copy hash"}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <code className="rounded-lg bg-black/30 px-2.5 py-1.5 font-mono text-sm text-[var(--mint)]">{commit.hash}</code>
+              <button onClick={async () => { await onCopy(commit.hash); setCopied(true); setTimeout(() => setCopied(false), 1500); }} className="btn btn-secondary btn-sm">
+                {copied ? <Check className="size-3.5 text-[var(--mint)]" /> : <Copy className="size-3.5" />} {copied ? "Copied" : "Copy hash"}
               </button>
               <AgentTag name={commit.agent} className="ml-auto" />
             </div>
-            <div className={hud}>Files changed ({files.length}) / +{files.reduce((s, f) => s + f.add, 0)} -{files.reduce((s, f) => s + f.del, 0)}</div>
-            <ul className="grid gap-1 rounded-md bg-black/30 p-2.5 font-mono text-xs">
+            <div className={lbl}>Files changed ({files.length}) <span className="text-[var(--text-faint)]">·</span> <span className="text-[var(--mint)]">+{files.reduce((s, f) => s + f.add, 0)}</span> <span className="text-[var(--coral)]">-{files.reduce((s, f) => s + f.del, 0)}</span></div>
+            <ul className="surface-inset grid gap-1 p-3 font-mono text-xs">
               {files.map((f) => (
-                <li key={f.path} className="flex items-center gap-2"><FileCode2 className="size-3.5 shrink-0 text-muted-foreground" /><span className="min-w-0 flex-1 truncate">{f.path}</span><span className="text-emerald-400">+{f.add}</span><span className="text-rose-400">-{f.del}</span></li>
+                <li key={f.path} className="flex items-center gap-2.5 rounded-md px-1.5 py-1"><FileCode2 className="size-3.5 shrink-0 text-[var(--text-faint)]" /><span className="min-w-0 flex-1 truncate">{f.path}</span><span className="text-[var(--mint)]">+{f.add}</span><span className="text-[var(--coral)]">-{f.del}</span></li>
               ))}
             </ul>
           </>
@@ -12014,7 +12333,7 @@ function CommitDialog({ commit, onClose, onCopy }: { commit: GitLog | null; onCl
 
 ### `src/components/dashboard/kit.tsx`
 
-**Lines:** 154 · **Size:** 7.5 KB · **Language:** typescript · **Exports:** `hud`, `field`, `Panel`, `PageHead`, `Sparkline`, `Ring`, `Bar`, `StatusPill`, `AgentTag`, `Dot`, `Empty`, `NeedProject` +2
+**Lines:** 205 · **Size:** 10.3 KB · **Language:** typescript · **Exports:** `tint`, `agentColor`, `cap`, `codename`, `STATUS_UI`, `field`, `selectField`, `lbl`, `optionCls`, `Panel`, `PageHead`, `SoftLink` +12
 
 Small dashboard UI kit: Panel, PageHead, Sparkline, Ring, Bar, StatusPill and HUD/field class helpers shared by all views.
 
@@ -12029,149 +12348,200 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "cn";
 import type { AgentName, TaskStatus } from "@/lib/contracts";
-import { STATUS_META, agentHex } from "@/lib/sim";
+import { STATUS_META } from "@/lib/sim";
 import { getAgentSpec } from "@/lib/agent-catalog";
 
-export const hud = "gh-hud !text-[10px] !tracking-[0.16em]";
+/* ---------- colour helpers: everything resolves to design-system tokens ---------- */
+export const tint = (c: string, pct = 14) => `color-mix(in srgb, ${c} ${pct}%, transparent)`;
+export const agentColor = (n: AgentName) => `var(--agent-${getAgentSpec(n).color})`;
+export const cap = (s: string) => s.charAt(0) + s.slice(1).toLowerCase();
+export const codename = (n: AgentName) => cap(getAgentSpec(n).codename);
+
+export const STATUS_UI: Record<TaskStatus, string> = {
+  todo: "var(--text-faint)",
+  running: "var(--amber)",
+  review: "var(--blue)",
+  done: "var(--mint)",
+  failed: "var(--coral)",
+};
+
+/** Quiet form-control surface shared by inputs, selects and textareas. */
 export const field =
-  "w-full rounded-lg border border-input bg-transparent px-2.5 py-1.5 text-sm outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
+  "w-full min-w-0 rounded-xl border-0 bg-black/30 px-3 py-2 text-sm text-foreground outline-none transition-[box-shadow,background-color] duration-150 shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.08)] placeholder:text-[var(--text-faint)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.14)] focus-visible:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(62,230,160,0.6),0_0_0_4px_rgba(62,230,160,0.14)]";
+export const selectField = cn(field, "h-10 cursor-pointer");
+export const lbl = "text-[13px] font-medium text-[var(--text-muted)]";
+export const optionCls = "bg-[#15181d]";
 
 export function Panel({
-  title, icon, right, children, className, bodyClass, live,
-}: { title?: string; icon?: ReactNode; right?: ReactNode; children: ReactNode; className?: string; bodyClass?: string; live?: boolean }) {
+  title, icon, right, children, className, bodyClass, live, description,
+}: { title?: string; icon?: ReactNode; right?: ReactNode; children: ReactNode; className?: string; bodyClass?: string; live?: boolean; description?: string }) {
   return (
-    <section className={cn("gh-glass gh-corners relative min-w-0 rounded-md", className)}>
+    <section className={cn("surface relative min-w-0 rounded-2xl", className)}>
       {title && (
-        <header className="flex items-center gap-2 border-b border-[var(--gh-line)] px-3.5 py-2.5">
-          {icon && <span className="text-[var(--acc)] [&_svg]:size-3.5">{icon}</span>}
-          <h2 className={hud}>{title}</h2>
-          {live && <span className="size-1.5 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />}
-          <div className="ml-auto flex items-center gap-2">{right}</div>
+        <header className="flex items-center gap-2.5 px-5 pb-1 pt-4">
+          {icon && <span className="text-[var(--text-faint)] [&_svg]:size-4">{icon}</span>}
+          <div className="min-w-0">
+            <h2 className="font-display text-[15px] font-semibold tracking-tight">{title}</h2>
+            {description && <p className="text-xs text-[var(--text-faint)]">{description}</p>}
+          </div>
+          {live && <span className="relative ml-0.5 inline-flex size-1.5"><span className="absolute inline-flex size-full animate-ping rounded-full bg-[var(--mint)] opacity-60" /><span className="relative inline-flex size-1.5 rounded-full bg-[var(--mint)]" /></span>}
+          <div className="ml-auto flex items-center gap-2 text-[13px]">{right}</div>
         </header>
       )}
-      <div className={cn("p-3.5", bodyClass)}>{children}</div>
+      <div className={cn("p-5", title && "pt-3", bodyClass)}>{children}</div>
     </section>
   );
 }
 
-export function PageHead({ kicker, title, children }: { kicker: string; title: string; children?: ReactNode }) {
+export function PageHead({ title, description, children }: { title: string; description?: string; children?: ReactNode }) {
   return (
-    <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+    <div className="reveal mb-7 flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
       <div className="min-w-0">
-        <div className={hud}>{kicker}</div>
-        <h1 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h1>
+        <h1 className="font-display text-[1.75rem] font-semibold leading-tight tracking-[-0.03em] sm:text-[2rem]">{title}</h1>
+        {description && <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-[var(--text-muted)]">{description}</p>}
       </div>
-      <div className="flex flex-wrap items-center gap-2">{children}</div>
+      {children && <div className="flex flex-wrap items-center gap-2.5">{children}</div>}
     </div>
   );
 }
 
-export function Sparkline({ data, color = "var(--acc)", w = 96, h = 30, fill = true }: { data: number[]; color?: string; w?: number; h?: number; fill?: boolean }) {
+/** A quiet link used in panel headers. */
+export function SoftLink({ href, children }: { href: string; children: ReactNode }) {
+  return <Link href={href} className="rounded-md px-1.5 py-0.5 text-[13px] font-medium text-[var(--text-muted)] transition-colors hover:text-[var(--mint)]">{children}</Link>;
+}
+
+export function Sparkline({ data, color = "var(--mint)", w = 96, h = 30, fill = true }: { data: number[]; color?: string; w?: number; h?: number; fill?: boolean }) {
   const max = Math.max(...data), min = Math.min(...data);
   const rng = max - min || 1;
   const pts = data.map((v, i) => [(i / (data.length - 1)) * w, h - 3 - ((v - min) / rng) * (h - 6)] as const);
-  const d = pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join(" ");
-  const id = `sg${data.length}${Math.round(data[0] * 10)}${Math.round(data[data.length - 1] * 10)}`;
+  // smooth path (midpoint curves)
+  let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+  for (let i = 1; i < pts.length; i++) {
+    const [px, py] = pts[i - 1], [x, y] = pts[i], mx = (px + x) / 2;
+    d += ` C${mx.toFixed(1)} ${py.toFixed(1)}, ${mx.toFixed(1)} ${y.toFixed(1)}, ${x.toFixed(1)} ${y.toFixed(1)}`;
+  }
+  const id = `sg${data.length}${Math.round(data[0] * 10)}${Math.round(data[data.length - 1] * 10)}${color.length}`;
+  const last = pts[pts.length - 1];
   return (
     <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="shrink-0" aria-hidden>
       {fill && (
         <>
           <defs>
             <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor={color} stopOpacity=".35" />
-              <stop offset="1" stopColor={color} stopOpacity="0" />
+              <stop offset="0" style={{ stopColor: color }} stopOpacity=".28" />
+              <stop offset="1" style={{ stopColor: color }} stopOpacity="0" />
             </linearGradient>
           </defs>
           <path d={`${d} L${w} ${h} L0 ${h} Z`} fill={`url(#${id})`} />
         </>
       )}
-      <path d={d} fill="none" stroke={color} strokeWidth="1.6" strokeLinejoin="round" />
-      <circle cx={pts[pts.length - 1][0]} cy={pts[pts.length - 1][1]} r="2.2" fill={color} />
+      <path d={d} fill="none" style={{ stroke: color }} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx={last[0]} cy={last[1]} r="2.4" style={{ fill: color }} />
     </svg>
   );
 }
 
-export function Ring({ value, size = 132, stroke = 10, label }: { value: number; size?: number; stroke?: number; label?: string }) {
+export function Ring({ value, size = 132, stroke = 9, label, color = "var(--mint)" }: { value: number; size?: number; stroke?: number; label?: string; color?: string }) {
   const r = (size - stroke) / 2, c = 2 * Math.PI * r;
   return (
     <div className="relative shrink-0" style={{ width: size, height: size }}>
-      <svg width={size} height={size} className="-rotate-90">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--gh-line)" strokeWidth={stroke} />
+      <svg width={size} height={size} className="-rotate-90" aria-hidden>
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth={stroke} />
         <circle
-          cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--acc)" strokeWidth={stroke} strokeLinecap="butt"
-          strokeDasharray={c} strokeDashoffset={c * (1 - value / 100)} style={{ transition: "stroke-dashoffset .8s ease", filter: "drop-shadow(0 0 6px var(--acc))" }}
+          cx={size / 2} cy={size / 2} r={r} fill="none" style={{ stroke: color, transition: "stroke-dashoffset .9s cubic-bezier(.2,.7,.2,1)" }} strokeWidth={stroke} strokeLinecap="round"
+          strokeDasharray={c} strokeDashoffset={c * (1 - value / 100)}
         />
-        {Array.from({ length: 40 }).map((_, i) => {
-          const a = (i / 40) * Math.PI * 2;
-          const r1 = r - stroke / 2 - 4, r2 = r1 - 3;
-          return <line key={i} x1={size / 2 + Math.cos(a) * r1} y1={size / 2 + Math.sin(a) * r1} x2={size / 2 + Math.cos(a) * r2} y2={size / 2 + Math.sin(a) * r2} stroke="var(--gh-line)" />;
-        })}
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-display text-3xl font-semibold tabular-nums">{value}<span className="text-base text-muted-foreground">%</span></span>
-        {label && <span className={hud}>{label}</span>}
+        <span className="font-display text-[2rem] font-semibold leading-none tracking-tight tabular-nums">{value}<span className="text-base font-medium text-[var(--text-faint)]">%</span></span>
+        {label && <span className="mt-1 text-xs text-[var(--text-faint)]">{label}</span>}
       </div>
     </div>
   );
 }
 
-export function Bar({ value, color = "var(--acc)", className }: { value: number; color?: string; className?: string }) {
+export function Bar({ value, color = "var(--mint)", className }: { value: number; color?: string; className?: string }) {
   return (
-    <div className={cn("h-1.5 w-full overflow-hidden rounded-full bg-white/10", className)}>
-      <div className="h-full rounded-full transition-[width] duration-700" style={{ width: `${Math.max(0, Math.min(100, value))}%`, background: color, boxShadow: `0 0 8px ${color}` }} />
+    <div className={cn("h-1.5 w-full overflow-hidden rounded-full bg-white/[0.07]", className)}>
+      <div className="h-full rounded-full transition-[width] duration-700 ease-out" style={{ width: `${Math.max(0, Math.min(100, value))}%`, background: color }} />
     </div>
   );
 }
 
 export function StatusPill({ status }: { status: TaskStatus }) {
-  const m = STATUS_META[status];
+  const c = STATUS_UI[status];
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-sm border px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider" style={{ color: m.color, borderColor: `${m.color}55`, background: `${m.color}12` }}>
-      <span className="size-1.5 rounded-full" style={{ background: m.color }} /> {m.label}
+    <span className="chip" style={{ color: c, background: tint(c, 13) }}>
+      <span className="size-1.5 rounded-full" style={{ background: c }} /> {STATUS_META[status].label}
     </span>
   );
 }
 
 export function AgentTag({ name, className }: { name: AgentName; className?: string }) {
-  const c = agentHex(name);
+  const c = agentColor(name);
   return (
-    <span className={cn("inline-flex items-center gap-1 rounded-sm border px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider", className)} style={{ color: c, borderColor: `${c}55`, background: `${c}12` }}>
-      {getAgentSpec(name).codename}
+    <span className={cn("chip", className)} style={{ color: c, background: tint(c, 13) }}>
+      {codename(name)}
     </span>
+  );
+}
+
+/** Small tinted square with the agent's initial. */
+export function AgentGlyph({ name, size = 40 }: { name: AgentName; size?: number }) {
+  const c = agentColor(name);
+  return (
+    <div className="flex shrink-0 items-center justify-center rounded-xl font-display font-bold" style={{ width: size, height: size, fontSize: size * 0.42, color: c, background: tint(c, 15) }}>
+      {getAgentSpec(name).codename[0]}
+    </div>
   );
 }
 
 export function Dot({ color, pulse }: { color: string; pulse?: boolean }) {
   return (
     <span className="relative inline-flex size-2 shrink-0">
-      {pulse && <span className="absolute inline-flex size-full animate-ping rounded-full opacity-60" style={{ background: color }} />}
-      <span className="relative inline-flex size-2 rounded-full" style={{ background: color, boxShadow: `0 0 8px ${color}` }} />
+      {pulse && <span className="absolute inline-flex size-full animate-ping rounded-full opacity-50" style={{ background: color }} />}
+      <span className="relative inline-flex size-2 rounded-full" style={{ background: color }} />
     </span>
   );
 }
 
+export function Skeleton({ className }: { className?: string }) {
+  return <div className={cn("animate-pulse rounded-xl bg-white/[0.05]", className)} aria-hidden />;
+}
+
 export function Empty({ icon, title, hint, action }: { icon: ReactNode; title: string; hint: string; action?: ReactNode }) {
   return (
-    <div className="flex flex-col items-center gap-2 rounded-md border border-dashed border-[var(--gh-line)] px-6 py-10 text-center">
-      <div className="relative flex size-16 items-center justify-center rounded-full border border-[var(--gh-line)] text-[var(--acc)] [&_svg]:size-7">
-        <span className="absolute inset-1 rounded-full border border-dashed border-[var(--gh-line)] [animation:spin_14s_linear_infinite]" />
+    <div className="relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl px-6 py-14 text-center">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,#000_10%,transparent_65%)]" />
+      <div className="relative flex size-14 items-center justify-center rounded-2xl text-[var(--mint)] shadow-[var(--inner-top),0_0_0_1px_var(--hairline)] [&_svg]:size-6" style={{ background: "linear-gradient(180deg, var(--surface-3), var(--surface-2))" }}>
         {icon}
       </div>
-      <h3 className="font-display text-base font-medium">{title}</h3>
-      <p className="max-w-sm text-sm text-muted-foreground">{hint}</p>
-      {action}
+      <h3 className="relative font-display text-lg font-semibold tracking-tight">{title}</h3>
+      <p className="relative max-w-sm text-sm leading-relaxed text-[var(--text-muted)]">{hint}</p>
+      {action && <div className="relative mt-1">{action}</div>}
     </div>
   );
 }
 
-export function NeedProject({ children }: { children?: ReactNode }) {
+export function NeedProject({ children, loading }: { children?: ReactNode; loading?: boolean }) {
+  if (loading) {
+    return (
+      <div className="grid gap-4" aria-busy>
+        <Skeleton className="h-10 w-64" />
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">{[0, 1, 2, 3].map((i) => <Skeleton key={i} className="h-28" />)}</div>
+        <Skeleton className="h-64" />
+      </div>
+    );
+  }
   return (
-    <Empty
-      icon={<span className="font-mono text-2xl">+</span>}
-      title="No project selected"
-      hint="Create a project and the whole crew gets to work. Everything in this view fills in automatically."
-      action={children ?? <Link href="/dashboard/projects" className="gh-btn gh-btn-primary mt-2">Go to Projects</Link>}
-    />
+    <div className="surface rounded-2xl">
+      <Empty
+        icon={<span className="font-display text-2xl leading-none">+</span>}
+        title="No project selected"
+        hint="Create a project and the whole crew gets to work. Everything in this view fills in automatically."
+        action={children ?? <Link href="/dashboard/projects" className="btn btn-primary">Go to Projects</Link>}
+      />
+    </div>
   );
 }
 
@@ -12181,7 +12551,7 @@ export const fmtClock = (t: number) => new Date(t).toISOString().slice(11, 19);
 
 ### `src/components/dashboard/new-project-wizard.tsx`
 
-**Lines:** 165 · **Size:** 8.6 KB · **Language:** typescript · **Exports:** `NewProjectWizard`
+**Lines:** 167 · **Size:** 9.0 KB · **Language:** typescript · **Exports:** `NewProjectWizard`
 
 Three-step dialog (brief, stack, review) that creates a project through the data layer, live API or demo, and suggests stacks from fetchStack().
 
@@ -12200,9 +12570,9 @@ import { Input } from "@/components/ui/input";
 import { ProjectInput } from "@/lib/contracts";
 import { AGENT_CATALOG } from "@/lib/agent-catalog";
 import { fetchStack } from "@/lib/client-data";
-import { STACK_SUGGESTIONS, agentHex } from "@/lib/sim";
+import { STACK_SUGGESTIONS } from "@/lib/sim";
 import { useDash } from "./store";
-import { field, hud } from "./kit";
+import { agentColor, cap, field, lbl } from "./kit";
 import { cn } from "cn";
 
 const TEMPLATES = [
@@ -12266,89 +12636,91 @@ export function NewProjectWizard() {
     <Dialog open={newOpen} onOpenChange={(o) => { setNewOpen(o); if (!o) reset(); }}>
       <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle className="font-display text-lg">New project</DialogTitle>
+          <DialogTitle className="font-display text-xl">New project</DialogTitle>
           <DialogDescription>Brief the crew. Eight agents plan, build, review and ship.</DialogDescription>
         </DialogHeader>
-        <ol className="flex items-center gap-2">
+        <ol className="flex items-center gap-3">
           {steps.map((s, i) => (
-            <li key={s} className="flex flex-1 items-center gap-2">
-              <span className={cn("flex size-6 items-center justify-center rounded-full border font-mono text-[11px]", i <= step ? "border-[var(--acc)] bg-[color-mix(in_srgb,var(--acc)_20%,transparent)] text-[var(--acc)]" : "border-[var(--gh-line)] text-muted-foreground")}>
+            <li key={s} className="flex flex-1 items-center gap-2.5 last:flex-none">
+              <span className={cn("flex size-7 items-center justify-center rounded-full text-xs font-semibold transition-colors duration-200", i < step ? "bg-[var(--mint)] text-[var(--mint-ink)]" : i === step ? "bg-[var(--mint-tint)] text-[var(--mint)] shadow-[0_0_0_1.5px_rgba(62,230,160,0.5)]" : "bg-white/[0.06] text-[var(--text-faint)]")}>
                 {i < step ? <Check className="size-3.5" /> : i + 1}
               </span>
-              <span className={cn("text-xs", i === step ? "text-foreground" : "text-muted-foreground")}>{s}</span>
-              {i < 2 && <span className="h-px flex-1 bg-[var(--gh-line)]" />}
+              <span className={cn("text-[13px] font-medium", i === step ? "text-foreground" : "text-[var(--text-faint)]")}>{s}</span>
+              {i < 2 && <span className={cn("h-px flex-1 rounded transition-colors duration-300", i < step ? "bg-[var(--mint)]/50" : "bg-white/[0.08]")} />}
             </li>
           ))}
         </ol>
 
         {step === 0 && (
-          <div className="grid gap-3">
-            <div className={hud}>Start from a template</div>
-            <div className="flex flex-wrap gap-1.5">
-              {TEMPLATES.map((t) => (
-                <button key={t.name} type="button" onClick={() => { setName(t.name); setBrief(t.brief); setStack(t.stack); }}
-                  className="flex items-center gap-1 rounded-md border border-[var(--gh-line)] px-2 py-1 text-xs hover:border-[var(--acc)]/60 hover:bg-white/5">
-                  <Sparkles className="size-3 text-[var(--acc)]" /> {t.name}
-                </button>
-              ))}
+          <div className="grid gap-4">
+            <div className="grid gap-2.5">
+              <div className={lbl}>Start from a template</div>
+              <div className="flex flex-wrap gap-2">
+                {TEMPLATES.map((t) => (
+                  <button key={t.name} type="button" onClick={() => { setName(t.name); setBrief(t.brief); setStack(t.stack); }}
+                    className="flex h-9 items-center gap-2 rounded-xl bg-white/[0.045] px-3 text-[13px] font-medium transition-[background,transform] duration-150 hover:-translate-y-0.5 hover:bg-white/[0.09] active:scale-[0.98]">
+                    <Sparkles className="size-3.5 text-[var(--mint)]" /> {t.name}
+                  </button>
+                ))}
+              </div>
             </div>
             <Input placeholder="Project name" value={name} onChange={(e) => setName(e.target.value)} maxLength={60} aria-label="Project name" />
-            <textarea placeholder="What should it do? Who is it for?" value={brief} onChange={(e) => setBrief(e.target.value)} rows={4} className={field} aria-label="Brief" />
+            <textarea placeholder="What should it do? Who is it for?" value={brief} onChange={(e) => setBrief(e.target.value)} rows={4} className={cn(field, "resize-none leading-relaxed")} aria-label="Brief" />
           </div>
         )}
 
         {step === 1 && (
-          <div className="grid gap-3">
-            <div className={hud}>Suggested stack {stack.length ? `(${stack.length} selected)` : ""}</div>
-            <div className="flex flex-wrap gap-1.5">
+          <div className="grid gap-4">
+            <div className={lbl}>Suggested stack {stack.length ? `(${stack.length} selected)` : ""}</div>
+            <div className="flex flex-wrap gap-2">
               {suggest.map((s) => (
                 <button key={s} type="button" onClick={() => toggle(s)} aria-pressed={stack.includes(s)}
-                  className={cn("rounded-full border px-2.5 py-1 font-mono text-[11px] transition-colors", stack.includes(s) ? "border-[var(--acc)] bg-[color-mix(in_srgb,var(--acc)_18%,transparent)] text-[var(--acc)]" : "border-[var(--gh-line)] text-muted-foreground hover:text-foreground")}>
-                  {stack.includes(s) && <Check className="mr-1 inline size-3" />}{s}
+                  className={cn("flex h-8 items-center rounded-full px-3 text-[13px] font-medium transition-[background,color,transform] duration-150 active:scale-[0.97]", stack.includes(s) ? "bg-[var(--mint-tint)] text-[var(--mint)] shadow-[0_0_0_1px_rgba(62,230,160,0.35)]" : "bg-white/[0.05] text-[var(--text-muted)] hover:bg-white/[0.09] hover:text-foreground")}>
+                  {stack.includes(s) && <Check className="mr-1.5 size-3.5" />}{s}
                 </button>
               ))}
               {stack.filter((s) => !suggest.includes(s)).map((s) => (
-                <button key={s} type="button" onClick={() => toggle(s)} className="rounded-full border border-[var(--acc)] bg-[color-mix(in_srgb,var(--acc)_18%,transparent)] px-2.5 py-1 font-mono text-[11px] text-[var(--acc)]">{s} x</button>
+                <button key={s} type="button" onClick={() => toggle(s)} className="flex h-8 items-center rounded-full bg-[var(--mint-tint)] px-3 text-[13px] font-medium text-[var(--mint)] shadow-[0_0_0_1px_rgba(62,230,160,0.35)]">{s} x</button>
               ))}
             </div>
             <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); addCustom(); }}>
               <Input placeholder="Add your own (e.g. Astro)" value={custom} onChange={(e) => setCustom(e.target.value)} aria-label="Custom technology" />
-              <button type="submit" className="gh-btn gh-btn-ghost !h-8">Add</button>
+              <button type="submit" className="btn btn-secondary">Add</button>
             </form>
           </div>
         )}
 
         {step === 2 && (
-          <div className="grid gap-3">
-            <div className="rounded-md border border-[var(--gh-line)] bg-white/[0.03] p-3">
-              <p className="font-display text-base font-medium">{name}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{brief}</p>
-              <div className="mt-2 flex flex-wrap gap-1">{stack.map((s) => <span key={s} className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--acc)]">{s}</span>)}</div>
+          <div className="grid gap-4">
+            <div className="rounded-xl bg-white/[0.04] p-4">
+              <p className="font-display text-lg font-semibold tracking-tight">{name}</p>
+              <p className="mt-1 text-sm leading-relaxed text-[var(--text-muted)]">{brief}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">{stack.map((s) => <span key={s} className="chip">{s}</span>)}</div>
             </div>
-            <div className={hud}>Agent plan preview</div>
-            <ul className="grid grid-cols-2 gap-1.5">
+            <div className={lbl}>Agent plan preview</div>
+            <ul className="grid grid-cols-2 gap-2">
               {AGENT_CATALOG.map((a, i) => (
-                <li key={a.name} className="rounded-md border border-[var(--gh-line)] p-2 text-xs">
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase" style={{ color: agentHex(a.name) }}>
-                    <span className="size-1.5 rounded-full" style={{ background: agentHex(a.name) }} /> {i + 1}. {a.codename}
+                <li key={a.name} className="rounded-xl bg-white/[0.03] p-3 text-xs">
+                  <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: agentColor(a.name) }}>
+                    <span className="size-1.5 rounded-full" style={{ background: agentColor(a.name) }} /> {i + 1}. {cap(a.codename)}
                   </div>
-                  <p className="mt-0.5 text-muted-foreground">{a.produces}</p>
-                  <p className="mt-0.5 text-[10px] text-muted-foreground/70">+ {a.subAgents.length} side agents</p>
+                  <p className="mt-1 leading-snug text-[var(--text-muted)]">{a.produces}</p>
+                  <p className="mt-1 text-[11px] text-[var(--text-faint)]">+ {a.subAgents.length} side agents</p>
                 </li>
               ))}
             </ul>
           </div>
         )}
 
-        {err && <p className="text-xs text-destructive" role="alert">{err}</p>}
-        <div className="flex items-center justify-between gap-2 pt-1">
-          <button type="button" onClick={() => { setErr(null); if (step) setStep(step - 1); else setNewOpen(false); }} className="gh-btn gh-btn-ghost !h-9">
+        {err && <p className="text-[13px] text-[var(--coral)]" role="alert">{err}</p>}
+        <div className="flex items-center justify-between gap-2">
+          <button type="button" onClick={() => { setErr(null); if (step) setStep(step - 1); else setNewOpen(false); }} className="btn btn-ghost">
             <ArrowLeft className="size-4" /> {step ? "Back" : "Cancel"}
           </button>
           {step < 2 ? (
-            <button type="button" onClick={next} className="gh-btn gh-btn-primary !h-9">Next <ArrowRight className="size-4" /></button>
+            <button type="button" onClick={next} className="btn btn-primary">Next <ArrowRight className="size-4" /></button>
           ) : (
-            <button type="button" onClick={launch} disabled={busy} className="gh-btn gh-btn-primary !h-9"><Rocket className="size-4" /> {busy ? "Launching..." : "Launch agents"}</button>
+            <button type="button" onClick={launch} disabled={busy} className="btn btn-primary disabled:opacity-70"><Rocket className="size-4" /> {busy ? "Launching..." : "Launch agents"}</button>
           )}
         </div>
       </DialogContent>
@@ -12359,7 +12731,7 @@ export function NewProjectWizard() {
 
 ### `src/components/dashboard/overview.tsx`
 
-**Lines:** 110 · **Size:** 7.0 KB · **Language:** typescript · **Exports:** `OverviewView`
+**Lines:** 120 · **Size:** 7.9 KB · **Language:** typescript · **Exports:** `OverviewView`
 
 Overview: totals, sparklines, the pipeline graph and a Run next step button that advances the simulation and adds a commit.
 
@@ -12370,17 +12742,16 @@ Overview: totals, sparklines, the pipeline graph and a Run next step button that
 ```tsx
 "use client";
 
-import Link from "next/link";
 import { useMemo } from "react";
-import { Activity, BarChart3, GitCommit, Network, Play, Radio, Target, Terminal } from "lucide-react";
-import { STATUS_META, STATUS_ORDER, agentHex, sparkline } from "@/lib/sim";
+import { Activity, GitCommit, Play, Radio, Target } from "lucide-react";
+import { STATUS_META, STATUS_ORDER, sparkline } from "@/lib/sim";
 import { useDash } from "./store";
 import { FlowGraph } from "./flow";
 import { LogLines } from "./agents";
-import { NeedProject, PageHead, Panel, Ring, Sparkline, fmtTime, hud } from "./kit";
+import { NeedProject, PageHead, Panel, Ring, SoftLink, Sparkline, STATUS_UI, agentColor, codename, fmtTime, tint } from "./kit";
 
 export function OverviewView() {
-  const { project, feed, runNext, running, source, setLogsAgent } = useDash();
+  const { project, feed, runNext, running, source, setLogsAgent, loading } = useDash();
   const stats = useMemo(() => {
     if (!project) return null;
     const total = project.tasks.length;
@@ -12388,90 +12759,101 @@ export function OverviewView() {
     const prog = total ? Math.round(project.tasks.reduce((s, t) => s + t.progress, 0) / total) : 0;
     return { total, done, prog, working: project.agents.filter((a) => a.status === "working").length, running: project.tasks.filter((t) => t.status === "running").length };
   }, [project]);
-  if (!project || !stats) return <NeedProject />;
+  if (!project || !stats) return <NeedProject loading={loading} />;
   const counts = STATUS_ORDER.map((s) => ({ s, n: project.tasks.filter((t) => t.status === s).length }));
   const max = Math.max(1, ...counts.map((c) => c.n));
   const kpis = [
-    { label: "Tasks done", value: `${stats.done}/${stats.total}`, delta: `${stats.total ? Math.round((stats.done / stats.total) * 100) : 0}% complete`, seed: "done", trend: 0.75, color: "#34d399", icon: Target },
-    { label: "Agents working", value: `${stats.working}/8`, delta: `${stats.running} tasks in flight`, seed: "work", trend: 0.55, color: "var(--acc)", icon: Radio },
-    { label: "Commits", value: String(project.gitlog.length), delta: `last ${project.gitlog.at(-1)?.hash ?? "-"}`, seed: "commits", trend: 0.8, color: "#a06bff", icon: GitCommit },
-    { label: "Build health", value: `${Math.min(99, 82 + (stats.done % 15))}%`, delta: "checks passing", seed: "health", trend: 0.6, color: "#fbbf24", icon: Activity },
+    { label: "Tasks done", value: `${stats.done}/${stats.total}`, delta: `${stats.total ? Math.round((stats.done / stats.total) * 100) : 0}% complete`, seed: "done", trend: 0.75, color: "var(--mint)", icon: Target },
+    { label: "Agents working", value: `${stats.working}/8`, delta: `${stats.running} tasks in flight`, seed: "work", trend: 0.55, color: "var(--amber)", icon: Radio },
+    { label: "Commits", value: String(project.gitlog.length), delta: `last ${project.gitlog.at(-1)?.hash ?? "-"}`, seed: "commits", trend: 0.8, color: "var(--blue)", icon: GitCommit },
+    { label: "Build health", value: `${Math.min(99, 82 + (stats.done % 15))}%`, delta: "checks passing", seed: "health", trend: 0.6, color: "var(--agent-fuchsia)", icon: Activity },
   ];
   const recent = [...project.gitlog].reverse().slice(0, 6);
   return (
     <>
-      <PageHead kicker={`Mission control / ${project.status}`} title={project.name}>
-        <span className="rounded-md border border-[var(--gh-line)] px-2.5 py-1 font-mono text-[11px] uppercase">{source === "live" ? "live api" : "simulation"}</span>
-        <button onClick={() => void runNext()} disabled={running} className="gh-btn gh-btn-primary">
+      <PageHead title={project.name} description={`${project.status === "shipped" ? "Shipped" : project.status === "building" ? "Building" : "Planning"} · ${project.brief}`}>
+        <span className={source === "live" ? "chip chip-mint" : "chip"}>
+          <span className="size-1.5 rounded-full" style={{ background: source === "live" ? "var(--mint)" : "var(--text-faint)" }} />
+          {source === "live" ? "Live API" : "Simulation"}
+        </span>
+        <button onClick={() => void runNext()} disabled={running} className="btn btn-primary disabled:opacity-70">
           <Play className="size-4" /> {running ? "Executing..." : "Run next step"}
         </button>
       </PageHead>
 
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {kpis.map((k) => (
-          <div key={k.label} className="gh-glass gh-corners rounded-md p-3.5">
-            <div className="flex items-center justify-between"><span className={hud}>{k.label}</span><k.icon className="size-3.5 text-muted-foreground" /></div>
-            <div className="mt-2 flex items-end justify-between gap-2">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {kpis.map((k, i) => (
+          <div key={k.label} className={`gh-glass !bg-[var(--surface-1)] reveal reveal-${i + 1} relative flex min-w-0 flex-col justify-between gap-5 overflow-hidden !rounded-2xl p-5`}>
+            <div className="flex items-center gap-2 text-[13px] font-medium text-[var(--text-muted)]">
+              <span className="flex size-6 items-center justify-center rounded-lg" style={{ background: tint(k.color, 14), color: k.color }}><k.icon className="size-3.5" /></span>
+              {k.label}
+            </div>
+            <div className="flex items-end justify-between gap-3">
               <div className="min-w-0">
-                <div className="font-display text-2xl font-semibold tabular-nums sm:text-3xl">{k.value}</div>
-                <div className="truncate text-[11px] text-muted-foreground">{k.delta}</div>
+                <div className="font-display text-[2rem] font-semibold leading-none tracking-[-0.03em] tabular-nums sm:text-[2.25rem]">{k.value}</div>
+                <div className="mt-2 truncate text-xs text-[var(--text-faint)]">{k.delta}</div>
               </div>
-              <Sparkline data={sparkline(project.id + k.seed + stats.done, 14, k.trend)} color={k.color} w={72} h={30} />
+              <div className="hidden sm:block"><Sparkline data={sparkline(project.id + k.seed + stats.done, 14, k.trend)} color={k.color} w={72} h={34} /></div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-3.5 grid gap-3.5 xl:grid-cols-3">
-        <Panel title="Mission progress" icon={<Target />} className="xl:col-span-1">
-          <div className="flex flex-wrap items-center gap-4">
+      <div className="mt-4 grid gap-4 xl:grid-cols-3">
+        <Panel title="Mission progress" className="reveal reveal-5 xl:col-span-1">
+          <div className="flex flex-wrap items-center gap-5">
             <Ring value={stats.prog} label="overall" />
             <div className="min-w-0 flex-1 basis-40">
-              <p className="text-sm text-muted-foreground">{project.brief}</p>
-              <div className="mt-2 flex flex-wrap gap-1">{project.stack.map((s) => <span key={s} className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--acc)]">{s}</span>)}</div>
+              <p className="line-clamp-4 text-sm leading-relaxed text-[var(--text-muted)]">{project.brief}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">{project.stack.map((s) => <span key={s} className="chip">{s}</span>)}</div>
             </div>
           </div>
-          <div className="mt-4 grid grid-cols-4 gap-1.5">
+          <div className="mt-6 grid grid-cols-4 gap-2">
             {project.agents.map((a) => (
-              <button key={a.name} onClick={() => setLogsAgent(a.name)} title={`${a.name}: ${a.status}`} className="rounded-sm border border-[var(--gh-line)] py-1 text-center font-mono text-[9px] uppercase hover:bg-white/5" style={{ color: agentHex(a.name), opacity: a.status === "idle" ? 0.55 : 1 }}>
-                {a.name.slice(0, 4)}
+              <button key={a.name} onClick={() => setLogsAgent(a.name)} title={`${a.name}: ${a.status}`}
+                className="flex flex-col items-center gap-1.5 rounded-xl bg-white/[0.035] py-2.5 text-[11px] font-medium transition-[background,transform] duration-150 hover:-translate-y-0.5 hover:bg-white/[0.07]"
+                style={{ opacity: a.status === "idle" ? 0.6 : 1 }}>
+                <span className="size-2 rounded-full" style={{ background: agentColor(a.name) }} />
+                <span className="text-[var(--text-muted)]">{codename(a.name)}</span>
               </button>
             ))}
           </div>
         </Panel>
 
-        <Panel title="Agent activity" icon={<Terminal />} live className="xl:col-span-2" bodyClass="p-0">
-          <LogLines lines={feed.length ? feed : []} className="h-64 rounded-b-md" />
+        <Panel title="Agent activity" live className="reveal reveal-6 flex flex-col xl:col-span-2" bodyClass="!p-2 !pt-2 flex flex-1 flex-col">
+          <LogLines lines={feed.length ? feed : []} className="min-h-64 flex-1 rounded-xl" />
         </Panel>
 
-        <Panel title="Pipeline" icon={<Network />} right={<Link href="/dashboard/flow" className="text-[11px] text-[var(--acc)] hover:underline">Open flow</Link>} className="xl:col-span-2" bodyClass="p-1.5">
-          <div className="overflow-x-auto"><div className="min-w-[520px]"><FlowGraph project={project} compact /></div></div>
+        <Panel title="Pipeline" right={<SoftLink href="/dashboard/flow">Open flow</SoftLink>} className="reveal reveal-7 xl:col-span-2" bodyClass="!p-3">
+          <div className="overflow-x-auto"><div className="min-w-[560px]"><FlowGraph project={project} compact /></div></div>
         </Panel>
 
-        <Panel title="Tasks by status" icon={<BarChart3 />} right={<Link href="/dashboard/tasks" className="text-[11px] text-[var(--acc)] hover:underline">Board</Link>}>
-          <ul className="grid gap-2.5">
+        <Panel title="Tasks by status" right={<SoftLink href="/dashboard/tasks">Board</SoftLink>} className="reveal reveal-8">
+          <ul className="grid gap-4 pt-1">
             {counts.map(({ s, n }) => (
-              <li key={s} className="grid grid-cols-[4.5rem_1fr_1.5rem] items-center gap-2 text-xs">
-                <span className="text-muted-foreground">{STATUS_META[s].label}</span>
-                <div className="h-3 rounded-sm bg-white/5"><div className="h-full rounded-sm transition-[width] duration-700" style={{ width: `${(n / max) * 100}%`, background: STATUS_META[s].color, boxShadow: `0 0 10px ${STATUS_META[s].color}66` }} /></div>
-                <span className="text-right font-mono tabular-nums">{n}</span>
+              <li key={s} className="grid gap-1.5 text-[13px]">
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-2 text-[var(--text-muted)]"><span className="size-1.5 rounded-full" style={{ background: STATUS_UI[s] }} />{STATUS_META[s].label}</span>
+                  <span className="font-medium tabular-nums">{n}</span>
+                </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]"><div className="h-full rounded-full transition-[width] duration-700" style={{ width: `${(n / max) * 100}%`, background: STATUS_UI[s] }} /></div>
               </li>
             ))}
           </ul>
         </Panel>
 
-        <Panel title="Recent commits" icon={<GitCommit />} right={<Link href="/dashboard/git" className="text-[11px] text-[var(--acc)] hover:underline">All</Link>} className="xl:col-span-3" bodyClass="p-0">
-          <ul className="divide-y divide-[var(--gh-line)]/60">
+        <Panel title="Recent commits" right={<SoftLink href="/dashboard/git">View all</SoftLink>} className="xl:col-span-3" bodyClass="!px-2 !pb-2">
+          <ul>
             {recent.map((c) => (
-              <li key={c.id} className="flex items-center gap-3 px-3.5 py-2 text-sm">
-                <span className="size-2 shrink-0 rounded-full" style={{ background: agentHex(c.agent) }} />
-                <code className="font-mono text-xs text-[var(--acc)]">{c.hash}</code>
-                <span className="min-w-0 flex-1 truncate">{c.message}</span>
-                <span className="hidden font-mono text-[10px] uppercase text-muted-foreground sm:inline">{c.agent} / {c.files} files</span>
-                <span className="font-mono text-[10px] text-muted-foreground">{fmtTime(c.at)}</span>
+              <li key={c.id} className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors hover:bg-white/[0.035]">
+                <span className="size-2 shrink-0 rounded-full" style={{ background: agentColor(c.agent) }} />
+                <span className="min-w-0 flex-1 truncate font-medium">{c.message}</span>
+                <code className="hidden rounded-md bg-white/[0.05] px-1.5 py-0.5 font-mono text-xs text-[var(--text-muted)] sm:inline">{c.hash}</code>
+                <span className="hidden text-[13px] text-[var(--text-faint)] md:inline">{codename(c.agent)} · {c.files} files</span>
+                <span className="text-xs tabular-nums text-[var(--text-faint)]">{fmtTime(c.at)}</span>
               </li>
             ))}
-            {!recent.length && <li className="px-3.5 py-6 text-center text-sm text-muted-foreground">No commits yet. Press <b>Run next step</b> and the first merge will land here.</li>}
+            {!recent.length && <li className="px-3 py-8 text-center text-sm text-[var(--text-muted)]">No commits yet. Press <b className="font-semibold text-foreground">Run next step</b> and the first merge will land here.</li>}
           </ul>
         </Panel>
       </div>
@@ -12482,7 +12864,7 @@ export function OverviewView() {
 
 ### `src/components/dashboard/projects.tsx`
 
-**Lines:** 100 · **Size:** 7.4 KB · **Language:** typescript · **Exports:** `ProjectsView`
+**Lines:** 113 · **Size:** 8.5 KB · **Language:** typescript · **Exports:** `ProjectsView`
 
 Projects view: list/grid, status filters, delete with confirmation dialog.
 
@@ -12494,17 +12876,18 @@ Projects view: list/grid, status filters, delete with confirmation dialog.
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Download, FolderGit2, MoreHorizontal, Pencil, Plus, Trash2 } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import type { ProjectDetail } from "@/lib/contracts";
-import { agentHex, sparkline } from "@/lib/sim";
+import { sparkline } from "@/lib/sim";
 import { useDash } from "./store";
-import { Bar, Dot, Empty, PageHead, Sparkline, fmtTime } from "./kit";
+import { Bar, Empty, PageHead, Sparkline, agentColor, fmtTime, tint } from "./kit";
 import { cn } from "cn";
 
-const STATUS_COLOR = { planning: "#fbbf24", building: "#22e5ff", shipped: "#34d399" } as const;
+const STATUS_COLOR = { planning: "var(--blue)", building: "var(--amber)", shipped: "var(--mint)" } as const;
+const STATUS_LABEL = { planning: "Planning", building: "Building", shipped: "Shipped" } as const;
 
 export function ProjectsView() {
   const { projects, project, selectProject, setNewOpen, renameProject, deleteProject } = useDash();
@@ -12512,57 +12895,69 @@ export function ProjectsView() {
   const [edit, setEdit] = useState<{ p: ProjectDetail; mode: "rename" | "delete" } | null>(null);
   const [name, setName] = useState("");
   const [menu, setMenu] = useState<string | null>(null);
+  useEffect(() => {
+    if (!menu) return;
+    const h = (e: MouseEvent) => { if (!(e.target as HTMLElement).closest("[aria-label^=\"Actions for\"]")) setMenu(null); };
+    const t = setTimeout(() => window.addEventListener("click", h), 0);
+    return () => { clearTimeout(t); window.removeEventListener("click", h); };
+  }, [menu]);
   const openEdit = (p: ProjectDetail, mode: "rename" | "delete") => { setName(p.name); setEdit({ p, mode }); setMenu(null); };
   return (
     <>
-      <PageHead kicker="Workspace" title="Projects">
-        <button onClick={() => setNewOpen(true)} className="gh-btn gh-btn-primary"><Plus className="size-4" /> New project</button>
+      <PageHead title="Projects" description="Every build your crew is working on. Pick one to make it the active project.">
+        <button onClick={() => setNewOpen(true)} className="btn btn-primary"><Plus className="size-4" /> New project</button>
       </PageHead>
       {!projects.length ? (
-        <Empty icon={<FolderGit2 />} title="No projects yet" hint="Describe what you want to build, pick a stack and the eight-agent crew gets to work." action={<button onClick={() => setNewOpen(true)} className="gh-btn gh-btn-primary mt-2">Create your first project</button>} />
+        <div className="surface rounded-2xl">
+          <Empty icon={<FolderGit2 />} title="No projects yet" hint="Describe what you want to build, pick a stack and the eight-agent crew gets to work." action={<button onClick={() => setNewOpen(true)} className="btn btn-primary">Create your first project</button>} />
+        </div>
       ) : (
-        <div className="grid gap-3.5 sm:grid-cols-2 xl:grid-cols-3">
-          {projects.map((p) => {
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {projects.map((p, i) => {
             const prog = p.tasks.length ? Math.round(p.tasks.reduce((s, t) => s + t.progress, 0) / p.tasks.length) : 0;
             const c = STATUS_COLOR[p.status];
             const active = p.id === project?.id;
             return (
-              <article key={p.id} className={cn("gh-glass gh-corners relative flex flex-col rounded-md p-4", active && "ring-1 ring-[var(--acc)]/50")}>
+              <article key={p.id} className={cn("surface card-lift reveal relative flex flex-col rounded-2xl p-5", `reveal-${Math.min(8, i + 1)}`, active && "!shadow-[var(--inner-top),0_0_0_1.5px_rgba(62,230,160,0.4),var(--shadow-1)]")}>
                 <div className="flex items-start gap-2">
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2 font-mono text-[10px] uppercase" style={{ color: c }}><Dot color={c} pulse={p.status === "building"} />{p.status}{active && <span className="rounded-sm border border-[var(--acc)]/40 px-1 text-[var(--acc)]">active</span>}</div>
-                    <h3 className="mt-1 truncate font-display text-lg font-semibold">{p.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <span className="chip" style={{ color: c, background: tint(c, 13) }}><span className="size-1.5 rounded-full" style={{ background: c }} />{STATUS_LABEL[p.status]}</span>
+                      {active && <span className="text-xs font-medium text-[var(--mint)]">Active</span>}
+                    </div>
+                    <h3 className="mt-3 truncate font-display text-xl font-semibold tracking-tight">{p.name}</h3>
                   </div>
                   <div className="relative">
-                    <button onClick={() => setMenu(menu === p.id ? null : p.id)} aria-label={`Actions for ${p.name}`} className="rounded p-1.5 text-muted-foreground hover:bg-white/10"><MoreHorizontal className="size-4" /></button>
+                    <button onClick={() => setMenu(menu === p.id ? null : p.id)} aria-label={`Actions for ${p.name}`} className="btn btn-ghost !h-8 !w-8 !px-0"><MoreHorizontal className="size-4" /></button>
                     {menu === p.id && (
-                      <div className="absolute right-0 top-8 z-20 w-40 rounded-md border border-[var(--gh-line)] bg-[#0a0d1c] p-1 text-sm shadow-xl">
-                        <button onClick={() => openEdit(p, "rename")} className="flex w-full items-center gap-2 rounded px-2 py-1.5 hover:bg-white/10"><Pencil className="size-3.5" /> Rename</button>
-                        <button onClick={() => { selectProject(p.id); router.push("/dashboard/exports"); }} className="flex w-full items-center gap-2 rounded px-2 py-1.5 hover:bg-white/10"><Download className="size-3.5" /> Export</button>
-                        <button onClick={() => openEdit(p, "delete")} className="flex w-full items-center gap-2 rounded px-2 py-1.5 text-rose-400 hover:bg-rose-500/10"><Trash2 className="size-3.5" /> Delete</button>
+                      <div className="absolute right-0 top-9 z-20 w-44 rounded-xl bg-[var(--surface-3)] p-1.5 text-sm shadow-[var(--inner-top),0_0_0_1px_var(--hairline-strong),var(--shadow-2)] animate-in fade-in zoom-in-95 duration-150">
+                        <button onClick={() => openEdit(p, "rename")} className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 transition-colors hover:bg-white/[0.07]"><Pencil className="size-3.5 text-[var(--text-faint)]" /> Rename</button>
+                        <button onClick={() => { selectProject(p.id); router.push("/dashboard/exports"); }} className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 transition-colors hover:bg-white/[0.07]"><Download className="size-3.5 text-[var(--text-faint)]" /> Export</button>
+                        <button onClick={() => openEdit(p, "delete")} className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-[var(--coral)] transition-colors hover:bg-[var(--coral-tint)]"><Trash2 className="size-3.5" /> Delete</button>
                       </div>
                     )}
                   </div>
                 </div>
-                <p className="mt-1.5 line-clamp-2 min-h-10 text-sm text-muted-foreground">{p.brief}</p>
-                <div className="mt-3 flex flex-wrap gap-1">{p.stack.slice(0, 5).map((s) => <span key={s} className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--acc)]">{s}</span>)}{p.stack.length > 5 && <span className="font-mono text-[10px] text-muted-foreground">+{p.stack.length - 5}</span>}</div>
-                <div className="mt-4 flex items-end justify-between gap-3">
-                  <div className="grid flex-1 gap-1.5">
-                    <div className="flex justify-between font-mono text-[10px] uppercase text-muted-foreground"><span>{p.tasks.length} tasks / {p.gitlog.length} commits</span><span className="text-foreground">{prog}%</span></div>
+                <p className="mt-2 line-clamp-2 min-h-10 text-sm leading-relaxed text-[var(--text-muted)]">{p.brief}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">{p.stack.slice(0, 5).map((s) => <span key={s} className="chip">{s}</span>)}{p.stack.length > 5 && <span className="chip">+{p.stack.length - 5}</span>}</div>
+                <div className="mt-6 flex items-end justify-between gap-4">
+                  <div className="grid flex-1 gap-2">
+                    <div className="flex justify-between text-xs"><span className="text-[var(--text-faint)]">{p.tasks.length} tasks · {p.gitlog.length} commits</span><span className="font-semibold tabular-nums">{prog}%</span></div>
                     <Bar value={prog} color={c} />
                   </div>
-                  <Sparkline data={sparkline(p.id, 12, 0.7)} color={c} w={64} h={26} />
+                  <Sparkline data={sparkline(p.id, 12, 0.7)} color={c} w={64} h={28} />
                 </div>
-                <div className="mt-3 flex items-center gap-1">
-                  {p.agents.map((a) => <span key={a.name} title={`${a.name}: ${a.status}`} className="size-2 rounded-full" style={{ background: a.status === "idle" ? "#334" : agentHex(a.name), opacity: a.status === "done" ? 0.55 : 1 }} />)}
-                  <span className="ml-auto font-mono text-[10px] text-muted-foreground">{fmtTime(p.createdAt)}</span>
+                <div className="mt-5 flex items-center gap-1.5">
+                  {p.agents.map((a) => <span key={a.name} title={`${a.name}: ${a.status}`} className="size-2 rounded-full" style={{ background: a.status === "idle" ? "rgba(255,255,255,0.14)" : agentColor(a.name), opacity: a.status === "done" ? 0.55 : 1 }} />)}
+                  <span className="ml-auto text-xs text-[var(--text-faint)]">{fmtTime(p.createdAt)}</span>
                 </div>
-                <button onClick={() => { selectProject(p.id); router.push("/dashboard"); }} className="gh-btn gh-btn-ghost mt-3 !h-8 w-full text-xs">Open mission control</button>
+                <button onClick={() => { selectProject(p.id); router.push("/dashboard"); }} className="btn btn-secondary btn-sm mt-4 w-full">Open mission control</button>
               </article>
             );
           })}
-          <button onClick={() => setNewOpen(true)} className="flex min-h-56 flex-col items-center justify-center gap-2 rounded-md border border-dashed border-[var(--gh-line)] text-muted-foreground transition-colors hover:border-[var(--acc)]/60 hover:text-foreground">
-            <Plus className="size-8" /><span className="text-sm">New project</span>
+          <button onClick={() => setNewOpen(true)} className="group flex min-h-64 flex-col items-center justify-center gap-3 rounded-2xl text-[var(--text-muted)] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.07)] transition-[background,box-shadow,color] duration-200 hover:bg-white/[0.03] hover:text-foreground hover:shadow-[inset_0_0_0_1.5px_rgba(62,230,160,0.4)]">
+            <span className="flex size-11 items-center justify-center rounded-xl bg-white/[0.05] transition-colors group-hover:bg-[var(--mint-tint)] group-hover:text-[var(--mint)]"><Plus className="size-5" /></span>
+            <span className="text-sm font-medium">New project</span>
           </button>
         </div>
       )}
@@ -12572,16 +12967,16 @@ export function ProjectsView() {
           {edit && (
             <>
               <DialogHeader>
-                <DialogTitle className="font-display text-lg">{edit.mode === "rename" ? "Rename project" : "Delete project?"}</DialogTitle>
+                <DialogTitle className="font-display text-xl">{edit.mode === "rename" ? "Rename project" : "Delete project?"}</DialogTitle>
                 <DialogDescription>{edit.mode === "rename" ? "Choose a new display name." : `"${edit.p.name}" and its ${edit.p.tasks.length} tasks will be removed from this workspace.`}</DialogDescription>
               </DialogHeader>
               {edit.mode === "rename" && <Input value={name} onChange={(e) => setName(e.target.value)} autoFocus aria-label="Project name" onKeyDown={(e) => { if (e.key === "Enter" && name.trim().length >= 2) { renameProject(edit.p.id, name.trim()); setEdit(null); } }} />}
               <div className="flex justify-end gap-2">
-                <button onClick={() => setEdit(null)} className="gh-btn gh-btn-ghost !h-8 text-xs">Cancel</button>
+                <button onClick={() => setEdit(null)} className="btn btn-ghost btn-sm">Cancel</button>
                 {edit.mode === "rename" ? (
-                  <button disabled={name.trim().length < 2} onClick={() => { renameProject(edit.p.id, name.trim()); setEdit(null); }} className="gh-btn gh-btn-primary !h-8 text-xs">Save</button>
+                  <button disabled={name.trim().length < 2} onClick={() => { renameProject(edit.p.id, name.trim()); setEdit(null); }} className="btn btn-primary btn-sm disabled:opacity-50">Save</button>
                 ) : (
-                  <button onClick={() => { deleteProject(edit.p.id); setEdit(null); }} className="gh-btn !h-8 bg-rose-500/80 text-xs text-white hover:bg-rose-500">Delete</button>
+                  <button onClick={() => { deleteProject(edit.p.id); setEdit(null); }} className="btn btn-sm !bg-[var(--coral)] !text-[#2a0a06] hover:!brightness-110">Delete</button>
                 )}
               </div>
             </>
@@ -12595,7 +12990,7 @@ export function ProjectsView() {
 
 ### `src/components/dashboard/settings.tsx`
 
-**Lines:** 106 · **Size:** 6.7 KB · **Language:** typescript · **Exports:** `SettingsView`
+**Lines:** 111 · **Size:** 7.5 KB · **Language:** typescript · **Exports:** `SettingsView`
 
 Settings: accent colour picker (ACCENTS), API base URL for live mode, data source indicator and auth section.
 
@@ -12613,7 +13008,7 @@ import { AuthNav } from "@/components/auth/auth-nav";
 import { AUTH_ENABLED } from "@/components/auth-provider";
 import { probeLive } from "@/lib/client-data";
 import { ACCENTS, useDash } from "./store";
-import { Dot, PageHead, Panel, field, hud } from "./kit";
+import { Dot, PageHead, Panel, field, lbl, tint } from "./kit";
 
 const SHORTCUTS: [string, string][] = [
   ["Ctrl / Cmd + K", "Open command palette"],
@@ -12630,10 +13025,10 @@ export function SettingsView() {
   const [base, setBase] = useState(apiBase);
   const [testing, setTesting] = useState(false);
   const conns = [
-    { name: "GitHub", desc: "Push generated code, open PRs from agent branches.", status: "Not linked", color: "#8b93b8", docs: "https://docs.github.com/en/apps" },
-    { name: "Clerk", desc: "Authentication, orgs and roles for the dashboard.", status: AUTH_ENABLED ? "Connected" : "Demo (no keys)", color: AUTH_ENABLED ? "#34d399" : "#fbbf24", docs: "https://clerk.com/docs" },
-    { name: "CodeRabbit", desc: "AI review on every pull request (.coderabbit.yaml).", status: "Configured", color: "#34d399", docs: "https://docs.coderabbit.ai" },
-    { name: "Vercel", desc: "Preview and production deploys (vercel.json).", status: "Configured", color: "#34d399", docs: "https://vercel.com/docs" },
+    { name: "GitHub", desc: "Push generated code, open PRs from agent branches.", status: "Not linked", color: "var(--text-faint)", docs: "https://docs.github.com/en/apps" },
+    { name: "Clerk", desc: "Authentication, orgs and roles for the dashboard.", status: AUTH_ENABLED ? "Connected" : "Demo (no keys)", color: AUTH_ENABLED ? "var(--mint)" : "var(--amber)", docs: "https://clerk.com/docs" },
+    { name: "CodeRabbit", desc: "AI review on every pull request (.coderabbit.yaml).", status: "Configured", color: "var(--mint)", docs: "https://docs.coderabbit.ai" },
+    { name: "Vercel", desc: "Preview and production deploys (vercel.json).", status: "Configured", color: "var(--mint)", docs: "https://vercel.com/docs" },
   ];
   async function test() {
     setTesting(true);
@@ -12644,64 +13039,69 @@ export function SettingsView() {
   }
   return (
     <>
-      <PageHead kicker="Preferences" title="Settings" />
-      <div className="grid gap-3.5 lg:grid-cols-2">
-        <Panel title="Profile" icon={<User />}>
-          <div className="flex items-center gap-3">
-            <div className="flex size-12 items-center justify-center rounded-full border border-[var(--acc)]/50 bg-[color-mix(in_srgb,var(--acc)_14%,transparent)] font-display text-lg text-[var(--acc)]">G</div>
+      <PageHead title="Settings" description="Your profile, theme, API connection and shortcuts. Everything is saved in this browser." />
+      <div className="grid gap-4 lg:grid-cols-2">
+        <Panel title="Profile" icon={<User />} className="reveal reveal-1">
+          <div className="flex items-center gap-4">
+            <div className="flex size-12 items-center justify-center rounded-full bg-[var(--acc)] font-display text-lg font-bold text-[var(--mint-ink)]">G</div>
             <div className="min-w-0 flex-1">
               <p className="font-medium">{AUTH_ENABLED ? "Signed-in account" : "Demo operator"}</p>
-              <p className="text-xs text-muted-foreground">{AUTH_ENABLED ? "Managed by Clerk." : "Auth is off (no Clerk keys or demo build). Data stays in this browser."}</p>
+              <p className="text-[13px] leading-snug text-[var(--text-muted)]">{AUTH_ENABLED ? "Managed by Clerk." : "Auth is off (no Clerk keys or demo build). Data stays in this browser."}</p>
             </div>
-            <AuthNav />
+            {AUTH_ENABLED && <AuthNav />}
           </div>
-          <dl className="mt-4 grid grid-cols-3 gap-2 text-center">
+          <dl className="mt-6 grid grid-cols-3 gap-3 text-center">
             {[["Projects", projects.length], ["Tasks", projects.reduce((s, p) => s + p.tasks.length, 0)], ["Commits", projects.reduce((s, p) => s + p.gitlog.length, 0)]].map(([k, v]) => (
-              <div key={k} className="rounded-md border border-[var(--gh-line)] p-2"><dd className="font-display text-xl tabular-nums">{v}</dd><dt className={hud}>{k}</dt></div>
+              <div key={k} className="rounded-xl bg-white/[0.035] px-2 py-3.5"><dd className="font-display text-2xl font-semibold tabular-nums">{v}</dd><dt className="mt-0.5 text-xs text-[var(--text-faint)]">{k}</dt></div>
             ))}
           </dl>
         </Panel>
 
-        <Panel title="Theme accent" icon={<Palette />}>
+        <Panel title="Theme accent" icon={<Palette />} className="reveal reveal-2">
           <div className="flex flex-wrap gap-2.5">
             {ACCENTS.map((a) => (
               <button key={a.id} onClick={() => setAccent(a.color)} aria-pressed={accent === a.color} aria-label={`${a.label} accent`}
-                className={cn("flex items-center gap-2 rounded-md border px-3 py-2 text-sm", accent === a.color ? "border-white/60" : "border-[var(--gh-line)] hover:bg-white/5")}>
-                <span className="flex size-4 items-center justify-center rounded-full" style={{ background: a.color, boxShadow: `0 0 12px ${a.color}` }}>{accent === a.color && <Check className="size-3 text-black" />}</span>{a.label}
+                className={cn("flex h-10 items-center gap-2.5 rounded-xl px-3.5 text-sm font-medium transition-[background,box-shadow,transform] duration-150 active:scale-[0.98]", accent === a.color ? "bg-white/[0.08] shadow-[0_0_0_1.5px_rgba(255,255,255,0.35)]" : "bg-white/[0.035] hover:bg-white/[0.07]")}>
+                <span className="flex size-4.5 items-center justify-center rounded-full" style={{ background: a.color, width: 18, height: 18 }}>{accent === a.color && <Check className="size-3 text-black" />}</span>{a.label}
               </button>
             ))}
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">Applies to rings, glows, active nav and focus accents. Saved in this browser.</p>
-        </Panel>
-
-        <Panel title="API connection" icon={<KeyRound />}>
-          <div className="mb-3 flex items-center gap-2 text-sm"><Dot color={source === "live" ? "#34d399" : "#fbbf24"} pulse={source === "live"} /> {source === "live" ? "Using live API" : "Using local demo data (API retried every 20s)"}</div>
-          <label className="grid gap-1"><span className={hud}>API base URL</span>
-            <input value={base} onChange={(e) => setBase(e.target.value)} placeholder="Same origin (leave empty), or https://api.example.com" className={field} />
-          </label>
-          <div className="mt-3 flex gap-2">
-            <button onClick={() => { setApiBase(base); }} className="gh-btn gh-btn-ghost !h-8 text-xs">Save</button>
-            <button onClick={() => void test()} disabled={testing} className="gh-btn gh-btn-primary !h-8 text-xs"><PlugZap className="size-3.5" /> {testing ? "Testing..." : "Save and test"}</button>
-            <button onClick={resetDemo} className="gh-btn gh-btn-ghost !h-8 text-xs sm:ml-auto"><RotateCcw className="size-3.5" /> Restore demo data</button>
+          <p className="mt-4 text-[13px] leading-relaxed text-[var(--text-faint)]">Tints the active navigation, avatar and highlights. Saved in this browser.</p>
+          <div className="mt-5 flex items-center gap-3 rounded-xl bg-black/25 p-4" aria-hidden>
+            <span className="size-8 rounded-lg" style={{ background: accent }} />
+            <span className="h-2 flex-1 rounded-full bg-white/[0.07]"><span className="block h-full w-2/3 rounded-full" style={{ background: accent }} /></span>
+            <span className="chip" style={{ color: accent, background: tint(accent, 14) }}>Preview</span>
           </div>
         </Panel>
 
-        <Panel title="Keyboard shortcuts">
-          <ul className="divide-y divide-[var(--gh-line)]/60">
+        <Panel title="API connection" icon={<KeyRound />} className="reveal reveal-3">
+          <div className="mb-4 flex items-center gap-2.5 text-sm"><Dot color={source === "live" ? "var(--mint)" : "var(--amber)"} pulse={source === "live"} /> {source === "live" ? "Using live API" : "Using local demo data (API retried every 20s)"}</div>
+          <label className="grid gap-1.5"><span className={lbl}>API base URL</span>
+            <input value={base} onChange={(e) => setBase(e.target.value)} placeholder="Same origin (leave empty), or https://api.example.com" className={cn(field, "h-10")} />
+          </label>
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <button onClick={() => { setApiBase(base); }} className="btn btn-secondary btn-sm">Save</button>
+            <button onClick={() => void test()} disabled={testing} className="btn btn-primary btn-sm disabled:opacity-60"><PlugZap className="size-3.5" /> {testing ? "Testing..." : "Save and test"}</button>
+            <button onClick={resetDemo} className="btn btn-ghost btn-sm sm:ml-auto"><RotateCcw className="size-3.5" /> Restore demo data</button>
+          </div>
+        </Panel>
+
+        <Panel title="Keyboard shortcuts" className="reveal reveal-4">
+          <ul className="-my-1">
             {SHORTCUTS.map(([k, d]) => (
-              <li key={k} className="flex items-center justify-between gap-3 py-2 text-sm"><span className="text-muted-foreground">{d}</span><kbd className="rounded border border-[var(--gh-line)] bg-white/5 px-1.5 py-0.5 font-mono text-[11px]">{k}</kbd></li>
+              <li key={k} className="flex items-center justify-between gap-3 py-2.5 text-sm"><span className="text-[var(--text-muted)]">{d}</span><span className="kbd shrink-0">{k}</span></li>
             ))}
           </ul>
         </Panel>
 
-        <Panel title="Connections" icon={<PlugZap />} className="lg:col-span-2">
+        <Panel title="Connections" icon={<PlugZap />} className="reveal reveal-5 lg:col-span-2">
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {conns.map((c) => (
-              <div key={c.name} className="flex flex-col rounded-md border border-[var(--gh-line)] bg-black/20 p-3">
-                <div className="flex items-center justify-between"><h3 className="font-display font-semibold">{c.name}</h3>
-                  <span className="flex items-center gap-1.5 rounded-sm border px-1.5 py-0.5 font-mono text-[10px] uppercase" style={{ color: c.color, borderColor: `${c.color}55` }}><Dot color={c.color} />{c.status}</span></div>
-                <p className="mt-2 flex-1 text-xs text-muted-foreground">{c.desc}</p>
-                <a href={c.docs} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1 text-xs text-[var(--acc)] hover:underline">Docs <ExternalLink className="size-3" /></a>
+              <div key={c.name} className="card-lift flex flex-col rounded-xl bg-white/[0.035] p-4">
+                <div className="flex items-center justify-between gap-2"><h3 className="font-display text-base font-semibold">{c.name}</h3>
+                  <span className="chip" style={{ color: c.color, background: tint(c.color, 13) }}><Dot color={c.color} />{c.status}</span></div>
+                <p className="mt-2.5 flex-1 text-[13px] leading-relaxed text-[var(--text-muted)]">{c.desc}</p>
+                <a href={c.docs} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--text-muted)] transition-colors hover:text-[var(--mint)]">Docs <ExternalLink className="size-3" /></a>
               </div>
             ))}
           </div>
@@ -12714,11 +13114,11 @@ export function SettingsView() {
 
 ### `src/components/dashboard/shell.tsx`
 
-**Lines:** 275 · **Size:** 14.9 KB · **Language:** typescript · **Exports:** `NAV`, `DashboardShell`
+**Lines:** 324 · **Size:** 18.2 KB · **Language:** typescript · **Exports:** `NAV`, `DashboardShell`
 
 Dashboard frame: NAV definition, sidebar with project switcher, top bar, notifications, mobile drawer and Ctrl+K command palette. Wraps views in DashProvider.
 
-**Imports from:** `src/components/ui/dialog.tsx`, `src/components/brand/logo.tsx`, `src/components/auth/auth-nav.tsx`, `src/components/dashboard/store.tsx`, `src/components/dashboard/new-project-wizard.tsx`, `src/components/dashboard/agents.tsx`, `src/components/dashboard/kit.tsx`
+**Imports from:** `src/components/ui/dialog.tsx`, `src/components/brand/logo.tsx`, `src/components/auth/auth-nav.tsx`, `src/components/auth-provider.tsx`, `src/components/dashboard/store.tsx`, `src/components/dashboard/new-project-wizard.tsx`, `src/components/dashboard/agents.tsx`, `src/components/dashboard/kit.tsx`
 
 **Used by:** `src/app/dashboard/layout.tsx`
 
@@ -12730,16 +13130,17 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import {
   Bell, Bot, Check, CheckCheck, CornerDownLeft, Download, FolderGit2, GitBranch, KanbanSquare, LayoutDashboard, Menu, Network, Palette as PaletteIcon,
-  Play, Plus, RotateCcw, Search, Settings, X, Info, TriangleAlert,
+  Play, Plus, RotateCcw, Search, Settings, X, Info, TriangleAlert, MoreHorizontal,
 } from "lucide-react";
 import { cn } from "cn";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { LogoMark } from "@/components/brand/logo";
 import { AuthNav } from "@/components/auth/auth-nav";
+import { AUTH_ENABLED } from "@/components/auth-provider";
 import { ACCENTS, DashProvider, useDash } from "./store";
 import { NewProjectWizard } from "./new-project-wizard";
 import { LogsDrawer } from "./agents";
-import { Dot, fmtClock, hud } from "./kit";
+import { Dot, fmtClock, tint } from "./kit";
 
 export const NAV = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
@@ -12752,59 +13153,73 @@ export const NAV = [
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
+const isActive = (path: string, href: string) => (href === "/dashboard" ? path === "/dashboard" : path.startsWith(href));
+const PROJECT_COLOR = { shipped: "var(--mint)", building: "var(--amber)", planning: "var(--blue)" } as const;
+
 function SideNav({ onNav }: { onNav?: () => void }) {
   const path = usePathname();
   const { project, projects, selectProject, source, setNewOpen } = useDash();
   return (
-    <div className="flex h-full flex-col gap-4 p-3">
-      <Link href="/" className="flex items-center gap-2 px-1.5 pt-1" onClick={onNav}>
-        <LogoMark size={26} />
-        <span className="font-display text-sm font-semibold tracking-[0.2em]">GHOST<span className="text-[var(--acc)]">{"//"}</span>AI</span>
+    <div className="flex h-full flex-col gap-5 px-3 pb-3 pt-4">
+      <Link href="/" className="flex items-center gap-2.5 rounded-xl px-2 py-1 transition-opacity hover:opacity-80" onClick={onNav}>
+        <LogoMark size={28} />
+        <span className="font-display text-[17px] font-bold tracking-[-0.03em]">Ghost<span className="text-[var(--mint)]">.AI</span></span>
       </Link>
-      <button onClick={() => { setNewOpen(true); onNav?.(); }} className="gh-btn gh-btn-primary !h-9 w-full text-xs">
-        <Plus className="size-4" /> New project
+
+      <button onClick={() => { setNewOpen(true); onNav?.(); }} className="btn btn-secondary btn-sm !h-9 w-full !justify-start !px-3">
+        <Plus className="size-4 text-[var(--mint)]" /> New project
       </button>
+
       <nav className="flex flex-col gap-0.5" aria-label="Dashboard">
         {NAV.map((n) => {
-          const active = n.href === "/dashboard" ? path === "/dashboard" : path.startsWith(n.href);
+          const active = isActive(path, n.href);
           return (
             <Link
               key={n.href} href={n.href} onClick={onNav} aria-current={active ? "page" : undefined}
               className={cn(
-                "group relative flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors",
-                active ? "bg-[color-mix(in_srgb,var(--acc)_14%,transparent)] text-foreground" : "text-muted-foreground hover:bg-white/5 hover:text-foreground",
+                "group flex h-9 items-center gap-2.5 rounded-[10px] px-2.5 text-[14px] font-medium transition-[background,color] duration-150",
+                active ? "bg-white/[0.08] text-foreground" : "text-[var(--text-muted)] hover:bg-white/[0.045] hover:text-foreground",
               )}
             >
-              {active && <span className="absolute inset-y-1.5 left-0 w-0.5 rounded bg-[var(--acc)] shadow-[0_0_10px_var(--acc)]" />}
-              <n.icon className={cn("size-4", active && "text-[var(--acc)]")} />
+              <n.icon className={cn("size-[17px] transition-colors", active ? "text-[var(--acc)]" : "text-[var(--text-faint)] group-hover:text-[var(--text-muted)]")} />
               {n.label}
             </Link>
           );
         })}
       </nav>
-      <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className={cn(hud, "mb-1.5 px-1.5")}>Active project</div>
-        <ul className="flex flex-col gap-1">
+
+      <div className="flex min-h-0 flex-1 flex-col">
+        <div className="mb-1.5 px-2.5 text-xs font-medium text-[var(--text-faint)]">Workspace</div>
+        <ul className="-mx-1 flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto px-1">
           {projects.map((p) => (
             <li key={p.id}>
               <button
-                onClick={() => selectProject(p.id)}
-                className={cn("flex w-full items-center gap-2 rounded-md border px-2.5 py-1.5 text-left text-xs transition-colors",
-                  p.id === project?.id ? "border-[var(--acc)]/50 bg-[color-mix(in_srgb,var(--acc)_8%,transparent)]" : "border-transparent text-muted-foreground hover:bg-white/5")}
+                onClick={() => { selectProject(p.id); onNav?.(); }}
+                aria-current={p.id === project?.id ? "true" : undefined}
+                className={cn("flex h-8 w-full items-center gap-2.5 rounded-[10px] px-2.5 text-left text-[13px] transition-colors duration-150",
+                  p.id === project?.id ? "bg-white/[0.06] font-medium text-foreground" : "text-[var(--text-muted)] hover:bg-white/[0.04] hover:text-foreground")}
               >
-                <Dot color={p.status === "shipped" ? "#34d399" : p.status === "building" ? "var(--acc)" : "#fbbf24"} pulse={p.status === "building"} />
+                <Dot color={PROJECT_COLOR[p.status]} pulse={p.status === "building"} />
                 <span className="truncate">{p.name}</span>
               </button>
             </li>
           ))}
         </ul>
       </div>
-      <div className="gh-panel rounded-md p-2.5 text-[11px] leading-snug">
-        <div className="flex items-center gap-1.5">
-          <Dot color={source === "live" ? "#34d399" : source === "demo" ? "#fbbf24" : "#8b93b8"} pulse={source === "live"} />
-          <span className="font-mono uppercase tracking-wider">{source === "live" ? "Live API" : source === "demo" ? "Demo data" : "Connecting"}</span>
+
+      <div className="rounded-2xl bg-white/[0.035] p-3">
+        <div className="flex items-center gap-2 text-[13px] font-medium">
+          <Dot color={source === "live" ? "var(--mint)" : source === "demo" ? "var(--amber)" : "var(--text-faint)"} pulse={source === "live"} />
+          {source === "live" ? "Live API" : source === "demo" ? "Demo data" : "Connecting"}
         </div>
-        <p className="mt-1 text-muted-foreground">{source === "demo" ? "Local simulation. Retrying the API every 20s." : source === "live" ? "Backend connected." : "Probing /api/health..."}</p>
+        <p className="mt-1 text-xs leading-snug text-[var(--text-faint)]">{source === "demo" ? "Local simulation. Retrying the API every 20s." : source === "live" ? "Backend connected." : "Probing /api/health..."}</p>
+      </div>
+      <div className="flex items-center gap-2.5 px-1">
+        <div className="flex size-8 items-center justify-center rounded-full bg-[var(--acc)] font-display text-sm font-bold text-[var(--mint-ink)]">G</div>
+        <div className="min-w-0 flex-1 leading-tight">
+          <p className="truncate text-[13px] font-medium">{AUTH_ENABLED ? "Signed in" : "Demo operator"}</p>
+          <p className="truncate text-xs text-[var(--text-faint)]">{AUTH_ENABLED ? "Clerk account" : "Data stays in this browser"}</p>
+        </div>
       </div>
     </div>
   );
@@ -12821,27 +13236,30 @@ function Bell_() {
     window.addEventListener("mousedown", h);
     return () => window.removeEventListener("mousedown", h);
   }, [open]);
+  const kindColor = { ok: "var(--mint)", warn: "var(--amber)", info: "var(--blue)" } as const;
   return (
     <div className="relative" ref={ref}>
-      <button onClick={() => setOpen((o) => !o)} aria-label="Notifications" className="relative flex size-9 items-center justify-center rounded-md border border-[var(--gh-line)] hover:bg-white/5">
-        <Bell className="size-4" />
-        {unread > 0 && <span className="absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-[var(--acc)] font-mono text-[9px] font-bold text-black">{unread > 9 ? "9+" : unread}</span>}
+      <button onClick={() => setOpen((o) => !o)} aria-label="Notifications" aria-expanded={open} className="btn btn-ghost !h-9 !w-9 !px-0">
+        <Bell className="size-[18px]" />
+        {unread > 0 && <span className="absolute right-1 top-1 flex size-4 items-center justify-center rounded-full bg-[var(--acc)] text-[9px] font-bold text-[var(--mint-ink)]">{unread > 9 ? "9+" : unread}</span>}
       </button>
       {open && (
-        <div className="gh-glass absolute right-0 top-11 z-50 w-[min(22rem,calc(100vw-2rem))] rounded-md bg-[#0a0d1c] shadow-2xl">
-          <div className="flex items-center justify-between border-b border-[var(--gh-line)] px-3 py-2">
-            <span className={hud}>Notifications</span>
-            <button onClick={markAllRead} className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"><CheckCheck className="size-3.5" /> Mark read</button>
+        <div className="absolute right-0 top-11 z-50 w-[min(24rem,calc(100vw-2rem))] origin-top-right rounded-2xl bg-[var(--surface-2)] shadow-[var(--inner-top),0_0_0_1px_var(--hairline-strong),var(--shadow-2)] animate-in fade-in zoom-in-95 duration-150">
+          <div className="flex items-center justify-between px-4 pb-1 pt-3.5">
+            <span className="font-display text-[15px] font-semibold">Notifications</span>
+            <button onClick={markAllRead} className="flex items-center gap-1.5 rounded-lg px-2 py-1 text-[13px] text-[var(--text-muted)] transition-colors hover:bg-white/[0.06] hover:text-foreground"><CheckCheck className="size-3.5" /> Mark read</button>
           </div>
-          <ul className="max-h-80 overflow-y-auto">
+          <ul className="max-h-80 overflow-y-auto p-2">
             {notes.map((n) => (
-              <li key={n.id} className="flex gap-2.5 border-b border-[var(--gh-line)]/50 px-3 py-2.5 text-sm last:border-0">
-                <span className="mt-0.5">{n.kind === "ok" ? <Check className="size-4 text-emerald-400" /> : n.kind === "warn" ? <TriangleAlert className="size-4 text-amber-400" /> : <Info className="size-4 text-sky-400" />}</span>
+              <li key={n.id} className="flex gap-3 rounded-xl px-2.5 py-2.5 text-sm transition-colors hover:bg-white/[0.04]">
+                <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-lg" style={{ background: tint(kindColor[n.kind], 14), color: kindColor[n.kind] }}>
+                  {n.kind === "ok" ? <Check className="size-3.5" /> : n.kind === "warn" ? <TriangleAlert className="size-3.5" /> : <Info className="size-3.5" />}
+                </span>
                 <div className="min-w-0">
-                  <p className={cn("leading-snug", n.read && "text-muted-foreground")}>{n.text}</p>
-                  <p className="font-mono text-[10px] text-muted-foreground">{fmtClock(n.at)} UTC</p>
+                  <p className={cn("leading-snug", n.read && "text-[var(--text-muted)]")}>{n.text}</p>
+                  <p className="mt-0.5 text-xs text-[var(--text-faint)]">{fmtClock(n.at)} UTC</p>
                 </div>
-                {!n.read && <span className="ml-auto mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--acc)]" />}
+                {!n.read && <span className="ml-auto mt-2 size-1.5 shrink-0 rounded-full bg-[var(--acc)]" />}
               </li>
             ))}
           </ul>
@@ -12879,36 +13297,36 @@ function Palette() {
   const exec = (c?: Cmd) => { if (!c) return; d.setPaletteOpen(false); setQ(""); setIdx(0); c.run(); };
   return (
     <Dialog open={d.paletteOpen} onOpenChange={(o) => { d.setPaletteOpen(o); if (!o) { setQ(""); setIdx(0); } }}>
-      <DialogContent className="top-[20%] gap-0 overflow-hidden p-0 sm:max-w-lg" showCloseButton={false}>
+      <DialogContent className="top-[18%] gap-0 overflow-hidden rounded-2xl p-0 sm:max-w-xl" showCloseButton={false}>
         <DialogTitle className="sr-only">Command palette</DialogTitle>
-        <div className="flex items-center gap-2 border-b border-[var(--gh-line)] px-3">
-          <Search className="size-4 text-muted-foreground" />
+        <div className="flex items-center gap-3 px-4 shadow-[0_1px_0_var(--hairline)]">
+          <Search className="size-[18px] text-[var(--text-faint)]" />
           <input
             autoFocus value={q} onChange={(e) => { setQ(e.target.value); setIdx(0); }} placeholder="Type a command or search..."
-            className="h-11 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+            className="h-14 flex-1 bg-transparent text-[15px] outline-none placeholder:text-[var(--text-faint)]"
             onKeyDown={(e) => {
               if (e.key === "ArrowDown") { e.preventDefault(); setIdx(Math.min(sel + 1, list.length - 1)); }
               else if (e.key === "ArrowUp") { e.preventDefault(); setIdx(Math.max(sel - 1, 0)); }
               else if (e.key === "Enter") { e.preventDefault(); exec(list[sel]); }
             }}
           />
-          <kbd className="rounded border border-[var(--gh-line)] px-1.5 font-mono text-[10px] text-muted-foreground">ESC</kbd>
+          <span className="kbd">Esc</span>
         </div>
-        <ul className="max-h-72 overflow-y-auto p-1.5">
+        <ul className="max-h-[22rem] overflow-y-auto p-2">
           {list.map((c, i) => (
             <li key={c.id}>
               <button
                 onClick={() => exec(c)} onMouseMove={() => setIdx(i)}
-                className={cn("flex w-full items-center gap-3 rounded-md px-2.5 py-2 text-left text-sm", i === sel ? "bg-[color-mix(in_srgb,var(--acc)_16%,transparent)]" : "")}
+                className={cn("flex h-10 w-full items-center gap-3 rounded-xl px-3 text-left text-sm transition-colors duration-100", i === sel ? "bg-white/[0.07]" : "")}
               >
-                <span className="text-[var(--acc)]">{c.icon}</span>
-                <span className="flex-1 truncate">{c.label}</span>
-                <span className="font-mono text-[10px] uppercase text-muted-foreground">{c.hint}</span>
-                {i === sel && <CornerDownLeft className="size-3.5 text-muted-foreground" />}
+                <span className={cn("transition-colors", i === sel ? "text-[var(--acc)]" : "text-[var(--text-faint)]")}>{c.icon}</span>
+                <span className="flex-1 truncate font-medium">{c.label}</span>
+                <span className="text-xs text-[var(--text-faint)]">{c.hint}</span>
+                {i === sel && <CornerDownLeft className="size-3.5 text-[var(--text-faint)]" />}
               </button>
             </li>
           ))}
-          {!list.length && <li className="px-3 py-6 text-center text-sm text-muted-foreground">No matches for &quot;{q}&quot;.</li>}
+          {!list.length && <li className="px-3 py-10 text-center text-sm text-[var(--text-muted)]">No matches for &quot;{q}&quot;.</li>}
         </ul>
       </DialogContent>
     </Dialog>
@@ -12918,71 +13336,102 @@ function Palette() {
 function Toasts() {
   const { toasts, dismissToast } = useDash();
   return (
-    <div className="pointer-events-none fixed bottom-4 right-4 z-[80] flex w-[min(24rem,calc(100vw-2rem))] flex-col gap-2" aria-live="polite">
-      {toasts.map((t) => (
-        <div key={t.id} className="gh-glass pointer-events-auto animate-in slide-in-from-right-8 fade-in rounded-md bg-[#0a0d1c]/95 p-3 shadow-2xl duration-200"
-          style={{ borderLeft: `3px solid ${t.kind === "ok" ? "#34d399" : t.kind === "warn" ? "#fbbf24" : "var(--acc)"}` }}>
-          <div className="flex items-start gap-2">
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-medium">{t.title}</p>
-              {t.body && <p className="mt-0.5 text-xs text-muted-foreground">{t.body}</p>}
-              {t.files && (
-                <ul className="mt-1.5 max-h-28 overflow-y-auto font-mono text-[11px] text-muted-foreground">
-                  {t.files.map((f) => <li key={f} className="truncate"><Check className="mr-1 inline size-3 text-emerald-400" />{f}</li>)}
-                </ul>
-              )}
+    <div className="pointer-events-none fixed bottom-20 right-4 z-[80] flex w-[min(24rem,calc(100vw-2rem))] flex-col gap-2.5 md:bottom-5 md:right-5" aria-live="polite">
+      {toasts.map((t) => {
+        const c = t.kind === "ok" ? "var(--mint)" : t.kind === "warn" ? "var(--amber)" : "var(--blue)";
+        return (
+          <div key={t.id} className="pointer-events-auto rounded-2xl bg-[var(--surface-2)] p-4 shadow-[var(--inner-top),0_0_0_1px_var(--hairline-strong),var(--shadow-2)] animate-in fade-in slide-in-from-bottom-3 duration-200">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-lg" style={{ background: tint(c, 15), color: c }}>
+                {t.kind === "ok" ? <Check className="size-3.5" /> : t.kind === "warn" ? <TriangleAlert className="size-3.5" /> : <Info className="size-3.5" />}
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium leading-snug">{t.title}</p>
+                {t.body && <p className="mt-0.5 text-[13px] text-[var(--text-muted)]">{t.body}</p>}
+                {t.files && (
+                  <ul className="mt-2 max-h-28 overflow-y-auto rounded-lg bg-black/30 px-2.5 py-2 font-mono text-[11px] text-[var(--text-muted)]">
+                    {t.files.map((f) => <li key={f} className="truncate"><Check className="mr-1.5 inline size-3 text-[var(--mint)]" />{f}</li>)}
+                  </ul>
+                )}
+              </div>
+              <button onClick={() => dismissToast(t.id)} aria-label="Dismiss" className="rounded-lg p-1 text-[var(--text-faint)] transition-colors hover:bg-white/[0.06] hover:text-foreground"><X className="size-4" /></button>
             </div>
-            <button onClick={() => dismissToast(t.id)} aria-label="Dismiss" className="text-muted-foreground hover:text-foreground"><X className="size-4" /></button>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
+  );
+}
+
+const TAB_NAV = ["/dashboard", "/dashboard/projects", "/dashboard/tasks", "/dashboard/agents"];
+
+function BottomNav({ onMore }: { onMore: () => void }) {
+  const path = usePathname();
+  return (
+    <nav aria-label="Quick navigation" className="fixed inset-x-0 bottom-0 z-40 flex items-stretch justify-around bg-[var(--surface-1)]/90 px-2 pb-[env(safe-area-inset-bottom)] pt-1.5 shadow-[0_-1px_0_var(--hairline)] backdrop-blur-xl md:hidden">
+      {NAV.filter((n) => TAB_NAV.includes(n.href)).map((n) => {
+        const active = isActive(path, n.href);
+        return (
+          <Link key={n.href} href={n.href} className={cn("flex min-w-14 flex-col items-center gap-0.5 rounded-xl px-2 py-1.5 text-[11px] font-medium transition-colors", active ? "text-foreground" : "text-[var(--text-faint)]")}>
+            <n.icon className={cn("size-5", active && "text-[var(--acc)]")} />
+            {n.label}
+          </Link>
+        );
+      })}
+      <button onClick={onMore} className="flex min-w-14 flex-col items-center gap-0.5 rounded-xl px-2 py-1.5 text-[11px] font-medium text-[var(--text-faint)]">
+        <MoreHorizontal className="size-5" /> More
+      </button>
+    </nav>
   );
 }
 
 function Frame({ children }: { children: React.ReactNode }) {
   const d = useDash();
   const [drawer, setDrawer] = useState(false);
+  const path = usePathname();
   const style = { "--acc": d.accent } as CSSProperties;
   useEffect(() => {
     document.documentElement.style.setProperty("--acc", d.accent);
   }, [d.accent]);
   return (
     <div style={style} className="relative flex min-h-screen w-full max-w-full overflow-x-clip text-foreground">
-      <aside className="sticky top-0 hidden h-screen w-60 shrink-0 border-r border-[var(--gh-line)] bg-[#070a18]/80 backdrop-blur md:block">
+      <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 bg-[var(--surface-1)]/80 shadow-[1px_0_0_var(--hairline)] backdrop-blur-xl md:block">
         <SideNav />
       </aside>
       {drawer && (
         <div className="fixed inset-0 z-[60] md:hidden">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setDrawer(false)} />
-          <aside className="absolute inset-y-0 left-0 w-64 max-w-[85vw] border-r border-[var(--gh-line)] bg-[#070a18] animate-in slide-in-from-left duration-200">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-150" onClick={() => setDrawer(false)} />
+          <aside className="absolute inset-y-0 left-0 w-72 max-w-[85vw] bg-[var(--surface-1)] shadow-[var(--shadow-2)] animate-in slide-in-from-left duration-200">
             <SideNav onNav={() => setDrawer(false)} />
           </aside>
         </div>
       )}
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-40 flex items-center gap-2 border-b border-[var(--gh-line)] bg-[#05060d]/80 px-3 py-2 backdrop-blur sm:px-5">
-          <button onClick={() => setDrawer(true)} aria-label="Open menu" className="flex size-9 items-center justify-center rounded-md border border-[var(--gh-line)] md:hidden"><Menu className="size-4" /></button>
+        <header className="sticky top-0 z-40 flex h-16 items-center gap-2.5 bg-[var(--ink)]/70 px-4 backdrop-blur-xl sm:px-8">
+          <div className="md:hidden"><button onClick={() => setDrawer(true)} aria-label="Open menu" className="btn btn-ghost !h-9 !w-9 !px-0"><Menu className="size-[18px]" /></button></div>
           <button
             onClick={() => d.setPaletteOpen(true)}
-            className="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-md border border-[var(--gh-line)] bg-white/[0.03] px-3 text-left text-sm text-muted-foreground hover:bg-white/[0.06] sm:max-w-md"
+            className="surface-inset group flex h-10 min-w-0 flex-1 items-center gap-2.5 px-3.5 text-left text-sm text-[var(--text-faint)] transition-colors duration-150 hover:text-[var(--text-muted)] sm:max-w-md sm:flex-none sm:basis-96"
           >
             <Search className="size-4 shrink-0" />
             <span className="truncate">Search or run a command...</span>
-            <kbd className="ml-auto hidden rounded border border-[var(--gh-line)] px-1.5 font-mono text-[10px] sm:block">Ctrl K</kbd>
+            <span className="ml-auto hidden sm:block"><span className="kbd">Ctrl K</span></span>
           </button>
-          <div className="hidden sm:block">
-            <button onClick={() => void d.runNext()} disabled={d.running || !d.project} className="gh-btn gh-btn-ghost !h-9 !px-3 text-xs">
-              <Play className="size-3.5" /> {d.running ? "Running..." : "Run next step"}
-            </button>
-          </div>
           <div className="ml-auto flex items-center gap-2">
+            <div className={cn("hidden", path !== "/dashboard" && "sm:block")}>
+              <button onClick={() => void d.runNext()} disabled={d.running || !d.project} className="btn btn-secondary btn-sm disabled:opacity-60">
+                <Play className="size-3.5 text-[var(--mint)]" /> {d.running ? "Running..." : "Run next step"}
+              </button>
+            </div>
             <Bell_ />
-            <div className="hidden sm:block"><AuthNav /></div>
+            <div className="hidden sm:block">{AUTH_ENABLED ? <AuthNav /> : <span className="chip chip-blue">Demo mode</span>}</div>
           </div>
         </header>
-        <main className="min-w-0 flex-1 px-3 py-5 sm:px-6">{children}</main>
+        <main className="min-w-0 flex-1 px-4 pb-28 pt-4 sm:px-8 md:pb-14">
+          <div className="mx-auto w-full max-w-[1280px]">{children}</div>
+        </main>
       </div>
+      <BottomNav onMore={() => setDrawer(true)} />
       <Palette />
       <NewProjectWizard />
       <LogsDrawer />
@@ -13023,11 +13472,11 @@ import { advance, demoSeed, makeCommit, makeLogLine, recomputeAgents, seedNotes,
 
 export type Toast = { id: number; title: string; body?: string; kind: "ok" | "info" | "warn"; files?: string[] };
 export const ACCENTS = [
-  { id: "cyan", label: "Cyan", color: "#22e5ff" },
-  { id: "violet", label: "Violet", color: "#a06bff" },
-  { id: "emerald", label: "Emerald", color: "#34d399" },
-  { id: "amber", label: "Amber", color: "#fbbf24" },
-  { id: "rose", label: "Rose", color: "#fb7185" },
+  { id: "mint", label: "Mint", color: "#3ee6a0" },
+  { id: "blue", label: "Blue", color: "#7b8cff" },
+  { id: "amber", label: "Amber", color: "#ffb454" },
+  { id: "coral", label: "Coral", color: "#ff7a6b" },
+  { id: "sky", label: "Sky", color: "#5ad7e6" },
 ] as const;
 
 type Ctx = {
@@ -13374,7 +13823,7 @@ export function DashProvider({ children }: { children: React.ReactNode }) {
 
 ### `src/components/dashboard/tasks.tsx`
 
-**Lines:** 157 · **Size:** 10.0 KB · **Language:** typescript · **Exports:** `TasksView`
+**Lines:** 161 · **Size:** 10.6 KB · **Language:** typescript · **Exports:** `TasksView`
 
 Kanban board of tasks by status; cards move by arrow buttons or HTML5 drag and drop; changes are sent through the store (PATCH when live).
 
@@ -13386,14 +13835,14 @@ Kanban board of tasks by status; cards move by arrow buttons or HTML5 drag and d
 "use client";
 
 import { useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, CheckSquare, GripVertical, Search, Square } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckSquare, GripVertical, Search, Square, X } from "lucide-react";
 import { cn } from "cn";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import type { Task, TaskStatus } from "@/lib/contracts";
 import { AGENTS } from "@/lib/contracts";
-import { STATUS_META, STATUS_ORDER, agentHex, taskMeta } from "@/lib/sim";
+import { STATUS_META, STATUS_ORDER, taskMeta } from "@/lib/sim";
 import { useDash } from "./store";
-import { AgentTag, Bar, NeedProject, PageHead, StatusPill, field, hud } from "./kit";
+import { AgentTag, Bar, NeedProject, PageHead, STATUS_UI, StatusPill, codename, field, lbl, optionCls, selectField, tint } from "./kit";
 
 const COLS: TaskStatus[] = ["todo", "running", "review", "done", "failed"];
 
@@ -13407,6 +13856,7 @@ export function TasksView() {
   const [over, setOver] = useState<TaskStatus | null>(null);
   const modules = useMemo(() => [...new Set(project?.tasks.map((t) => t.module) ?? [])], [project]);
   if (!project) return <NeedProject />;
+  const filtered = !!q || agent !== "all" || mod !== "all";
   const list = project.tasks.filter((t) =>
     (agent === "all" || t.agent === agent) && (mod === "all" || t.module === mod) && (!q || `${t.title} ${t.module} ${t.agent}`.toLowerCase().includes(q.toLowerCase())),
   );
@@ -13418,70 +13868,73 @@ export function TasksView() {
   };
   return (
     <>
-      <PageHead kicker={`Board / ${project.name}`} title="Tasks">
-        <span className="font-mono text-xs text-muted-foreground">{list.length}/{project.tasks.length} shown. Drag cards or use the arrows.</span>
-      </PageHead>
-      <div className="mb-4 flex flex-wrap gap-2">
-        <label className="relative min-w-0 flex-1 basis-48">
-          <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search tasks..." aria-label="Search tasks" className={cn(field, "pl-8")} />
+      <PageHead title="Tasks" description={`${list.length}/${project.tasks.length} shown. Drag cards between lanes or use the arrows.`} />
+      <div className="reveal reveal-1 mb-5 flex flex-wrap items-center gap-2.5">
+        <label className="relative min-w-0 flex-1 basis-56 sm:max-w-sm">
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-[var(--text-faint)]" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search tasks..." aria-label="Search tasks" className={cn(field, "h-10 pl-10")} />
         </label>
-        <select value={agent} onChange={(e) => setAgent(e.target.value)} aria-label="Filter by agent" className={cn(field, "w-auto")}>
-          <option value="all" className="bg-[#0a0d1c]">All agents</option>
-          {AGENTS.map((a) => <option key={a} className="bg-[#0a0d1c]">{a}</option>)}
+        <select value={agent} onChange={(e) => setAgent(e.target.value)} aria-label="Filter by agent" className={cn(selectField, "!w-auto")}>
+          <option value="all" className={optionCls}>All agents</option>
+          {AGENTS.map((a) => <option key={a} className={optionCls}>{a}</option>)}
         </select>
-        <select value={mod} onChange={(e) => setMod(e.target.value)} aria-label="Filter by module" className={cn(field, "w-auto")}>
-          <option value="all" className="bg-[#0a0d1c]">All modules</option>
-          {modules.map((m) => <option key={m} className="bg-[#0a0d1c]">{m}</option>)}
+        <select value={mod} onChange={(e) => setMod(e.target.value)} aria-label="Filter by module" className={cn(selectField, "!w-auto")}>
+          <option value="all" className={optionCls}>All modules</option>
+          {modules.map((m) => <option key={m} className={optionCls}>{m}</option>)}
         </select>
-        {(q || agent !== "all" || mod !== "all") && <button onClick={() => { setQ(""); setAgent("all"); setMod("all"); }} className="gh-btn gh-btn-ghost !h-8 text-xs">Clear</button>}
+        {filtered && <button onClick={() => { setQ(""); setAgent("all"); setMod("all"); }} className="btn btn-ghost btn-sm"><X className="size-3.5" /> Clear</button>}
       </div>
 
-      <div className="-mx-3 overflow-x-auto px-3 pb-3 sm:mx-0 sm:px-0">
-        <div className="grid min-w-[1060px] grid-cols-5 gap-3">
-          {COLS.map((col) => {
+      <div className="-mx-4 overflow-x-auto px-4 pb-4 sm:-mx-8 sm:px-8">
+        <div className="grid min-w-[1040px] grid-cols-5 gap-3.5">
+          {COLS.map((col, ci) => {
             const items = list.filter((t) => t.status === col);
             const m = STATUS_META[col];
+            const c = STATUS_UI[col];
             return (
               <div
                 key={col}
                 onDragOver={(e) => { e.preventDefault(); setOver(col); }}
                 onDragLeave={() => setOver((o) => (o === col ? null : o))}
                 onDrop={(e) => { e.preventDefault(); const id = e.dataTransfer.getData("text/plain") || dragId; if (id) moveTask(id, col); setOver(null); setDragId(null); }}
-                className={cn("gh-glass flex min-h-72 flex-col rounded-md transition-colors", over === col && "bg-[color-mix(in_srgb,var(--acc)_10%,transparent)] outline outline-1 outline-[var(--acc)]")}
-                style={{ borderTop: `2px solid ${m.color}` }}
+                className={cn("gh-glass reveal flex min-h-80 flex-col !rounded-2xl !bg-white/[0.025] !shadow-none transition-[background,box-shadow] duration-200", `reveal-${ci + 2}`, over === col && "!bg-[var(--mint-tint)] !shadow-[0_0_0_1.5px_rgba(62,230,160,0.45)]")}
               >
-                <div className="flex items-center gap-2 px-3 py-2.5">
-                  <span className={hud} style={{ color: m.color }}>{m.label}</span>
-                  <span className="ml-auto rounded-sm bg-white/10 px-1.5 font-mono text-[10px]">{items.length}</span>
+                <div className="flex items-center gap-2 px-4 pb-2 pt-4">
+                  <span className="size-2 rounded-full" style={{ background: c }} />
+                  <span className="text-sm font-semibold">{m.label}</span>
+                  <span className="ml-auto rounded-full px-2 py-0.5 text-xs font-medium tabular-nums" style={{ background: tint(c, 13), color: col === "todo" ? "var(--text-muted)" : c }}>{items.length}</span>
                 </div>
-                <ul className="flex flex-1 flex-col gap-2 p-2 pt-0">
+                <ul className="flex flex-1 flex-col gap-2.5 p-2.5 pt-1.5">
                   {items.map((t) => (
                     <li key={t.id}>
                       <article
                         draggable
                         onDragStart={(e) => { e.dataTransfer.setData("text/plain", t.id); e.dataTransfer.effectAllowed = "move"; setDragId(t.id); }}
                         onDragEnd={() => { setDragId(null); setOver(null); }}
-                        className={cn("group rounded-md border border-[var(--gh-line)] bg-[#0a0d1c]/80 p-2.5 text-sm transition hover:border-[var(--acc)]/50", dragId === t.id && "opacity-40")}
-                        style={{ borderLeft: `3px solid ${agentHex(t.agent)}` }}
+                        className={cn("group rounded-xl bg-[var(--surface-2)] p-3.5 text-sm shadow-[var(--inner-top),0_0_0_1px_var(--hairline),0_1px_2px_rgba(0,0,0,0.3)] transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[var(--inner-top),0_0_0_1px_var(--hairline-strong),var(--shadow-2)] active:cursor-grabbing", dragId === t.id && "scale-[0.97] opacity-40")}
                       >
-                        <div className="flex items-start gap-1.5">
-                          <GripVertical className="mt-0.5 size-3.5 shrink-0 cursor-grab text-muted-foreground/50" />
-                          <button onClick={() => setOpenId(t.id)} className="min-w-0 flex-1 text-left font-medium leading-snug hover:text-[var(--acc)]">{t.title}</button>
+                        <div className="flex items-start gap-2">
+                          <button onClick={() => setOpenId(t.id)} className="min-w-0 flex-1 rounded-md text-left text-[14px] font-medium leading-snug transition-colors hover:text-[var(--mint)]">{t.title}</button>
+                          <GripVertical className="mt-0.5 size-4 shrink-0 cursor-grab text-[var(--text-faint)] opacity-0 transition-opacity group-hover:opacity-100" />
                         </div>
-                        <div className="mt-2 flex flex-wrap items-center gap-1.5"><AgentTag name={t.agent} /><span className="rounded-sm border border-[var(--gh-line)] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">{t.module}</span></div>
-                        {t.status !== "todo" && <div className="mt-2 flex items-center gap-2"><Bar value={t.progress} color={m.color} /><span className="font-mono text-[10px] tabular-nums">{t.progress}%</span></div>}
-                        <div className="mt-2 flex items-center justify-between">
-                          <button onClick={() => shift(t, -1)} aria-label="Move left" className="rounded p-1 text-muted-foreground hover:bg-white/10 hover:text-foreground"><ArrowLeft className="size-3.5" /></button>
-                          <span className="font-mono text-[10px] text-muted-foreground">{taskMeta(t).priority}</span>
-                          <button onClick={() => shift(t, 1)} aria-label="Move right" className="rounded p-1 text-muted-foreground hover:bg-white/10 hover:text-foreground"><ArrowRight className="size-3.5" /></button>
+                        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                          <AgentTag name={t.agent} />
+                          <span className="chip">{t.module}</span>
+                        </div>
+                        {t.status !== "todo" && (
+                          <div className="mt-3 flex items-center gap-2.5"><Bar value={t.progress} color={c} /><span className="text-xs tabular-nums text-[var(--text-muted)]">{t.progress}%</span></div>
+                        )}
+                        <div className="mt-3 flex items-center justify-between">
+                          <button onClick={() => shift(t, -1)} aria-label="Move left" className="rounded-lg p-1.5 text-[var(--text-faint)] transition-colors hover:bg-white/[0.08] hover:text-foreground"><ArrowLeft className="size-3.5" /></button>
+                          <span className="text-xs text-[var(--text-faint)]">{taskMeta(t).priority}</span>
+                          <button onClick={() => shift(t, 1)} aria-label="Move right" className="rounded-lg p-1.5 text-[var(--text-faint)] transition-colors hover:bg-white/[0.08] hover:text-foreground"><ArrowRight className="size-3.5" /></button>
                         </div>
                       </article>
                     </li>
                   ))}
                   {!items.length && (
-                    <li className="flex flex-1 items-center justify-center rounded-md border border-dashed border-[var(--gh-line)] p-4 text-center text-xs text-muted-foreground">
-                      {q || agent !== "all" || mod !== "all" ? "No matches in this lane" : "Drop a card here"}
+                    <li className="flex flex-1 items-center justify-center rounded-xl p-4 text-center text-[13px] text-[var(--text-faint)] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.05)]">
+                      {filtered ? "No matches in this lane" : "Drop a card here"}
                     </li>
                   )}
                 </ul>
@@ -13504,34 +13957,34 @@ function TaskDialog({ task, onClose }: { task: Task | null; onClose: () => void 
         {task && meta && (
           <>
             <DialogHeader>
-              <DialogTitle className="pr-6 font-display text-lg">{task.title}</DialogTitle>
+              <DialogTitle className="pr-8 font-display text-xl leading-snug">{task.title}</DialogTitle>
               <DialogDescription>{meta.description}</DialogDescription>
             </DialogHeader>
-            <div className="flex flex-wrap items-center gap-2"><StatusPill status={task.status} /><AgentTag name={task.agent} /><span className="font-mono text-[10px] text-muted-foreground">{task.module} / {meta.priority} / ETA {meta.eta}</span></div>
-            <div className="flex items-center gap-3"><Bar value={task.progress} color={STATUS_META[task.status].color} /><span className="font-mono text-xs">{task.progress}%</span></div>
-            <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="rounded-md border border-[var(--gh-line)] p-2.5"><div className={hud}>Assignee</div><p className="mt-1 font-medium">{meta.assignee.name}</p><p className="text-muted-foreground">{meta.assignee.role}</p></div>
-              <div className="rounded-md border border-[var(--gh-line)] p-2.5"><div className={hud}>Lead</div><p className="mt-1 font-medium">{task.agent} agent</p><p className="text-muted-foreground">{meta.subtasks.filter((s) => s.done).length}/{meta.subtasks.length} subtasks</p></div>
+            <div className="flex flex-wrap items-center gap-2"><StatusPill status={task.status} /><AgentTag name={task.agent} /><span className="text-xs text-[var(--text-faint)]">{task.module} · {meta.priority} · ETA {meta.eta}</span></div>
+            <div className="flex items-center gap-3"><Bar value={task.progress} color={STATUS_UI[task.status]} /><span className="text-xs font-semibold tabular-nums">{task.progress}%</span></div>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="rounded-xl bg-white/[0.04] p-3.5"><div className={lbl}>Assignee</div><p className="mt-1.5 font-medium">{meta.assignee.name}</p><p className="text-xs text-[var(--text-faint)]">{meta.assignee.role}</p></div>
+              <div className="rounded-xl bg-white/[0.04] p-3.5"><div className={lbl}>Lead</div><p className="mt-1.5 font-medium">{codename(task.agent)} agent</p><p className="text-xs text-[var(--text-faint)]">{meta.subtasks.filter((s) => s.done).length}/{meta.subtasks.length} subtasks</p></div>
             </div>
             <div>
-              <div className={cn(hud, "mb-1.5")}>Subtasks</div>
-              <ul className="grid gap-1">
+              <div className={cn(lbl, "mb-2")}>Subtasks</div>
+              <ul className="grid gap-1.5">
                 {meta.subtasks.map((s) => (
-                  <li key={s.title} className={cn("flex items-center gap-2 text-sm", s.done && "text-muted-foreground line-through")}>
-                    {s.done ? <CheckSquare className="size-4 text-emerald-400" /> : <Square className="size-4 text-muted-foreground" />}{s.title}
+                  <li key={s.title} className={cn("flex items-center gap-2.5 text-sm", s.done && "text-[var(--text-faint)] line-through")}>
+                    {s.done ? <CheckSquare className="size-4 text-[var(--mint)]" /> : <Square className="size-4 text-[var(--text-faint)]" />}{s.title}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <div className={cn(hud, "mb-1.5")}>Activity</div>
-              <div className="rounded-md bg-black/30 p-2.5 font-mono text-[11px] leading-relaxed text-muted-foreground">
-                {meta.log.map((l, i) => <div key={i}><span className="text-[var(--acc)]">&gt;</span> {l}</div>)}
+              <div className={cn(lbl, "mb-2")}>Activity</div>
+              <div className="surface-inset p-3.5 font-mono text-[11px] leading-relaxed text-[var(--text-muted)]">
+                {meta.log.map((l, i) => <div key={i}><span className="text-[var(--mint)]">&gt;</span> {l}</div>)}
               </div>
             </div>
             <div className="flex flex-wrap gap-1.5">
               {STATUS_ORDER.filter((s) => s !== task.status).map((s) => (
-                <button key={s} onClick={() => { moveTask(task.id, s); }} className="gh-btn gh-btn-ghost !h-8 text-xs" style={{ color: STATUS_META[s].color }}>Move to {STATUS_META[s].label}</button>
+                <button key={s} onClick={() => { moveTask(task.id, s); }} className="btn btn-secondary btn-sm"><span className="size-1.5 rounded-full" style={{ background: STATUS_UI[s] }} />Move to {STATUS_META[s].label}</button>
               ))}
             </div>
           </>
@@ -14171,12 +14624,12 @@ SVG assets (binary demo media is excluded).
 
 ### `public/brand/ghost-ai-logo.svg`
 
-**Lines:** 1 · **Size:** 1.1 KB · **Language:** xml
+**Lines:** 1 · **Size:** 899 B · **Language:** xml
 
 Master logo artwork (ghost with circuit traces); inlined on this book's title page.
 
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="64" viewBox="0 0 240 64"><defs><linearGradient id="g" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#22e5ff"/><stop offset="1" stop-color="#a06bff"/></linearGradient><linearGradient id="t" x1="64" y1="0" x2="230" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#22e5ff"/><stop offset="1" stop-color="#a06bff"/></linearGradient></defs><rect width="240" height="64" fill="#05060d"/><g transform="translate(8 8)"><path d="M24 4 C14 4 8 11 8 20 V42 L14 37 L19 42 L24 37 L29 42 L34 37 L40 42 V20 C40 11 34 4 24 4Z" fill="#070a18" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"/><rect x="15" y="20" width="6" height="6" rx="1.2" fill="#22e5ff"/><rect x="27" y="20" width="6" height="6" rx="1.2" fill="#a06bff"/><path d="M18 31 H22 V33 H26 V31 H30" stroke="url(#g)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><text x="64" y="41" font-family="Space Grotesk, Arial, sans-serif" font-size="26" font-weight="700" fill="#e8ecff">Ghost<tspan fill="url(#t)">.AI</tspan></text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="64" viewBox="0 0 240 64"><defs><linearGradient id="g" x1="8" y1="6" x2="40" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#5cf0b4"/><stop offset="1" stop-color="#3ee6a0"/></linearGradient></defs><rect width="240" height="64" fill="#0a0b0d"/><g transform="translate(8 8)"><path d="M24 4C14.6 4 8 10.8 8 20v20.5c0 1.4 1.6 2.1 2.6 1.2l3.7-3.4a1.6 1.6 0 0 1 2.2 0l2.7 2.5a1.6 1.6 0 0 0 2.2 0L24 40l2.6 2.8a1.6 1.6 0 0 0 2.2 0l2.7-2.5a1.6 1.6 0 0 1 2.2 0l3.7 3.4c1 .9 2.6.2 2.6-1.2V20C40 10.8 33.4 4 24 4Z" fill="url(#g)"/><ellipse cx="18" cy="21" rx="2.8" ry="3.6" fill="#0a0b0d"/><ellipse cx="30" cy="21" rx="2.8" ry="3.6" fill="#0a0b0d"/></g><text x="64" y="40" font-family="Bricolage Grotesque, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.8" fill="#eceef2">Ghost<tspan fill="#3ee6a0">.AI</tspan></text></svg>
 ```
 
 ### `public/file.svg`
@@ -15059,16 +15512,18 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 │   │   └── devops-1.svg  (99)
 │   ├── agents.md  (22)
 │   ├── architecture.md  (72)
-│   ├── auth.md  (37)
+│   ├── auth.md  (57)
 │   ├── CODE-TOUR.md  (163)
 │   ├── coderabbit.md  (23)
 │   ├── COMMANDS.md  (152)
+│   ├── COMMIT-HISTORY.md  (118)
 │   ├── connectivity.md  (21)
 │   ├── context.md  (7)
+│   ├── DESIGN-SYSTEM.md  (41)
 │   ├── devops.md  (46)
 │   ├── EXPLAIN-LIKE-IM-5.md  (142)
 │   ├── FORK-AND-CLONE.md  (129)
-│   ├── LINK-REPORT.md  (39)
+│   ├── LINK-REPORT.md  (34)
 │   ├── logs.md  (13)
 │   ├── methods.md  (30)
 │   ├── product-brief.md  (7)
@@ -15094,6 +15549,7 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 │   ├── build-book.mjs  (865)
 │   ├── check-links.mjs  (325)
 │   ├── check-mermaid.mjs  (87)
+│   ├── clerk-auth-check.mjs  (63)
 │   ├── fix-win-export.mjs  (31)
 │   ├── pages-build.mjs  (42)
 │   ├── record-demo.mjs  (190)
@@ -15110,24 +15566,24 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 │   │   ├── (marketing)/
 │   │   │   ├── agents/
 │   │   │   │   ├── [slug]/
-│   │   │   │   │   └── page.tsx  (74)
-│   │   │   │   └── page.tsx  (37)
+│   │   │   │   │   └── page.tsx  (77)
+│   │   │   │   └── page.tsx  (38)
 │   │   │   ├── api-reference/
-│   │   │   │   └── page.tsx  (34)
+│   │   │   │   └── page.tsx  (35)
 │   │   │   ├── changelog/
-│   │   │   │   └── page.tsx  (50)
+│   │   │   │   └── page.tsx  (55)
 │   │   │   ├── demo/
-│   │   │   │   └── page.tsx  (32)
+│   │   │   │   └── page.tsx  (33)
 │   │   │   ├── docs/
 │   │   │   │   ├── [slug]/
-│   │   │   │   │   └── page.tsx  (44)
+│   │   │   │   │   └── page.tsx  (61)
 │   │   │   │   └── page.tsx  (30)
 │   │   │   ├── how-it-works/
-│   │   │   │   └── page.tsx  (136)
+│   │   │   │   └── page.tsx  (150)
 │   │   │   ├── pricing/
-│   │   │   │   └── page.tsx  (87)
+│   │   │   │   └── page.tsx  (91)
 │   │   │   └── security/
-│   │   │       └── page.tsx  (54)
+│   │   │       └── page.tsx  (52)
 │   │   ├── api/
 │   │   │   ├── agents/
 │   │   │   │   ├── [name]/
@@ -15172,66 +15628,66 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 │   │   │   │   └── page.tsx  (8)
 │   │   │   ├── layout.tsx  (8)
 │   │   │   └── page.tsx  (5)
-│   │   ├── ghost-kit.css  (61)
-│   │   ├── globals.css  (202)
+│   │   ├── ghost-kit.css  (176)
+│   │   ├── globals.css  (180)
 │   │   ├── icon.svg  (1)
 │   │   ├── layout.tsx  (27)
-│   │   ├── not-found.tsx  (21)
+│   │   ├── not-found.tsx  (19)
 │   │   └── page.tsx  (10)
 │   ├── components/
 │   │   ├── auth/
-│   │   │   ├── appearance.ts  (19)
-│   │   │   ├── auth-nav.tsx  (23)
-│   │   │   ├── auth-shell.tsx  (66)
+│   │   │   ├── appearance.ts  (29)
+│   │   │   ├── auth-nav.tsx  (26)
+│   │   │   ├── auth-shell.tsx  (98)
+│   │   │   ├── clerk-action-guard.tsx  (20)
 │   │   │   ├── clerk-form.tsx  (16)
-│   │   │   └── clerk-nav.tsx  (30)
+│   │   │   └── clerk-nav.tsx  (27)
 │   │   ├── brand/
-│   │   │   └── logo.tsx  (39)
+│   │   │   └── logo.tsx  (33)
 │   │   ├── dashboard/
-│   │   │   ├── agents.tsx  (226)
+│   │   │   ├── agents.tsx  (229)
 │   │   │   ├── exports.tsx  (127)
-│   │   │   ├── flow.tsx  (156)
-│   │   │   ├── gitlog.tsx  (134)
-│   │   │   ├── kit.tsx  (154)
-│   │   │   ├── new-project-wizard.tsx  (165)
-│   │   │   ├── overview.tsx  (110)
-│   │   │   ├── projects.tsx  (100)
-│   │   │   ├── settings.tsx  (106)
-│   │   │   ├── shell.tsx  (275)
+│   │   │   ├── flow.tsx  (154)
+│   │   │   ├── gitlog.tsx  (112)
+│   │   │   ├── kit.tsx  (205)
+│   │   │   ├── new-project-wizard.tsx  (167)
+│   │   │   ├── overview.tsx  (120)
+│   │   │   ├── projects.tsx  (113)
+│   │   │   ├── settings.tsx  (111)
+│   │   │   ├── shell.tsx  (324)
 │   │   │   ├── store.tsx  (359)
-│   │   │   └── tasks.tsx  (157)
+│   │   │   └── tasks.tsx  (161)
 │   │   ├── landing/
-│   │   │   ├── agent-terminal.tsx  (75)
-│   │   │   ├── crew.tsx  (103)
-│   │   │   ├── hero.tsx  (145)
-│   │   │   ├── io-demo.tsx  (250)
-│   │   │   ├── landing.tsx  (23)
-│   │   │   ├── pipeline-diagram.tsx  (88)
-│   │   │   ├── reveal.tsx  (89)
-│   │   │   └── static-sections.tsx  (406)
+│   │   │   ├── agent-terminal.tsx  (117)
+│   │   │   ├── crew.tsx  (75)
+│   │   │   ├── hero.tsx  (41)
+│   │   │   ├── landing.tsx  (22)
+│   │   │   ├── pipeline-diagram.tsx  (163)
+│   │   │   ├── reveal.tsx  (82)
+│   │   │   └── static-sections.tsx  (367)
 │   │   ├── marketing/
 │   │   │   ├── agent-directory.tsx  (72)
 │   │   │   ├── agent-extras.ts  (52)
 │   │   │   ├── api-explorer.tsx  (78)
 │   │   │   ├── copy-button.tsx  (32)
-│   │   │   ├── demo-player.tsx  (107)
+│   │   │   ├── demo-player.tsx  (109)
 │   │   │   ├── guides.ts  (48)
-│   │   │   └── ui.tsx  (90)
+│   │   │   └── ui.tsx  (114)
 │   │   ├── site/
-│   │   │   ├── mobile-nav.tsx  (79)
+│   │   │   ├── mobile-nav.tsx  (74)
 │   │   │   ├── nav-data.ts  (9)
-│   │   │   ├── site-footer.tsx  (105)
-│   │   │   ├── site-header.tsx  (48)
+│   │   │   ├── site-footer.tsx  (106)
+│   │   │   ├── site-header.tsx  (47)
 │   │   │   └── site-shell.tsx  (14)
 │   │   ├── ui/
 │   │   │   ├── badge.tsx  (51)
-│   │   │   ├── button.tsx  (57)
+│   │   │   ├── button.tsx  (56)
 │   │   │   ├── card.tsx  (102)
 │   │   │   ├── dialog.tsx  (160)
 │   │   │   ├── input.tsx  (19)
 │   │   │   ├── table.tsx  (115)
 │   │   │   └── tabs.tsx  (81)
-│   │   └── auth-provider.tsx  (11)
+│   │   └── auth-provider.tsx  (18)
 │   ├── db/
 │   │   ├── index.ts  (51)
 │   │   └── schema.ts  (41)
@@ -15260,7 +15716,7 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 ├── .coderabbit.yaml  (41)
 ├── .dockerignore  (15)
 ├── .env.example  (12)
-├── .gitignore  (50)
+├── .gitignore  (55)
 ├── AGENTS.md  (9)
 ├── CHANGELOG.md  (20)
 ├── components.json  (25)
@@ -15269,13 +15725,13 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 ├── Dockerfile  (33)
 ├── drizzle.config.ts  (10)
 ├── eslint.config.mjs  (18)
-├── next.config.ts  (30)
+├── next.config.ts  (32)
 ├── package-lock.json
-├── package.json  (55)
+├── package.json  (57)
 ├── playwright.config.ts  (28)
-├── README.md  (374)
+├── README.md  (373)
 ├── STATUS.md  (17)
-├── tsconfig.json  (34)
+├── tsconfig.json  (38)
 └── vercel.json  (6)
 ```
 
@@ -15457,7 +15913,7 @@ export type Stats = {
 
 ### Custom properties in `src/app/globals.css`
 
-**`@import "tailwindcss"; @import "tw-animate-css"; @import "shadcn/tailwind.css"; @import "./ghost-kit.css"; @custom-variant dark (&:is(.dark *)); @theme inline`** (42 properties)
+**`@import "tailwindcss"; @import "tw-animate-css"; @import "shadcn/tailwind.css"; @import "./ghost-kit.css"; @custom-variant dark (&:is(.dark *)); @theme inline`** (51 properties)
 
 | Property | Value |
 |---|---|
@@ -15467,6 +15923,15 @@ export type Stats = {
 | `--font-display` | `var(--font-grotesk), var(--font-body), ui-sans-serif, system-ui, sans-serif` |
 | `--font-mono` | `var(--font-code), ui-monospace, SFMono-Regular, monospace` |
 | `--font-heading` | `var(--font-grotesk), var(--font-body), ui-sans-serif, system-ui, sans-serif` |
+| `--color-mint` | `var(--mint)` |
+| `--color-amber` | `var(--amber)` |
+| `--color-signal-blue` | `var(--blue)` |
+| `--color-coral` | `var(--coral)` |
+| `--color-surface-1` | `var(--surface-1)` |
+| `--color-surface-2` | `var(--surface-2)` |
+| `--color-surface-3` | `var(--surface-3)` |
+| `--shadow-soft` | `var(--shadow-1)` |
+| `--shadow-lift` | `var(--shadow-2)` |
 | `--color-sidebar-ring` | `var(--sidebar-ring)` |
 | `--color-sidebar-border` | `var(--sidebar-border)` |
 | `--color-sidebar-accent-foreground` | `var(--sidebar-accent-foreground)` |
@@ -15496,132 +15961,193 @@ export type Stats = {
 | `--color-popover` | `var(--popover)` |
 | `--color-card-foreground` | `var(--card-foreground)` |
 | `--color-card` | `var(--card)` |
-| `--radius-sm` | `calc(var(--radius) * 0.6)` |
-| `--radius-md` | `calc(var(--radius) * 0.8)` |
-| `--radius-lg` | `var(--radius)` |
-| `--radius-xl` | `calc(var(--radius) * 1.4)` |
-| `--radius-2xl` | `calc(var(--radius) * 1.8)` |
-| `--radius-3xl` | `calc(var(--radius) * 2.2)` |
-| `--radius-4xl` | `calc(var(--radius) * 2.6)` |
+| `--radius-sm` | `8px` |
+| `--radius-md` | `10px` |
+| `--radius-lg` | `12px` |
+| `--radius-xl` | `16px` |
+| `--radius-2xl` | `20px` |
+| `--radius-3xl` | `24px` |
+| `--radius-4xl` | `32px` |
 
-**`:root`** (32 properties)
-
-| Property | Value |
-|---|---|
-| `--background` | `oklch(1 0 0)` |
-| `--foreground` | `oklch(0.145 0 0)` |
-| `--card` | `oklch(1 0 0)` |
-| `--card-foreground` | `oklch(0.145 0 0)` |
-| `--popover` | `oklch(1 0 0)` |
-| `--popover-foreground` | `oklch(0.145 0 0)` |
-| `--primary` | `oklch(0.205 0 0)` |
-| `--primary-foreground` | `oklch(0.985 0 0)` |
-| `--secondary` | `oklch(0.97 0 0)` |
-| `--secondary-foreground` | `oklch(0.205 0 0)` |
-| `--muted` | `oklch(0.97 0 0)` |
-| `--muted-foreground` | `oklch(0.556 0 0)` |
-| `--accent` | `oklch(0.97 0 0)` |
-| `--accent-foreground` | `oklch(0.205 0 0)` |
-| `--destructive` | `oklch(0.577 0.245 27.325)` |
-| `--border` | `oklch(0.922 0 0)` |
-| `--input` | `oklch(0.922 0 0)` |
-| `--ring` | `oklch(0.708 0 0)` |
-| `--chart-1` | `oklch(0.87 0 0)` |
-| `--chart-2` | `oklch(0.556 0 0)` |
-| `--chart-3` | `oklch(0.439 0 0)` |
-| `--chart-4` | `oklch(0.371 0 0)` |
-| `--chart-5` | `oklch(0.269 0 0)` |
-| `--radius` | `0.625rem` |
-| `--sidebar` | `oklch(0.985 0 0)` |
-| `--sidebar-foreground` | `oklch(0.145 0 0)` |
-| `--sidebar-primary` | `oklch(0.205 0 0)` |
-| `--sidebar-primary-foreground` | `oklch(0.985 0 0)` |
-| `--sidebar-accent` | `oklch(0.97 0 0)` |
-| `--sidebar-accent-foreground` | `oklch(0.205 0 0)` |
-| `--sidebar-border` | `oklch(0.922 0 0)` |
-| `--sidebar-ring` | `oklch(0.708 0 0)` |
-
-**`.dark`** (31 properties)
+**`:root, .dark`** (71 properties)
 
 | Property | Value |
 |---|---|
-| `--background` | `oklch(0.145 0 0)` |
-| `--foreground` | `oklch(0.985 0 0)` |
-| `--card` | `oklch(0.205 0 0)` |
-| `--card-foreground` | `oklch(0.985 0 0)` |
-| `--popover` | `oklch(0.205 0 0)` |
-| `--popover-foreground` | `oklch(0.985 0 0)` |
-| `--primary` | `oklch(0.922 0 0)` |
-| `--primary-foreground` | `oklch(0.205 0 0)` |
-| `--secondary` | `oklch(0.269 0 0)` |
-| `--secondary-foreground` | `oklch(0.985 0 0)` |
-| `--muted` | `oklch(0.269 0 0)` |
-| `--muted-foreground` | `oklch(0.708 0 0)` |
-| `--accent` | `oklch(0.269 0 0)` |
-| `--accent-foreground` | `oklch(0.985 0 0)` |
-| `--destructive` | `oklch(0.704 0.191 22.216)` |
-| `--border` | `oklch(1 0 0 / 10%)` |
-| `--input` | `oklch(1 0 0 / 15%)` |
-| `--ring` | `oklch(0.556 0 0)` |
-| `--chart-1` | `oklch(0.87 0 0)` |
-| `--chart-2` | `oklch(0.556 0 0)` |
-| `--chart-3` | `oklch(0.439 0 0)` |
-| `--chart-4` | `oklch(0.371 0 0)` |
-| `--chart-5` | `oklch(0.269 0 0)` |
-| `--sidebar` | `oklch(0.205 0 0)` |
-| `--sidebar-foreground` | `oklch(0.985 0 0)` |
-| `--sidebar-primary` | `oklch(0.488 0.243 264.376)` |
-| `--sidebar-primary-foreground` | `oklch(0.985 0 0)` |
-| `--sidebar-accent` | `oklch(0.269 0 0)` |
-| `--sidebar-accent-foreground` | `oklch(0.985 0 0)` |
-| `--sidebar-border` | `oklch(1 0 0 / 10%)` |
-| `--sidebar-ring` | `oklch(0.556 0 0)` |
-
-**`:root`** (6 properties)
-
-| Property | Value |
-|---|---|
-| `--gh-void` | `#05060d` |
-| `--gh-panel` | `rgba(14, 18, 36, 0.62)` |
-| `--gh-line` | `rgba(120, 160, 255, 0.18)` |
-| `--gh-cyan` | `#22e5ff` |
-| `--gh-violet` | `#a06bff` |
-| `--gh-text-dim` | `#8b93b8` |
+| `--ink` | `#0a0b0d` |
+| `--surface-1` | `#101216` |
+| `--surface-2` | `#15181d` |
+| `--surface-3` | `#1b1f25` |
+| `--hairline` | `rgba(255, 255, 255, 0.07)` |
+| `--hairline-strong` | `rgba(255, 255, 255, 0.12)` |
+| `--text` | `#eceef2` |
+| `--text-muted` | `#9aa1ad` |
+| `--text-faint` | `#6b7280` |
+| `--mint` | `#3ee6a0` |
+| `--mint-ink` | `#04170f` |
+| `--amber` | `#ffb454` |
+| `--blue` | `#7b8cff` |
+| `--coral` | `#ff7a6b` |
+| `--mint-tint` | `rgba(62, 230, 160, 0.12)` |
+| `--amber-tint` | `rgba(255, 180, 84, 0.12)` |
+| `--blue-tint` | `rgba(123, 140, 255, 0.13)` |
+| `--coral-tint` | `rgba(255, 122, 107, 0.12)` |
+| `--agent-cyan` | `#5ad7e6` |
+| `--agent-violet` | `#9d8cff` |
+| `--agent-emerald` | `#3ee6a0` |
+| `--agent-amber` | `#ffb454` |
+| `--agent-rose` | `#ff7a8e` |
+| `--agent-sky` | `#6cb6ff` |
+| `--agent-fuchsia` | `#e98af0` |
+| `--agent-lime` | `#b7e65a` |
+| `--inner-top` | `inset 0 1px 0 rgba(255, 255, 255, 0.05)` |
+| `--shadow-1` | `0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px -4px rgba(0, 0, 0, 0.45)` |
+| `--shadow-2` | `0 2px 4px rgba(0, 0, 0, 0.4), 0 18px 40px -12px rgba(0, 0, 0, 0.6)` |
+| `--shadow-mint` | `0 8px 28px -8px rgba(62, 230, 160, 0.45)` |
+| `--r-card` | `16px` |
+| `--r-control` | `12px` |
+| `--ease` | `cubic-bezier(0.2, 0.7, 0.2, 1)` |
+| `--background` | `var(--ink)` |
+| `--foreground` | `var(--text)` |
+| `--card` | `var(--surface-1)` |
+| `--card-foreground` | `var(--text)` |
+| `--popover` | `var(--surface-2)` |
+| `--popover-foreground` | `var(--text)` |
+| `--primary` | `var(--mint)` |
+| `--primary-foreground` | `var(--mint-ink)` |
+| `--secondary` | `var(--surface-3)` |
+| `--secondary-foreground` | `var(--text)` |
+| `--muted` | `var(--surface-2)` |
+| `--muted-foreground` | `var(--text-muted)` |
+| `--accent` | `var(--surface-3)` |
+| `--accent-foreground` | `var(--text)` |
+| `--destructive` | `var(--coral)` |
+| `--border` | `var(--hairline)` |
+| `--input` | `rgba(255, 255, 255, 0.1)` |
+| `--ring` | `rgba(62, 230, 160, 0.55)` |
+| `--chart-1` | `var(--mint)` |
+| `--chart-2` | `var(--blue)` |
+| `--chart-3` | `var(--amber)` |
+| `--chart-4` | `var(--coral)` |
+| `--chart-5` | `var(--agent-cyan)` |
+| `--radius` | `0.75rem` |
+| `--sidebar` | `var(--surface-1)` |
+| `--sidebar-foreground` | `var(--text)` |
+| `--sidebar-primary` | `var(--mint)` |
+| `--sidebar-primary-foreground` | `var(--mint-ink)` |
+| `--sidebar-accent` | `var(--surface-3)` |
+| `--sidebar-accent-foreground` | `var(--text)` |
+| `--sidebar-border` | `var(--hairline)` |
+| `--sidebar-ring` | `var(--ring)` |
+| `--gh-void` | `var(--ink)` |
+| `--gh-panel` | `var(--surface-1)` |
+| `--gh-line` | `var(--hairline)` |
+| `--gh-cyan` | `var(--mint)` |
+| `--gh-violet` | `var(--blue)` |
+| `--gh-text-dim` | `var(--text-muted)` |
 
 ### Custom properties in `src/app/ghost-kit.css`
+
+**`.reveal-1`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `60ms` |
+
+**`.reveal-2`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `140ms` |
+
+**`.reveal-3`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `220ms` |
+
+**`.reveal-4`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `300ms` |
+
+**`.reveal-5`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `380ms` |
+
+**`.reveal-6`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `460ms` |
+
+**`.reveal-7`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `540ms` |
+
+**`.reveal-8`** (1 properties)
+
+| Property | Value |
+|---|---|
+| `--d` | `620ms` |
 
 ### Utility classes defined by the Ghost kit
 
 | Class | Defined in |
 |---|---|
-| `.dark` | `src/app/globals.css` |
-| `.gh-grid` | `src/app/globals.css` |
-| `.gh-scanlines` | `src/app/globals.css` |
-| `.gh-glass` | `src/app/globals.css` |
-| `.gh-bevel` | `src/app/globals.css` |
-| `.gh-hud` | `src/app/globals.css` |
-| `.gh-glow-cyan` | `src/app/globals.css` |
-| `.gh-box-glow` | `src/app/globals.css` |
-| `.gh-text-gradient` | `src/app/globals.css` |
-| `.gh-ticks` | `src/app/globals.css` |
-| `.gh-rivet` | `src/app/globals.css` |
-| `.gh-flow` | `src/app/globals.css` |
 | `.font-display` | `src/app/ghost-kit.css` |
-| `.gh-btn` | `src/app/ghost-kit.css` |
-| `.gh-btn-primary` | `src/app/ghost-kit.css` |
-| `.gh-btn-ghost` | `src/app/ghost-kit.css` |
-| `.gh-btn-lg` | `src/app/ghost-kit.css` |
-| `.gh-dots` | `src/app/ghost-kit.css` |
-| `.gh-noise` | `src/app/ghost-kit.css` |
-| `.gh-aurora` | `src/app/ghost-kit.css` |
-| `.gh-panel` | `src/app/ghost-kit.css` |
-| `.gh-corners` | `src/app/ghost-kit.css` |
+| `.container-page` | `src/app/ghost-kit.css` |
+| `.section` | `src/app/ghost-kit.css` |
+| `.section-tight` | `src/app/ghost-kit.css` |
+| `.divider-soft` | `src/app/ghost-kit.css` |
+| `.surface` | `src/app/ghost-kit.css` |
+| `.surface-raised` | `src/app/ghost-kit.css` |
+| `.surface-inset` | `src/app/ghost-kit.css` |
+| `.card-lift` | `src/app/ghost-kit.css` |
+| `.h-display` | `src/app/ghost-kit.css` |
+| `.eyebrow` | `src/app/ghost-kit.css` |
+| `.text-balance` | `src/app/ghost-kit.css` |
+| `.text-muted-quiet` | `src/app/ghost-kit.css` |
+| `.kbd` | `src/app/ghost-kit.css` |
+| `.chip` | `src/app/ghost-kit.css` |
+| `.chip-mint` | `src/app/ghost-kit.css` |
+| `.chip-amber` | `src/app/ghost-kit.css` |
+| `.chip-blue` | `src/app/ghost-kit.css` |
+| `.chip-coral` | `src/app/ghost-kit.css` |
+| `.btn` | `src/app/ghost-kit.css` |
+| `.btn-primary` | `src/app/ghost-kit.css` |
+| `.btn-secondary` | `src/app/ghost-kit.css` |
+| `.btn-ghost` | `src/app/ghost-kit.css` |
+| `.btn-outline` | `src/app/ghost-kit.css` |
+| `.btn-sm` | `src/app/ghost-kit.css` |
+| `.btn-lg` | `src/app/ghost-kit.css` |
+| `.bg-atmosphere` | `src/app/ghost-kit.css` |
+| `.bg-dots` | `src/app/ghost-kit.css` |
+| `.bg-noise` | `src/app/ghost-kit.css` |
+| `.fade-mask-b` | `src/app/ghost-kit.css` |
+| `.reveal` | `src/app/ghost-kit.css` |
+| `.reveal-1` | `src/app/ghost-kit.css` |
+| `.reveal-5` | `src/app/ghost-kit.css` |
+| `.gh-flow` | `src/app/ghost-kit.css` |
 | `.gh-marquee` | `src/app/ghost-kit.css` |
-| `.gh-rise` | `src/app/ghost-kit.css` |
 | `.gh-caret` | `src/app/ghost-kit.css` |
 | `.gh-pulse` | `src/app/ghost-kit.css` |
 | `.gh-float` | `src/app/ghost-kit.css` |
-| `.gh-scanbar` | `src/app/ghost-kit.css` |
+| `.gh-grid` | `src/app/ghost-kit.css` |
+| `.gh-glass` | `src/app/ghost-kit.css` |
+| `.gh-bevel` | `src/app/ghost-kit.css` |
+| `.gh-hud` | `src/app/ghost-kit.css` |
+| `.gh-box-glow` | `src/app/ghost-kit.css` |
+| `.gh-text-gradient` | `src/app/ghost-kit.css` |
+| `.gh-aurora` | `src/app/ghost-kit.css` |
+| `.gh-glow-cyan` | `src/app/ghost-kit.css` |
+| `.gh-scanlines` | `src/app/ghost-kit.css` |
+| `.gh-corners` | `src/app/ghost-kit.css` |
+| `.gh-ticks` | `src/app/ghost-kit.css` |
 
 ### How the tokens are used
 
@@ -15636,53 +16162,53 @@ export type Stats = {
 
 | File (under src/components/) | Exports | Lines | Imported by (files) |
 |---|---|---|---|
-| `auth-provider.tsx` | AUTH_ENABLED, AuthProvider | 11 | 6 |
+| `auth-provider.tsx` | AUTH_ENABLED, AuthProvider | 18 | 7 |
 
 ### auth
 
 | File (under src/components/) | Exports | Lines | Imported by (files) |
 |---|---|---|---|
-| `auth/appearance.ts` | clerkAppearance | 19 | 1 |
-| `auth/auth-nav.tsx` | AuthNav | 23 | 3 |
-| `auth/auth-shell.tsx` | AuthShell | 66 | 2 |
+| `auth/appearance.ts` | clerkAppearance | 29 | 1 |
+| `auth/auth-nav.tsx` | AuthNav | 26 | 3 |
+| `auth/auth-shell.tsx` | AuthShell | 98 | 2 |
+| `auth/clerk-action-guard.tsx` | ClerkActionGuard | 20 | 1 |
 | `auth/clerk-form.tsx` | ClerkForm | 16 | 1 |
-| `auth/clerk-nav.tsx` | ClerkNav | 30 | 1 |
+| `auth/clerk-nav.tsx` | ClerkNav | 27 | 1 |
 
 ### brand
 
 | File (under src/components/) | Exports | Lines | Imported by (files) |
 |---|---|---|---|
-| `brand/logo.tsx` | LogoMark, Logo | 39 | 4 |
+| `brand/logo.tsx` | LogoMark, Logo | 33 | 4 |
 
 ### dashboard
 
 | File (under src/components/) | Exports | Lines | Imported by (files) |
 |---|---|---|---|
-| `dashboard/agents.tsx` | LogLines, AgentsView, AssignDialog, LogsDrawer | 226 | 4 |
+| `dashboard/agents.tsx` | LogLines, AgentsView, AssignDialog, LogsDrawer | 229 | 4 |
 | `dashboard/exports.tsx` | ExportsView | 127 | 1 |
-| `dashboard/flow.tsx` | FlowGraph, FlowView | 156 | 2 |
-| `dashboard/gitlog.tsx` | GitView | 134 | 1 |
-| `dashboard/kit.tsx` | hud, field, Panel, PageHead, Sparkline, Ring, Bar, StatusPill | 154 | 10 |
-| `dashboard/new-project-wizard.tsx` | NewProjectWizard | 165 | 1 |
-| `dashboard/overview.tsx` | OverviewView | 110 | 1 |
-| `dashboard/projects.tsx` | ProjectsView | 100 | 1 |
-| `dashboard/settings.tsx` | SettingsView | 106 | 1 |
-| `dashboard/shell.tsx` | NAV, DashboardShell | 275 | 1 |
+| `dashboard/flow.tsx` | FlowGraph, FlowView | 154 | 2 |
+| `dashboard/gitlog.tsx` | GitView | 112 | 1 |
+| `dashboard/kit.tsx` | tint, agentColor, cap, codename, STATUS_UI, field, selectField, lbl | 205 | 10 |
+| `dashboard/new-project-wizard.tsx` | NewProjectWizard | 167 | 1 |
+| `dashboard/overview.tsx` | OverviewView | 120 | 1 |
+| `dashboard/projects.tsx` | ProjectsView | 113 | 1 |
+| `dashboard/settings.tsx` | SettingsView | 111 | 1 |
+| `dashboard/shell.tsx` | NAV, DashboardShell | 324 | 1 |
 | `dashboard/store.tsx` | Toast, ACCENTS, useDash, DashProvider | 359 | 10 |
-| `dashboard/tasks.tsx` | TasksView | 157 | 1 |
+| `dashboard/tasks.tsx` | TasksView | 161 | 1 |
 
 ### landing
 
 | File (under src/components/) | Exports | Lines | Imported by (files) |
 |---|---|---|---|
-| `landing/agent-terminal.tsx` | AgentTerminal | 75 | 1 |
-| `landing/crew.tsx` | Crew | 103 | 1 |
-| `landing/hero.tsx` | Hero, Stats | 145 | 1 |
-| `landing/io-demo.tsx` | IoDemo | 250 | 1 |
-| `landing/landing.tsx` | Landing | 23 | 1 |
-| `landing/pipeline-diagram.tsx` | PipelineDiagram | 88 | 1 |
-| `landing/reveal.tsx` | Reveal, SectionHead, Rivets | 89 | 4 |
-| `landing/static-sections.tsx` | Bento, Timeline, StackMarquee, UseCases, DemoTeaser, PricingTeaser, Faq, FinalCta | 406 | 1 |
+| `landing/agent-terminal.tsx` | AgentTerminal | 117 | 1 |
+| `landing/crew.tsx` | Crew | 75 | 1 |
+| `landing/hero.tsx` | Hero | 41 | 1 |
+| `landing/landing.tsx` | Landing | 22 | 1 |
+| `landing/pipeline-diagram.tsx` | PipelineSection | 163 | 1 |
+| `landing/reveal.tsx` | Reveal, SectionHead, Mint | 82 | 3 |
+| `landing/static-sections.tsx` | StackStrip, Facts, Bento, Flow, DemoTeaser, PricingTeaser, Faq, FinalCta | 367 | 1 |
 
 ### marketing
 
@@ -15692,18 +16218,18 @@ export type Stats = {
 | `marketing/agent-extras.ts` | AGENT_EXTRAS | 52 | 1 |
 | `marketing/api-explorer.tsx` | ApiExplorer | 78 | 1 |
 | `marketing/copy-button.tsx` | CopyButton, Code | 32 | 5 |
-| `marketing/demo-player.tsx` | DemoPlayer | 107 | 1 |
+| `marketing/demo-player.tsx` | DemoPlayer | 109 | 1 |
 | `marketing/guides.ts` | Guide, GUIDES | 48 | 2 |
-| `marketing/ui.tsx` | btnPrimary, btnGhost, COLOR, Page, Hero, Section, Panel, LinkCard | 90 | 14 |
+| `marketing/ui.tsx` | btnPrimary, btnGhost, accentStyle, ACCENT, Page, Hero, Section, Panel | 114 | 14 |
 
 ### site
 
 | File (under src/components/) | Exports | Lines | Imported by (files) |
 |---|---|---|---|
-| `site/mobile-nav.tsx` | MobileNav | 79 | 1 |
+| `site/mobile-nav.tsx` | MobileNav | 74 | 1 |
 | `site/nav-data.ts` | GITHUB_URL, NAV_LINKS | 9 | 3 |
-| `site/site-footer.tsx` | SiteFooter | 105 | 1 |
-| `site/site-header.tsx` | SiteHeader | 48 | 1 |
+| `site/site-footer.tsx` | SiteFooter | 106 | 1 |
+| `site/site-header.tsx` | SiteHeader | 47 | 1 |
 | `site/site-shell.tsx` | SiteShell | 14 | 12 |
 
 ### ui
@@ -15711,14 +16237,14 @@ export type Stats = {
 | File (under src/components/) | Exports | Lines | Imported by (files) |
 |---|---|---|---|
 | `ui/badge.tsx` | Badge, badgeVariants | 51 | 0 |
-| `ui/button.tsx` | Button, buttonVariants | 57 | 1 |
+| `ui/button.tsx` | Button, buttonVariants | 56 | 1 |
 | `ui/card.tsx` | Card, CardHeader, CardFooter, CardTitle, CardAction, CardDescription, CardContent | 102 | 0 |
 | `ui/dialog.tsx` | Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal | 160 | 6 |
 | `ui/input.tsx` | Input | 19 | 3 |
 | `ui/table.tsx` | Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption | 115 | 0 |
 | `ui/tabs.tsx` | Tabs, TabsList, TabsTrigger, TabsContent, tabsListVariants | 81 | 0 |
 
-**Total:** 46 component and component-data files, 4,771 lines.
+**Total:** 46 component and component-data files, 4,655 lines.
 
 ## 45. Agent and stack catalogues
 
@@ -15963,10 +16489,10 @@ The generator runs these itself, so the outcomes below are real and dated by the
 
 | Command | Exit code | Seconds | Result |
 |---|---|---|---|
-| `npx tsc --noEmit` (`npm run typecheck`) | 0 | 4.4 | clean, no output |
-| `npx eslint` (`npm run lint`) | 0 | 6.7 | clean, no output |
-| `npx playwright test --list` | 0 | 1.3 | 55 tests listed in 3 files (lists only; does not start the server or run the tests) |
-| `node scripts/check-mermaid.mjs --no-render` (`npm run docs:check`) | 0 | 2.7 | Found 44 diagram(s); parsed OK: 44; failed: 0 |
+| `npx tsc --noEmit` (`npm run typecheck`) | 0 | 7.0 | clean, no output |
+| `npx eslint` (`npm run lint`) | 1 | 9.7 | findings, see below |
+| `npx playwright test --list` | 0 | 1.4 | 55 tests listed in 3 files (lists only; does not start the server or run the tests) |
+| `node scripts/check-mermaid.mjs --no-render` (`npm run docs:check`) | 0 | 2.9 | Found 44 diagram(s); parsed OK: 44; failed: 0 |
 
 Output of tsc:
 
@@ -15977,11 +16503,32 @@ Output of tsc:
 Output of eslint:
 
 ```text
+... (358 earlier lines omitted)
+  538:3    error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free                                                                                                                                                                                                                                                                        @typescript-eslint/ban-ts-comment
+  539:8    warning  '__Unused' is defined but never used                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  549:9    warning  'handler' is assigned a value but only used as a type                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  554:72   error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  554:119  error    The `{}` ("empty object") type allows any non-nullish value, including literals like `0` and `""`.
+- If that's what you want, disable this lint rule with an inline comment or configure the 'allowObjectTypes' rule option.
+- If you want a type meaning "any object", you probably want `object` instead.
+- If you want a type meaning "any value", you probably want `unknown` instead  @typescript-eslint/no-empty-object-type
+  559:3    error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free                                                                                                                                                                                                                                                                        @typescript-eslint/ban-ts-comment
+  560:8    warning  '__Unused' is defined but never used                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  566:9    warning  'handler' is assigned a value but only used as a type                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  571:72   error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  571:119  error    The `{}` ("empty object") type allows any non-nullish value, including literals like `0` and `""`.
+- If that's what you want, disable this lint rule with an inline comment or configure the 'allowObjectTypes' rule option.
+- If you want a type meaning "any object", you probably want `object` instead.
+- If you want a type meaning "any value", you probably want `unknown` instead  @typescript-eslint/no-empty-object-type
+  576:3    error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free                                                                                                                                                                                                                                                                        @typescript-eslint/ban-ts-comment
+  577:8    warning  '__Unused' is defined but never used                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+
 C:\Users\Pranith\OneDrive\Desktop\Ghost-AI\web\scripts\build-book.mjs
   546:7   warning  'chapterFiles' is assigned a value but never used  @typescript-eslint/no-unused-vars
   852:24  warning  'i' is defined but never used                      @typescript-eslint/no-unused-vars
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 233 problems (148 errors, 85 warnings)
+  0 errors and 3 warnings potentially fixable with the `--fix` option.
 ```
 
 Output of check-mermaid:
@@ -16171,6 +16718,7 @@ Variables detected by scanning `process.env.*` in every tracked text file, plus 
 
 | Variable | Meaning | Used in |
 |---|---|---|
+| `BASE_URL` | (no description recorded) | `scripts/clerk-auth-check.mjs` |
 | `CHROME_PATH` | Alternative Chrome path for Mermaid rendering. | `scripts/build-book.mjs`, `scripts/check-mermaid.mjs` |
 | `CLERK_SECRET_KEY` | Clerk secret key, server only. | `docs/auth.md` |
 | `DATABASE_AUTH_TOKEN` | Auth token for a remote libSQL/Turso database. | `drizzle.config.ts`, `src/db/index.ts` |
@@ -16178,7 +16726,8 @@ Variables detected by scanning `process.env.*` in every tracked text file, plus 
 | `DOCKER` | `1` makes Next emit `output: standalone` for the Docker image. | `next.config.ts` |
 | `GITHUB_PAGES` | `true` switches `next.config.ts` to static export and disables cacheComponents/partialPrefetching. | `next.config.ts`, `.github/workflows/pages.yml` |
 | `HOSTNAME` | Bind address of the standalone server (Docker: 0.0.0.0). | `docs/auth.md` |
-| `NEXT_PUBLIC_BASE_PATH` | Base path for a project site on GitHub Pages, e.g. `/ghost-ai`. | `next.config.ts`, `src/components/marketing/api-explorer.tsx`, `src/components/marketing/ui.tsx`, `.github/workflows/pages.yml` |
+| `NEXT_DIST_DIR` | (no description recorded) | `next.config.ts` |
+| `NEXT_PUBLIC_BASE_PATH` | Base path for a project site on GitHub Pages, e.g. `/ghost-ai`. | `next.config.ts`, `src/components/landing/static-sections.tsx`, `src/components/marketing/api-explorer.tsx`, `src/components/marketing/ui.tsx` +1 |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk publishable key. Presence (with demo off) enables authentication. | `src/app/api/health/route.ts`, `src/components/auth-provider.tsx`, `src/proxy.ts` |
 | `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL` | Where to land after sign-in (`/dashboard`). | `docs/auth.md` |
 | `NEXT_PUBLIC_CLERK_SIGN_IN_URL` | Clerk sign-in route (`/sign-in`); documented in `docs/auth.md`. | `docs/auth.md` |
@@ -16344,12 +16893,22 @@ Format loosely follows Keep a Changelog. Nothing is released yet.
 | `163c25f` | 2026-11-01 | fix(ci): make typecheck pass on clean checkout, gate CodeQL on public repos, audit prod deps only; track .env.example |
 | `b99e188` | 2026-11-01 | docs(book): generate 'Building Ghost AI from Scratch' (md + pdf) via scripts/build-book.mjs |
 | `c77d3de` | 2026-11-01 | docs: premium README, Ghost Notebook, fork guide, link checker and report |
+| `1726171` | 2026-11-01 | fix: correct GitHub owner in CODEOWNERS and site link; add commit history; rebuild book |
+| `4f081f9` | 2026-11-01 | docs: drop unresolved nbviewer link; refresh link report (0 failures) |
+| `27f1a67` | 2026-11-01 | fix(auth): make real Clerk sign-in work end to end |
+| `ef6f662` | 2026-11-01 | Design system overhaul: Ink & Signal tokens, fonts, logo, ui kit, site chrome |
+| `f2d44a4` | 2026-11-01 | chore: NEXT_DIST_DIR so parallel builds do not collide |
+| `865fa95` | 2026-11-01 | Redesign home page in Ink & Signal system |
+| `45b62c4` | 2026-11-02 | Restyle marketing pages and auth screens with Ink & Signal |
+| `d97ef0a` | 2026-11-02 | Dashboard redesign: Ink & Signal shell, KPI tiles, kanban, timeline, flow graph, dialogs |
+| `61a1b73` | 2026-11-02 | feat(demo): re-record demo video and poster on the Ink & Signal redesign |
+| `df2a896` | 2026-11-02 | docs: update README, code tour and auth guide for the redesign; extend commit history; ignore agent scratch files |
 
 The full per-commit file lists are in Chapter 3.
 
 ## F. File index
 
-All 150 files listed in Part III, alphabetically, with their chapter. The paths link to their listing.
+All 151 files listed in Part III, alphabetically, with their chapter. The paths link to their listing.
 
 | File | Chapter | Lines |
 |---|---|---|
@@ -16365,7 +16924,7 @@ All 150 files listed in Part III, alphabetically, with their chapter. The paths 
 | `.github/workflows/ci.yml` | GitHub automation and templates | 66 |
 | `.github/workflows/codeql.yml` | GitHub automation and templates | 22 |
 | `.github/workflows/pages.yml` | GitHub automation and templates | 41 |
-| `.gitignore` | Root configuration, containers and tooling | 50 |
+| `.gitignore` | Root configuration, containers and tooling | 55 |
 | `AGENTS.md` | Root documents | 9 |
 | `CHANGELOG.md` | Root documents | 20 |
 | `components.json` | Root configuration, containers and tooling | 25 |
@@ -16375,9 +16934,9 @@ All 150 files listed in Part III, alphabetically, with their chapter. The paths 
 | `docs/book/file-notes.json` | Book generator inputs | 150 |
 | `drizzle.config.ts` | Root configuration, containers and tooling | 10 |
 | `eslint.config.mjs` | Root configuration, containers and tooling | 18 |
-| `next.config.ts` | Root configuration, containers and tooling | 30 |
+| `next.config.ts` | Root configuration, containers and tooling | 32 |
 | `notebooks/ghost-notebook.ipynb` | Other files | 602 |
-| `package.json` | Root configuration, containers and tooling | 55 |
+| `package.json` | Root configuration, containers and tooling | 57 |
 | `playwright.config.ts` | Root configuration, containers and tooling | 28 |
 | `public/brand/ghost-ai-logo.svg` | Public assets | 1 |
 | `public/file.svg` | Public assets | 1 |
@@ -16385,26 +16944,27 @@ All 150 files listed in Part III, alphabetically, with their chapter. The paths 
 | `public/next.svg` | Public assets | 1 |
 | `public/vercel.svg` | Public assets | 1 |
 | `public/window.svg` | Public assets | 1 |
-| `README.md` | Root documents | 374 |
+| `README.md` | Root documents | 373 |
 | `scripts/build-book.mjs` | Scripts | 865 |
 | `scripts/check-links.mjs` | Scripts | 325 |
 | `scripts/check-mermaid.mjs` | Scripts | 87 |
+| `scripts/clerk-auth-check.mjs` | Scripts | 63 |
 | `scripts/fix-win-export.mjs` | Scripts | 31 |
 | `scripts/pages-build.mjs` | Scripts | 42 |
 | `scripts/record-demo.mjs` | Scripts | 190 |
 | `scripts/static-smoke.mjs` | Scripts | 66 |
 | `src/app/(auth)/sign-in/[[...sign-in]]/page.tsx` | App shell, styles and public pages | 13 |
 | `src/app/(auth)/sign-up/[[...sign-up]]/page.tsx` | App shell, styles and public pages | 12 |
-| `src/app/(marketing)/agents/[slug]/page.tsx` | App shell, styles and public pages | 74 |
-| `src/app/(marketing)/agents/page.tsx` | App shell, styles and public pages | 37 |
-| `src/app/(marketing)/api-reference/page.tsx` | App shell, styles and public pages | 34 |
-| `src/app/(marketing)/changelog/page.tsx` | App shell, styles and public pages | 50 |
-| `src/app/(marketing)/demo/page.tsx` | App shell, styles and public pages | 32 |
-| `src/app/(marketing)/docs/[slug]/page.tsx` | App shell, styles and public pages | 44 |
+| `src/app/(marketing)/agents/[slug]/page.tsx` | App shell, styles and public pages | 77 |
+| `src/app/(marketing)/agents/page.tsx` | App shell, styles and public pages | 38 |
+| `src/app/(marketing)/api-reference/page.tsx` | App shell, styles and public pages | 35 |
+| `src/app/(marketing)/changelog/page.tsx` | App shell, styles and public pages | 55 |
+| `src/app/(marketing)/demo/page.tsx` | App shell, styles and public pages | 33 |
+| `src/app/(marketing)/docs/[slug]/page.tsx` | App shell, styles and public pages | 61 |
 | `src/app/(marketing)/docs/page.tsx` | App shell, styles and public pages | 30 |
-| `src/app/(marketing)/how-it-works/page.tsx` | App shell, styles and public pages | 136 |
-| `src/app/(marketing)/pricing/page.tsx` | App shell, styles and public pages | 87 |
-| `src/app/(marketing)/security/page.tsx` | App shell, styles and public pages | 54 |
+| `src/app/(marketing)/how-it-works/page.tsx` | App shell, styles and public pages | 150 |
+| `src/app/(marketing)/pricing/page.tsx` | App shell, styles and public pages | 91 |
+| `src/app/(marketing)/security/page.tsx` | App shell, styles and public pages | 52 |
 | `src/app/api/agents/[name]/route.ts` | API route handlers | 9 |
 | `src/app/api/agents/route.ts` | API route handlers | 7 |
 | `src/app/api/health/route.ts` | API route handlers | 18 |
@@ -16427,53 +16987,53 @@ All 150 files listed in Part III, alphabetically, with their chapter. The paths 
 | `src/app/dashboard/projects/page.tsx` | Dashboard routes | 8 |
 | `src/app/dashboard/settings/page.tsx` | Dashboard routes | 8 |
 | `src/app/dashboard/tasks/page.tsx` | Dashboard routes | 8 |
-| `src/app/ghost-kit.css` | App shell, styles and public pages | 61 |
-| `src/app/globals.css` | App shell, styles and public pages | 202 |
+| `src/app/ghost-kit.css` | App shell, styles and public pages | 176 |
+| `src/app/globals.css` | App shell, styles and public pages | 180 |
 | `src/app/icon.svg` | App shell, styles and public pages | 1 |
 | `src/app/layout.tsx` | App shell, styles and public pages | 27 |
-| `src/app/not-found.tsx` | App shell, styles and public pages | 21 |
+| `src/app/not-found.tsx` | App shell, styles and public pages | 19 |
 | `src/app/page.tsx` | App shell, styles and public pages | 10 |
-| `src/components/auth-provider.tsx` | Components: UI primitives, brand and auth | 11 |
-| `src/components/auth/appearance.ts` | Components: UI primitives, brand and auth | 19 |
-| `src/components/auth/auth-nav.tsx` | Components: UI primitives, brand and auth | 23 |
-| `src/components/auth/auth-shell.tsx` | Components: UI primitives, brand and auth | 66 |
+| `src/components/auth-provider.tsx` | Components: UI primitives, brand and auth | 18 |
+| `src/components/auth/appearance.ts` | Components: UI primitives, brand and auth | 29 |
+| `src/components/auth/auth-nav.tsx` | Components: UI primitives, brand and auth | 26 |
+| `src/components/auth/auth-shell.tsx` | Components: UI primitives, brand and auth | 98 |
+| `src/components/auth/clerk-action-guard.tsx` | Components: UI primitives, brand and auth | 20 |
 | `src/components/auth/clerk-form.tsx` | Components: UI primitives, brand and auth | 16 |
-| `src/components/auth/clerk-nav.tsx` | Components: UI primitives, brand and auth | 30 |
-| `src/components/brand/logo.tsx` | Components: UI primitives, brand and auth | 39 |
-| `src/components/dashboard/agents.tsx` | Components: dashboard | 226 |
+| `src/components/auth/clerk-nav.tsx` | Components: UI primitives, brand and auth | 27 |
+| `src/components/brand/logo.tsx` | Components: UI primitives, brand and auth | 33 |
+| `src/components/dashboard/agents.tsx` | Components: dashboard | 229 |
 | `src/components/dashboard/exports.tsx` | Components: dashboard | 127 |
-| `src/components/dashboard/flow.tsx` | Components: dashboard | 156 |
-| `src/components/dashboard/gitlog.tsx` | Components: dashboard | 134 |
-| `src/components/dashboard/kit.tsx` | Components: dashboard | 154 |
-| `src/components/dashboard/new-project-wizard.tsx` | Components: dashboard | 165 |
-| `src/components/dashboard/overview.tsx` | Components: dashboard | 110 |
-| `src/components/dashboard/projects.tsx` | Components: dashboard | 100 |
-| `src/components/dashboard/settings.tsx` | Components: dashboard | 106 |
-| `src/components/dashboard/shell.tsx` | Components: dashboard | 275 |
+| `src/components/dashboard/flow.tsx` | Components: dashboard | 154 |
+| `src/components/dashboard/gitlog.tsx` | Components: dashboard | 112 |
+| `src/components/dashboard/kit.tsx` | Components: dashboard | 205 |
+| `src/components/dashboard/new-project-wizard.tsx` | Components: dashboard | 167 |
+| `src/components/dashboard/overview.tsx` | Components: dashboard | 120 |
+| `src/components/dashboard/projects.tsx` | Components: dashboard | 113 |
+| `src/components/dashboard/settings.tsx` | Components: dashboard | 111 |
+| `src/components/dashboard/shell.tsx` | Components: dashboard | 324 |
 | `src/components/dashboard/store.tsx` | Components: dashboard | 359 |
-| `src/components/dashboard/tasks.tsx` | Components: dashboard | 157 |
-| `src/components/landing/agent-terminal.tsx` | Components: landing page | 75 |
-| `src/components/landing/crew.tsx` | Components: landing page | 103 |
-| `src/components/landing/hero.tsx` | Components: landing page | 145 |
-| `src/components/landing/io-demo.tsx` | Components: landing page | 250 |
-| `src/components/landing/landing.tsx` | Components: landing page | 23 |
-| `src/components/landing/pipeline-diagram.tsx` | Components: landing page | 88 |
-| `src/components/landing/reveal.tsx` | Components: landing page | 89 |
-| `src/components/landing/static-sections.tsx` | Components: landing page | 406 |
+| `src/components/dashboard/tasks.tsx` | Components: dashboard | 161 |
+| `src/components/landing/agent-terminal.tsx` | Components: landing page | 117 |
+| `src/components/landing/crew.tsx` | Components: landing page | 75 |
+| `src/components/landing/hero.tsx` | Components: landing page | 41 |
+| `src/components/landing/landing.tsx` | Components: landing page | 22 |
+| `src/components/landing/pipeline-diagram.tsx` | Components: landing page | 163 |
+| `src/components/landing/reveal.tsx` | Components: landing page | 82 |
+| `src/components/landing/static-sections.tsx` | Components: landing page | 367 |
 | `src/components/marketing/agent-directory.tsx` | Components: marketing pages | 72 |
 | `src/components/marketing/agent-extras.ts` | Components: marketing pages | 52 |
 | `src/components/marketing/api-explorer.tsx` | Components: marketing pages | 78 |
 | `src/components/marketing/copy-button.tsx` | Components: marketing pages | 32 |
-| `src/components/marketing/demo-player.tsx` | Components: marketing pages | 107 |
+| `src/components/marketing/demo-player.tsx` | Components: marketing pages | 109 |
 | `src/components/marketing/guides.ts` | Components: marketing pages | 48 |
-| `src/components/marketing/ui.tsx` | Components: marketing pages | 90 |
-| `src/components/site/mobile-nav.tsx` | Components: site chrome | 79 |
+| `src/components/marketing/ui.tsx` | Components: marketing pages | 114 |
+| `src/components/site/mobile-nav.tsx` | Components: site chrome | 74 |
 | `src/components/site/nav-data.ts` | Components: site chrome | 9 |
-| `src/components/site/site-footer.tsx` | Components: site chrome | 105 |
-| `src/components/site/site-header.tsx` | Components: site chrome | 48 |
+| `src/components/site/site-footer.tsx` | Components: site chrome | 106 |
+| `src/components/site/site-header.tsx` | Components: site chrome | 47 |
 | `src/components/site/site-shell.tsx` | Components: site chrome | 14 |
 | `src/components/ui/badge.tsx` | Components: UI primitives, brand and auth | 51 |
-| `src/components/ui/button.tsx` | Components: UI primitives, brand and auth | 57 |
+| `src/components/ui/button.tsx` | Components: UI primitives, brand and auth | 56 |
 | `src/components/ui/card.tsx` | Components: UI primitives, brand and auth | 102 |
 | `src/components/ui/dialog.tsx` | Components: UI primitives, brand and auth | 160 |
 | `src/components/ui/input.tsx` | Components: UI primitives, brand and auth | 19 |
@@ -16501,5 +17061,5 @@ All 150 files listed in Part III, alphabetically, with their chapter. The paths 
 | `tests/e2e/global-teardown.ts` | Tests | 10 |
 | `tests/e2e/site.spec.ts` | Tests | 159 |
 | `tests/e2e/zip.ts` | Tests | 36 |
-| `tsconfig.json` | Root configuration, containers and tooling | 34 |
+| `tsconfig.json` | Root configuration, containers and tooling | 38 |
 | `vercel.json` | Root configuration, containers and tooling | 6 |

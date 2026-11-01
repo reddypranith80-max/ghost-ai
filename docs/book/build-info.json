@@ -1,15 +1,15 @@
 {
-  "generatedFromCommit": "c77d3de",
-  "commitDate": "2026-11-01T22:12:47+05:30",
-  "workingTreeDirty": true,
-  "pdfPages": 332,
-  "expectedPagesFromPieces": 332,
-  "pdfBytes": 7410898,
-  "markdownBytes": 860590,
-  "markdownLines": 16506,
-  "proseWords": 32851,
-  "codeLines": 11462,
-  "annotatedFiles": 150,
+  "generatedFromCommit": "df2a896",
+  "commitDate": "2026-11-02T01:28:09+05:30",
+  "workingTreeDirty": false,
+  "pdfPages": 348,
+  "expectedPagesFromPieces": 348,
+  "pdfBytes": 7706493,
+  "markdownBytes": 901452,
+  "markdownLines": 17066,
+  "proseWords": 35370,
+  "codeLines": 11661,
+  "annotatedFiles": 151,
   "chapters": 60,
   "mermaid": {
     "blocks": 18,
@@ -18,6 +18,6 @@
     "fromDiagramsDir": 0,
     "failed": 0
   },
-  "filesWithoutNotes": 2,
+  "filesWithoutNotes": 4,
   "startsWithPdfMagic": true
 }
