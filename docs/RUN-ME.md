@@ -127,7 +127,7 @@ npm run docs:check    # Mermaid diagrams in the docs parse. expected: all OK
 npm run build         # production build. expected: route table, no errors
 ```
 
-Tests: `npm run test:e2e` currently only prints `e2e tests not configured yet` and exits 0. `@playwright/test` is installed but there are no spec files or `playwright.config` yet. See [COMMANDS.md](COMMANDS.md#playwright).
+Tests: run `npm run build` and then `npm run test:e2e` (Playwright, uses Microsoft Edge, starts its own server on port 3500). See [COMMANDS.md](COMMANDS.md#4-playwright).
 
 ## Build the static GitHub Pages demo
 

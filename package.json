@@ -12,6 +12,7 @@
     "build:pages": "node scripts/pages-build.mjs",
     "docs:diagrams": "node scripts/check-mermaid.mjs",
     "docs:check": "node scripts/check-mermaid.mjs --no-render",
+    "check:links": "node scripts/check-links.mjs",
     "test:e2e": "playwright test",
     "demo:record": "node scripts/record-demo.mjs",
     "docker:build": "docker build -t ghost-ai-web:local .",

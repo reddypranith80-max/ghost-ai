@@ -16,7 +16,8 @@ Run all commands from the folder that contains `package.json`. How verified: npm
 | `npm run build:pages` | `node scripts/pages-build.mjs`: static export to `out/` (moves `src/app/api` and `src/proxy.ts` away, then restores) | Test the GitHub Pages demo | `out/` folder created |
 | `npm run docs:check` | `node scripts/check-mermaid.mjs --no-render`: parses every Mermaid block in `README.md` and `docs/**/*.md` | After editing any doc with a diagram; CI runs it | Every block OK |
 | `npm run docs:diagrams` | `node scripts/check-mermaid.mjs`: same, and renders SVGs to `docs/diagrams/` (needs Edge/Chrome; set `PUPPETEER_EXECUTABLE_PATH` if not found) | When you want fresh SVG pictures | SVG files updated |
-| `npm run test:e2e` | Placeholder: prints `e2e tests not configured yet`, exits 0 | Not useful yet | That message |
+| `npm run test:e2e` | `playwright test`: Playwright end-to-end tests (needs `npm run build` first; starts `next start -p 3500` itself; uses Microsoft Edge) | Before pushing UI or API changes | A list of passing tests |
+| `npm run check:links` | `node scripts/check-links.mjs`: checks links in `README.md` and `docs/**/*.md`; add `--site <url>` to crawl a running site; writes `docs/LINK-REPORT.md` | After editing docs | Counts and `PASS`, or the list of broken links |
 | `npm run docker:build` | `docker build -t ghost-ai-web:local .` | Build the image | Image `ghost-ai-web:local` |
 | `npm run docker:up` | `docker compose up --build` | Run in Docker | Site on http://localhost:3000 |
 
@@ -67,7 +68,7 @@ The image has a built-in `HEALTHCHECK` on `/api/health`.
 
 ## 4. Playwright
 
-`@playwright/test` is a dev dependency, but **there are no test files and no `playwright.config` in the repo yet**, and `npm run test:e2e` is a placeholder. Once someone adds specs, these standard Playwright commands apply:
+The specs are in `tests/e2e/` and the config is `playwright.config.ts` (system Microsoft Edge via `channel: "msedge"`, production build served on port 3500, no Clerk keys). `npm run test:e2e` runs them; these standard Playwright commands also apply:
 
 | Command | What it does |
 |---|---|
@@ -76,7 +77,7 @@ The image has a built-in `HEALTHCHECK` on `/api/health`.
 | `npx playwright test --ui` | Interactive mode |
 | `npx playwright show-report` | Open the last HTML report |
 
-Until then the manual test is: `npm run dev`, click through `/dashboard` (New project, Run next step, Exports).
+You can also test by hand: `npm run dev`, click through `/dashboard` (New project, Run next step, Exports).
 
 ## 5. API examples (curl)
 
