@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1
 # Debian (glibc) base: @libsql/client ships prebuilt glibc native binaries
 # (@libsql/linux-x64-gnu / linux-arm64-gnu), so avoid alpine/musl surprises.
-FROM node:24-bookworm-slim AS deps
+FROM node:26-bookworm-slim AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-FROM node:24-bookworm-slim AS build
+FROM node:26-bookworm-slim AS build
 WORKDIR /app
 ENV DOCKER=1 NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
@@ -14,7 +14,7 @@ COPY . .
 # public/ may be absent in a fresh checkout; make sure the COPY below never fails.
 RUN mkdir -p public && npm run build
 
-FROM node:24-bookworm-slim AS runner
+FROM node:26-bookworm-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0 \
     DATABASE_URL=file:/data/local.db
