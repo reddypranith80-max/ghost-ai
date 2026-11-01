@@ -1,19 +1,18 @@
-import { Hero, Stats } from "./hero";
-import { StackMarquee, Bento, Timeline, UseCases, DemoTeaser, PricingTeaser, Faq, FinalCta } from "./static-sections";
-import { IoDemo } from "./io-demo";
+import { Hero } from "./hero";
+import { Facts, StackStrip, Bento, Flow, DemoTeaser, PricingTeaser, Faq, FinalCta } from "./static-sections";
 import { Crew } from "./crew";
+import { PipelineSection } from "./pipeline-diagram";
 
 export function Landing() {
   return (
     <>
       <Hero />
-      <Stats />
+      <StackStrip />
+      <Facts />
       <Bento />
-      <IoDemo />
+      <PipelineSection />
       <Crew />
-      <Timeline />
-      <StackMarquee />
-      <UseCases />
+      <Flow />
       <DemoTeaser />
       <PricingTeaser />
       <Faq />
