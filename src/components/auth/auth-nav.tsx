@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { AUTH_ENABLED } from "@/components/auth-provider";
 
@@ -8,7 +9,11 @@ export function AuthNav() {
   if (AUTH_ENABLED) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { ClerkNav } = require("./clerk-nav") as typeof import("./clerk-nav");
-    return <ClerkNav />;
+    return (
+      <Suspense fallback={<span className="h-8 w-20 animate-pulse rounded-md bg-white/10" aria-hidden />}>
+        <ClerkNav />
+      </Suspense>
+    );
   }
   return (
     <div className="flex items-center gap-2">

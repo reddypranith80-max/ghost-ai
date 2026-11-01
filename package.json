@@ -17,7 +17,8 @@
     "demo:record": "node scripts/record-demo.mjs",
     "docker:build": "docker build -t ghost-ai-web:local .",
     "docker:up": "docker compose up --build",
-    "docs:book": "node scripts/build-book.mjs"
+    "docs:book": "node scripts/build-book.mjs",
+    "test:clerk": "node scripts/clerk-auth-check.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -36,6 +37,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@clerk/testing": "^2.2.53",
     "@mermaid-js/mermaid-cli": "^12.0.0",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/turbopack": "^4",

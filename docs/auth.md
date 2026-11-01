@@ -35,3 +35,23 @@ Auth is optional. Without keys the app runs in **demo mode**: no sign-in, `/dash
 - Redirect loop: make sure `NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in` and the proxy matcher is unchanged.
 - GitHub button missing: the connection is not enabled in the Clerk dashboard.
 - Keys set but still demo: `NEXT_PUBLIC_DEMO=1` is set, or the dev server was not restarted.
+
+## No Clerk account yet? Get temporary dev keys in one command
+Clerk's CLI can create throwaway development keys with **no account**:
+
+```bash
+# run it in an EMPTY scratch folder (it scaffolds files into whatever folder it runs in)
+mkdir clerk-scratch && cd clerk-scratch
+npx clerk@latest init --accountless --framework next --pm npm --no-skills
+```
+Copy `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` from the scratch folder's `.env.local` into this repo's `.env.local` (git-ignored). Run `clerk auth login` later to claim the instance as your own.
+A fresh accountless instance offers **email + Google**. To get the **GitHub** button, enable it in the Clerk dashboard (step 4 above) after claiming.
+
+## Automated sign-up check
+`npm run test:clerk` signs up a throwaway user with a `+clerk_test` email (verification code is always `424242`, no email is sent), lands on `/dashboard`, creates a project through the protected API, signs out and confirms the dashboard and API are locked again.
+It uses `@clerk/testing` to pass Clerk's bot protection. Start the app first and point `BASE_URL` at it (default `http://localhost:3210`).
+Last verified: 9/9 checks pass on both `next dev` and a production `next start` build (keys from a temporary accountless instance). The GitHub OAuth round trip is **not** automated: it needs a real GitHub login.
+
+## Two fixes worth knowing about
+- **Suspense around Clerk UI.** With Cache Components on, `<SignIn/>`, `<SignUp/>` and the header button render in the browser and must sit inside `<Suspense>`. Without it, `next build` fails with "client rendering was requested outside a Suspense boundary" as soon as keys are present (a keyless build hides this).
+- **`ClerkActionGuard`.** Clerk's Next provider runs a server action before every sign-in and only continues when it resolves. In this setup it threw ("`cookies` was called outside a request scope"), so a verified sign-up hung on the verify page. `src/components/auth/clerk-action-guard.tsx` replaces that hook with one that always resolves; Clerk's own after-hook still calls `router.refresh()`. If a future Clerk/Next release fixes this, the guard can be deleted.

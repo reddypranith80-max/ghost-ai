@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, GitBranch, Mail, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
@@ -37,7 +38,13 @@ export function AuthShell({ mode }: { mode: "sign-in" | "sign-up" }) {
       </section>
       <section className="flex flex-col items-center justify-center gap-6 p-6">
         <Link href="/" className="lg:hidden"><Logo /></Link>
-        {AUTH_ENABLED ? <ClerkForm mode={mode} /> : <Explainer title={title} />}
+        {AUTH_ENABLED ? (
+          <Suspense fallback={<FormSkeleton />}>
+            <ClerkForm mode={mode} />
+          </Suspense>
+        ) : (
+          <Explainer title={title} />
+        )}
       </section>
     </main>
   );
@@ -61,6 +68,18 @@ function Explainer({ title }: { title: string }) {
       <Link href="/dashboard" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#22e5ff] px-4 py-2 text-sm font-medium text-black hover:opacity-90">
         Continue in demo mode <ArrowRight className="size-4" />
       </Link>
+    </div>
+  );
+}
+
+/** Shown while Clerk's form loads (Clerk renders in the browser, so Cache Components needs a Suspense boundary). */
+function FormSkeleton() {
+  return (
+    <div role="status" aria-label="Loading sign-in form" className="w-full max-w-[400px] animate-pulse space-y-4 rounded-xl border border-white/10 bg-[#0b0b14] p-8">
+      <div className="mx-auto h-6 w-40 rounded bg-white/10" />
+      <div className="h-10 rounded bg-white/5" />
+      <div className="h-10 rounded bg-white/5" />
+      <div className="h-10 rounded bg-cyan-300/20" />
     </div>
   );
 }
