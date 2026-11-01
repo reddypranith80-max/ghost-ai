@@ -11,7 +11,7 @@ flowchart LR
 The Clerk proxy (`src/proxy.ts`) guards routes; API handlers read the session and query the DB through Drizzle.
 
 ## Env vars
-See the table in `README.md`.
+See the table in [COMMANDS.md](COMMANDS.md#6-environment-variables).
 
 ## Hosting topologies
 | Topology | Build | Notes |

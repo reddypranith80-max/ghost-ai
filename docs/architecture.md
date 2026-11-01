@@ -67,3 +67,6 @@ flowchart LR
   S --> R[Reviewer]
   A -.-> Dc[Docs]
 ```
+
+## Where the code lives
+Pages and API routes: `src/app/`. UI parts: `src/components/`. Shared logic and the agent catalog: `src/lib/`. Database: `src/db/`. See [CODE-TOUR.md](CODE-TOUR.md) for a walk-through and the request flow, and [WORKFLOWS.md](WORKFLOWS.md) for the pipelines.

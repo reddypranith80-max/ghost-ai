@@ -45,3 +45,5 @@ local.db*
 
 # pages build stash
 .pages-stash/
+test-results/
+playwright-report/

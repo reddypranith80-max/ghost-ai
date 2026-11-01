@@ -12,7 +12,8 @@
     "build:pages": "node scripts/pages-build.mjs",
     "docs:diagrams": "node scripts/check-mermaid.mjs",
     "docs:check": "node scripts/check-mermaid.mjs --no-render",
-    "test:e2e": "echo \"e2e tests not configured yet\" && exit 0",
+    "test:e2e": "playwright test",
+    "demo:record": "node scripts/record-demo.mjs",
     "docker:build": "docker build -t ghost-ai-web:local .",
     "docker:up": "docker compose up --build"
   },
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^12.0.0",
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

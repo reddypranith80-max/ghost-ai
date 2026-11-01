@@ -8,7 +8,7 @@
 | DevOps | Docker, CI/CD, hosting config |
 | QA | Tests and acceptance checks |
 | Security | Auth, secrets, dependency and input review |
-| Docs | README, architecture, methods, ADRs |
+| Docs | README, RUN-ME, COMMANDS, WORKFLOWS, CODE-TOUR, architecture, ADRs |
 | Reviewer | Final review and integration sign-off |
 
 Each agent edits only the files it owns.
