@@ -11,6 +11,8 @@ permissions:
   security-events: write
 jobs:
   analyze:
+    # Code scanning needs a public repo or GitHub Advanced Security; skip cleanly otherwise.
+    if: ${{ !github.event.repository.private }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
