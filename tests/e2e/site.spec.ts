@@ -108,17 +108,16 @@ test("/sign-in explains demo mode and continues to the dashboard", async ({ page
   await expect(page.getByRole("button", { name: /Run next step/ }).first()).toBeVisible();
 });
 
-test("/demo: storyboard falls back or real video loads without error", async ({ page }) => {
+test("/demo switches from the storyboard to the real recorded video", async ({ page, request }) => {
+  expect((await request.get("/demo/ghost-ai-demo.webm")).status()).toBe(200);
+  expect((await request.get("/demo/poster.png")).status()).toBe(200);
   await page.goto("/demo");
-  await page.waitForTimeout(1000);
   const video = page.locator("video");
-  if (await video.count()) {
-    const st = await video.evaluate((v: HTMLVideoElement) => ({ rs: v.readyState, err: v.error?.code ?? null }));
-    expect(st.err).toBeNull();
-    expect(st.rs).toBeGreaterThanOrEqual(1);
-  } else {
-    await expect(page.getByRole("img", { name: /Storyboard scene/ })).toBeVisible();
-  }
+  await expect(video).toHaveCount(1);
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.readyState)).toBeGreaterThanOrEqual(1);
+  expect(await video.evaluate((v: HTMLVideoElement) => ({ err: v.error?.code ?? null, dur: v.duration }))).toMatchObject({ err: null });
+  expect(await video.evaluate((v: HTMLVideoElement) => v.duration)).toBeGreaterThan(30);
+  await expect(page.getByRole("img", { name: /Storyboard scene/ })).toHaveCount(0);
 });
 
 test("all dashboard views are reachable from the sidebar", async ({ page }) => {

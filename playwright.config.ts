@@ -10,6 +10,7 @@ export default defineConfig({
   expect: { timeout: 8_000 },
   reporter: [["list"]],
   outputDir: "test-results",
+  globalTeardown: "./tests/e2e/global-teardown.ts",
   use: {
     baseURL: "http://localhost:3500",
     channel: "msedge",
