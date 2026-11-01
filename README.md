@@ -219,6 +219,8 @@ flowchart LR
 
 More: [docs/architecture.md](docs/architecture.md), [docs/CODE-TOUR.md](docs/CODE-TOUR.md), [docs/connectivity.md](docs/connectivity.md).
 
+Build history, commit by commit and mapped to each agent: [docs/COMMIT-HISTORY.md](docs/COMMIT-HISTORY.md).
+
 ## Tech stack
 
 | Area | Choice |

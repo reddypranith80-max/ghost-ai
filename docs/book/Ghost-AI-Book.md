@@ -2,7 +2,7 @@
 
 An annotated, reproducible mirror of the Ghost AI repository: the story, the architecture, every source file, the layout and the execution log.
 
-- Generated from commit `163c25f` (2026-11-01, "fix(ci): make typecheck pass on clean checkout, gate CodeQL on public repos, audit prod deps only; track .env.example") plus uncommitted working-tree changes
+- Generated from commit `c77d3de` (2026-11-01, "docs: premium README, Ghost Notebook, fork guide, link checker and report") plus uncommitted working-tree changes
 - Generator: `node scripts/build-book.mjs` (`npm run docs:book`)
 - Repository: Ghost AI, package `web` 0.1.0
 
@@ -56,20 +56,21 @@ An annotated, reproducible mirror of the Ghost AI repository: the story, the arc
 - [36. Tests](#36-tests)
 - [37. Public assets](#37-public-assets)
 - [38. Book generator inputs](#38-book-generator-inputs)
+- [39. Other files](#39-other-files)
 
 **Part IV. Layout and structure**
 
-- [39. Directory tree](#39-directory-tree)
-- [40. Route map](#40-route-map)
-- [41. Data model](#41-data-model)
-- [42. Design-token reference](#42-design-token-reference)
-- [43. Component inventory](#43-component-inventory)
-- [44. Agent and stack catalogues](#44-agent-and-stack-catalogues)
-- [45. API reference with curl examples](#45-api-reference-with-curl-examples)
+- [40. Directory tree](#40-directory-tree)
+- [41. Route map](#41-route-map)
+- [42. Data model](#42-data-model)
+- [43. Design-token reference](#43-design-token-reference)
+- [44. Component inventory](#44-component-inventory)
+- [45. Agent and stack catalogues](#45-agent-and-stack-catalogues)
+- [46. API reference with curl examples](#46-api-reference-with-curl-examples)
 
 **Part V. Execution log**
 
-- [46. What was run and what happened](#46-what-was-run-and-what-happened)
+- [47. What was run and what happened](#47-what-was-run-and-what-happened)
 
 **Part A. Appendices**
 
@@ -245,7 +246,7 @@ Parallel agents sharing one working directory are not isolated, and Chapter 4 do
 
 ## 3. The build timeline
 
-The repository has **8 commits** in total (2026-11-01 to 2026-11-01), touching 175 distinct paths with 29,449 lines added and 4,303 removed (lockfile and binary files included in the counts where git reports them). The list below is chronological and is generated from `git log --stat`; times are as recorded by git, in the author's time zone.
+The repository has **10 commits** in total (2026-11-01 to 2026-11-01), touching 191 distinct paths with 47,620 lines added and 4,359 removed (lockfile and binary files included in the counts where git reports them). The list below is chronological and is generated from `git log --stat`; times are as recorded by git, in the author's time zone.
 
 ### At a glance
 
@@ -259,6 +260,8 @@ The repository has **8 commits** in total (2026-11-01 to 2026-11-01), touching 1
 | 6 | `0befd76` | 2026-11-01 21:43:00 +05:30 | 7 | 210 | 10 | feat(demo): record-demo script, demo video + poster, e2e teardown |
 | 7 | `a12927f` | 2026-11-01 21:44:15 +05:30 | 1 | 15 | 11 | docs: update STATUS with verified/unverified state |
 | 8 | `163c25f` | 2026-11-01 22:04:05 +05:30 | 5 | 17 | 2 | fix(ci): make typecheck pass on clean checkout, gate CodeQL on public repos, audit prod deps only; track .env.example |
+| 9 | `b99e188` | 2026-11-01 22:11:32 +05:30 | 13 | 16,737 | 1 | docs(book): generate 'Building Ghost AI from Scratch' (md + pdf) via scripts/build-book.mjs |
+| 10 | `c77d3de` | 2026-11-01 22:12:47 +05:30 | 10 | 1,434 | 55 | docs: premium README, Ghost Notebook, fork guide, link checker and report |
 
 Lines added per commit, excluding `package-lock.json` (a bar is proportional to the largest commit):
 
@@ -271,6 +274,8 @@ Lines added per commit, excluding `package-lock.json` (a bar is proportional to 
  6 0befd76  #                                                  210
  7 a12927f                                                     15
  8 163c25f                                                     17
+ 9 b99e188  ##########################################         16,737
+10 c77d3de  ####                                               1,434
 ```
 
 ### 1. `0c701eb` Initial commit from Create Next App
@@ -642,6 +647,74 @@ Where the files landed: `(root)` 2, `.github` 2, `src/app` 1.
 | M | `.github/workflows/codeql.yml` | 2 | 0 |
 | M | `.gitignore` | 1 | 0 |
 | M | `src/app/layout.tsx` | 1 | 1 |
+
+### 9. `b99e188` docs(book): generate 'Building Ghost AI from Scratch' (md + pdf) via scripts/build-book.mjs
+
+- **Date:** 2026-11-01T22:11:32+05:30
+- **Author:** Pranith
+- **Full hash:** `b99e188361a381ecbf87aaf6e1ac0056973c81fe`
+- **Change size:** 13 files, +16,737 / -1
+- **Status mix:** 12 added, 1 modified
+
+Commit message body:
+
+```text
+Adds the reproducible book generator, hand-written chapters and per-file notes,
+the generated Markdown and PDF, and the real dockerfilelint output.
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `docs` (11), `(root)` (1), `scripts` (1).
+
+Where the files landed: `docs` 11, `(root)` 1, `scripts` 1.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| A | `docs/book/.gitignore` | 1 | 0 |
+| A | `docs/book/Ghost-AI-Book.md` | 15448 | 0 |
+| A | `docs/book/Ghost-AI-Book.pdf` | bin | bin |
+| A | `docs/book/build-info.json` | 23 | 0 |
+| A | `docs/book/chapters/00-how-to-read.md` | 32 | 0 |
+| A | `docs/book/chapters/01-brief.md` | 32 | 0 |
+| A | `docs/book/chapters/02-orchestration.md` | 45 | 0 |
+| A | `docs/book/chapters/04-problems.md` | 75 | 0 |
+| A | `docs/book/chapters/glossary.md` | 53 | 0 |
+| A | `docs/book/docker-lint.txt` | 11 | 0 |
+| A | `docs/book/file-notes.json` | 150 | 0 |
+| M | `package.json` | 2 | 1 |
+| A | `scripts/build-book.mjs` | 865 | 0 |
+
+### 10. `c77d3de` docs: premium README, Ghost Notebook, fork guide, link checker and report
+
+- **Date:** 2026-11-01T22:12:47+05:30
+- **Author:** Pranith
+- **Full hash:** `c77d3deab74cdef3abe18d6afbcdffda53c71927`
+- **Change size:** 10 files, +1,434 / -55
+- **Status mix:** 6 modified, 4 added
+
+Commit message body:
+
+```text
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+```
+
+Touches `docs` (6), `(root)` (2), `notebooks` (1), `scripts` (1).
+
+Where the files landed: `docs` 6, `(root)` 2, `notebooks` 1, `scripts` 1.
+
+| St | File | Added | Removed |
+|---|---|---|---|
+| M | `README.md` | 322 | 50 |
+| M | `docs/COMMANDS.md` | 4 | 3 |
+| A | `docs/FORK-AND-CLONE.md` | 129 | 0 |
+| A | `docs/LINK-REPORT.md` | 39 | 0 |
+| M | `docs/README.md` | 10 | 0 |
+| M | `docs/RUN-ME.md` | 1 | 1 |
+| M | `docs/devops.md` | 1 | 1 |
+| A | `notebooks/ghost-notebook.ipynb` | 602 | 0 |
+| M | `package.json` | 1 | 0 |
+| A | `scripts/check-links.mjs` | 325 | 0 |
 
 ## 4. Problems hit and how they were solved
 
@@ -1028,7 +1101,7 @@ docker compose up --build   # http://localhost:3000, data in volume ghost-data
 `npm run docs:diagrams` parses every Mermaid block in `README.md` and `docs/**/*.md` and renders SVGs to `docs/diagrams/` (needs Edge or Chrome locally; set `PUPPETEER_EXECUTABLE_PATH` if not auto-detected). `npm run docs:check` only parses and is what CI runs.
 
 ### Useful scripts
-`typecheck`, `lint`, `build`, `build:pages`, `docs:diagrams`, `docs:check`, `docker:build`, `docker:up`, `test:e2e` (placeholder).
+`typecheck`, `lint`, `build`, `build:pages`, `docs:diagrams`, `docs:check`, `docker:build`, `docker:up`, `test:e2e`, `check:links`.
 
 
 ## 14. CodeRabbit
@@ -1374,7 +1447,7 @@ npm run docs:check    # Mermaid diagrams in the docs parse. expected: all OK
 npm run build         # production build. expected: route table, no errors
 ```
 
-Tests: `npm run test:e2e` currently only prints `e2e tests not configured yet` and exits 0. `@playwright/test` is installed but there are no spec files or `playwright.config` yet. See [COMMANDS.md](COMMANDS.md#playwright).
+Tests: run `npm run build` and then `npm run test:e2e` (Playwright, uses Microsoft Edge, starts its own server on port 3500). See [COMMANDS.md](COMMANDS.md#4-playwright).
 
 ### Build the static GitHub Pages demo
 
@@ -1560,7 +1633,7 @@ More in [WORKFLOWS.md](WORKFLOWS.md).
 
 ## 19. Commands
 
-*Source: `docs/COMMANDS.md` (151 lines), reproduced in full.*
+*Source: `docs/COMMANDS.md` (152 lines), reproduced in full.*
 
 Run all commands from the folder that contains `package.json`. How verified: npm scripts are read from `package.json`; curl examples are read from `src/app/api/**` route code.
 
@@ -1578,7 +1651,8 @@ Run all commands from the folder that contains `package.json`. How verified: npm
 | `npm run build:pages` | `node scripts/pages-build.mjs`: static export to `out/` (moves `src/app/api` and `src/proxy.ts` away, then restores) | Test the GitHub Pages demo | `out/` folder created |
 | `npm run docs:check` | `node scripts/check-mermaid.mjs --no-render`: parses every Mermaid block in `README.md` and `docs/**/*.md` | After editing any doc with a diagram; CI runs it | Every block OK |
 | `npm run docs:diagrams` | `node scripts/check-mermaid.mjs`: same, and renders SVGs to `docs/diagrams/` (needs Edge/Chrome; set `PUPPETEER_EXECUTABLE_PATH` if not found) | When you want fresh SVG pictures | SVG files updated |
-| `npm run test:e2e` | Placeholder: prints `e2e tests not configured yet`, exits 0 | Not useful yet | That message |
+| `npm run test:e2e` | `playwright test`: Playwright end-to-end tests (needs `npm run build` first; starts `next start -p 3500` itself; uses Microsoft Edge) | Before pushing UI or API changes | A list of passing tests |
+| `npm run check:links` | `node scripts/check-links.mjs`: checks links in `README.md` and `docs/**/*.md`; add `--site <url>` to crawl a running site; writes `docs/LINK-REPORT.md` | After editing docs | Counts and `PASS`, or the list of broken links |
 | `npm run docker:build` | `docker build -t ghost-ai-web:local .` | Build the image | Image `ghost-ai-web:local` |
 | `npm run docker:up` | `docker compose up --build` | Run in Docker | Site on http://localhost:3000 |
 
@@ -1629,7 +1703,7 @@ The image has a built-in `HEALTHCHECK` on `/api/health`.
 
 ### 4. Playwright
 
-`@playwright/test` is a dev dependency, but **there are no test files and no `playwright.config` in the repo yet**, and `npm run test:e2e` is a placeholder. Once someone adds specs, these standard Playwright commands apply:
+The specs are in `tests/e2e/` and the config is `playwright.config.ts` (system Microsoft Edge via `channel: "msedge"`, production build served on port 3500, no Clerk keys). `npm run test:e2e` runs them; these standard Playwright commands also apply:
 
 | Command | What it does |
 |---|---|
@@ -1638,7 +1712,7 @@ The image has a built-in `HEALTHCHECK` on `/api/health`.
 | `npx playwright test --ui` | Interactive mode |
 | `npx playwright show-report` | Open the last HTML report |
 
-Until then the manual test is: `npm run dev`, click through `/dashboard` (New project, Run next step, Exports).
+You can also test by hand: `npm run dev`, click through `/dashboard` (New project, Run next step, Exports).
 
 ### 5. API examples (curl)
 
@@ -1836,13 +1910,24 @@ Rules (see [agents.md](agents.md)): each agent edits only the files it owns; eac
 
 ## 21. Documentation index
 
-*Source: `docs/README.md` (24 lines), reproduced in full.*
+*Source: `docs/README.md` (35 lines), reproduced in full.*
 
 Start here if you are new:
 
 1. [RUN-ME.md](RUN-ME.md): run the project in 5 minutes
 2. [EXPLAIN-LIKE-IM-5.md](EXPLAIN-LIKE-IM-5.md): the project with simple analogies
 3. [CODE-TOUR.md](CODE-TOUR.md): where everything lives
+3b. [COMMIT-HISTORY.md](COMMIT-HISTORY.md): every commit in order, mapped to the agent that did the work
+4. [FORK-AND-CLONE.md](FORK-AND-CLONE.md): fork it, run it, host your own demo, send a PR
+
+Extras:
+
+| Item | Content |
+|---|---|
+| [../notebooks/ghost-notebook.ipynb](../notebooks/ghost-notebook.ipynb) | Ghost Notebook: call every API route from Python, run the pipeline, export to a local folder |
+| [LINK-REPORT.md](LINK-REPORT.md) | Latest result of `npm run check:links` (docs links and site crawl) |
+| [book/Ghost-AI-Book.pdf](book/Ghost-AI-Book.pdf) | The Ghost AI Book (build with `npm run docs:book`) |
+| [../README.md](../README.md) | Project front page: demo, components, how to run |
 
 Reference:
 
@@ -1883,19 +1968,20 @@ Every tracked source and configuration file, with a note on what it is and how i
 - [36. Tests](#36-tests)
 - [37. Public assets](#37-public-assets)
 - [38. Book generator inputs](#38-book-generator-inputs)
+- [39. Other files](#39-other-files)
 
 ## 22. How to read the listings
 
-Part III covers **148 files** (10,374 lines). Excluded on purpose: `package-lock.json` (generated), `public/demo/*` (binary video and poster), `docs/diagrams/*.svg` (generated renderings of the diagrams in Part II), and `docs/*.md` (reproduced in Part II).
+Part III covers **150 files** (11,307 lines). Excluded on purpose: `package-lock.json` (generated), `public/demo/*` (binary video and poster), `docs/diagrams/*.svg` (generated renderings of the diagrams in Part II), and `docs/*.md` (reproduced in Part II).
 
 Each entry has: the path; line count and size; the language; exports and routes detected from the text; a note written by reading the file (kept in `docs/book/file-notes.json`); the files it imports and the files that use it (resolved from import statements, including the `@/` alias); and then the complete source with line numbers.
 
 | Chapter | Files | Lines |
 |---|---|---|
 | Root configuration, containers and tooling | 14 | 373 |
-| Root documents | 5 | 442 |
+| Root documents | 5 | 448 |
 | GitHub automation and templates | 9 | 192 |
-| Scripts | 6 | 1,281 |
+| Scripts | 7 | 1,606 |
 | Shared library and data layer | 15 | 1,333 |
 | API route handlers | 13 | 277 |
 | App shell, styles and public pages | 18 | 925 |
@@ -1908,6 +1994,7 @@ Each entry has: the path; line count and size; the language; exports and routes 
 | Tests | 6 | 555 |
 | Public assets | 6 | 6 |
 | Book generator inputs | 1 | 150 |
+| Other files | 1 | 602 |
 
 ## 23. Root configuration, containers and tooling
 
@@ -2418,7 +2505,7 @@ The Markdown documents at the repository root. The `docs/` folder is reproduced 
 
 ### `README.md`
 
-**Lines:** 368 · **Size:** 25.5 KB · **Language:** markdown
+**Lines:** 374 · **Size:** 25.9 KB · **Language:** markdown
 
 Project front door: what Ghost AI is, a quick start, scripts, the stack, and a link map into docs/. It embeds one Mermaid diagram.
 
@@ -2644,6 +2731,8 @@ flowchart LR
 
 More: [docs/architecture.md](docs/architecture.md), [docs/CODE-TOUR.md](docs/CODE-TOUR.md), [docs/connectivity.md](docs/connectivity.md).
 
+Build history, commit by commit and mapped to each agent: [docs/COMMIT-HISTORY.md](docs/COMMIT-HISTORY.md).
+
 ## Tech stack
 
 | Area | Choice |
@@ -2703,7 +2792,7 @@ Expected: `Local: http://localhost:3000` and `Ready`. Open <http://localhost:300
 
 ### Mode B: with Clerk sign-in
 
-1. Create an app at <https://dashboard.clerk.com>, enable Email and the GitHub connection ([docs/auth.md](docs/auth.md)).
+1. Create an app at <https://dashboard.clerk.com/sign-in>, enable Email and the GitHub connection ([docs/auth.md](docs/auth.md)).
 2. Copy `.env.example` to `.env.local` in the project root (the folder with `package.json`). Mac/Linux: `cp .env.example .env.local`; PowerShell: `Copy-Item .env.example .env.local`.
 3. Fill `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` from Clerk's **API keys** page.
 4. Restart `npm run dev`; `/dashboard` now redirects to `/sign-in`.
@@ -2771,7 +2860,11 @@ The **Ghost Notebook** is a Jupyter notebook that clones the repo, starts the se
 
 ## Book
 
-BOOK_PLACEHOLDER
+The **Ghost AI Book** is a long-form PDF that tells how the project was built, chapter by chapter.
+
+- Read or download: [docs/book/Ghost-AI-Book.pdf](docs/book/Ghost-AI-Book.pdf)
+- Source in Markdown: [docs/book/Ghost-AI-Book.md](docs/book/Ghost-AI-Book.md)
+- Rebuild it: `npm run docs:book` (script: `scripts/build-book.mjs`)
 
 ## Honest status and known limitations
 
@@ -2909,17 +3002,17 @@ Workflows (CI, CodeQL, Pages), Dependabot, code owners and the issue and pull re
 
 ### `.github/CODEOWNERS`
 
-**Lines:** 6 · **Size:** 196 B · **Language:** plaintext
+**Lines:** 6 · **Size:** 221 B · **Language:** plaintext
 
 Declares the default code owner for every path so GitHub requests the owner's review on each pull request. Works together with CodeRabbit and the CI required checks.
 
 ```text
 # Default owner for everything
-*                 @pranithgurram
-/.github/         @pranithgurram
-/Dockerfile       @pranithgurram
-/src/app/api/     @pranithgurram
-/src/db/          @pranithgurram
+*                 @reddypranith80-max
+/.github/         @reddypranith80-max
+/Dockerfile       @reddypranith80-max
+/src/app/api/     @reddypranith80-max
+/src/db/          @reddypranith80-max
 ```
 
 ### `.github/dependabot.yml`
@@ -4056,6 +4149,340 @@ async function main() {
   console.log(JSON.stringify(info, null, 2));
 }
 await main();
+````
+
+### `scripts/check-links.mjs`
+
+**Lines:** 325 · **Size:** 15.2 KB · **Language:** javascript
+
+(No hand-written note for this file. Detected exports: none.)
+
+````js
+#!/usr/bin/env node
+// Link checker for Ghost AI. Node built-ins + global fetch only.
+//
+//   node scripts/check-links.mjs                       check README.md and docs/**/*.md (not docs/book)
+//   node scripts/check-links.mjs --site <baseUrl>      also crawl a running site (respects its base path)
+//   node scripts/check-links.mjs --no-external         skip external URL checks (relative links + anchors only)
+//   node scripts/check-links.mjs --out docs/LINK-REPORT.md
+//
+// Exit code 1 when any failure is found. Writes a Markdown report (default docs/LINK-REPORT.md).
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join, relative, resolve, sep } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const args = process.argv.slice(2);
+const flag = (n) => args.includes(n);
+const opt = (n, d) => (args.includes(n) ? args[args.indexOf(n) + 1] : d);
+const SITE = opt("--site", null);
+const OUT = resolve(ROOT, opt("--out", "docs/LINK-REPORT.md"));
+const SKIP_EXTERNAL = flag("--no-external");
+
+const TIMEOUT_MS = 15_000;
+const RETRIES = 2;
+const CONCURRENCY = 8;
+const UA = "Mozilla/5.0 (compatible; ghost-ai-link-check/1.0; +https://github.com/reddypranith80-max/ghost-ai)";
+// Hosts that block bots / require login; they are listed in the report as skipped, never silently ignored.
+const ALLOWLIST = ["linkedin.com", "www.linkedin.com", "twitter.com", "x.com", "medium.com", "localhost", "127.0.0.1"];
+
+// ---------- helpers ----------
+async function pool(items, n, fn) {
+  const out = new Array(items.length);
+  let i = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(n, items.length) }, async () => {
+      while (i < items.length) {
+        const k = i++;
+        out[k] = await fn(items[k], k);
+      }
+    }),
+  );
+  return out;
+}
+
+function walk(dir, skipDirs = []) {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) return skipDirs.includes(p) ? [] : walk(p, skipDirs);
+    return [p];
+  });
+}
+
+/** GitHub-style heading slug. */
+function slugify(text) {
+  return text
+    .replace(/<[^>]+>/g, "")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[`*_~]/g, "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\p{M}\s-]/gu, "")
+    .replace(/\s/g, "-");
+}
+
+const anchorCache = new Map();
+function anchorsOf(file) {
+  if (anchorCache.has(file)) return anchorCache.get(file);
+  const set = new Set();
+  const seen = new Map();
+  let inFence = false;
+  for (const line of readFileSync(file, "utf8").split(/\r?\n/)) {
+    if (/^\s*(```|~~~)/.test(line)) inFence = !inFence;
+    if (inFence) continue;
+    const m = /^ {0,3}#{1,6}\s+(.+?)\s*#*\s*$/.exec(line);
+    if (m) {
+      const base = slugify(m[1]);
+      const n = seen.get(base) ?? 0;
+      seen.set(base, n + 1);
+      set.add(n === 0 ? base : `${base}-${n}`);
+    }
+    for (const a of line.matchAll(/<a\s[^>]*(?:id|name)=["']([^"']+)["']/gi)) set.add(a[1]);
+  }
+  anchorCache.set(file, set);
+  return set;
+}
+
+/** Extract link targets from Markdown, ignoring fenced code and inline code. */
+function extractLinks(src) {
+  const links = [];
+  const lines = src.split(/\r?\n/);
+  let inFence = false;
+  lines.forEach((raw, idx) => {
+    if (/^\s*(```|~~~)/.test(raw)) {
+      inFence = !inFence;
+      return;
+    }
+    if (inFence) return;
+    const line = raw.replace(/`[^`]*`/g, "");
+    const add = (url) => links.push({ url: url.trim(), line: idx + 1 });
+    for (const m of line.matchAll(/!?\[[^\]]*\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g)) add(m[1]);
+    for (const m of line.matchAll(/<(?:a|img|video|source|link|script)\s[^>]*?(?:href|src|poster)=["']([^"']+)["']/gi)) add(m[1]);
+    for (const m of line.matchAll(/<(https?:\/\/[^>\s]+)>/g)) add(m[1]);
+    for (const m of line.matchAll(/^\s*\[[^\]]+\]:\s*(\S+)/g)) add(m[1]);
+  });
+  return links;
+}
+
+async function fetchStatus(url) {
+  let last = { status: 0, error: "unknown" };
+  for (let attempt = 0; attempt <= RETRIES; attempt++) {
+    for (const method of ["HEAD", "GET"]) {
+      try {
+        const res = await fetch(url, { method, redirect: "follow", headers: { "user-agent": UA, accept: "*/*" }, signal: AbortSignal.timeout(TIMEOUT_MS) });
+        if (method === "GET") res.body?.cancel().catch(() => {});
+        if (res.status < 400) return { status: res.status };
+        last = { status: res.status };
+        if (method === "HEAD") continue; // some servers reject HEAD: retry with GET
+        if (res.status === 404 || res.status === 410) return last; // definitive
+      } catch (e) {
+        last = { status: 0, error: e?.name === "TimeoutError" ? "timeout" : (e?.cause?.code ?? e?.message ?? "error") };
+      }
+    }
+    await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+  }
+  return last;
+}
+
+// ---------- (a) docs ----------
+const docFiles = [join(ROOT, "README.md"), ...walk(join(ROOT, "docs"), [join(ROOT, "docs", "book")]).filter((f) => f.endsWith(".md"))].filter(existsSync);
+const rel = (p) => relative(ROOT, p).split(sep).join("/");
+
+const docResult = { files: docFiles.length, links: 0, relOk: 0, relFail: [], anchorOk: 0, anchorFail: [], extUnique: 0, extOk: 0, extFail: [], extSkipped: [] };
+const externals = new Map(); // url -> [{file,line}]
+
+for (const file of docFiles) {
+  for (const { url, line } of extractLinks(readFileSync(file, "utf8"))) {
+    if (!url || /^(mailto:|tel:|javascript:|data:)/i.test(url)) continue;
+    if (/[<>{}]/.test(url)) continue; // template placeholder such as <user> or {id}
+    docResult.links++;
+    const where = `${rel(file)}:${line}`;
+    if (/^https?:\/\//i.test(url)) {
+      const key = url.replace(/#.*$/, "");
+      if (!externals.has(key)) externals.set(key, []);
+      externals.get(key).push(where);
+      continue;
+    }
+    // relative or root-relative (repo root) or anchor-only
+    const [pathPart, rawAnchor] = url.split("#");
+    const anchor = rawAnchor ? decodeURIComponent(rawAnchor) : "";
+    const cleanPath = decodeURIComponent((pathPart || "").split("?")[0]);
+    const target = cleanPath === "" ? file : cleanPath.startsWith("/") ? join(ROOT, cleanPath) : resolve(dirname(file), cleanPath);
+    if (!existsSync(target)) {
+      docResult.relFail.push({ where, url, reason: "file not found" });
+      continue;
+    }
+    docResult.relOk++;
+    if (anchor && target.endsWith(".md") && statSync(target).isFile()) {
+      if (anchorsOf(target).has(anchor.toLowerCase()) || anchorsOf(target).has(anchor)) docResult.anchorOk++;
+      else docResult.anchorFail.push({ where, url, reason: `no heading "#${anchor}" in ${rel(target)}` });
+    }
+  }
+}
+
+if (!SKIP_EXTERNAL) {
+  docResult.extUnique = externals.size;
+  const entries = [...externals.entries()];
+  await pool(entries, CONCURRENCY, async ([url, wheres]) => {
+    const host = new URL(url).hostname;
+    if (ALLOWLIST.includes(host)) {
+      docResult.extSkipped.push({ url, host, wheres });
+      return;
+    }
+    const r = await fetchStatus(url);
+    if (r.status >= 200 && r.status < 400) docResult.extOk++;
+    else docResult.extFail.push({ url, wheres, status: r.status, error: r.error });
+  });
+}
+
+// ---------- (b) site crawl ----------
+const siteResult = SITE
+  ? { base: SITE, pages: 0, fail: [], noTitle: [], assetFail: [], anchorFail: [], outside: [], assetsChecked: 0 }
+  : null;
+
+if (SITE) {
+  const base = new URL(SITE.endsWith("/") ? SITE : SITE + "/");
+  const basePath = base.pathname.replace(/\/$/, ""); // "" or "/ghost-ai"
+  const startUrl = base.href;
+  const queue = [startUrl];
+  const seen = new Set([startUrl]);
+  const pageIds = new Map(); // url(no hash) -> Set(ids)
+  const anchorRefs = []; // {from, target, id}
+  const assetSet = new Map(); // url -> from
+  const norm = (u) => {
+    const x = new URL(u);
+    x.hash = "";
+    return x.href;
+  };
+  const isExt = (p) => /\.[a-z0-9]{2,5}$/i.test(p) && !/\.html?$/i.test(p);
+
+  const attrs = (html, re) => [...html.matchAll(re)].map((m) => m[1]);
+  while (queue.length && siteResult.pages < 600) {
+    const batch = queue.splice(0, CONCURRENCY);
+    await pool(batch, CONCURRENCY, async (url) => {
+      let res, html = "";
+      try {
+        res = await fetch(url, { redirect: "follow", headers: { "user-agent": UA }, signal: AbortSignal.timeout(TIMEOUT_MS) });
+        const type = res.headers.get("content-type") || "";
+        if (type.includes("text/html")) html = await res.text();
+        else res.body?.cancel().catch(() => {});
+      } catch (e) {
+        siteResult.fail.push({ url, status: 0, error: e?.name === "TimeoutError" ? "timeout" : (e?.cause?.code ?? e?.message) });
+        return;
+      }
+      siteResult.pages++;
+      if (res.status !== 200) {
+        siteResult.fail.push({ url, status: res.status });
+        return;
+      }
+      if (!html) return;
+      if (!/<title[^>]*>\s*[^<\s][^<]*<\/title>/i.test(html)) siteResult.noTitle.push(url);
+      pageIds.set(norm(res.url), new Set([...attrs(html, /\sid=["']([^"']+)["']/gi), ...attrs(html, /<a[^>]*\sname=["']([^"']+)["']/gi)]));
+
+      const resolveRef = (ref) => {
+        if (!ref || /^(mailto:|tel:|javascript:|data:|blob:)/i.test(ref)) return null;
+        try {
+          return new URL(ref.replace(/&amp;/g, "&"), res.url);
+        } catch {
+          return null;
+        }
+      };
+      const hrefs = [...html.matchAll(/<a\s[^>]*?href=["']([^"']*)["']/gi)].map((m) => m[1]);
+      for (const h of hrefs) {
+        const u = resolveRef(h);
+        if (!u || u.origin !== base.origin) continue;
+        if (basePath && !(u.pathname === basePath || u.pathname.startsWith(basePath + "/"))) {
+          siteResult.outside.push({ from: url, ref: h });
+          continue;
+        }
+        if (u.hash.length > 1) anchorRefs.push({ from: url, target: norm(u.href), id: decodeURIComponent(u.hash.slice(1)) });
+        const n = norm(u.href);
+        if (isExt(u.pathname) || u.pathname.includes("/api/")) {
+          if (!assetSet.has(n)) assetSet.set(n, url);
+        } else if (!seen.has(n)) {
+          seen.add(n);
+          queue.push(n);
+        }
+      }
+      const srcs = [
+        ...attrs(html, /<(?:img|script|source|video|audio|iframe)\s[^>]*?src=["']([^"']+)["']/gi),
+        ...attrs(html, /<link\s[^>]*?href=["']([^"']+)["']/gi),
+        ...attrs(html, /<video\s[^>]*?poster=["']([^"']+)["']/gi),
+      ];
+      for (const s of srcs) {
+        const u = resolveRef(s);
+        if (!u || u.origin !== base.origin) continue;
+        const n = norm(u.href);
+        if (!assetSet.has(n)) assetSet.set(n, url);
+      }
+    });
+  }
+
+  // assets: same-site only, HEAD (GET fallback)
+  const assets = [...assetSet.entries()];
+  siteResult.assetsChecked = assets.length;
+  await pool(assets, CONCURRENCY, async ([u, from]) => {
+    const r = await fetchStatus(u);
+    if (!(r.status >= 200 && r.status < 400)) siteResult.assetFail.push({ url: u, from, status: r.status, error: r.error });
+  });
+
+  for (const a of anchorRefs) {
+    const ids = pageIds.get(a.target);
+    if (ids && !ids.has(a.id) && !["top", "main"].includes(a.id)) siteResult.anchorFail.push(a);
+  }
+}
+
+// ---------- report ----------
+const failCount =
+  docResult.relFail.length + docResult.anchorFail.length + docResult.extFail.length +
+  (siteResult ? siteResult.fail.length + siteResult.noTitle.length + siteResult.assetFail.length + siteResult.anchorFail.length + siteResult.outside.length : 0);
+
+const L = [];
+L.push("# Link report", "");
+L.push(`Generated by \`npm run check:links\` (\`scripts/check-links.mjs\`) on ${new Date().toISOString()}.`, "");
+L.push(`**Result: ${failCount === 0 ? "PASS, no broken links" : `${failCount} problem(s) found`}.**`, "");
+L.push("## (a) Markdown files: README.md and docs/**/*.md (docs/book excluded)", "");
+L.push("| Check | OK | Failed |", "|---|---|---|");
+L.push(`| Files scanned | ${docResult.files} | |`);
+L.push(`| Relative links (file exists) | ${docResult.relOk} | ${docResult.relFail.length} |`);
+L.push(`| Anchors into .md files | ${docResult.anchorOk} | ${docResult.anchorFail.length} |`);
+L.push(SKIP_EXTERNAL ? "| External URLs | skipped (--no-external) | |" : `| External URLs (${docResult.extUnique} unique) | ${docResult.extOk} | ${docResult.extFail.length} |`);
+L.push(`| Allowlisted hosts (not checked) | ${docResult.extSkipped.length} | |`, "");
+L.push("Method: relative paths are checked on disk and heading anchors with GitHub-style slugs. External URLs use HEAD then GET, 15 s timeout, 2 retries, concurrency 8; 2xx and 3xx count as OK. Links inside code fences and inline code, and template placeholders like `<user>`, are ignored.", "");
+const section = (title, rows, fmt) => {
+  if (!rows.length) return;
+  L.push(`### ${title}`, "", ...rows.map(fmt), "");
+};
+section("Broken relative links", docResult.relFail, (r) => `- \`${r.where}\`: \`${r.url}\` (${r.reason})`);
+section("Broken anchors", docResult.anchorFail, (r) => `- \`${r.where}\`: \`${r.url}\` (${r.reason})`);
+section("Failed external URLs (4xx/5xx/timeout)", docResult.extFail, (r) => `- ${r.url} -> ${r.status || r.error} (in ${r.wheres.slice(0, 3).map((w) => `\`${w}\``).join(", ")})`);
+section("Allowlisted (bot-blocking or local) hosts, not checked", docResult.extSkipped, (r) => `- ${r.url} (${r.host})`);
+
+if (siteResult) {
+  L.push(`## (b) Site crawl: ${siteResult.base}`, "");
+  L.push("| Check | Count |", "|---|---|");
+  L.push(`| Pages fetched | ${siteResult.pages} |`);
+  L.push(`| Non-200 pages | ${siteResult.fail.length} |`);
+  L.push(`| Pages without a <title> | ${siteResult.noTitle.length} |`);
+  L.push(`| Same-site assets/links checked (img, script, css, files) | ${siteResult.assetsChecked} |`);
+  L.push(`| Broken same-site assets | ${siteResult.assetFail.length} |`);
+  L.push(`| Broken internal anchors | ${siteResult.anchorFail.length} |`);
+  L.push(`| Links escaping the base path | ${siteResult.outside.length} |`, "");
+  section("Non-200 pages", siteResult.fail, (r) => `- ${r.url} -> ${r.status || r.error}`);
+  section("Missing <title>", siteResult.noTitle, (u) => `- ${u}`);
+  section("Broken assets", siteResult.assetFail, (r) => `- ${r.url} -> ${r.status || r.error} (referenced from ${r.from})`);
+  section("Broken internal anchors", siteResult.anchorFail, (r) => `- ${r.from} -> ${r.target}#${r.id}`);
+  section("Links outside the base path", siteResult.outside.slice(0, 50), (r) => `- ${r.from} -> \`${r.ref}\``);
+} else {
+  L.push("## (b) Site crawl", "", "Not run. Use `node scripts/check-links.mjs --site <baseUrl>` (for example `http://localhost:3000` or `https://reddypranith80-max.github.io/ghost-ai`).", "");
+}
+writeFileSync(OUT, L.join("\n") + "\n");
+
+console.log(`Docs: ${docResult.files} files, ${docResult.links} links | relative ok ${docResult.relOk} fail ${docResult.relFail.length} | anchors ok ${docResult.anchorOk} fail ${docResult.anchorFail.length} | external ok ${docResult.extOk}/${docResult.extUnique} fail ${docResult.extFail.length} skipped ${docResult.extSkipped.length}`);
+if (siteResult) console.log(`Site ${siteResult.base}: pages ${siteResult.pages}, non-200 ${siteResult.fail.length}, no-title ${siteResult.noTitle.length}, assets checked ${siteResult.assetsChecked}, asset fail ${siteResult.assetFail.length}, anchor fail ${siteResult.anchorFail.length}, outside-base ${siteResult.outside.length}`);
+console.log(`Report: ${rel(OUT)} (${failCount === 0 ? "PASS" : failCount + " problem(s)"})`);
+process.exit(failCount === 0 ? 0 : 1);
 ````
 
 ### `scripts/check-mermaid.mjs`
@@ -8811,14 +9238,14 @@ export function MobileNav({ children }: { children?: React.ReactNode }) {
 
 ### `src/components/site/nav-data.ts`
 
-**Lines:** 9 · **Size:** 317 B · **Language:** typescript · **Exports:** `GITHUB_URL`, `NAV_LINKS`
+**Lines:** 9 · **Size:** 322 B · **Language:** typescript · **Exports:** `GITHUB_URL`, `NAV_LINKS`
 
 Navigation link list and GITHUB_URL constant used by header, footer and mobile nav.
 
 **Used by:** `src/components/site/mobile-nav.tsx`, `src/components/site/site-footer.tsx`, `src/components/site/site-header.tsx`
 
 ```ts
-export const GITHUB_URL = "https://github.com/pranithgurram/ghost-ai";
+export const GITHUB_URL = "https://github.com/reddypranith80-max/ghost-ai";
 
 export const NAV_LINKS = [
   { href: "/how-it-works", label: "How it works" },
@@ -13965,19 +14392,634 @@ Input to this book's generator: one hand-written paragraph per source file (what
 }
 ````
 
+## 39. Other files
+
+Files not matched by another group.
+
+### `notebooks/ghost-notebook.ipynb`
+
+**Lines:** 602 · **Size:** 22.9 KB · **Language:** plaintext
+
+(No hand-written note for this file. Detected exports: none.)
+
+````text
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "fe342f95",
+   "metadata": {},
+   "source": [
+    "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/reddypranith80-max/ghost-ai/main/public/brand/ghost-ai-logo.svg\" width=\"110\" alt=\"Ghost AI logo\"></p>\n",
+    "\n",
+    "# Ghost Notebook\n",
+    "\n",
+    "A hands-on tour of **Ghost AI** from Python. You will start the app, call every API route, create a project, run the agent pipeline step by step, look at tasks and the git log, export the project to a local folder and draw a progress chart.\n",
+    "\n",
+    "Links: [Live demo](https://reddypranith80-max.github.io/ghost-ai/) | [Repository](https://github.com/reddypranith80-max/ghost-ai) | [Docs index](https://github.com/reddypranith80-max/ghost-ai/blob/main/docs/README.md)\n",
+    "\n",
+    "[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/reddypranith80-max/ghost-ai/blob/main/notebooks/ghost-notebook.ipynb)\n",
+    "\n",
+    "> Colab note: Colab VMs have Node.js, so the setup cells can work there, but the first `npm install` and `npm run build` take a few minutes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4286bbc8",
+   "metadata": {},
+   "source": [
+    "## What is Ghost AI?\n",
+    "\n",
+    "You give Ghost AI a goal and a tech stack. It creates a project with a task plan, then walks it through a pipeline of **8 lead agents** (Architect, Backend, Frontend, DevOps, QA, Security, Docs, Reviewer), each with **3 side agents**. Every step moves a task forward and records a commit in a git-style log.\n",
+    "\n",
+    "**Honest note:** the agents are *simulated*. No AI model is called; tasks and commits come from deterministic code in the app. This notebook talks to the app's JSON API."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d176f219",
+   "metadata": {},
+   "source": [
+    "## ELI5: explain it like I am 5\n",
+    "\n",
+    "Imagine a toy factory with eight helpers. One draws the plan, one builds the engine, one paints it, one packs the box, one presses every button to test it, one looks for dangers, one writes the instructions, and the last one says \"OK, ship it\". You tell the factory what toy you want. Then you press a big button, **Run next step**, and each helper takes a turn. In this notebook *you* press the button from Python."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7125bfbd",
+   "metadata": {},
+   "source": [
+    "## 1. Setup\n",
+    "\n",
+    "You need **Python 3.9+**, **Node.js 20+ (24 recommended)**, **git** and about 2 GB of disk for `node_modules`.\n",
+    "\n",
+    "The notebook can do the following for you (next cells), or you can do it by hand in a terminal:\n",
+    "\n",
+    "```bash\n",
+    "git clone https://github.com/reddypranith80-max/ghost-ai.git\n",
+    "cd ghost-ai\n",
+    "npm install          # or: npm ci\n",
+    "npm run build\n",
+    "npm start            # serves on http://localhost:3000\n",
+    "```\n",
+    "\n",
+    "If the server is already running somewhere, skip all of that and set the environment variable `GHOST_BASE_URL` (for example `http://localhost:3000`) before starting Jupyter. The notebook then only calls the API."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "769bf025",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import json, os, shutil, subprocess, sys, time, urllib.error, urllib.request\n",
+    "from pathlib import Path\n",
+    "\n",
+    "# Where is the Ghost AI server? Override with the env var GHOST_BASE_URL.\n",
+    "BASE_URL = os.environ.get(\"GHOST_BASE_URL\", \"http://localhost:3000\").rstrip(\"/\")\n",
+    "print(\"BASE_URL =\", BASE_URL)\n",
+    "\n",
+    "try:\n",
+    "    import requests\n",
+    "    HAVE_REQUESTS = True\n",
+    "except ImportError:\n",
+    "    HAVE_REQUESTS = False\n",
+    "try:\n",
+    "    import pandas as pd\n",
+    "    HAVE_PANDAS = True\n",
+    "except ImportError:\n",
+    "    HAVE_PANDAS = False\n",
+    "print(\"requests:\", HAVE_REQUESTS, \"| pandas:\", HAVE_PANDAS, \"(both optional; stdlib fallbacks are used)\")\n",
+    "\n",
+    "\n",
+    "def api(method, path, body=None, raw=False, timeout=30):\n",
+    "    \"\"\"Call the Ghost AI API. Returns (status_code, parsed_json_or_text). Never raises on HTTP errors.\"\"\"\n",
+    "    url = BASE_URL + path\n",
+    "    data = None if body is None else json.dumps(body).encode()\n",
+    "    headers = {\"Content-Type\": \"application/json\"} if body is not None else {}\n",
+    "    if HAVE_REQUESTS:\n",
+    "        r = requests.request(method, url, data=data, headers=headers, timeout=timeout)\n",
+    "        status, text = r.status_code, r.text\n",
+    "    else:\n",
+    "        req = urllib.request.Request(url, data=data, headers=headers, method=method)\n",
+    "        try:\n",
+    "            with urllib.request.urlopen(req, timeout=timeout) as resp:\n",
+    "                status, text = resp.status, resp.read().decode()\n",
+    "        except urllib.error.HTTPError as e:\n",
+    "            status, text = e.code, e.read().decode()\n",
+    "    if raw:\n",
+    "        return status, text\n",
+    "    try:\n",
+    "        return status, json.loads(text)\n",
+    "    except ValueError:\n",
+    "        return status, text\n",
+    "\n",
+    "\n",
+    "def show(rows, columns=None, title=None):\n",
+    "    \"\"\"Print a list of dicts as a table (pandas if available, plain text otherwise).\"\"\"\n",
+    "    if title:\n",
+    "        print(f\"\\n== {title} ==\")\n",
+    "    if not rows:\n",
+    "        print(\"(no rows)\")\n",
+    "        return\n",
+    "    columns = columns or list(rows[0].keys())\n",
+    "    if HAVE_PANDAS:\n",
+    "        df = pd.DataFrame(rows)[columns]\n",
+    "        try:\n",
+    "            from IPython.display import display\n",
+    "            display(df)\n",
+    "        except Exception:\n",
+    "            print(df.to_string(index=False))\n",
+    "        return\n",
+    "    widths = [max(len(str(c)), *(len(str(r.get(c, \"\"))) for r in rows)) for c in columns]\n",
+    "    line = lambda vals: \"  \".join(str(v).ljust(w) for v, w in zip(vals, widths))\n",
+    "    print(line(columns))\n",
+    "    print(line([\"-\" * w for w in widths]))\n",
+    "    for r in rows:\n",
+    "        print(line([r.get(c, \"\") for c in columns]))\n",
+    "\n",
+    "\n",
+    "def healthy():\n",
+    "    try:\n",
+    "        status, body = api(\"GET\", \"/api/health\", timeout=3)\n",
+    "        return status == 200 and isinstance(body, dict) and body.get(\"ok\") is True\n",
+    "    except Exception:\n",
+    "        return False"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "709c07bb",
+   "metadata": {},
+   "source": [
+    "### Classic shell version (optional)\n",
+    "\n",
+    "If you prefer plain shell cells, uncomment these lines. `!` runs a command from Jupyter. They are commented out so that running the whole notebook never re-clones or reinstalls by accident."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "16a0be9a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# !git clone https://github.com/reddypranith80-max/ghost-ai.git\n",
+    "# %cd ghost-ai\n",
+    "# !npm install\n",
+    "# !npm run build\n",
+    "# Start the server in a separate terminal with:  npm start     (blocks, so do not run it in a notebook cell)\n",
+    "print(\"Shell cells are commented out. Use the helper cells below, or run the commands in a terminal.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b45162a1",
+   "metadata": {},
+   "source": [
+    "### Find (or clone) the repo, then start the server\n",
+    "\n",
+    "`ensure_server()` does the following, in order, and never hangs:\n",
+    "\n",
+    "1. If `BASE_URL` already answers `/api/health`, it does nothing.\n",
+    "2. Otherwise it finds the repo (this notebook's parent folder, `./ghost-ai`, or clones it), runs `npm install` and `npm run build` when needed, then starts `next start` with `subprocess.Popen` and **waits up to 120 s** for the health check.\n",
+    "\n",
+    "It only starts a server for a local `BASE_URL` (localhost); for a remote URL it just waits briefly and reports."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5a6e46b7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from urllib.parse import urlparse\n",
+    "\n",
+    "SERVER = None  # subprocess handle if this notebook started the server\n",
+    "NPM = \"npm.cmd\" if os.name == \"nt\" else \"npm\"\n",
+    "NPX = \"npx.cmd\" if os.name == \"nt\" else \"npx\"\n",
+    "\n",
+    "\n",
+    "def find_repo():\n",
+    "    here = Path.cwd().resolve()\n",
+    "    for cand in (here, here.parent, here / \"ghost-ai\"):\n",
+    "        if (cand / \"package.json\").exists() and (cand / \"src\" / \"app\").exists():\n",
+    "            return cand\n",
+    "    return None\n",
+    "\n",
+    "\n",
+    "def wait_healthy(seconds=120):\n",
+    "    deadline = time.time() + seconds\n",
+    "    while time.time() < deadline:\n",
+    "        if healthy():\n",
+    "            return True\n",
+    "        if SERVER is not None and SERVER.poll() is not None:\n",
+    "            print(\"Server process exited early with code\", SERVER.returncode)\n",
+    "            return False\n",
+    "        time.sleep(1.5)\n",
+    "    return False\n",
+    "\n",
+    "\n",
+    "def ensure_server():\n",
+    "    global SERVER\n",
+    "    if healthy():\n",
+    "        print(\"Server already running at\", BASE_URL)\n",
+    "        return True\n",
+    "    u = urlparse(BASE_URL)\n",
+    "    if u.hostname not in (\"localhost\", \"127.0.0.1\"):\n",
+    "        print(\"BASE_URL is remote and not answering; not starting anything.\")\n",
+    "        return False\n",
+    "    repo = find_repo()\n",
+    "    if repo is None:\n",
+    "        print(\"Cloning the repo ...\")\n",
+    "        subprocess.run([\"git\", \"clone\", \"https://github.com/reddypranith80-max/ghost-ai.git\"], check=True)\n",
+    "        repo = Path(\"ghost-ai\").resolve()\n",
+    "    print(\"Repo:\", repo)\n",
+    "    if not (repo / \"node_modules\").exists():\n",
+    "        print(\"npm install (a few minutes the first time) ...\")\n",
+    "        subprocess.run([NPM, \"install\"], cwd=repo, check=True)\n",
+    "    if not (repo / \".next\").exists():\n",
+    "        print(\"npm run build ...\")\n",
+    "        subprocess.run([NPM, \"run\", \"build\"], cwd=repo, check=True)\n",
+    "    port = str(u.port or 3000)\n",
+    "    SERVER = subprocess.Popen([NPX, \"next\", \"start\", \"-p\", port], cwd=repo, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)\n",
+    "    ok = wait_healthy(120)\n",
+    "    print(\"Server is up.\" if ok else \"Server did not become healthy in time (check the terminal / port).\")\n",
+    "    return ok\n",
+    "\n",
+    "\n",
+    "SERVER_OK = ensure_server()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cfb19a5c",
+   "metadata": {},
+   "source": [
+    "## 2. Health check\n",
+    "\n",
+    "`GET /api/health` reports liveness and whether the database is reachable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "05c6814e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "status, body = api(\"GET\", \"/api/health\")\n",
+    "print(\"HTTP\", status)\n",
+    "show([body], [\"ok\", \"db\", \"version\", \"uptimeSeconds\", \"authEnabled\", \"time\"], \"health\")\n",
+    "assert status == 200 and body[\"ok\"], \"Server is not healthy\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8e3ee769",
+   "metadata": {},
+   "source": [
+    "## 3. The crew: 8 agents x 3 sub-agents\n",
+    "\n",
+    "`GET /api/agents` is the single source of truth for the crew."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9a0b81ab",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "status, agents = api(\"GET\", \"/api/agents\")\n",
+    "show(\n",
+    "    [{\"agent\": a[\"name\"], \"codename\": a[\"codename\"], \"tools\": \", \".join(a[\"tools\"]), \"produces\": a[\"produces\"]} for a in agents],\n",
+    "    title=\"8 lead agents\",\n",
+    ")\n",
+    "show(\n",
+    "    [{\"agent\": a[\"name\"], \"sub_agent\": s[\"name\"], \"role\": s[\"role\"]} for a in agents for s in a[\"subAgents\"]],\n",
+    "    title=\"24 sub-agents\",\n",
+    ")\n",
+    "print(len(agents), \"agents,\", sum(len(a[\"subAgents\"]) for a in agents), \"sub-agents\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0f662608",
+   "metadata": {},
+   "source": [
+    "## 4. Create a project\n",
+    "\n",
+    "`POST /api/projects` with `name` (2-60 chars), `brief` (10-2000 chars) and `stack` (a list). The response contains the new project with its generated task plan. We remember the id so the cleanup cell can delete it."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7930422c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "CREATED = []  # project ids created by this notebook\n",
+    "\n",
+    "status, stack_catalog = api(\"GET\", \"/api/stack\")\n",
+    "print(\"Stack categories:\", \", \".join(f\"{k} ({len(v)})\" for k, v in stack_catalog.items()))\n",
+    "\n",
+    "status, project = api(\"POST\", \"/api/projects\", {\n",
+    "    \"name\": \"Notebook Todo App\",\n",
+    "    \"brief\": \"A small todo app with login, created from the Ghost Notebook.\",\n",
+    "    \"stack\": [\"Next.js\", \"Drizzle\"],\n",
+    "})\n",
+    "print(\"HTTP\", status)\n",
+    "assert status == 201, project\n",
+    "PROJECT_ID = project[\"id\"]\n",
+    "CREATED.append(PROJECT_ID)\n",
+    "print(\"Created project\", PROJECT_ID, \"| status:\", project[\"status\"], \"| tasks:\", len(project[\"tasks\"]))\n",
+    "show(project[\"tasks\"][:8], [\"title\", \"module\", \"agent\", \"status\", \"progress\"], \"first tasks of the plan\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "02b9e88a",
+   "metadata": {},
+   "source": [
+    "## 5. Run the pipeline step by step\n",
+    "\n",
+    "`POST /api/projects/:id/run` advances one step: a task in `review` becomes `done`, a `running` task moves to `review`, and the next `todo` task starts `running`. Each step may add commits. When everything is done the API answers `409 pipeline_complete`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "56f0117e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from collections import Counter\n",
+    "\n",
+    "HISTORY = []  # (step, counts) for the chart\n",
+    "def counts(tasks):\n",
+    "    c = Counter(t[\"status\"] for t in tasks)\n",
+    "    return {k: c.get(k, 0) for k in (\"todo\", \"running\", \"review\", \"done\", \"failed\")}\n",
+    "\n",
+    "HISTORY.append((0, counts(project[\"tasks\"])))\n",
+    "STEPS = 6\n",
+    "for step in range(1, STEPS + 1):\n",
+    "    status, detail = api(\"POST\", f\"/api/projects/{PROJECT_ID}/run\")\n",
+    "    if status == 409:\n",
+    "        print(f\"step {step}: pipeline already complete\")\n",
+    "        break\n",
+    "    assert status == 200, detail\n",
+    "    c = counts(detail[\"tasks\"])\n",
+    "    HISTORY.append((step, c))\n",
+    "    print(f\"step {step}: {c} | project status: {detail['status']} | commits: {len(detail['gitlog'])}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e9f4b9b8",
+   "metadata": {},
+   "source": [
+    "## 6. Tasks by status\n",
+    "\n",
+    "`GET /api/projects/:id/tasks?status=...` filters server-side (also `module` and `agent`)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4f08b89b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for st in (\"todo\", \"running\", \"review\", \"done\"):\n",
+    "    status, tasks = api(\"GET\", f\"/api/projects/{PROJECT_ID}/tasks?status={st}\")\n",
+    "    show(tasks, [\"title\", \"module\", \"agent\", \"progress\"], f\"{st} ({len(tasks)})\")\n",
+    "\n",
+    "status, stats = api(\"GET\", \"/api/stats\")\n",
+    "print(\"\\nGlobal stats:\", stats)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "adb4b357",
+   "metadata": {},
+   "source": [
+    "## 7. Git log\n",
+    "\n",
+    "`GET /api/projects/:id/gitlog?limit=N` returns the commits the agents recorded."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8963f2d8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "status, log = api(\"GET\", f\"/api/projects/{PROJECT_ID}/gitlog?limit=10\")\n",
+    "show(log, [\"hash\", \"agent\", \"message\", \"files\", \"at\"], \"latest commits\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "edcfa336",
+   "metadata": {},
+   "source": [
+    "## 8. Export to a local folder\n",
+    "\n",
+    "`GET /api/projects/:id/export?format=md` returns a Markdown report; `format=json` returns the full project. Below we save both into a local folder, the same idea as the dashboard's \"save to folder\" feature."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a3a4105f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import re\n",
+    "status, report = api(\"GET\", f\"/api/projects/{PROJECT_ID}/export?format=md\", raw=True)\n",
+    "assert status == 200\n",
+    "status, as_json = api(\"GET\", f\"/api/projects/{PROJECT_ID}/export?format=json\", raw=True)\n",
+    "assert status == 200\n",
+    "\n",
+    "slug = re.sub(r\"[^a-z0-9]+\", \"-\", project[\"name\"].lower()).strip(\"-\") or \"project\"\n",
+    "EXPORT_DIR = Path(\"ghost-export\") / slug\n",
+    "os.makedirs(EXPORT_DIR, exist_ok=True)\n",
+    "(EXPORT_DIR / f\"{slug}.md\").write_text(report, encoding=\"utf-8\")\n",
+    "(EXPORT_DIR / f\"{slug}.json\").write_text(as_json, encoding=\"utf-8\")\n",
+    "(EXPORT_DIR / \"gitlog.txt\").write_text(\"\\n\".join(f\"{c['hash']} [{c['agent']}] {c['message']}\" for c in log), encoding=\"utf-8\")\n",
+    "\n",
+    "for p in sorted(EXPORT_DIR.iterdir()):\n",
+    "    print(f\"{p.name:30} {p.stat().st_size:>8} bytes\")\n",
+    "print(\"Saved to\", EXPORT_DIR.resolve())\n",
+    "print(\"\\n--- first lines of the Markdown report ---\")\n",
+    "print(\"\\n\".join(report.splitlines()[:12]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f663f9c",
+   "metadata": {},
+   "source": [
+    "## 9. Progress chart\n",
+    "\n",
+    "A matplotlib stacked bar per step if matplotlib is installed, otherwise a text chart."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d71d5f07",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "SYMBOL = {\"todo\": \".\", \"running\": \">\", \"review\": \"?\", \"done\": \"#\", \"failed\": \"x\"}\n",
+    "try:\n",
+    "    import matplotlib\n",
+    "    import matplotlib.pyplot as plt\n",
+    "    steps = [s for s, _ in HISTORY]\n",
+    "    bottom = [0] * len(steps)\n",
+    "    fig, ax = plt.subplots(figsize=(7, 3.2))\n",
+    "    for key, color in ((\"done\", \"#10b981\"), (\"review\", \"#8b5cf6\"), (\"running\", \"#06b6d4\"), (\"todo\", \"#94a3b8\")):\n",
+    "        vals = [c[key] for _, c in HISTORY]\n",
+    "        ax.bar(steps, vals, bottom=bottom, label=key, color=color)\n",
+    "        bottom = [b + v for b, v in zip(bottom, vals)]\n",
+    "    ax.set_xlabel(\"pipeline step\"); ax.set_ylabel(\"tasks\"); ax.set_title(\"Tasks by status after each step\"); ax.legend(ncol=4, fontsize=8)\n",
+    "    plt.tight_layout(); plt.show()\n",
+    "except ImportError:\n",
+    "    print(\"matplotlib not installed; text chart (. todo  > running  ? review  # done)\\n\")\n",
+    "    for s, c in HISTORY:\n",
+    "        print(f\"step {s}: \" + \"\".join(SYMBOL[k] * c[k] for k in (\"done\", \"review\", \"running\", \"todo\", \"failed\")))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "924890eb",
+   "metadata": {},
+   "source": [
+    "## 10. Try your own brief\n",
+    "\n",
+    "Change the values below and run the cell. It creates a project, runs the whole pipeline to the end (with a safety cap) and prints a summary. It is deleted in the cleanup cell."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bb19347f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "MY_NAME = \"My Own Idea\"\n",
+    "MY_BRIEF = \"A recipe sharing site where people can save and rate recipes.\"\n",
+    "MY_STACK = [\"Next.js\", \"Drizzle\", \"Clerk\"]\n",
+    "MAX_STEPS = 60\n",
+    "\n",
+    "status, mine = api(\"POST\", \"/api/projects\", {\"name\": MY_NAME, \"brief\": MY_BRIEF, \"stack\": MY_STACK})\n",
+    "if status != 201:\n",
+    "    print(\"Could not create the project:\", mine)  # validation errors are explained in the response\n",
+    "else:\n",
+    "    CREATED.append(mine[\"id\"])\n",
+    "    steps = 0\n",
+    "    while steps < MAX_STEPS:\n",
+    "        status, mine = api(\"POST\", f\"/api/projects/{mine['id']}/run\")\n",
+    "        if status == 409:\n",
+    "            break\n",
+    "        steps += 1\n",
+    "    status, mine = api(\"GET\", f\"/api/projects/{CREATED[-1]}\")\n",
+    "    print(f\"{MY_NAME}: {steps} steps, status={mine['status']}, tasks={counts(mine['tasks'])}, commits={len(mine['gitlog'])}\")\n",
+    "    show(mine[\"gitlog\"][:5], [\"hash\", \"agent\", \"message\"], \"latest commits\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e526215a",
+   "metadata": {},
+   "source": [
+    "## Learn more\n",
+    "\n",
+    "- Live demo: <https://reddypranith80-max.github.io/ghost-ai/>\n",
+    "- Repository and README: <https://github.com/reddypranith80-max/ghost-ai>\n",
+    "- Docs index: <https://github.com/reddypranith80-max/ghost-ai/blob/main/docs/README.md>\n",
+    "- API reference (OpenAPI JSON from your own server): `GET {BASE_URL}/api/openapi`\n",
+    "- Fork it and make it yours: <https://github.com/reddypranith80-max/ghost-ai/blob/main/docs/FORK-AND-CLONE.md>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ffe7b1b5",
+   "metadata": {},
+   "source": [
+    "## 11. Cleanup\n",
+    "\n",
+    "Deletes the projects this notebook created (`DELETE /api/projects/:id`), stops the server **only if this notebook started it**, and optionally removes the exported folder."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "de815edb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for pid in list(CREATED):\n",
+    "    status, body = api(\"DELETE\", f\"/api/projects/{pid}\")\n",
+    "    print(\"delete\", pid, \"->\", status)\n",
+    "    if status in (200, 404):\n",
+    "        CREATED.remove(pid)\n",
+    "\n",
+    "if SERVER is not None and SERVER.poll() is None:\n",
+    "    if os.name == \"nt\":\n",
+    "        subprocess.run([\"taskkill\", \"/PID\", str(SERVER.pid), \"/T\", \"/F\"], capture_output=True)\n",
+    "    else:\n",
+    "        SERVER.terminate()\n",
+    "    print(\"Stopped the server started by this notebook.\")\n",
+    "else:\n",
+    "    print(\"No server started by this notebook; nothing to stop.\")\n",
+    "\n",
+    "REMOVE_EXPORT = False  # set True to delete ./ghost-export\n",
+    "if REMOVE_EXPORT:\n",
+    "    shutil.rmtree(\"ghost-export\", ignore_errors=True)\n",
+    "    print(\"Removed ghost-export/\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "name": "ghost-notebook.ipynb",
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
+````
+
 # Part IV. Layout and structure
 
 Where everything is: directory tree, routes, data model, design tokens, components, agent and stack catalogues, and the API reference.
 
-- [39. Directory tree](#39-directory-tree)
-- [40. Route map](#40-route-map)
-- [41. Data model](#41-data-model)
-- [42. Design-token reference](#42-design-token-reference)
-- [43. Component inventory](#43-component-inventory)
-- [44. Agent and stack catalogues](#44-agent-and-stack-catalogues)
-- [45. API reference with curl examples](#45-api-reference-with-curl-examples)
+- [40. Directory tree](#40-directory-tree)
+- [41. Route map](#41-route-map)
+- [42. Data model](#42-data-model)
+- [43. Design-token reference](#43-design-token-reference)
+- [44. Component inventory](#44-component-inventory)
+- [45. Agent and stack catalogues](#45-agent-and-stack-catalogues)
+- [46. API reference with curl examples](#46-api-reference-with-curl-examples)
 
-## 39. Directory tree
+## 40. Directory tree
 
 Every tracked path (plus this book's own inputs), with line counts for text files. Binary files and the lockfile show no count.
 
@@ -13999,6 +15041,12 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 │   ├── adr/
 │   │   └── 0001-stack.md  (14)
 │   ├── book/
+│   │   ├── chapters/
+│   │   │   ├── 00-how-to-read.md  (32)
+│   │   │   ├── 01-brief.md  (32)
+│   │   │   ├── 02-orchestration.md  (45)
+│   │   │   ├── 04-problems.md  (75)
+│   │   │   └── glossary.md  (53)
 │   │   ├── .gitignore  (1)
 │   │   ├── docker-lint.txt  (11)
 │   │   └── file-notes.json  (150)
@@ -14014,18 +15062,22 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 │   ├── auth.md  (37)
 │   ├── CODE-TOUR.md  (163)
 │   ├── coderabbit.md  (23)
-│   ├── COMMANDS.md  (151)
+│   ├── COMMANDS.md  (152)
 │   ├── connectivity.md  (21)
 │   ├── context.md  (7)
 │   ├── devops.md  (46)
 │   ├── EXPLAIN-LIKE-IM-5.md  (142)
+│   ├── FORK-AND-CLONE.md  (129)
+│   ├── LINK-REPORT.md  (39)
 │   ├── logs.md  (13)
 │   ├── methods.md  (30)
 │   ├── product-brief.md  (7)
 │   ├── prose.md  (5)
-│   ├── README.md  (24)
+│   ├── README.md  (35)
 │   ├── RUN-ME.md  (165)
 │   └── WORKFLOWS.md  (117)
+├── notebooks/
+│   └── ghost-notebook.ipynb  (602)
 ├── public/
 │   ├── brand/
 │   │   └── ghost-ai-logo.svg  (1)
@@ -14040,6 +15092,7 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 │   └── window.svg  (1)
 ├── scripts/
 │   ├── build-book.mjs  (865)
+│   ├── check-links.mjs  (325)
 │   ├── check-mermaid.mjs  (87)
 │   ├── fix-win-export.mjs  (31)
 │   ├── pages-build.mjs  (42)
@@ -14220,13 +15273,13 @@ Every tracked path (plus this book's own inputs), with line counts for text file
 ├── package-lock.json
 ├── package.json  (55)
 ├── playwright.config.ts  (28)
-├── README.md  (368)
+├── README.md  (374)
 ├── STATUS.md  (17)
 ├── tsconfig.json  (34)
 └── vercel.json  (6)
 ```
 
-## 40. Route map
+## 41. Route map
 
 Derived from the file system: `page.tsx` files become pages (route groups in parentheses disappear from the URL), `route.ts` files become API endpoints.
 
@@ -14278,7 +15331,7 @@ Dynamic segments are shown as `:name`; `*` is an optional catch-all. `/agents/:s
 
 Every handler also exports `OPTIONS` (CORS preflight). Methods are detected from the exports in each `route.ts` file.
 
-## 41. Data model
+## 42. Data model
 
 ### Table `projects` (Drizzle `projects`)
 
@@ -14400,7 +15453,7 @@ export type Stats = {
 };
 ```
 
-## 42. Design-token reference
+## 43. Design-token reference
 
 ### Custom properties in `src/app/globals.css`
 
@@ -14577,7 +15630,7 @@ export type Stats = {
 - Fonts are three `next/font` variables (`--font-grotesk`, `--font-body`, `--font-code`) mapped to the Tailwind theme names (`--font-display`/`--font-heading`, `--font-sans`, `--font-mono`).
 - The dashboard additionally lets the user pick an accent colour (`ACCENTS` in `src/components/dashboard/store.tsx`).
 
-## 43. Component inventory
+## 44. Component inventory
 
 ### (top level)
 
@@ -14667,7 +15720,7 @@ export type Stats = {
 
 **Total:** 46 component and component-data files, 4,771 lines.
 
-## 44. Agent and stack catalogues
+## 45. Agent and stack catalogues
 
 ### The eight agents (`src/lib/agent-catalog.ts`)
 
@@ -14737,7 +15790,7 @@ export type Stats = {
 | testing | `playwright` | Playwright | Reliable cross-browser end-to-end tests. | yes |
 | testing | `testing-library` | Testing Library | Tests components the way users interact with them. |  |
 
-## 45. API reference with curl examples
+## 46. API reference with curl examples
 
 All examples assume the server runs on `http://localhost:3000` (`npm run dev`). Replace `PROJECT_ID` with an id from `GET /api/projects`. With Clerk enabled, add the session cookie or token; reads stay public.
 
@@ -14887,9 +15940,9 @@ The status-code list is taken from `docs/methods.md`, `src/lib/api-utils.ts` and
 
 The commands that were run, what they printed, and what has not been verified.
 
-- [46. What was run and what happened](#46-what-was-run-and-what-happened)
+- [47. What was run and what happened](#47-what-was-run-and-what-happened)
 
-## 46. What was run and what happened
+## 47. What was run and what happened
 
 ## Environment
 
@@ -14910,10 +15963,10 @@ The generator runs these itself, so the outcomes below are real and dated by the
 
 | Command | Exit code | Seconds | Result |
 |---|---|---|---|
-| `npx tsc --noEmit` (`npm run typecheck`) | 0 | 7.3 | clean, no output |
-| `npx eslint` (`npm run lint`) | 0 | 7.1 | clean, no output |
-| `npx playwright test --list` | 0 | 1.4 | 55 tests listed in 3 files (lists only; does not start the server or run the tests) |
-| `node scripts/check-mermaid.mjs --no-render` (`npm run docs:check`) | 0 | 2.5 | Found 43 diagram(s); parsed OK: 43; failed: 0 |
+| `npx tsc --noEmit` (`npm run typecheck`) | 0 | 4.4 | clean, no output |
+| `npx eslint` (`npm run lint`) | 0 | 6.7 | clean, no output |
+| `npx playwright test --list` | 0 | 1.3 | 55 tests listed in 3 files (lists only; does not start the server or run the tests) |
+| `node scripts/check-mermaid.mjs --no-render` (`npm run docs:check`) | 0 | 2.7 | Found 44 diagram(s); parsed OK: 44; failed: 0 |
 
 Output of tsc:
 
@@ -14934,7 +15987,7 @@ C:\Users\Pranith\OneDrive\Desktop\Ghost-AI\web\scripts\build-book.mjs
 Output of check-mermaid:
 
 ```text
-Found 43 diagram(s); parsed OK: 43; failed: 0
+Found 44 diagram(s); parsed OK: 44; failed: 0
 ```
 
 ### Mermaid rendering done for this book
@@ -15289,12 +16342,14 @@ Format loosely follows Keep a Changelog. Nothing is released yet.
 | `0befd76` | 2026-11-01 | feat(demo): record-demo script, demo video + poster, e2e teardown |
 | `a12927f` | 2026-11-01 | docs: update STATUS with verified/unverified state |
 | `163c25f` | 2026-11-01 | fix(ci): make typecheck pass on clean checkout, gate CodeQL on public repos, audit prod deps only; track .env.example |
+| `b99e188` | 2026-11-01 | docs(book): generate 'Building Ghost AI from Scratch' (md + pdf) via scripts/build-book.mjs |
+| `c77d3de` | 2026-11-01 | docs: premium README, Ghost Notebook, fork guide, link checker and report |
 
 The full per-commit file lists are in Chapter 3.
 
 ## F. File index
 
-All 148 files listed in Part III, alphabetically, with their chapter. The paths link to their listing.
+All 150 files listed in Part III, alphabetically, with their chapter. The paths link to their listing.
 
 | File | Chapter | Lines |
 |---|---|---|
@@ -15321,6 +16376,7 @@ All 148 files listed in Part III, alphabetically, with their chapter. The paths 
 | `drizzle.config.ts` | Root configuration, containers and tooling | 10 |
 | `eslint.config.mjs` | Root configuration, containers and tooling | 18 |
 | `next.config.ts` | Root configuration, containers and tooling | 30 |
+| `notebooks/ghost-notebook.ipynb` | Other files | 602 |
 | `package.json` | Root configuration, containers and tooling | 55 |
 | `playwright.config.ts` | Root configuration, containers and tooling | 28 |
 | `public/brand/ghost-ai-logo.svg` | Public assets | 1 |
@@ -15329,8 +16385,9 @@ All 148 files listed in Part III, alphabetically, with their chapter. The paths 
 | `public/next.svg` | Public assets | 1 |
 | `public/vercel.svg` | Public assets | 1 |
 | `public/window.svg` | Public assets | 1 |
-| `README.md` | Root documents | 368 |
+| `README.md` | Root documents | 374 |
 | `scripts/build-book.mjs` | Scripts | 865 |
+| `scripts/check-links.mjs` | Scripts | 325 |
 | `scripts/check-mermaid.mjs` | Scripts | 87 |
 | `scripts/fix-win-export.mjs` | Scripts | 31 |
 | `scripts/pages-build.mjs` | Scripts | 42 |

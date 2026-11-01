@@ -1,4 +1,4 @@
-export const GITHUB_URL = "https://github.com/pranithgurram/ghost-ai";
+export const GITHUB_URL = "https://github.com/reddypranith80-max/ghost-ai";
 
 export const NAV_LINKS = [
   { href: "/how-it-works", label: "How it works" },

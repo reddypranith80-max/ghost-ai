@@ -5,6 +5,7 @@ Start here if you are new:
 1. [RUN-ME.md](RUN-ME.md): run the project in 5 minutes
 2. [EXPLAIN-LIKE-IM-5.md](EXPLAIN-LIKE-IM-5.md): the project with simple analogies
 3. [CODE-TOUR.md](CODE-TOUR.md): where everything lives
+3b. [COMMIT-HISTORY.md](COMMIT-HISTORY.md): every commit in order, mapped to the agent that did the work
 4. [FORK-AND-CLONE.md](FORK-AND-CLONE.md): fork it, run it, host your own demo, send a PR
 
 Extras:
